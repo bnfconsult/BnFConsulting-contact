@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BnFConsulting — Orchestration Stratégique & Opérationnelle</title>
+    <meta name="description" content="BnFConsulting structure ce qui est dispersé, active ce qui n'est pas encore exploité, et transforme vos pistes en trajectoires concrètes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo"><img src="PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting"></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#probleme">Constat</a></li>
+                <li><a href="#piliers">Piliers</a></li>
+                <li><a href="#cibles">Pour qui</a></li>
+                <li><a href="#parcours">Parcours</a></li>
+                <li><a href="quiz.html">Diagnostic express</a></li>
+                <li><a href="#articles">Articles</a></li>
+                <li><a href="#cta-final" class="nav-cta">Diagnostic stratégique</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="PHOTOS/Best_teinture_vert (4).JPG" alt="BnFConsulting">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Structurer ce que votre entreprise <span class="accent">ne voit pas encore.</span>
+            </h1>
+            <p class="hero-sub">
+                Activer ce qui peut réellement créer de la croissance.
+            </p>
+            <div class="hero-ctas">
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary">Prendre un rendez-vous</a>
+            </div>
+
+            <!-- DIAGNOSTIC EXPRESS BUBBLE -->
+            <div class="diag-bubble" id="diagBubble">
+                <div class="diag-bubble-header" id="diagStart">
+                    <span class="diag-bubble-icon">⚡</span>
+                    <span class="diag-bubble-text">Diagnostic express — <strong>Trouvez votre priorité en 5 clics</strong></span>
+                    <span class="diag-bubble-arrow" id="diagArrow">→</span>
+                </div>
+                <div class="diag-bubble-body" id="diagBody">
+                    <!-- Quiz content rendered by JS -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROBLÈME -->
+    <section class="section section-dark" id="probleme">
+        <div class="container">
+            <p class="section-label">Le constat</p>
+            <h2 class="section-title">L'écart entre ce que vous pensez maîtriser<br><span class="accent">et ce qui reste inexploité.</span></h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-number">01</div>
+                    <h3>Stratégie floue</h3>
+                    <p>Pas de priorisation claire. Des actions dispersées. Des décisions basées sur l'intuition plutôt que sur la donnée.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-number">02</div>
+                    <h3>Opérations fragmentées</h3>
+                    <p>Des outils empilés sans cohérence. Des process manuels qui consomment du temps. Aucune automatisation structurée.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-number">03</div>
+                    <h3>Croissance sans pilotage</h3>
+                    <p>De la visibilité sans conversion. Du contenu sans stratégie. Des leads qui n'aboutissent jamais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PILIERS -->
+    <section class="section section-black section-piliers" id="piliers">
+        <div class="piliers-bg">
+            <img src="PHOTOS/Best_3.JPG" alt="">
+        </div>
+        <div class="piliers-overlay"></div>
+        <div class="container container-relative">
+            <p class="section-label">L'architecture</p>
+            <h2 class="section-title">Trois piliers. Un système.<br><span class="accent">Une trajectoire.</span></h2>
+            <p class="section-intro">BnFConsulting repose sur une architecture à trois piliers fixes, reliés par un socle data transversal. Chaque pilier active le suivant.</p>
+
+            <div class="pillars-grid">
+
+                <!-- PILIER 1 -->
+                <div class="pillar-card" data-pillar="1">
+                    <div class="pillar-header">
+                        <span class="pillar-num">01</span>
+                        <h3 class="pillar-title">Stratégie</h3>
+                        <p class="pillar-subtitle">Base obligatoire avant toute exécution.</p>
+                        <span class="pillar-toggle">+</span>
+                    </div>
+                    <div class="pillar-body">
+                        <ul>
+                            <li data-tip="Analyse complète de votre présence digitale et de votre référencement. Identification des axes d'optimisation pour améliorer votre positionnement et votre attractivité en ligne.">Audit visibilité & SEO</li>
+                            <li data-tip="Étude approfondie de vos concurrents directs et indirects. Identification des écarts stratégiques et des opportunités de différenciation.">Analyse concurrentielle</li>
+                            <li data-tip="Clarification de votre place réelle sur le marché. Alignement entre votre offre, votre image et la perception extérieure.">Lecture du positionnement</li>
+                            <li data-tip="Détection des opportunités inexploitées au sein de votre activité. Activation de ressources stratégiques souvent sous-utilisées.">Identification des leviers latents</li>
+                            <li data-tip="Structuration des actions selon leur impact réel. Définition d'indicateurs précis pour piloter la performance.">Priorisation & définition KPI</li>
+                            <li data-tip="Construction d'un plan d'action clair et séquencé. Vision à court, moyen et long terme alignée sur vos objectifs.">Roadmap stratégique</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PILIER 2 -->
+                <div class="pillar-card" data-pillar="2">
+                    <div class="pillar-header">
+                        <span class="pillar-num">02</span>
+                        <h3 class="pillar-title">Opérations</h3>
+                        <p class="pillar-subtitle">Transformation de la stratégie en système.</p>
+                        <span class="pillar-toggle">+</span>
+                    </div>
+                    <div class="pillar-body">
+                        <ul>
+                            <li data-tip="Optimisation des tâches répétitives grâce à des systèmes automatisés. Gain de temps, réduction des erreurs et fluidification interne.">Automatisation workflows</li>
+                            <li data-tip="Implémentation d'outils intelligents pour accélérer vos processus. Augmentation de la productivité et amélioration de la prise de décision.">Intégration IA</li>
+                            <li data-tip="Mise en place d'un système clair de gestion client. Centralisation des données pour un suivi commercial précis.">Structuration CRM</li>
+                            <li data-tip="Réorganisation des flux de travail pour plus d'efficacité. Suppression des frictions opérationnelles et des pertes de temps.">Optimisation process internes</li>
+                            <li data-tip="Conception de plateformes digitales orientées conversion. Structure UX claire, design stratégique et cohérence globale.">Création site & landing pages</li>
+                            <li data-tip="Intégration de systèmes automatisés de réservation. Simplification du parcours client et réduction des frictions.">Outils de prise de rendez-vous</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PILIER 3 -->
+                <div class="pillar-card" data-pillar="3">
+                    <div class="pillar-header">
+                        <span class="pillar-num">03</span>
+                        <h3 class="pillar-title">Croissance & Visibilité</h3>
+                        <p class="pillar-subtitle">Amplification structurée.</p>
+                        <span class="pillar-toggle">+</span>
+                    </div>
+                    <div class="pillar-body">
+                        <ul>
+                            <li data-tip="Amélioration de votre visibilité organique sur les moteurs de recherche. Renforcement de votre autorité grâce à des liens stratégiques.">SEO & netlinking</li>
+                            <li data-tip="Structuration et gestion de votre présence sur les réseaux sociaux. Création d'un calendrier éditorial cohérent et orienté impact.">Social media management</li>
+                            <li data-tip="Construction d'une identité visuelle forte et différenciante. Alignement entre votre image, votre message et votre positionnement stratégique.">Branding & direction artistique</li>
+                            <li data-tip="Production de visuels premium pour renforcer votre crédibilité. Mise en valeur esthétique et stratégique de votre activité.">Photographie professionnelle</li>
+                            <li data-tip="Création de contenus audiovisuels à forte valeur perçue. Narration visuelle maîtrisée au service de votre image.">Production vidéo</li>
+                            <li data-tip="Prises de vue aériennes pour un impact visuel distinctif. Valorisation spectaculaire de vos espaces, projets ou infrastructures.">Imagerie drone</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- DATA TRANSVERSAL -->
+            <div class="data-bar">
+                <div class="data-bar-inner">
+                    <span class="data-bar-label">Socle transversal — Data & Performance</span>
+                    <p>Centralisation des données · Suivi KPI · Dashboards · Analytics · Audits de performance · Optimisation continue</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CIBLES -->
+    <section class="section section-dark" id="cibles">
+        <div class="container">
+            <p class="section-label">Pour qui</p>
+            <h2 class="section-title">BnFConsulting s'adresse à ceux qui veulent<br><span class="accent">passer de la piste à la trajectoire.</span></h2>
+            <div class="targets-grid">
+                <div class="target-card">
+                    <h3>PME</h3>
+                    <p>Vous cherchez de la visibilité et une structuration opérationnelle solide pour soutenir votre croissance.</p>
+                </div>
+                <div class="target-card">
+                    <h3>Startups</h3>
+                    <p>Vous cherchez de la crédibilité et un système fiable pour transformer vos ambitions en exécution.</p>
+                </div>
+                <div class="target-card">
+                    <h3>Entreprises matures</h3>
+                    <p>Vous cherchez l'optimisation de ce qui existe déjà et l'activation de leviers encore inexploités.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARCOURS CLIENT -->
+    <section class="section section-black" id="parcours">
+        <div class="container">
+            <p class="section-label">Le parcours</p>
+            <h2 class="section-title">Vous n'achetez pas une prestation.<br><span class="accent">Vous entrez dans un système évolutif.</span></h2>
+            <div class="journey">
+                <div class="journey-step">
+                    <div class="journey-num">01</div>
+                    <h3>Entrée dans l'écosystème</h3>
+                    <p>Premier échange stratégique. Cadrage des enjeux et des objectifs.</p>
+                </div>
+                <div class="journey-connector"></div>
+                <div class="journey-step">
+                    <div class="journey-num">02</div>
+                    <h3>Diagnostic stratégique</h3>
+                    <p>Audit complet. Analyse des écarts. Identification des priorités.</p>
+                </div>
+                <div class="journey-connector"></div>
+                <div class="journey-step">
+                    <div class="journey-num">03</div>
+                    <h3>Activation des piliers</h3>
+                    <p>Déploiement opérationnel sur les axes identifiés. Mise en système.</p>
+                </div>
+                <div class="journey-connector"></div>
+                <div class="journey-step">
+                    <div class="journey-num">04</div>
+                    <h3>Pilotage par la donnée</h3>
+                    <p>Suivi KPI. Dashboards. Ajustements continus. Optimisation permanente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTENAIRES -->
+    <section class="section section-black" id="partenaires">
+        <div class="container">
+            <p class="section-label">Écosystème</p>
+            <h2 class="section-title">Un réseau de <span class="accent">partenaires.</span></h2>
+        </div>
+        <div class="partners-grid">
+            <a href="https://www.flow-hub.fr/" target="_blank" rel="noopener" class="partner-card" style="--delay: 0">
+                <div class="partner-card-inner">
+                    <img src="PHOTOS/LOGO NOIR (2).png" alt="Flow Hub">
+                </div>
+                <span class="partner-name">Flow Hub</span>
+            </a>
+            <div class="partner-card" style="--delay: 1">
+                <div class="partner-card-inner">
+                    <img src="PHOTOS/DPM logo .jpg" alt="DPM">
+                </div>
+                <span class="partner-name">DPM</span>
+            </div>
+            <div class="partner-card" style="--delay: 2">
+                <div class="partner-card-inner">
+                    <span class="partner-placeholder">Partenaire 3</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTICLES / INSIGHTS -->
+    <section class="section section-dark" id="articles">
+        <div class="container">
+            <p class="section-label">Insights</p>
+            <h2 class="section-title">Nos derniers <span class="accent">articles.</span></h2>
+            <p class="section-intro">Analyses, retours d'expérience et réflexions stratégiques pour structurer votre croissance.</p>
+
+            <div class="articles-grid">
+
+                <a href="article-1.html" class="article-card">
+                    <div class="article-img">
+                        <img src="PHOTOS/Best_3.JPG" alt="Article 1">
+                    </div>
+                    <div class="article-content">
+                        <span class="article-tag">Stratégie</span>
+                        <h3 class="article-title">Titre de l'article à venir</h3>
+                        <p class="article-excerpt">Un court résumé de l'article apparaît ici au survol. Il donne envie de cliquer pour lire la suite complète.</p>
+                        <span class="article-read">Lire l'article →</span>
+                    </div>
+                </a>
+
+                <a href="article-2.html" class="article-card">
+                    <div class="article-img">
+                        <img src="PHOTOS/Best_teinture_vert (4).JPG" alt="Article 2">
+                    </div>
+                    <div class="article-content">
+                        <span class="article-tag">Opérations</span>
+                        <h3 class="article-title">Titre de l'article à venir</h3>
+                        <p class="article-excerpt">Un court résumé de l'article apparaît ici au survol. Il donne envie de cliquer pour lire la suite complète.</p>
+                        <span class="article-read">Lire l'article →</span>
+                    </div>
+                </a>
+
+                <a href="article-3.html" class="article-card">
+                    <div class="article-img">
+                        <img src="PHOTOS/Best_3.JPG" alt="Article 3">
+                    </div>
+                    <div class="article-content">
+                        <span class="article-tag">Croissance</span>
+                        <h3 class="article-title">Titre de l'article à venir</h3>
+                        <p class="article-excerpt">Un court résumé de l'article apparaît ici au survol. Il donne envie de cliquer pour lire la suite complète.</p>
+                        <span class="article-read">Lire l'article →</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES COMPLÉMENTAIRES -->
+    <section class="section section-dark" id="services">
+        <div class="container">
+            <p class="section-label">Au-delà des piliers</p>
+            <h2 class="section-title">Services complémentaires<br><span class="accent">intégrés à l'écosystème.</span></h2>
+            <div class="services-grid">
+                <div class="service-item">Imagerie aérienne (drone)</div>
+                <div class="service-item">Prospection & scraping</div>
+                <div class="service-item">Structuration bases commerciales</div>
+                <div class="service-item">Conformité RGPD</div>
+                <div class="service-item">Études de marché</div>
+                <div class="service-item">Questionnaires intelligents</div>
+                <div class="service-item">Organisation interne & audits</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section section-cta" id="cta-final">
+        <div class="container">
+            <h2 class="cta-title">Prêt à structurer<br><span class="accent">votre croissance ?</span></h2>
+            <p class="cta-text">Un diagnostic stratégique de 30 minutes pour identifier vos leviers inexploités.</p>
+            <div class="cta-buttons">
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary btn-large">Réserver un diagnostic stratégique</a>
+                <a href="mailto:bnfconsulting.contact@gmail.com" class="btn btn-secondary btn-large">Contacter BnFConsulting</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOSSIER — DRONES -->
+    <section class="section section-black" id="dossier-drones">
+        <div class="container">
+            <p class="section-label">Dossier</p>
+            <h2 class="section-title">Drones — <span class="accent">Perspective stratégique</span></h2>
+            <p class="section-intro">Voir autrement. Décider mieux.</p>
+
+            <div class="stack-viewer" id="stackViewer">
+
+                <!-- Header navigation -->
+                <div class="stack-nav">
+                    <button class="stack-arrow stack-prev" id="stackPrev" aria-label="Précédent">←</button>
+                    <span class="stack-counter" id="stackCounter">01 / 12</span>
+                    <button class="stack-arrow stack-next" id="stackNext" aria-label="Suivant">→</button>
+                </div>
+
+                <!-- Cards container -->
+                <div class="stack-track" id="stackTrack">
+
+                    <div class="stack-card" data-index="0">
+                        <span class="stack-rubrique">Le point de vue</span>
+                        <h3 class="stack-title">La hauteur change la lecture</h3>
+                        <p class="stack-text">Le drone n'est pas un "effet". C'est un changement d'angle. Et un changement d'angle, ça change la compréhension.</p>
+                        <p class="stack-retain">Voir autrement = décider mieux.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="1">
+                        <span class="stack-rubrique">Saturation</span>
+                        <h3 class="stack-title">Plus de contenu ≠ plus de clarté</h3>
+                        <p class="stack-text">Beaucoup publient. Peu clarifient. Quand tout se ressemble, on devient invisible. La valeur n'est pas dans le volume. Elle est dans la lisibilité.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="2">
+                        <span class="stack-rubrique">Uniformité</span>
+                        <h3 class="stack-title">Les mêmes codes créent l'indifférence</h3>
+                        <p class="stack-text">Mêmes formats. Mêmes promesses. Mêmes angles au sol. Résultat : le public scrolle… sans retenir. Ce qui reste : ce qui se comprend instantanément.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="3">
+                        <span class="stack-rubrique">Différenciation</span>
+                        <h3 class="stack-title">Changer d'angle crée une différence</h3>
+                        <p class="stack-text">Au sol : le détail. En hauteur : la cohérence. Le drone révèle l'ensemble — et l'ensemble raconte une histoire plus forte.</p>
+                        <p class="stack-retain">Le point de vue = un positionnement.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="4">
+                        <span class="stack-rubrique">Lecture réelle</span>
+                        <h3 class="stack-title">Ce que vous ne voyez plus au quotidien</h3>
+                        <p class="stack-text">La hauteur met en lumière : accessibilité, visibilité, environnement, flux, cohérence du lieu. Ce n'est pas "beau". C'est clair.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="5">
+                        <span class="stack-rubrique">Deux niveaux</span>
+                        <h3 class="stack-title">Contexte + expérience</h3>
+                        <p class="stack-text">Extérieur : votre place dans l'environnement. Intérieur : l'expérience — circulation, ambiance, perception. Les deux construisent la marque.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="6">
+                        <span class="stack-rubrique">Perception</span>
+                        <h3 class="stack-title">Une image doit orienter</h3>
+                        <p class="stack-text">Une image ne sert pas à "faire joli". Elle sert à faire comprendre : qui vous êtes et pourquoi vous choisir.</p>
+                        <p class="stack-retain">Sans intention, l'image devient du bruit.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="7">
+                        <span class="stack-rubrique">Système</span>
+                        <h3 class="stack-title">Transformer le drone en axe</h3>
+                        <p class="stack-text">Le drone peut devenir une signature visuelle. Une série. Un fil conducteur. Pas une publication isolée.</p>
+                        <p class="stack-retain">Un levier, pas un gadget.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="8">
+                        <span class="stack-rubrique">Cas d'usage</span>
+                        <h3 class="stack-title">Quand le lieu fait partie de la promesse</h3>
+                        <p class="stack-text">Le drone devient puissant si : le lieu compte, l'environnement est stratégique, l'expérience est spatiale. Lieux physiques, événements, marques locales, sites atypiques.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="9">
+                        <span class="stack-rubrique">Clarté</span>
+                        <h3 class="stack-title">Quand ça dilue au lieu d'aider</h3>
+                        <p class="stack-text">Si la vue drone n'apporte aucune lecture nouvelle, elle ne sert qu'à "faire comme les autres". Et "comme les autres" = oubli.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="10">
+                        <span class="stack-rubrique">Responsabilité</span>
+                        <h3 class="stack-title">Une image maîtrisée vaut plus qu'un effet</h3>
+                        <p class="stack-text">Règles, sécurité, autorisations, droit à l'image : le cadre protège la marque autant que le tournage.</p>
+                        <p class="stack-retain">La confiance fait partie du message.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="11">
+                        <span class="stack-rubrique">Décision</span>
+                        <h3 class="stack-title">La hauteur comme outil stratégique</h3>
+                        <p class="stack-text">La hauteur apporte la clarté. La clarté permet la décision. La décision crée la différenciation.</p>
+                        <p class="stack-retain">La vision précède toujours le contenu.</p>
+                        <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="stack-cta">Intégrer ce levier dans votre stratégie →</a>
+                    </div>
+
+                </div>
+
+                <!-- Hint -->
+                <p class="stack-hint" id="stackHint">Glissez pour avancer →</p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo"><img src="PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting"></span>
+                <p>Orchestration stratégique & opérationnelle.</p>
+            </div>
+            <div class="footer-links">
+                <a href="mailto:bnfconsulting.contact@gmail.com">bnfconsulting.contact@gmail.com</a>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2025 BnFConsulting. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOUTON RETOUR EN HAUT -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
+
+    <!-- BURGER BAS GAUCHE -->
+    <div class="fab-menu" id="fabMenu">
+        <button class="fab-trigger" id="fabTrigger" aria-label="Menu rapide">
+            <span class="fab-bar"></span>
+            <span class="fab-bar"></span>
+            <span class="fab-bar"></span>
+        </button>
+        <div class="fab-panel" id="fabPanel">
+            <div class="fab-section">
+                <p class="fab-label">Navigation</p>
+                <a href="#probleme" class="fab-link">Constat</a>
+                <a href="#piliers" class="fab-link">Piliers</a>
+                <a href="#cibles" class="fab-link">Pour qui</a>
+                <a href="#parcours" class="fab-link">Parcours</a>
+                <a href="#articles" class="fab-link">Articles</a>
+                <a href="#dossier-drones" class="fab-link">Dossier Drones</a>
+            </div>
+            <div class="fab-divider"></div>
+            <div class="fab-section">
+                <p class="fab-label">Contact</p>
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="fab-link">📅 Prendre rendez-vous</a>
+                <a href="mailto:bnfconsulting.contact@gmail.com" class="fab-link">✉️ Email</a>
+            </div>
+            <div class="fab-divider"></div>
+            <div class="fab-section">
+                <p class="fab-label">Réseaux</p>
+                <div class="fab-socials">
+                    <a href="https://www.instagram.com/bnf.consulting/" target="_blank" rel="noopener" class="fab-social" aria-label="Instagram">Instagram</a>
+                    <a href="https://www.flow-hub.fr/" target="_blank" rel="noopener" class="fab-social" aria-label="Partenaires">Partenaires</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

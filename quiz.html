@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BnFConsulting — Diagnostic Express</title>
+    <meta name="description" content="Répondez à 5 questions et découvrez votre priorité stratégique avec BnFConsulting.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="quiz-style.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" aria-label="Navigation principale">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">BnF<span>Consulting</span></a>
+            <a href="index.html" class="nav-back">← Retour au site</a>
+        </div>
+    </nav>
+
+    <!-- QUIZ CONTAINER -->
+    <main class="quiz-wrapper" id="quizWrapper" role="main">
+
+        <!-- INTRO -->
+        <section class="quiz-intro" id="quizIntro" aria-label="Introduction du diagnostic">
+            <div class="quiz-intro-content">
+                <p class="quiz-label">Diagnostic express</p>
+                <h1 class="quiz-intro-title">Identifiez votre priorité<br><span class="accent">en 5 questions.</span></h1>
+                <p class="quiz-intro-sub">Répondez en moins de 2 minutes. Recevez une recommandation personnalisée.</p>
+                <button class="btn btn-primary btn-large" id="startQuiz" aria-label="Commencer le diagnostic">Commencer</button>
+            </div>
+        </section>
+
+        <!-- QUESTIONS -->
+        <section class="quiz-questions" id="quizQuestions" aria-label="Questions du diagnostic" style="display:none;">
+
+            <!-- PROGRESS BAR -->
+            <div class="progress-wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1" id="progressBar">
+                <div class="progress-info">
+                    <span class="progress-step" id="progressStep">1/5</span>
+                    <span class="progress-label">Diagnostic en cours</span>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressFill" style="width: 20%"></div>
+                </div>
+            </div>
+
+            <!-- QUESTION CONTAINER -->
+            <div class="question-container" id="questionContainer">
+                <!-- Questions rendered by JS -->
+            </div>
+
+        </section>
+
+        <!-- RESULT -->
+        <section class="quiz-result" id="quizResult" aria-label="Résultat du diagnostic" style="display:none;">
+            <div class="result-card" id="resultCard">
+                <!-- Result rendered by JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BOUTON RETOUR EN HAUT -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
+
+    <script src="quiz-script.js"></script>
+</body>
+</html>
