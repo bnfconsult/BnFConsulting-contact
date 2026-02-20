@@ -291,6 +291,54 @@ h1, h2, h3 {
 }
 
 /* ============================================
+   NAVIGATION RAPIDE
+   ============================================ */
+.quick-nav {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.quick-nav-item {
+    padding: 12px 28px;
+    border: 1px solid rgba(84, 155, 162, 0.3);
+    border-radius: var(--radius);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    background: rgba(84, 155, 162, 0.08);
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: quickNavAppear 0.6s ease forwards;
+}
+
+.quick-nav-item:nth-child(1) { animation-delay: 0.3s; }
+.quick-nav-item:nth-child(2) { animation-delay: 0.5s; }
+.quick-nav-item:nth-child(3) { animation-delay: 0.7s; }
+.quick-nav-item:nth-child(4) { animation-delay: 0.9s; }
+
+.quick-nav-item:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(84, 155, 162, 0.3);
+}
+
+@keyframes quickNavAppear {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
    DIAGNOSTIC EXPRESS BUBBLE
    ============================================ */
 .diag-bubble {
@@ -1816,6 +1864,16 @@ h1, h2, h3 {
     .cta-buttons {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    .quick-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .quick-nav-item {
+        text-align: center;
     }
 
     .btn-large {
