@@ -382,11 +382,6 @@ h1, h2, h3 {
     padding: 60px 0;
 }
 
-/* Hero dossier */
-.hero-dossier {
-    padding-top: 160px;
-}
-
 .partner-banner-white .partner-banner-label {
     color: var(--title);
 }
@@ -1660,6 +1655,26 @@ h1, h2, h3 {
 .stack-cta:hover {
     background: var(--title);
     transform: translateY(-2px);
+}
+
+/* Image dans les slides */
+.stack-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-top: 24px;
+    opacity: 0.9;
+}
+
+/* Hero dossier rapproché du stack */
+.hero-dossier {
+    padding-top: 160px;
+    padding-bottom: 40px;
+}
+
+.hero-dossier + .section {
+    padding-top: 0;
 }
 
 /* Hint */
