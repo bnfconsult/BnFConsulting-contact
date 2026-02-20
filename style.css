@@ -342,7 +342,6 @@ h1, h2, h3 {
    PARTENAIRE BANNER
    ============================================ */
 .partner-banner {
-    margin-top: 100px;
     width: 100%;
     text-align: center;
 }
@@ -353,7 +352,7 @@ h1, h2, h3 {
     font-weight: 700;
     letter-spacing: 0.02em;
     color: var(--accent);
-    margin-bottom: 16px;
+    margin-bottom: 24px;
 }
 
 .partner-banner-link {
@@ -362,28 +361,28 @@ h1, h2, h3 {
     justify-content: center;
     width: 100%;
     padding: 20px 32px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(84, 155, 162, 0.15);
     border-radius: var(--radius-lg);
     transition: all 0.4s ease;
 }
 
 .partner-banner-link:hover {
-    background: rgba(84, 155, 162, 0.1);
-    border-color: var(--accent);
-    box-shadow: 0 8px 25px rgba(84, 155, 162, 0.15);
+    transform: scale(1.03);
 }
 
 .partner-banner-link img {
-    max-height: 50px;
+    max-height: 60px;
     width: auto;
     object-fit: contain;
-    opacity: 0.9;
     transition: opacity 0.3s ease;
 }
 
-.partner-banner-link:hover img {
-    opacity: 1;
+/* Section blanche */
+.section-white {
+    background: var(--cream);
+}
+
+.partner-banner-white .partner-banner-label {
+    color: var(--title);
 }
 
 /* ============================================
