@@ -379,6 +379,7 @@ h1, h2, h3 {
 /* Section blanche */
 .section-white {
     background: var(--cream);
+    padding: 60px 0;
 }
 
 .partner-banner-white .partner-banner-label {
