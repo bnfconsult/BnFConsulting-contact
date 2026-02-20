@@ -744,6 +744,13 @@ h1, h2, h3 {
 .pillar-card.open .pillar-body {
     max-height: 400px;
     overflow: visible;
+    clip-path: none;
+}
+
+[data-pillar="3"].pillar-card.open,
+[data-pillar="3"].pillar-card.open .pillar-body {
+    overflow: visible;
+    z-index: 10;
 }
 
 .pillar-body ul {
@@ -837,6 +844,7 @@ h1, h2, h3 {
     left: 50% !important;
     right: auto !important;
     transform: translateX(-50%) translateY(6px) !important;
+    z-index: 9999 !important;
 }
 
 [data-pillar="3"] .pillar-body li[data-tip]:hover::after {
