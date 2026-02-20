@@ -818,26 +818,17 @@ h1, h2, h3 {
     transform: translateX(0) translateY(-50%);
 }
 
-/* Pilier 2 (milieu) — tooltip au-dessus */
-[data-pillar="2"] .pillar-body li[data-tip]::after {
-    bottom: calc(100% + 10px);
-    top: auto;
-    left: 50%;
-    transform: translateX(-50%) translateY(6px);
-}
-
-[data-pillar="2"] .pillar-body li[data-tip]:hover::after {
-    transform: translateX(-50%) translateY(0);
-}
-
-/* Pilier 3 — tooltip au-dessus (même règle que pilier 2) */
+/* Pilier 2 & 3 — tooltip au-dessus */
+[data-pillar="2"] .pillar-body li[data-tip]::after,
 [data-pillar="3"] .pillar-body li[data-tip]::after {
     bottom: calc(100% + 10px);
     top: auto;
     left: 50%;
+    right: auto;
     transform: translateX(-50%) translateY(6px);
 }
 
+[data-pillar="2"] .pillar-body li[data-tip]:hover::after,
 [data-pillar="3"] .pillar-body li[data-tip]:hover::after {
     transform: translateX(-50%) translateY(0);
 }
