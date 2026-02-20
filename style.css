@@ -382,6 +382,11 @@ h1, h2, h3 {
     padding: 60px 0;
 }
 
+/* Hero dossier */
+.hero-dossier {
+    padding-top: 160px;
+}
+
 .partner-banner-white .partner-banner-label {
     color: var(--title);
 }

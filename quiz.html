@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BnFConsulting — Diagnostic Express</title>
-    <meta name="description" content="Répondez à 5 questions et découvrez votre priorité stratégique avec BnFConsulting.">
+    <title>BnFConsulting — Drones : Perspective stratégique</title>
+    <meta name="description" content="Dossier spécial BnFConsulting : le drone comme outil stratégique pour votre image et votre communication.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="quiz-style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -16,56 +16,144 @@
     <nav class="nav" aria-label="Navigation principale">
         <div class="nav-inner">
             <a href="index.html" class="nav-logo">BnF<span>Consulting</span></a>
-            <a href="index.html" class="nav-back">← Retour au site</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#piliers">Piliers</a></li>
+                <li><a href="index.html#parcours">Parcours</a></li>
+                <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Diagnostic stratégique</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- QUIZ CONTAINER -->
-    <main class="quiz-wrapper" id="quizWrapper" role="main">
+    <!-- HERO DOSSIER -->
+    <section class="section section-black hero-dossier">
+        <div class="container">
+            <p class="section-label">Dossier — Fév 2026</p>
+            <h1 class="section-title">Drones — <span class="accent">Perspective stratégique</span></h1>
+            <p class="section-intro">Voir autrement. Décider mieux.</p>
+        </div>
+    </section>
 
-        <!-- INTRO -->
-        <section class="quiz-intro" id="quizIntro" aria-label="Introduction du diagnostic">
-            <div class="quiz-intro-content">
-                <p class="quiz-label">Diagnostic express</p>
-                <h1 class="quiz-intro-title">Identifiez votre priorité<br><span class="accent">en 5 questions.</span></h1>
-                <p class="quiz-intro-sub">Répondez en moins de 2 minutes. Recevez une recommandation personnalisée.</p>
-                <button class="btn btn-primary btn-large" id="startQuiz" aria-label="Commencer le diagnostic">Commencer</button>
-            </div>
-        </section>
+    <!-- STACK VIEWER -->
+    <section class="section section-black">
+        <div class="container">
 
-        <!-- QUESTIONS -->
-        <section class="quiz-questions" id="quizQuestions" aria-label="Questions du diagnostic" style="display:none;">
+            <div class="stack-viewer" id="stackViewer">
 
-            <!-- PROGRESS BAR -->
-            <div class="progress-wrapper" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1" id="progressBar">
-                <div class="progress-info">
-                    <span class="progress-step" id="progressStep">1/5</span>
-                    <span class="progress-label">Diagnostic en cours</span>
+                <!-- Header navigation -->
+                <div class="stack-nav">
+                    <button class="stack-arrow stack-prev" id="stackPrev" aria-label="Précédent">←</button>
+                    <span class="stack-counter" id="stackCounter">01 / 12</span>
+                    <button class="stack-arrow stack-next" id="stackNext" aria-label="Suivant">→</button>
                 </div>
-                <div class="progress-track">
-                    <div class="progress-fill" id="progressFill" style="width: 20%"></div>
+
+                <!-- Cards container -->
+                <div class="stack-track" id="stackTrack">
+
+                    <div class="stack-card" data-index="0">
+                        <span class="stack-rubrique">Le point de vue</span>
+                        <h3 class="stack-title">La hauteur change la lecture</h3>
+                        <p class="stack-text">Le drone n'est pas un "effet". C'est un changement d'angle. Et un changement d'angle, ça change la compréhension.</p>
+                        <p class="stack-retain">Voir autrement = décider mieux.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="1">
+                        <span class="stack-rubrique">Saturation</span>
+                        <h3 class="stack-title">Plus de contenu ≠ plus de clarté</h3>
+                        <p class="stack-text">Beaucoup publient. Peu clarifient. Quand tout se ressemble, on devient invisible. La valeur n'est pas dans le volume. Elle est dans la lisibilité.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="2">
+                        <span class="stack-rubrique">Uniformité</span>
+                        <h3 class="stack-title">Les mêmes codes créent l'indifférence</h3>
+                        <p class="stack-text">Mêmes formats. Mêmes promesses. Mêmes angles au sol. Résultat : le public scrolle… sans retenir. Ce qui reste : ce qui se comprend instantanément.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="3">
+                        <span class="stack-rubrique">Différenciation</span>
+                        <h3 class="stack-title">Changer d'angle crée une différence</h3>
+                        <p class="stack-text">Au sol : le détail. En hauteur : la cohérence. Le drone révèle l'ensemble — et l'ensemble raconte une histoire plus forte.</p>
+                        <p class="stack-retain">Le point de vue = un positionnement.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="4">
+                        <span class="stack-rubrique">Lecture réelle</span>
+                        <h3 class="stack-title">Ce que vous ne voyez plus au quotidien</h3>
+                        <p class="stack-text">La hauteur met en lumière : accessibilité, visibilité, environnement, flux, cohérence du lieu. Ce n'est pas "beau". C'est clair.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="5">
+                        <span class="stack-rubrique">Deux niveaux</span>
+                        <h3 class="stack-title">Contexte + expérience</h3>
+                        <p class="stack-text">Extérieur : votre place dans l'environnement. Intérieur : l'expérience — circulation, ambiance, perception. Les deux construisent la marque.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="6">
+                        <span class="stack-rubrique">Perception</span>
+                        <h3 class="stack-title">Une image doit orienter</h3>
+                        <p class="stack-text">Une image ne sert pas à "faire joli". Elle sert à faire comprendre : qui vous êtes et pourquoi vous choisir.</p>
+                        <p class="stack-retain">Sans intention, l'image devient du bruit.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="7">
+                        <span class="stack-rubrique">Système</span>
+                        <h3 class="stack-title">Transformer le drone en axe</h3>
+                        <p class="stack-text">Le drone peut devenir une signature visuelle. Une série. Un fil conducteur. Pas une publication isolée.</p>
+                        <p class="stack-retain">Un levier, pas un gadget.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="8">
+                        <span class="stack-rubrique">Cas d'usage</span>
+                        <h3 class="stack-title">Quand le lieu fait partie de la promesse</h3>
+                        <p class="stack-text">Le drone devient puissant si : le lieu compte, l'environnement est stratégique, l'expérience est spatiale. Lieux physiques, événements, marques locales, sites atypiques.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="9">
+                        <span class="stack-rubrique">Clarté</span>
+                        <h3 class="stack-title">Quand ça dilue au lieu d'aider</h3>
+                        <p class="stack-text">Si la vue drone n'apporte aucune lecture nouvelle, elle ne sert qu'à "faire comme les autres". Et "comme les autres" = oubli.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="10">
+                        <span class="stack-rubrique">Responsabilité</span>
+                        <h3 class="stack-title">Une image maîtrisée vaut plus qu'un effet</h3>
+                        <p class="stack-text">Règles, sécurité, autorisations, droit à l'image : le cadre protège la marque autant que le tournage.</p>
+                        <p class="stack-retain">La confiance fait partie du message.</p>
+                    </div>
+
+                    <div class="stack-card" data-index="11">
+                        <span class="stack-rubrique">Décision</span>
+                        <h3 class="stack-title">La hauteur comme outil stratégique</h3>
+                        <p class="stack-text">La hauteur apporte la clarté. La clarté permet la décision. La décision crée la différenciation.</p>
+                        <p class="stack-retain">La vision précède toujours le contenu.</p>
+                        <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="stack-cta">Intégrer ce levier dans votre stratégie →</a>
+                    </div>
+
                 </div>
+
+                <!-- Hint -->
+                <p class="stack-hint" id="stackHint">Glissez pour avancer →</p>
+
             </div>
+        </div>
+    </section>
 
-            <!-- QUESTION CONTAINER -->
-            <div class="question-container" id="questionContainer">
-                <!-- Questions rendered by JS -->
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo"><img src="PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting"></span>
+                <p>Orchestration stratégique & opérationnelle.</p>
             </div>
-
-        </section>
-
-        <!-- RESULT -->
-        <section class="quiz-result" id="quizResult" aria-label="Résultat du diagnostic" style="display:none;">
-            <div class="result-card" id="resultCard">
-                <!-- Result rendered by JS -->
+            <div class="footer-links">
+                <a href="mailto:bnfconsulting.contact@gmail.com">bnfconsulting.contact@gmail.com</a>
             </div>
-        </section>
+            <div class="footer-copy">
+                <p>&copy; 2025 BnFConsulting. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
 
-    </main>
-
-    <!-- BOUTON RETOUR EN HAUT -->
-    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
-
-    <script src="quiz-script.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
