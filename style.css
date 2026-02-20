@@ -342,18 +342,17 @@ h1, h2, h3 {
    PARTENAIRE BANNER
    ============================================ */
 .partner-banner {
-    margin-top: 40px;
+    margin-top: 60px;
     width: 100%;
     text-align: center;
 }
 
 .partner-banner-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gray-400);
+    font-family: Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--accent);
     margin-bottom: 16px;
 }
 
