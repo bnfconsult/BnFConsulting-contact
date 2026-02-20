@@ -339,6 +339,55 @@ h1, h2, h3 {
 }
 
 /* ============================================
+   PARTENAIRE BANNER
+   ============================================ */
+.partner-banner {
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.partner-banner-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 16px;
+}
+
+.partner-banner-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 32px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(84, 155, 162, 0.15);
+    border-radius: var(--radius-lg);
+    transition: all 0.4s ease;
+}
+
+.partner-banner-link:hover {
+    background: rgba(84, 155, 162, 0.1);
+    border-color: var(--accent);
+    box-shadow: 0 8px 25px rgba(84, 155, 162, 0.15);
+}
+
+.partner-banner-link img {
+    max-height: 50px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.partner-banner-link:hover img {
+    opacity: 1;
+}
+
+/* ============================================
    DIAGNOSTIC EXPRESS BUBBLE
    ============================================ */
 .diag-bubble {
