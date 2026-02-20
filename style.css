@@ -832,14 +832,15 @@ h1, h2, h3 {
 
 /* Pilier 3 — tooltip au-dessus */
 [data-pillar="3"] .pillar-body li[data-tip]::after {
-    bottom: calc(100% + 10px);
-    top: auto;
-    left: 50%;
-    transform: translateX(-50%) translateY(6px);
+    bottom: calc(100% + 10px) !important;
+    top: auto !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) translateY(6px) !important;
 }
 
 [data-pillar="3"] .pillar-body li[data-tip]:hover::after {
-    transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(0) !important;
 }
 
 /* Data bar */
