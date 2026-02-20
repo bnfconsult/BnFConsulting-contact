@@ -744,13 +744,6 @@ h1, h2, h3 {
 .pillar-card.open .pillar-body {
     max-height: 400px;
     overflow: visible;
-    clip-path: none;
-}
-
-[data-pillar="3"].pillar-card.open,
-[data-pillar="3"].pillar-card.open .pillar-body {
-    overflow: visible;
-    z-index: 10;
 }
 
 .pillar-body ul {
@@ -837,18 +830,16 @@ h1, h2, h3 {
     transform: translateX(-50%) translateY(0);
 }
 
-/* Pilier 3 — tooltip au-dessus */
+/* Pilier 3 — tooltip au-dessus (même règle que pilier 2) */
 [data-pillar="3"] .pillar-body li[data-tip]::after {
-    bottom: calc(100% + 10px) !important;
-    top: auto !important;
-    left: 50% !important;
-    right: auto !important;
-    transform: translateX(-50%) translateY(6px) !important;
-    z-index: 9999 !important;
+    bottom: calc(100% + 10px);
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
 }
 
 [data-pillar="3"] .pillar-body li[data-tip]:hover::after {
-    transform: translateX(-50%) translateY(0) !important;
+    transform: translateX(-50%) translateY(0);
 }
 
 /* Data bar */
