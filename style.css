@@ -1952,7 +1952,7 @@ h1, h2, h3 {
 
 .presta-item h3 {
     font-size: 1.05rem;
-    color: var(--accent);
+    color: var(--title);
     margin-bottom: 10px;
 }
 
@@ -1982,90 +1982,54 @@ h1, h2, h3 {
     flex-wrap: wrap;
 }
 
-/* Roue catégories fixe */
-.presta-wheel {
+/* Sidebar fixe catégories */
+.presta-sidebar {
     position: fixed;
-    left: 28px;
+    left: 24px;
     top: 50%;
     transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     z-index: 90;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.4s;
+    transition: opacity 0.3s;
 }
 
-.presta-wheel.visible {
+.presta-sidebar.visible {
     opacity: 1;
     pointer-events: auto;
 }
 
-.presta-wheel-window {
-    height: 128px;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.presta-wheel-window::before,
-.presta-wheel-window::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 40px;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.presta-wheel-window::before {
-    top: 0;
-    background: linear-gradient(to bottom, rgba(20,20,20,1), transparent);
-}
-
-.presta-wheel-window::after {
-    bottom: 0;
-    background: linear-gradient(to top, rgba(20,20,20,1), transparent);
-}
-
-.presta-wheel-track {
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 48px 0;
-}
-
-.presta-wheel-item {
-    height: 32px;
-    line-height: 32px;
-    font-size: 0.75rem;
+.presta-sidebar-link {
+    font-size: 0.7rem;
     font-weight: 500;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--gray-400);
     text-decoration: none;
-    white-space: nowrap;
     transition: all 0.3s;
-    opacity: 0.4;
+    padding: 4px 0;
+    border-left: 2px solid transparent;
+    padding-left: 10px;
 }
 
-.presta-wheel-item:hover {
+.presta-sidebar-link:hover {
     color: var(--accent);
-    opacity: 0.8;
 }
 
-.presta-wheel-item.active {
+.presta-sidebar-link.active {
     color: var(--accent);
     font-weight: 700;
-    opacity: 1;
-    font-size: 0.8rem;
+    border-left-color: var(--accent);
 }
 
 @media (max-width: 1024px) {
     .presta-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    .presta-wheel {
+    .presta-sidebar {
         display: none;
     }
 }
