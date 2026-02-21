@@ -1061,7 +1061,7 @@ h1, h2, h3 {
 
 .partner-phrase {
     text-align: center;
-    color: var(--title);
+    color: #ffffff;
     font-size: clamp(0.95rem, 1.2vw, 1.15rem);
     max-width: 600px;
     margin: 32px auto 0;
@@ -1887,41 +1887,30 @@ h1, h2, h3 {
 /* ============================================
    PAGE PRESTATIONS
    ============================================ */
-.presta-search-section {
-    padding-top: 0 !important;
-    padding-bottom: 40px !important;
+.presta-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
 }
 
-.presta-search-wrap {
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.presta-search {
-    width: 100%;
-    padding: 14px 24px;
-    border-radius: 50px;
+.presta-nav-item {
+    display: inline-block;
+    padding: 10px 24px;
     border: 1px solid var(--accent);
-    background: var(--card-bg);
+    border-radius: 50px;
     color: var(--white);
-    font-size: 1rem;
-    font-family: 'Montserrat', sans-serif;
-    outline: none;
-    transition: border-color 0.3s;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
 }
 
-.presta-search::placeholder {
-    color: var(--gray-400);
-}
-
-.presta-search:focus {
-    border-color: var(--white);
-}
-
-.presta-search-hint {
-    color: var(--gray-400);
-    font-size: 0.85rem;
-    margin-top: 12px;
+.presta-nav-item:hover {
+    background: var(--accent);
+    color: var(--white);
+    transform: translateY(-2px);
 }
 
 .presta-cat-title {

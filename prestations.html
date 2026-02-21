@@ -33,18 +33,16 @@
         <div class="container">
             <p class="section-label">Nos Prestations</p>
             <h1 class="section-title">L'ensemble des activations <span class="accent">BnFConsulting</span></h1>
-            <p class="section-intro">Chaque entreprise entre chez BnF avec une problématique visible. Notre rôle consiste à structurer, activer et amplifier l'ensemble des leviers pertinents.</p>
-            <p class="section-intro" style="margin-top: 12px;">Cette page regroupe l'intégralité des prestations mobilisables dans l'écosystème BnFConsulting.</p>
-        </div>
-    </section>
+            <p class="section-intro" style="margin-top: 8px;">Chaque entreprise entre chez BnF avec une problématique visible. Notre rôle : structurer, activer et amplifier les leviers pertinents. Cette page regroupe l'intégralité des prestations mobilisables.</p>
 
-    <!-- BARRE DE RECHERCHE -->
-    <section class="section section-black presta-search-section">
-        <div class="container" style="text-align: center;">
-            <div class="presta-search-wrap">
-                <input type="text" id="prestaSearch" class="presta-search" placeholder="Rechercher une prestation...">
+            <div class="presta-nav">
+                <a href="#cat-strategie" class="presta-nav-item">Stratégie</a>
+                <a href="#cat-operations" class="presta-nav-item">Opérations</a>
+                <a href="#cat-croissance" class="presta-nav-item">Croissance</a>
+                <a href="#cat-data" class="presta-nav-item">Data</a>
+                <a href="#cat-finance" class="presta-nav-item">Finance</a>
+                <a href="#cat-partenaires" class="presta-nav-item">Partenaires</a>
             </div>
-            <p class="presta-search-hint">Recherchez un service précis ou explorez par catégorie.</p>
         </div>
     </section>
 
@@ -281,22 +279,5 @@
     </footer>
 
     <script src="main.js"></script>
-    <script>
-        // Recherche de prestations
-        document.getElementById('prestaSearch').addEventListener('input', function() {
-            const query = this.value.toLowerCase().trim();
-            const items = document.querySelectorAll('.presta-item');
-            items.forEach(function(item) {
-                const text = item.textContent.toLowerCase();
-                if (query === '' || text.includes(query)) {
-                    item.style.display = '';
-                    item.style.opacity = '1';
-                } else {
-                    item.style.display = 'none';
-                    item.style.opacity = '0';
-                }
-            });
-        });
-    </script>
 </body>
 </html>
