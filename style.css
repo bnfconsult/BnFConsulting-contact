@@ -2072,13 +2072,24 @@ h1, h2, h3 {
         grid-template-columns: repeat(2, 1fr);
     }
     .presta-wheel {
-        display: none;
+        width: 170px;
+    }
+    .presta-wheel-item {
+        font-size: 0.72rem;
+        height: 48px;
+        line-height: 48px;
+    }
+    .presta-wheel-item.active {
+        font-size: 0.82rem;
     }
 }
 
 @media (max-width: 600px) {
     .presta-grid {
         grid-template-columns: 1fr;
+    }
+    .presta-wheel {
+        display: none;
     }
 }
 

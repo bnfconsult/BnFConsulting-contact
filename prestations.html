@@ -340,7 +340,8 @@
         var topBtn = document.getElementById('backToTop');
         var items = document.querySelectorAll('.presta-wheel-item');
         var sections = document.querySelectorAll('.presta-category');
-        var itemHeight = 56;
+        function getItemHeight() { return window.innerWidth <= 1024 ? 48 : 56; }
+        var itemHeight = getItemHeight();
         var centerOffset = (window.innerHeight / 2) - (itemHeight / 2);
 
         function onScroll() {
@@ -379,6 +380,7 @@
 
         window.addEventListener('scroll', onScroll);
         window.addEventListener('resize', function() {
+            itemHeight = getItemHeight();
             centerOffset = (window.innerHeight / 2) - (itemHeight / 2);
             onScroll();
         });
