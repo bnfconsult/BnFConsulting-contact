@@ -989,29 +989,41 @@ h1, h2, h3 {
 }
 
 .target-card {
-    background: var(--card-bg);
-    border-radius: var(--radius-lg);
-    padding: 40px 32px;
-    transition: transform var(--transition);
-    border-bottom: 3px solid transparent;
+    background: rgba(84, 155, 162, 0.06);
+    border: 1px solid rgba(84, 155, 162, 0.25);
+    border-radius: 50px;
+    padding: 36px 32px;
+    text-align: center;
+    transition: all 0.4s ease;
+    animation: bubbleFloat 4s ease-in-out infinite;
 }
 
+.target-card:nth-child(1) { animation-delay: 0s; }
+.target-card:nth-child(2) { animation-delay: 1.3s; }
+.target-card:nth-child(3) { animation-delay: 2.6s; }
+
 .target-card:hover {
-    transform: translateY(-4px);
-    border-bottom-color: var(--accent);
+    background: rgba(84, 155, 162, 0.12);
+    border-color: rgba(84, 155, 162, 0.5);
+    transform: translateY(-6px);
 }
 
 .target-card h3 {
     font-size: 1.375rem;
-    color: var(--title);
+    color: var(--white);
     margin-bottom: 12px;
     text-align: center;
 }
 
 .target-card p {
-    color: var(--gray-600);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.9375rem;
     line-height: 1.7;
+}
+
+@keyframes bubbleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
 }
 
 /* ============================================
