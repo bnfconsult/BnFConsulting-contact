@@ -710,7 +710,7 @@ h1, h2, h3 {
 }
 
 .section-intro {
-    color: var(--gray-400);
+    color: #ffffff;
     max-width: 700px;
     margin-bottom: 64px;
     font-size: 1rem;
@@ -902,19 +902,8 @@ h1, h2, h3 {
     visibility: visible;
 }
 
-/* Pilier 1 (gauche) — tooltip à gauche */
-[data-pillar="1"] .pillar-body li[data-tip]::after {
-    right: calc(100% + 12px);
-    left: auto;
-    top: 50%;
-    transform: translateX(-6px) translateY(-50%);
-}
-
-[data-pillar="1"] .pillar-body li[data-tip]:hover::after {
-    transform: translateX(0) translateY(-50%);
-}
-
-/* Pilier 2 & 3 — tooltip au-dessus */
+/* Tous les piliers — tooltip au-dessus */
+[data-pillar="1"] .pillar-body li[data-tip]::after,
 [data-pillar="2"] .pillar-body li[data-tip]::after,
 [data-pillar="3"] .pillar-body li[data-tip]::after {
     bottom: calc(100% + 10px);
@@ -924,6 +913,7 @@ h1, h2, h3 {
     transform: translateX(-50%) translateY(6px);
 }
 
+[data-pillar="1"] .pillar-body li[data-tip]:hover::after,
 [data-pillar="2"] .pillar-body li[data-tip]:hover::after,
 [data-pillar="3"] .pillar-body li[data-tip]:hover::after {
     transform: translateX(-50%) translateY(0);
