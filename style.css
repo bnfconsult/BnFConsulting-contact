@@ -1988,13 +1988,14 @@ h1, h2, h3 {
     left: 0;
     top: 0;
     height: 100vh;
-    width: 140px;
+    width: 220px;
     display: flex;
     align-items: center;
     z-index: 90;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.4s;
+    transition: opacity 0.5s;
+    background: linear-gradient(to right, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.4) 70%, transparent 100%);
 }
 
 .presta-wheel.visible {
@@ -2017,19 +2018,19 @@ h1, h2, h3 {
     position: absolute;
     left: 0;
     right: 0;
-    height: 35%;
+    height: 20%;
     z-index: 2;
     pointer-events: none;
 }
 
 .presta-wheel-window::before {
     top: 0;
-    background: linear-gradient(to bottom, rgba(20,20,20,0.95), transparent);
+    background: linear-gradient(to bottom, rgba(10,10,10,0.9), transparent);
 }
 
 .presta-wheel-window::after {
     bottom: 0;
-    background: linear-gradient(to top, rgba(20,20,20,0.95), transparent);
+    background: linear-gradient(to top, rgba(10,10,10,0.9), transparent);
 }
 
 .presta-wheel-track {
@@ -2037,32 +2038,32 @@ h1, h2, h3 {
     flex-direction: column;
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
-    padding: 0 20px;
+    padding: 0 28px;
 }
 
 .presta-wheel-item {
-    height: 40px;
-    line-height: 40px;
-    font-size: 0.72rem;
+    height: 56px;
+    line-height: 56px;
+    font-size: 0.85rem;
     font-weight: 500;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.3);
     text-decoration: none;
     white-space: nowrap;
     transition: all 0.4s;
-    border-left: 2px solid transparent;
-    padding-left: 14px;
+    border-left: 3px solid transparent;
+    padding-left: 18px;
 }
 
 .presta-wheel-item:hover {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.75);
 }
 
 .presta-wheel-item.active {
     color: #ffffff;
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     border-left-color: var(--accent);
 }
 
