@@ -1967,6 +1967,13 @@ h1, h2, h3 {
     padding-bottom: 80px !important;
 }
 
+.presta-final .section-title,
+.presta-final .section-intro {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .presta-final-cta {
     display: flex;
     justify-content: center;
