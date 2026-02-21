@@ -690,6 +690,36 @@ h1, h2, h3 {
     z-index: 2;
 }
 
+.section-services {
+    position: relative;
+    overflow: hidden;
+}
+
+.services-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.services-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.services-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.55) 50%,
+        rgba(0, 0, 0, 0.75) 100%
+    );
+}
+
 .section-label {
     font-size: 0.75rem;
     font-weight: 600;
