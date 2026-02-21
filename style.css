@@ -1054,8 +1054,8 @@ h1, h2, h3 {
 .journey-connector {
     width: 60px;
     min-width: 60px;
-    height: 1px;
-    background: linear-gradient(to right, var(--accent), var(--tertiary));
+    height: 2px;
+    background: var(--accent);
     margin-top: 28px;
 }
 
