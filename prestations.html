@@ -278,52 +278,68 @@
         </div>
     </footer>
 
-    <!-- SIDEBAR NAV FIXE -->
-    <nav class="presta-sidebar" id="prestaSidebar">
-        <a href="#cat-strategie" class="presta-sidebar-link active" data-target="cat-strategie">01</a>
-        <a href="#cat-operations" class="presta-sidebar-link" data-target="cat-operations">02</a>
-        <a href="#cat-croissance" class="presta-sidebar-link" data-target="cat-croissance">03</a>
-        <a href="#cat-data" class="presta-sidebar-link" data-target="cat-data">04</a>
-        <a href="#cat-finance" class="presta-sidebar-link" data-target="cat-finance">05</a>
-        <a href="#cat-partenaires" class="presta-sidebar-link" data-target="cat-partenaires">06</a>
+    <!-- ROUE CATÉGORIES -->
+    <nav class="presta-wheel" id="prestaWheel">
+        <div class="presta-wheel-window">
+            <div class="presta-wheel-track" id="prestaWheelTrack">
+                <a href="#cat-strategie" class="presta-wheel-item" data-target="cat-strategie">Stratégie</a>
+                <a href="#cat-operations" class="presta-wheel-item" data-target="cat-operations">Opérations</a>
+                <a href="#cat-croissance" class="presta-wheel-item" data-target="cat-croissance">Croissance</a>
+                <a href="#cat-data" class="presta-wheel-item" data-target="cat-data">Data</a>
+                <a href="#cat-finance" class="presta-wheel-item" data-target="cat-finance">Finance</a>
+                <a href="#cat-partenaires" class="presta-wheel-item" data-target="cat-partenaires">Partenaires</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- BOUTON RETOUR EN HAUT -->
-    <a href="#" class="presta-top-btn" id="prestaTopBtn" aria-label="Retour en haut">↑</a>
+    <!-- BOUTON RETOUR EN HAUT (même que page d'accueil) -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
 
     <script src="main.js"></script>
     <script>
     (function() {
-        var sidebar = document.getElementById('prestaSidebar');
-        var topBtn = document.getElementById('prestaTopBtn');
-        var links = document.querySelectorAll('.presta-sidebar-link');
+        var wheel = document.getElementById('prestaWheel');
+        var track = document.getElementById('prestaWheelTrack');
+        var topBtn = document.getElementById('backToTop');
+        var items = document.querySelectorAll('.presta-wheel-item');
         var sections = document.querySelectorAll('.presta-category');
+        var itemHeight = 32;
 
-        // Scroll spy
         function onScroll() {
             var scrollY = window.scrollY + 200;
-            var current = '';
-            sections.forEach(function(sec) {
+            var currentIndex = 0;
+
+            sections.forEach(function(sec, i) {
                 if (sec.offsetTop <= scrollY) {
-                    current = sec.id;
-                }
-            });
-            links.forEach(function(link) {
-                link.classList.remove('active');
-                if (link.getAttribute('data-target') === current) {
-                    link.classList.add('active');
+                    currentIndex = i;
                 }
             });
 
-            // Afficher/masquer sidebar et bouton top
+            // Déplacer la roue
+            track.style.transform = 'translateY(' + (-currentIndex * itemHeight) + 'px)';
+
+            // Mettre à jour l'item actif
+            items.forEach(function(item, i) {
+                item.classList.remove('active');
+                if (i === currentIndex) {
+                    item.classList.add('active');
+                }
+            });
+
+            // Afficher/masquer
             if (window.scrollY > 400) {
-                sidebar.classList.add('visible');
+                wheel.classList.add('visible');
                 topBtn.classList.add('visible');
             } else {
-                sidebar.classList.remove('visible');
+                wheel.classList.remove('visible');
                 topBtn.classList.remove('visible');
             }
         }
+
+        // Back to top
+        topBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
         window.addEventListener('scroll', onScroll);
         onScroll();
