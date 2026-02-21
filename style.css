@@ -314,7 +314,7 @@ h1, h2, h3 {
     background: rgba(84, 155, 162, 0.08);
     transition: all 0.4s ease;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateX(-30px);
     animation: quickNavAppear 0.6s ease forwards;
 }
 
@@ -334,7 +334,7 @@ h1, h2, h3 {
 @keyframes quickNavAppear {
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
     }
 }
 
