@@ -1988,14 +1988,15 @@ h1, h2, h3 {
     left: 0;
     top: 0;
     height: 100vh;
-    width: 220px;
+    width: 200px;
     display: flex;
     align-items: center;
     z-index: 90;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s;
-    background: linear-gradient(to right, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.4) 70%, transparent 100%);
+    background: rgba(10, 10, 10, 0.92);
+    border-right: 1px solid rgba(84, 155, 162, 0.15);
 }
 
 .presta-wheel.visible {
@@ -2016,19 +2017,19 @@ h1, h2, h3 {
     position: absolute;
     left: 0;
     right: 0;
-    height: 20%;
+    height: 15%;
     z-index: 2;
     pointer-events: none;
 }
 
 .presta-wheel-window::before {
     top: 0;
-    background: linear-gradient(to bottom, rgba(10,10,10,0.9), transparent);
+    background: linear-gradient(to bottom, rgba(10,10,10,0.92), transparent);
 }
 
 .presta-wheel-window::after {
     bottom: 0;
-    background: linear-gradient(to top, rgba(10,10,10,0.9), transparent);
+    background: linear-gradient(to top, rgba(10,10,10,0.92), transparent);
 }
 
 .presta-wheel-track {
@@ -2068,12 +2069,18 @@ h1, h2, h3 {
     border-left-color: var(--accent);
 }
 
+/* Décaler le contenu pour la roue sur grands écrans */
+.presta-category .container,
+.presta-final .container {
+    margin-left: 220px;
+}
+
 @media (max-width: 1024px) {
     .presta-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     .presta-wheel {
-        width: 170px;
+        width: 160px;
     }
     .presta-wheel-item {
         font-size: 0.72rem;
@@ -2083,6 +2090,10 @@ h1, h2, h3 {
     .presta-wheel-item.active {
         font-size: 0.82rem;
     }
+    .presta-category .container,
+    .presta-final .container {
+        margin-left: 180px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -2091,6 +2102,10 @@ h1, h2, h3 {
     }
     .presta-wheel {
         display: none;
+    }
+    .presta-category .container,
+    .presta-final .container {
+        margin-left: auto;
     }
 }
 
