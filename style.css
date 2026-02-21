@@ -1103,12 +1103,11 @@ h1, h2, h3 {
 
 .partner-phrase {
     text-align: center;
-    color: #ffffff;
-    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+    color: var(--gray-400);
+    font-size: 0.875rem;
     max-width: 600px;
     margin: 32px auto 0;
     line-height: 1.7;
-    font-style: italic;
 }
 
 .journey-centered {
