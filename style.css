@@ -2008,8 +2008,6 @@ h1, h2, h3 {
     height: 100%;
     overflow: hidden;
     position: relative;
-    display: flex;
-    align-items: center;
 }
 
 .presta-wheel-window::before,
