@@ -278,47 +278,93 @@
         </div>
     </footer>
 
-    <!-- SIDEBAR NAV FIXE -->
-    <nav class="presta-sidebar" id="prestaSidebar">
-        <a href="#cat-strategie" class="presta-sidebar-link active" data-target="cat-strategie">Stratégie</a>
-        <a href="#cat-operations" class="presta-sidebar-link" data-target="cat-operations">Opérations</a>
-        <a href="#cat-croissance" class="presta-sidebar-link" data-target="cat-croissance">Croissance</a>
-        <a href="#cat-data" class="presta-sidebar-link" data-target="cat-data">Data</a>
-        <a href="#cat-finance" class="presta-sidebar-link" data-target="cat-finance">Finance</a>
-        <a href="#cat-partenaires" class="presta-sidebar-link" data-target="cat-partenaires">Partenaires</a>
+    <!-- ROUE CATÉGORIES PLEINE HAUTEUR -->
+    <nav class="presta-wheel" id="prestaWheel">
+        <div class="presta-wheel-window">
+            <div class="presta-wheel-track" id="prestaWheelTrack">
+                <a href="#cat-strategie" class="presta-wheel-item active" data-target="cat-strategie">Stratégie</a>
+                <a href="#cat-operations" class="presta-wheel-item" data-target="cat-operations">Opérations</a>
+                <a href="#cat-croissance" class="presta-wheel-item" data-target="cat-croissance">Croissance</a>
+                <a href="#cat-data" class="presta-wheel-item" data-target="cat-data">Data</a>
+                <a href="#cat-finance" class="presta-wheel-item" data-target="cat-finance">Finance</a>
+                <a href="#cat-partenaires" class="presta-wheel-item" data-target="cat-partenaires">Partenaires</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- BOUTON RETOUR EN HAUT (même que page d'accueil) -->
+    <!-- BURGER MENU -->
+    <div class="fab-menu" id="fabMenu">
+        <button class="fab-trigger" id="fabTrigger" aria-label="Menu rapide">
+            <span class="fab-bar"></span>
+            <span class="fab-bar"></span>
+            <span class="fab-bar"></span>
+        </button>
+        <div class="fab-panel" id="fabPanel">
+            <div class="fab-section">
+                <p class="fab-label">Navigation</p>
+                <a href="index.html" class="fab-link">Accueil</a>
+                <a href="index.html#piliers" class="fab-link">Piliers</a>
+                <a href="index.html#parcours" class="fab-link">Parcours</a>
+                <a href="prestations.html" class="fab-link">Nos Prestations</a>
+                <a href="quiz.html" class="fab-link">Spéciales BnF</a>
+            </div>
+            <div class="fab-divider"></div>
+            <div class="fab-section">
+                <p class="fab-label">Contact</p>
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="fab-link">📅 Prendre rendez-vous</a>
+                <a href="mailto:bnfconsulting.contact@gmail.com" class="fab-link">✉️ Email</a>
+            </div>
+            <div class="fab-divider"></div>
+            <div class="fab-section">
+                <p class="fab-label">Réseaux</p>
+                <div class="fab-socials">
+                    <a href="https://linktr.ee/benjaminf_" target="_blank" rel="noopener" class="fab-social" aria-label="Réseaux">Réseaux</a>
+                    <a href="https://www.flow-hub.fr/" target="_blank" rel="noopener" class="fab-social" aria-label="Partenaires">Partenaires</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOUTON RETOUR EN HAUT -->
     <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
 
     <script src="main.js"></script>
     <script>
     (function() {
-        var sidebar = document.getElementById('prestaSidebar');
+        var wheel = document.getElementById('prestaWheel');
+        var track = document.getElementById('prestaWheelTrack');
         var topBtn = document.getElementById('backToTop');
-        var links = document.querySelectorAll('.presta-sidebar-link');
+        var items = document.querySelectorAll('.presta-wheel-item');
         var sections = document.querySelectorAll('.presta-category');
+        var itemHeight = 40;
+        var centerOffset = (window.innerHeight / 2) - (itemHeight / 2);
 
         function onScroll() {
             var scrollY = window.scrollY + 200;
-            var current = '';
-            sections.forEach(function(sec) {
+            var currentIndex = 0;
+
+            sections.forEach(function(sec, i) {
                 if (sec.offsetTop <= scrollY) {
-                    current = sec.id;
+                    currentIndex = i;
                 }
             });
-            links.forEach(function(link) {
-                link.classList.remove('active');
-                if (link.getAttribute('data-target') === current) {
-                    link.classList.add('active');
+
+            // Déplacer la roue pour centrer l'item actif
+            var offset = centerOffset - (currentIndex * itemHeight);
+            track.style.transform = 'translateY(' + offset + 'px)';
+
+            items.forEach(function(item, i) {
+                item.classList.remove('active');
+                if (i === currentIndex) {
+                    item.classList.add('active');
                 }
             });
 
             if (window.scrollY > 400) {
-                sidebar.classList.add('visible');
+                wheel.classList.add('visible');
                 topBtn.classList.add('visible');
             } else {
-                sidebar.classList.remove('visible');
+                wheel.classList.remove('visible');
                 topBtn.classList.remove('visible');
             }
         }
@@ -328,6 +374,10 @@
         });
 
         window.addEventListener('scroll', onScroll);
+        window.addEventListener('resize', function() {
+            centerOffset = (window.innerHeight / 2) - (itemHeight / 2);
+            onScroll();
+        });
         onScroll();
     })();
     </script>

@@ -1982,47 +1982,87 @@ h1, h2, h3 {
     flex-wrap: wrap;
 }
 
-/* Sidebar fixe catégories */
-.presta-sidebar {
+/* Roue catégories pleine hauteur */
+.presta-wheel {
     position: fixed;
-    left: 24px;
+    left: 0;
     top: 0;
     height: 100vh;
+    width: 140px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0;
+    align-items: center;
     z-index: 90;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s;
+    transition: opacity 0.4s;
 }
 
-.presta-sidebar.visible {
+.presta-wheel.visible {
     opacity: 1;
     pointer-events: auto;
 }
 
-.presta-sidebar-link {
-    font-size: 0.75rem;
+.presta-wheel-window {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.presta-wheel-window::before,
+.presta-wheel-window::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 35%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.presta-wheel-window::before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(20,20,20,0.95), transparent);
+}
+
+.presta-wheel-window::after {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(20,20,20,0.95), transparent);
+}
+
+.presta-wheel-track {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    padding: 0 20px;
+}
+
+.presta-wheel-item {
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.72rem;
     font-weight: 500;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.25);
     text-decoration: none;
-    transition: all 0.3s;
-    padding: 12px 0;
+    white-space: nowrap;
+    transition: all 0.4s;
     border-left: 2px solid transparent;
-    padding-left: 12px;
+    padding-left: 14px;
 }
 
-.presta-sidebar-link:hover {
-    color: #ffffff;
+.presta-wheel-item:hover {
+    color: rgba(255, 255, 255, 0.7);
 }
 
-.presta-sidebar-link.active {
+.presta-wheel-item.active {
     color: #ffffff;
     font-weight: 700;
+    font-size: 0.8rem;
     border-left-color: var(--accent);
 }
 
@@ -2030,7 +2070,7 @@ h1, h2, h3 {
     .presta-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    .presta-sidebar {
+    .presta-wheel {
         display: none;
     }
 }
