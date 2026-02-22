@@ -937,7 +937,6 @@ h1, h2, h3 {
     font-size: 0.875rem;
     color: var(--title);
     font-weight: 600;
-    font-style: italic;
 }
 
 /* Tous les piliers — tooltip au-dessus */
