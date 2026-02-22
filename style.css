@@ -932,6 +932,14 @@ h1, h2, h3 {
     visibility: visible;
 }
 
+.pillar-objectif {
+    padding: 12px 32px 24px;
+    font-size: 0.875rem;
+    color: var(--accent);
+    font-weight: 600;
+    font-style: italic;
+}
+
 /* Tous les piliers — tooltip au-dessus */
 [data-pillar="1"] .pillar-body li[data-tip]::after,
 [data-pillar="2"] .pillar-body li[data-tip]::after,
