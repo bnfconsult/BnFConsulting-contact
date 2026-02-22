@@ -868,12 +868,12 @@ h1, h2, h3 {
 }
 
 .pillar-card.open .pillar-body {
-    max-height: 400px;
+    max-height: 600px;
     overflow: visible;
 }
 
 .pillar-body ul {
-    padding: 0 32px 32px;
+    padding: 0 32px 12px;
 }
 
 .pillar-body li {
@@ -935,7 +935,7 @@ h1, h2, h3 {
 .pillar-objectif {
     padding: 12px 32px 24px;
     font-size: 0.875rem;
-    color: var(--accent);
+    color: var(--title);
     font-weight: 600;
     font-style: italic;
 }
