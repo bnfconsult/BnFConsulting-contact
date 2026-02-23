@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BnFDrones — Changez de point de vue</title>
+    <meta name="description" content="BnFDrones by BnFConsulting — Prise de vue par drone, photo 4K et vidéo cinématique pour l'immobilier, les entreprises et les commerces.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- Styles spécifiques BnFDrones --- */
+        .drone-byline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+        .drone-hero-logo {
+            height: 36px;
+            width: auto;
+            margin: 0 auto 28px;
+            opacity: 0.85;
+        }
+        .drone-service-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        .drone-service-block:nth-child(even) {
+            direction: rtl;
+        }
+        .drone-service-block:nth-child(even) > * {
+            direction: ltr;
+        }
+        .drone-service-block:last-child {
+            margin-bottom: 0;
+        }
+        .drone-service-text h3 {
+            font-family: Georgia, serif;
+            color: var(--white);
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            margin-bottom: 16px;
+        }
+        .drone-service-text p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        .drone-service-text ul li {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            padding: 6px 0 6px 18px;
+            position: relative;
+        }
+        .drone-service-text ul li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 14px;
+        }
+        .drone-service-visual {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            background: var(--gray-800);
+        }
+        .drone-service-visual img,
+        .drone-service-visual video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .drone-badge-soon {
+            display: inline-block;
+            background: rgba(84, 155, 162, 0.15);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: 1px solid rgba(84, 155, 162, 0.3);
+        }
+        .drone-pricing-card {
+            background: transparent;
+            border: 1px solid rgba(84, 155, 162, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 48px 36px;
+            text-align: center;
+            transition: all var(--transition);
+            position: relative;
+        }
+        .drone-pricing-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(84, 155, 162, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .drone-pricing-card.featured {
+            border: 2px solid var(--accent);
+            background: rgba(84, 155, 162, 0.05);
+        }
+        .drone-pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: var(--white);
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .drone-pricing-card h3 {
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .drone-price {
+            font-family: Georgia, serif;
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin: 20px 0;
+        }
+        .drone-price small {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+            font-family: 'Montserrat', sans-serif;
+        }
+        .drone-pricing-features {
+            text-align: left;
+            margin: 24px 0 32px;
+        }
+        .drone-pricing-features li {
+            padding: 8px 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9375rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .drone-pricing-features li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .drone-pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+        .drone-includes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px 40px;
+            max-width: 700px;
+            margin: 40px auto 0;
+        }
+        .drone-includes-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+        }
+        .drone-includes-item::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .drone-includes-item span {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9375rem;
+        }
+        .drone-portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 60px;
+        }
+        .drone-portfolio-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 16 / 10;
+            cursor: pointer;
+        }
+        .drone-portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .drone-portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+        .drone-portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 50%);
+            opacity: 0;
+            transition: all var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+        .drone-portfolio-item:hover .drone-portfolio-overlay {
+            opacity: 1;
+        }
+        .drone-portfolio-overlay span {
+            color: var(--white);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .drone-bubble-card {
+            background: rgba(84, 155, 162, 0.06);
+            border: 1px solid rgba(84, 155, 162, 0.25);
+            border-radius: 50px;
+            padding: 40px 32px;
+            text-align: center;
+            animation: bubbleFloat 4s infinite ease-in-out;
+        }
+        .drone-bubble-card:nth-child(2) { animation-delay: 1.3s; }
+        .drone-bubble-card:nth-child(3) { animation-delay: 2.6s; }
+        .drone-bubble-card h3 {
+            font-family: Georgia, serif;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+        .drone-bubble-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+        .drone-contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .drone-contact-info h3 {
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+        .drone-contact-item {
+            margin-bottom: 24px;
+        }
+        .drone-contact-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .drone-contact-item p,
+        .drone-contact-item a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9375rem;
+        }
+        .drone-contact-item a:hover {
+            color: var(--accent);
+        }
+        .drone-contact-calendar {
+            background: var(--gray-800);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            border: 1px solid rgba(84, 155, 162, 0.1);
+        }
+        .drone-contact-calendar h3 {
+            color: var(--white);
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+        }
+        .drone-contact-calendar p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            margin-bottom: 24px;
+        }
+
+        /* Responsive drone */
+        @media (max-width: 1024px) {
+            .drone-service-block {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .drone-service-block:nth-child(even) {
+                direction: ltr;
+            }
+            .drone-pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .drone-portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .drone-contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        @media (max-width: 768px) {
+            .drone-pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .drone-includes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .drone-pricing-grid,
+            .drone-portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo"><img src="PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting"></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="#drone-services">Services</a></li>
+                <li><a href="#drone-tarifs">Tarifs</a></li>
+                <li><a href="#drone-contact">Contact</a></li>
+                <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Prendre RDV</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="PHOTOS/Drones/Best_teinture_vert (4).JPG" alt="Vue drone BnFDrones">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="section-label">BnFDrones</p>
+            <p class="drone-byline">by BnFConsulting</p>
+            <h1 class="hero-title">Changez de <span class="accent">point de vue</span></h1>
+            <p class="hero-sub">
+                Prise de vue par drone — Photo 4K et vidéo cinématique pour valoriser vos biens immobiliers, commerces et entreprises.
+            </p>
+            <div class="hero-ctas">
+                <a href="#drone-services" class="btn btn-primary btn-large">Nos Services</a>
+                <a href="#drone-contact" class="btn btn-primary btn-outline btn-large">Prendre rendez-vous</a>
+            </div>
+            <div class="quick-nav" style="margin-top: 40px;">
+                <a href="#drone-services" class="quick-nav-item">Photo 4K</a>
+                <a href="#drone-services" class="quick-nav-item">Vidéo Drone</a>
+                <a href="#drone-services" class="quick-nav-item">Intérieur</a>
+                <a href="#drone-tarifs" class="quick-nav-item">Tarifs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- POURQUOI NOUS CHOISIR -->
+    <section class="section section-black">
+        <div class="container" style="text-align: center;">
+            <p class="section-label">Pourquoi nous choisir</p>
+            <h2 class="section-title">Un regard <span class="accent">différent</span></h2>
+            <p class="section-intro" style="max-width: 600px; margin: 0 auto 60px; color: rgba(255,255,255,0.8);">
+                Des images qui changent la perspective et subliment vos espaces.
+            </p>
+
+            <div class="targets-grid">
+                <div class="target-card">
+                    <h3 style="font-family: Georgia, serif; font-size: 2rem; color: var(--accent); margin-bottom: 16px;">01</h3>
+                    <h3>Qualité 4K</h3>
+                    <p>Des images d'une netteté exceptionnelle, tournées en 4K pour un rendu professionnel et immersif qui valorise chaque détail de vos espaces.</p>
+                </div>
+                <div class="target-card">
+                    <h3 style="font-family: Georgia, serif; font-size: 2rem; color: var(--accent); margin-bottom: 16px;">02</h3>
+                    <h3>Point de vue unique</h3>
+                    <p>Le drone offre des angles impossibles à obtenir autrement. Survols, plongées, travellings — un contenu qui se démarque radicalement.</p>
+                </div>
+                <div class="target-card">
+                    <h3 style="font-family: Georgia, serif; font-size: 2rem; color: var(--accent); margin-bottom: 16px;">03</h3>
+                    <h3>Polyvalence</h3>
+                    <p>Intérieur ou extérieur, immobilier ou commercial, vente ou location — nous adaptons notre approche à chaque projet et chaque espace.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section section-dark" id="drone-services">
+        <div class="container">
+            <p class="section-label" style="text-align: center;">Ce que nous faisons</p>
+            <h2 class="section-title" style="text-align: center;">Nos <span class="accent">Services</span></h2>
+            <p class="section-intro" style="max-width: 600px; margin: 0 auto 80px; text-align: center; color: rgba(255,255,255,0.8);">
+                Des prestations de prise de vue drone adaptées à chaque projet, en intérieur comme en extérieur.
+            </p>
+
+            <!-- Service 1 -->
+            <div class="drone-service-block reveal">
+                <div class="drone-service-text">
+                    <p class="section-label">Service 01</p>
+                    <h3>Photo Drone <span class="accent">4K</span></h3>
+                    <p>Des photographies aériennes en ultra haute définition pour capturer vos biens sous leur meilleur angle.</p>
+                    <ul>
+                        <li>Photos aériennes haute résolution (4K)</li>
+                        <li>Prises de vue extérieures et environnement</li>
+                        <li>Retouche et livraison professionnelle</li>
+                        <li>Idéal pour annonces immobilières et supports commerciaux</li>
+                    </ul>
+                </div>
+                <div class="drone-service-visual">
+                    <img src="PHOTOS/Drones/Best_3.JPG" alt="Photo drone 4K">
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="drone-service-block reveal">
+                <div class="drone-service-text">
+                    <p class="section-label">Service 02</p>
+                    <h3>Vidéo <span class="accent">Cinématique</span></h3>
+                    <p>Un contenu vidéo immersif et fluide, réalisé avec des drones de dernière génération. Travellings, survols, plongées.</p>
+                    <ul>
+                        <li>Vidéo drone cinématique en 4K</li>
+                        <li>Mouvements fluides et professionnels</li>
+                        <li>Montage inclus sur demande</li>
+                        <li>Parfait pour visites virtuelles et contenus marketing</li>
+                    </ul>
+                </div>
+                <div class="drone-service-visual">
+                    <video autoplay muted loop playsinline>
+                        <source src="VIDEOS/arche.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="drone-service-block reveal">
+                <div class="drone-service-text">
+                    <p class="section-label">Service 03</p>
+                    <h3>Prise de vue <span class="accent">Intérieure</span></h3>
+                    <p>Avec des drones compacts adaptés aux espaces clos, nous capturons l'intérieur de vos locaux avec une fluidité unique.</p>
+                    <ul>
+                        <li>Drone compact pour espaces intérieurs</li>
+                        <li>Vidéo fluide et immersive</li>
+                        <li>Mise en valeur des volumes et de l'agencement</li>
+                        <li>Adapté aux commerces, showrooms et biens immobiliers</li>
+                    </ul>
+                </div>
+                <div class="drone-service-visual">
+                    <video autoplay muted loop playsinline>
+                        <source src="VIDEOS/BNFDRONES-CLIP 1.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="drone-service-block reveal">
+                <div class="drone-service-text">
+                    <p class="section-label">Service 04</p>
+                    <h3>Modélisation 3D & <span class="accent">Visite 360°</span></h3>
+                    <span class="drone-badge-soon">Bientôt disponible</span>
+                    <p style="margin-top: 16px;">Nous travaillons sur l'intégration de la modélisation 3D et des visites virtuelles 360° à notre offre.</p>
+                    <ul>
+                        <li>Modélisation 3D de biens immobiliers</li>
+                        <li>Visite virtuelle 360° interactive</li>
+                        <li>Plans et relevés dimensionnels</li>
+                    </ul>
+                </div>
+                <div class="drone-service-visual">
+                    <div style="width:100%;height:100%;background:linear-gradient(135deg, #2c2a1a, #1c1b0d);display:flex;align-items:center;justify-content:center;color:var(--gray-400);font-size:0.875rem;">3D — Bientôt</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENTS CIBLES -->
+    <section class="section section-black">
+        <div class="container" style="text-align: center;">
+            <p class="section-label">Pour qui ?</p>
+            <h2 class="section-title">Nos <span class="accent">clients</span></h2>
+            <p class="section-intro" style="max-width: 600px; margin: 0 auto 60px; color: rgba(255,255,255,0.8);">
+                Nous accompagnons tous ceux qui veulent changer de point de vue.
+            </p>
+
+            <div class="targets-grid">
+                <div class="drone-bubble-card reveal">
+                    <h3>Agences immobilières</h3>
+                    <p>Valorisez vos mandats avec des visuels premium qui accélèrent les ventes et les locations.</p>
+                </div>
+                <div class="drone-bubble-card reveal">
+                    <h3>Entreprises</h3>
+                    <p>Du contenu visuel unique pour vos locaux, événements et supports de communication.</p>
+                </div>
+                <div class="drone-bubble-card reveal">
+                    <h3>Commerces</h3>
+                    <p>Montrez votre espace sous un angle inédit pour attirer et séduire vos clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TARIFS -->
+    <section class="section section-dark" id="drone-tarifs">
+        <div class="container" style="text-align: center;">
+            <p class="section-label">Investissez dans l'image</p>
+            <h2 class="section-title">Nos <span class="accent">Tarifs</span></h2>
+            <p class="section-intro" style="max-width: 600px; margin: 0 auto; color: rgba(255,255,255,0.8);">
+                Des forfaits clairs et adaptés à chaque besoin. Du plus simple au sur-mesure.
+            </p>
+
+            <div class="drone-pricing-grid">
+                <!-- Essentiel -->
+                <div class="drone-pricing-card reveal">
+                    <h3>Essentiel</h3>
+                    <p style="color: var(--gray-400); font-size: 0.875rem; margin-top: 8px;">L'essentiel pour vos annonces</p>
+                    <div class="drone-price">---<small> &euro; HT</small></div>
+                    <ul class="drone-pricing-features">
+                        <li>Photos drone 4K</li>
+                        <li>1 lieu / 1 session</li>
+                        <li>Retouche professionnelle</li>
+                        <li>Livraison sous 3 jours</li>
+                        <li>Fichiers haute résolution</li>
+                    </ul>
+                    <a href="#drone-contact" class="btn btn-primary btn-outline" style="width: 100%;">Choisir</a>
+                </div>
+
+                <!-- Premium -->
+                <div class="drone-pricing-card featured reveal">
+                    <span class="drone-pricing-badge">Populaire</span>
+                    <h3>Premium</h3>
+                    <p style="color: var(--gray-400); font-size: 0.875rem; margin-top: 8px;">Photo + Vidéo pour un impact maximal</p>
+                    <div class="drone-price">---<small> &euro; HT</small></div>
+                    <ul class="drone-pricing-features">
+                        <li>Photos drone 4K</li>
+                        <li>Vidéo cinématique drone</li>
+                        <li>1 lieu / 1 session</li>
+                        <li>Retouche + montage vidéo</li>
+                        <li>Livraison sous 5 jours</li>
+                        <li>Fichiers HD + version web</li>
+                    </ul>
+                    <a href="#drone-contact" class="btn btn-primary" style="width: 100%;">Choisir</a>
+                </div>
+
+                <!-- Sur-mesure -->
+                <div class="drone-pricing-card reveal">
+                    <h3>Sur-mesure</h3>
+                    <p style="color: var(--gray-400); font-size: 0.875rem; margin-top: 8px;">Adapté à vos besoins spécifiques</p>
+                    <div class="drone-price">Devis<small> gratuit</small></div>
+                    <ul class="drone-pricing-features">
+                        <li>Multi-lieux / multi-sessions</li>
+                        <li>Photo + vidéo + intérieur</li>
+                        <li>Montage avancé</li>
+                        <li>Délais personnalisés</li>
+                        <li>Accompagnement dédié</li>
+                    </ul>
+                    <a href="#drone-contact" class="btn btn-primary btn-outline" style="width: 100%;">Nous contacter</a>
+                </div>
+            </div>
+
+            <!-- Ce qui est inclus -->
+            <div style="margin-top: 80px;">
+                <p class="section-label reveal">Dans chaque forfait</p>
+                <h2 class="section-title reveal">Ce qui est <span class="accent">inclus</span></h2>
+                <div class="drone-includes-grid reveal">
+                    <div class="drone-includes-item"><span>Préparation et repérage du site</span></div>
+                    <div class="drone-includes-item"><span>Déplacement inclus en Île-de-France</span></div>
+                    <div class="drone-includes-item"><span>Pilotage professionnel</span></div>
+                    <div class="drone-includes-item"><span>Post-production et retouche</span></div>
+                    <div class="drone-includes-item"><span>Livraison numérique sécurisée</span></div>
+                    <div class="drone-includes-item"><span>Droits d'utilisation commerciale</span></div>
+                    <div class="drone-includes-item"><span>Formats adaptés (print + web)</span></div>
+                    <div class="drone-includes-item"><span>Assurance vol incluse</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="section section-black">
+        <div class="container" style="text-align: center;">
+            <p class="section-label reveal">Nos réalisations</p>
+            <h2 class="section-title reveal">Portfolio</h2>
+            <p class="section-intro" style="max-width: 600px; margin: 0 auto; color: rgba(255,255,255,0.8);">
+                Découvrez nos dernières prises de vue par drone.
+            </p>
+
+            <div class="drone-portfolio-grid">
+                <div class="drone-portfolio-item reveal">
+                    <img src="PHOTOS/Drones/DJI_0333.JPG" alt="Projet immobilier">
+                    <div class="drone-portfolio-overlay"><span>Projet immobilier</span></div>
+                </div>
+                <div class="drone-portfolio-item reveal">
+                    <img src="PHOTOS/Drones/Best_19.JPG" alt="Vue aérienne">
+                    <div class="drone-portfolio-overlay"><span>Vue aérienne</span></div>
+                </div>
+                <div class="drone-portfolio-item reveal">
+                    <img src="PHOTOS/Drones/Foret blanche (1).JPG" alt="Extérieur">
+                    <div class="drone-portfolio-overlay"><span>Extérieur</span></div>
+                </div>
+                <div class="drone-portfolio-item reveal">
+                    <img src="PHOTOS/Drones/Alpes-2.JPG" alt="Montagne">
+                    <div class="drone-portfolio-overlay"><span>Montagne</span></div>
+                </div>
+                <div class="drone-portfolio-item reveal">
+                    <img src="PHOTOS/Drones/ENRsol-4.JPG" alt="Industriel">
+                    <div class="drone-portfolio-overlay"><span>Industriel</span></div>
+                </div>
+                <div class="drone-portfolio-item reveal">
+                    <img src="PHOTOS/Drones/Village de nuit_1.JPG" alt="Nuit">
+                    <div class="drone-portfolio-overlay"><span>Vue nocturne</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section-dark" id="drone-contact">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <p class="section-label">Parlons de votre projet</p>
+                <h2 class="section-title">Contactez-<span class="accent">nous</span></h2>
+            </div>
+
+            <div class="drone-contact-grid">
+                <div class="drone-contact-info reveal">
+                    <h3>Nos <span class="accent">coordonnées</span></h3>
+                    <div class="drone-contact-item">
+                        <div class="drone-contact-label">Email</div>
+                        <a href="mailto:bnf.consultingpro@gmail.com">bnf.consultingpro@gmail.com</a>
+                    </div>
+                    <div class="drone-contact-item">
+                        <div class="drone-contact-label">Zone d'intervention</div>
+                        <p>Île-de-France, France, Europe, International</p>
+                    </div>
+                    <div class="drone-contact-item">
+                        <div class="drone-contact-label">Disponibilité</div>
+                        <p>Du lundi au samedi — Sur rendez-vous</p>
+                    </div>
+                    <div class="drone-contact-item">
+                        <div class="drone-contact-label">Réponse</div>
+                        <p>Nous répondons sous 24 heures.</p>
+                    </div>
+                    <div style="margin-top: 40px;">
+                        <a href="mailto:bnf.consultingpro@gmail.com" class="btn btn-primary">Envoyer un email</a>
+                    </div>
+                </div>
+
+                <div class="drone-contact-calendar reveal">
+                    <h3>Prendre <span class="accent">rendez-vous</span></h3>
+                    <p>Choisissez un créneau directement dans notre agenda pour planifier un échange sur votre projet.</p>
+                    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0lSWiR3YvCYrRK1n6PhTA2Dg9KJm5psH786OHg5agcrpp6GE6qjBsjjPwZGrTkF7lB0n6G66n-" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large" style="width: 100%; margin-top: 8px;">
+                        Ouvrir l'agenda
+                    </a>
+                    <p style="margin-top: 16px; font-size: 0.8125rem; color: var(--gray-400); text-align: center;">
+                        Redirection vers Google Calendar
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section section-cta">
+        <div class="container">
+            <h2 class="cta-title">Donnez une nouvelle <span class="accent">dimension</span><br>à vos projets</h2>
+            <p class="cta-text">Contactez-nous pour discuter de votre projet et obtenir un devis personnalisé.</p>
+            <div class="cta-buttons">
+                <a href="#drone-contact" class="btn btn-primary btn-large">Demander un devis</a>
+                <a href="index.html" class="btn btn-secondary btn-large">Retour BnFConsulting</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo"><img src="PHOTOS/Logo_paysage (2).jpg" alt="BnFDrones"></span>
+                <p>BnFDrones — Changez de point de vue.</p>
+            </div>
+            <div class="footer-links">
+                <a href="mailto:bnf.consultingpro@gmail.com">bnf.consultingpro@gmail.com</a>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 BnFDrones by BnFConsulting. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOUTON RETOUR EN HAUT -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
+
+    <!-- BURGER BAS GAUCHE -->
+    <div class="fab-menu" id="fabMenu">
+        <button class="fab-trigger" id="fabTrigger" aria-label="Menu rapide">
+            <span class="fab-bar"></span>
+            <span class="fab-bar"></span>
+            <span class="fab-bar"></span>
+        </button>
+        <div class="fab-panel" id="fabPanel">
+            <div class="fab-section">
+                <p class="fab-label">BnFDrones</p>
+                <a href="#drone-services" class="fab-link">Services</a>
+                <a href="#drone-tarifs" class="fab-link">Tarifs</a>
+                <a href="#drone-contact" class="fab-link">Contact</a>
+            </div>
+            <div class="fab-divider"></div>
+            <div class="fab-section">
+                <p class="fab-label">BnFConsulting</p>
+                <a href="index.html" class="fab-link">Site principal</a>
+                <a href="prestations.html" class="fab-link">Nos Prestations</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
