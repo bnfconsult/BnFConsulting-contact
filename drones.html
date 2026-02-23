@@ -40,13 +40,15 @@
         .drone-portfolio-placeholder {
             width: 100%;
             height: 100%;
-            background: var(--gray-800);
+            background: linear-gradient(135deg, #1a2a2c, #0f1a1b);
+            border: 1px dashed rgba(84, 155, 162, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gray-400);
-            font-size: 0.8125rem;
-            font-weight: 500;
+            color: var(--accent);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
         }
         .drone-byline {
             font-family: 'Montserrat', sans-serif;
@@ -232,14 +234,14 @@
         .drone-portfolio-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            gap: 20px;
             margin-top: 60px;
         }
         .drone-portfolio-item {
             position: relative;
             border-radius: var(--radius-lg);
             overflow: hidden;
-            aspect-ratio: 16 / 10;
+            aspect-ratio: 4 / 3;
             cursor: pointer;
         }
         .drone-portfolio-item img {
@@ -254,20 +256,19 @@
         .drone-portfolio-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 50%);
-            opacity: 0;
-            transition: all var(--transition);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 60%);
             display: flex;
             align-items: flex-end;
             padding: 20px;
-        }
-        .drone-portfolio-item:hover .drone-portfolio-overlay {
-            opacity: 1;
+            transition: all var(--transition);
         }
         .drone-portfolio-overlay span {
             color: var(--white);
-            font-size: 0.875rem;
-            font-weight: 500;
+            font-size: 0.9375rem;
+            font-weight: 600;
+        }
+        .drone-portfolio-item:hover .drone-portfolio-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 70%);
         }
         .drone-bubble-card {
             background: rgba(84, 155, 162, 0.06);
@@ -491,11 +492,12 @@
     </section>
 
     <!-- BANNIERE CTA -->
-    <section class="section drone-cta-banner" style="background-image: url(''); /* PHOTO DE FOND A AJOUTER */">
+    <section class="section drone-cta-banner" style="background-image: url('PHOTOS/Drones/DJI_0333.JPG');">
         <div class="hero-overlay"></div>
         <div class="container" style="text-align: center;">
-            <h2 class="cta-title">Prenez de la <span class="accent">hauteur</span> ?</h2>
-            <p class="cta-text" style="max-width: 600px; margin: 16px auto 40px;">Donnez une nouvelle dimension à vos projets.<br>Contactez-nous pour discuter de votre projet et obtenir un devis personnalisé.</p>
+            <h2 class="cta-title">Prêt à <span class="accent">commencer</span> ?</h2>
+            <p class="cta-text" style="max-width: 600px; margin: 16px auto 20px;">Donnez une nouvelle dimension à vos projets</p>
+            <p class="cta-text" style="max-width: 600px; margin: 0 auto 40px;">Contactez-nous pour discuter de votre projet et obtenir un devis personnalisé.</p>
             <div class="cta-buttons">
                 <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0lSWiR3YvCYrRK1n6PhTA2Dg9KJm5psH786OHg5agcrpp6GE6qjBsjjPwZGrTkF7lB0n6G66n-" target="_blank" rel="noopener" class="btn btn-primary btn-large">Prendre un rendez-vous</a>
                 <a href="mailto:bnf.consultingpro@gmail.com" class="btn btn-primary btn-outline btn-large">Envoyer un mail</a>
