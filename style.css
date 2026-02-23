@@ -2222,26 +2222,18 @@ h1, h2, h3 {
     }
 
     .nav-toggle {
-        display: flex;
+        display: none;
     }
 
     .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 280px;
-        background: rgba(0, 0, 0, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
         justify-content: center;
-        gap: 32px;
-        padding: 40px;
-        transition: right var(--transition);
     }
 
-    .nav-links.open {
-        right: 0;
+    .nav-links a {
+        font-size: 0.7rem;
     }
 
     .nav-links a {
