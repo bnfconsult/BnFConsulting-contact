@@ -2221,27 +2221,18 @@ h1, h2, h3 {
         font-size: 1.25rem;
     }
 
-    .nav-toggle {
-        display: none;
+    /* Masquer toute la navbar sur mobile — navigation via burger bas gauche */
+    .nav {
+        display: none !important;
     }
 
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        justify-content: center;
+    /* Centrer les étapes du constat et du parcours */
+    .journey-step {
+        text-align: center !important;
     }
 
-    .nav-links a {
-        font-size: 0.7rem;
-    }
-
-    .nav-links a {
-        font-size: 1rem;
-    }
-
-    .nav-cta {
-        text-align: center;
+    .journey-connector {
+        margin: 0 auto !important;
     }
 
     .problem-grid,
