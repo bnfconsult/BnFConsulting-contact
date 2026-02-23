@@ -2226,6 +2226,11 @@ h1, h2, h3 {
         display: none !important;
     }
 
+    /* Logo centré en tête de hero sur mobile */
+    .drone-hero-mobile-logo {
+        display: block !important;
+    }
+
     /* Centrer les étapes du constat et du parcours */
     .journey-step {
         text-align: center !important;
