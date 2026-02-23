@@ -24,6 +24,12 @@
         @media (max-width: 768px) {
             #service-photo, #service-video, #service-interieur {
                 flex-direction: column !important;
+                gap: 24px !important;
+            }
+            #service-photo > div, #service-video > div, #service-interieur > div {
+                flex: 1 1 100% !important;
+                min-width: 0 !important;
+                width: 100% !important;
             }
             #service-video > div:first-child {
                 order: 1 !important;
