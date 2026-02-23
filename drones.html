@@ -11,6 +11,43 @@
     <link rel="stylesheet" href="style.css">
     <style>
         /* --- Styles spécifiques BnFDrones --- */
+        .hero-content-backdrop {
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 20px;
+            padding: 48px 56px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .drone-cta-banner {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-color: var(--gray-800);
+            overflow: hidden;
+        }
+        .drone-cta-banner .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+        }
+        .drone-cta-banner .container {
+            position: relative;
+            z-index: 2;
+        }
+        .drone-portfolio-placeholder {
+            width: 100%;
+            height: 100%;
+            background: var(--gray-800);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            font-size: 0.8125rem;
+            font-weight: 500;
+        }
         .drone-byline {
             font-family: 'Montserrat', sans-serif;
             font-size: 0.75rem;
@@ -364,27 +401,58 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <p class="section-label">BnFDrones</p>
-            <p class="drone-byline">by BnFConsulting</p>
-            <h1 class="hero-title">Changez de <span class="accent">point de vue</span></h1>
-            <p class="hero-sub">
-                Prise de vue par drone — Photo 4K et vidéo cinématique pour valoriser vos biens immobiliers, commerces et entreprises.
-            </p>
-            <div class="hero-ctas">
-                <a href="#drone-services" class="btn btn-primary btn-large">Nos Services</a>
-                <a href="#drone-contact" class="btn btn-primary btn-outline btn-large">Prendre rendez-vous</a>
+            <div class="hero-content-backdrop">
+                <p class="section-label">BnFDrones</p>
+                <p class="drone-byline">by BnFConsulting</p>
+                <h1 class="hero-title">Changez de <span class="accent">point de vue</span></h1>
+                <p class="hero-sub">
+                    Prise de vue par drone — Photo 4K et vidéo cinématique pour valoriser vos biens immobiliers, commerces et entreprises.
+                </p>
+                <div class="hero-ctas">
+                    <a href="#drone-portfolio" class="btn btn-primary btn-large">Nos Services</a>
+                    <a href="mailto:bnf.consultingpro@gmail.com" class="btn btn-primary btn-outline btn-large">Prendre rendez-vous</a>
+                </div>
+                <div class="quick-nav" style="margin-top: 40px;">
+                    <a href="#drone-portfolio" class="quick-nav-item">Photo 4K</a>
+                    <a href="#drone-portfolio" class="quick-nav-item">Vidéo Drone</a>
+                    <a href="#drone-portfolio" class="quick-nav-item">Intérieur</a>
+                    <a href="#drone-portfolio" class="quick-nav-item">Tarifs</a>
+                </div>
             </div>
-            <div class="quick-nav" style="margin-top: 40px;">
-                <a href="#drone-services" class="quick-nav-item">Photo 4K</a>
-                <a href="#drone-services" class="quick-nav-item">Vidéo Drone</a>
-                <a href="#drone-services" class="quick-nav-item">Intérieur</a>
-                <a href="#drone-tarifs" class="quick-nav-item">Tarifs</a>
+        </div>
+    </section>
+
+    <!-- POURQUOI NOUS CHOISIR -->
+    <section class="section section-black">
+        <div class="container" style="text-align: center;">
+            <p class="section-label">Pourquoi nous choisir</p>
+            <h2 class="section-title">Un regard <span class="accent">différent</span></h2>
+            <p class="section-intro" style="max-width: 600px; margin: 0 auto 60px; color: rgba(255,255,255,0.8);">
+                Des images qui changent la perspective et subliment vos espaces.
+            </p>
+
+            <div class="targets-grid">
+                <div class="target-card">
+                    <h3 style="font-family: Georgia, serif; font-size: 2rem; color: var(--accent); margin-bottom: 16px;">01</h3>
+                    <h3>Qualité 4K</h3>
+                    <p>Des images d'une netteté exceptionnelle, tournées en 4K pour un rendu professionnel et immersif qui valorise chaque détail de vos espaces.</p>
+                </div>
+                <div class="target-card">
+                    <h3 style="font-family: Georgia, serif; font-size: 2rem; color: var(--accent); margin-bottom: 16px;">02</h3>
+                    <h3>Point de vue unique</h3>
+                    <p>Le drone offre des angles impossibles à obtenir autrement. Survols, plongées, travellings — un contenu qui se démarque radicalement.</p>
+                </div>
+                <div class="target-card">
+                    <h3 style="font-family: Georgia, serif; font-size: 2rem; color: var(--accent); margin-bottom: 16px;">03</h3>
+                    <h3>Polyvalence</h3>
+                    <p>Intérieur ou extérieur, immobilier ou commercial, vente ou location — nous adaptons notre approche à chaque projet et chaque espace.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- PORTFOLIO -->
-    <section class="section section-black">
+    <section class="section section-dark" id="drone-portfolio">
         <div class="container" style="text-align: center;">
             <p class="section-label reveal">Nos réalisations</p>
             <h2 class="section-title reveal">Portfolio</h2>
@@ -394,42 +462,41 @@
 
             <div class="drone-portfolio-grid">
                 <div class="drone-portfolio-item reveal">
-                    <img src="PHOTOS/Drones/DJI_0333.JPG" alt="Projet immobilier">
+                    <!-- Photo à venir -->
+                    <div class="drone-portfolio-placeholder">Projet immobilier</div>
                     <div class="drone-portfolio-overlay"><span>Projet immobilier</span></div>
                 </div>
                 <div class="drone-portfolio-item reveal">
-                    <img src="PHOTOS/Drones/Best_3.JPG" alt="Commerce">
+                    <div class="drone-portfolio-placeholder">Commerce</div>
                     <div class="drone-portfolio-overlay"><span>Commerce</span></div>
                 </div>
                 <div class="drone-portfolio-item reveal">
-                    <img src="PHOTOS/Drones/Best_19.JPG" alt="Vue aérienne">
+                    <div class="drone-portfolio-placeholder">Vue aérienne</div>
                     <div class="drone-portfolio-overlay"><span>Vue aérienne</span></div>
                 </div>
                 <div class="drone-portfolio-item reveal">
-                    <img src="PHOTOS/Drones/DJI_0134.JPG" alt="Intérieur">
+                    <div class="drone-portfolio-placeholder">Intérieur</div>
                     <div class="drone-portfolio-overlay"><span>Intérieur</span></div>
                 </div>
                 <div class="drone-portfolio-item reveal">
-                    <img src="PHOTOS/Drones/Best_teinture_vert (4).JPG" alt="Vidéo drone">
+                    <div class="drone-portfolio-placeholder">Vidéo drone</div>
                     <div class="drone-portfolio-overlay"><span>Vidéo drone</span></div>
                 </div>
                 <div class="drone-portfolio-item reveal">
-                    <img src="PHOTOS/Drones/Foret blanche (1).JPG" alt="Extérieur">
+                    <div class="drone-portfolio-placeholder">Extérieur</div>
                     <div class="drone-portfolio-overlay"><span>Extérieur</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA FINAL -->
-    <section class="section section-cta">
-        <div class="container">
+    <!-- BANNIERE CTA -->
+    <section class="section drone-cta-banner" style="background-image: url(''); /* PHOTO DE FOND A AJOUTER */">
+        <div class="hero-overlay"></div>
+        <div class="container" style="text-align: center;">
             <h2 class="cta-title">Prêt à <span class="accent">commencer</span> ?</h2>
-            <p class="cta-text">Donnez une nouvelle dimension à vos projets.<br>Contactez-nous pour discuter de votre projet et obtenir un devis personnalisé.</p>
-            <div class="cta-buttons">
-                <a href="mailto:bnf.consultingpro@gmail.com" class="btn btn-primary btn-large">Demander un devis</a>
-                <a href="index.html" class="btn btn-secondary btn-large">Retour BnFConsulting</a>
-            </div>
+            <p class="cta-text" style="max-width: 600px; margin: 16px auto 40px;">Donnez une nouvelle dimension à vos projets.<br>Contactez-nous pour discuter de votre projet et obtenir un devis personnalisé.</p>
+            <a href="mailto:bnf.consultingpro@gmail.com" class="btn btn-primary btn-large">Demander un devis</a>
         </div>
     </section>
 
