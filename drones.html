@@ -20,6 +20,35 @@
             max-width: 800px;
             margin: 0 auto;
         }
+        /* Mobile : services texte toujours au-dessus du media */
+        @media (max-width: 768px) {
+            #service-photo, #service-video, #service-interieur {
+                flex-direction: column !important;
+            }
+            #service-video > div:first-child {
+                order: 1 !important;
+            }
+            #service-video > div:last-child {
+                order: 0 !important;
+            }
+            .hero-content-backdrop {
+                padding: 32px 20px;
+                border-radius: 16px;
+            }
+            .hero-content-backdrop .hero-sub {
+                font-size: 0.95rem;
+                line-height: 1.7;
+                max-width: 100%;
+            }
+            .drone-byline-wrap {
+                display: flex;
+                align-items: baseline;
+                justify-content: center;
+                gap: 8px;
+                flex-wrap: nowrap;
+                white-space: nowrap;
+            }
+        }
         .drone-cta-banner {
             position: relative;
             background-size: cover;
@@ -399,7 +428,9 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-content-backdrop">
-                <p class="section-label" style="display:inline;">BnFDrones</p><span class="drone-byline" style="margin-left:8px;">by BnFConsulting</span>
+                <div class="drone-byline-wrap" style="display:flex; align-items:baseline; gap:8px; justify-content:center;">
+                    <p class="section-label" style="margin-bottom:0;">BnFDrones</p><span class="drone-byline">by BnFConsulting</span>
+                </div>
                 <h1 class="hero-title">Changez de <span class="accent">point de vue</span></h1>
                 <p class="hero-sub">
                     Prise de vue par drone — Photo 4K et vidéo cinématique pour valoriser vos biens immobiliers, commerces et entreprises.
@@ -458,7 +489,7 @@
                         </li>
                     </ul>
                 </div>
-                <div style="flex:1 1 400px; min-width:280px; aspect-ratio:4/3; border-radius:16px; overflow:hidden;">
+                <div style="flex:1 1 400px; min-width:280px; aspect-ratio:4/3; border-radius:0; overflow:hidden;">
                     <img src="PHOTOS/Drones/Best_3.JPG" alt="Photo drone 4K" style="width:100%; height:100%; object-fit:cover; display:block;">
                 </div>
             </div>
@@ -601,6 +632,11 @@
         </div>
     </section>
 
+    <!-- BOUTON RETOUR SITE -->
+    <section style="background:#0f1a1b; padding:40px 0; text-align:center;">
+        <a href="index.html" class="btn btn-primary btn-outline btn-large">Revenir sur le site BnFConsulting</a>
+    </section>
+
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-inner">
@@ -631,8 +667,9 @@
             <div class="fab-section">
                 <p class="fab-label">BnFDrones</p>
                 <a href="#drone-services" class="fab-link">Services</a>
-                <a href="#drone-tarifs" class="fab-link">Tarifs</a>
-                <a href="#drone-contact" class="fab-link">Contact</a>
+                <a href="#drone-portfolio" class="fab-link">Portfolio</a>
+                <a href="#drone-clients" class="fab-link">Nos clients</a>
+                <a href="mailto:bnf.consultingpro@gmail.com" class="fab-link">Contacter</a>
             </div>
             <div class="fab-divider"></div>
             <div class="fab-section">
