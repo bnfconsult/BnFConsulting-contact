@@ -9,6 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        @media (max-width: 768px) {
+            #pdv-photo-desktop { display: none !important; }
+        }
+    </style>
 </head>
 <body>
 
@@ -41,9 +46,17 @@
 
     <!-- STACK VIEWER -->
     <section class="section section-black">
-        <div class="container">
+        <div class="container" style="max-width:1300px;">
 
-            <div class="stack-viewer" id="stackViewer">
+            <div style="display:flex; gap:clamp(24px,3vw,48px); align-items:flex-start;">
+
+                <!-- PHOTO GAUCHE -->
+                <div id="pdv-photo-desktop" style="flex:0 0 clamp(220px,22vw,340px); position:sticky; top:100px; border-radius:16px; overflow:hidden;">
+                    <img src="PHOTOS/unnamed.png" alt="Vue drone" style="width:100%; height:auto; display:block; border-radius:16px;">
+                </div>
+
+                <!-- STACK VIEWER DROITE -->
+                <div class="stack-viewer" id="stackViewer" style="max-width:none; margin:0; flex:1 1 0; min-width:0;">
 
                 <!-- Header navigation -->
                 <div class="stack-nav">
@@ -152,6 +165,8 @@
                 <p class="stack-hint" id="stackHint">Glissez pour avancer →</p>
 
             </div>
+
+            </div><!-- /flex wrapper -->
         </div>
     </section>
 
