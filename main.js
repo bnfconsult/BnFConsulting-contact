@@ -730,4 +730,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    /* ── Formulaire rappel page (AJAX, pas de redirection) ── */
+    var recallForm = document.getElementById('recallForm');
+    if (recallForm) {
+        recallForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var data = new FormData(recallForm);
+            var btn = recallForm.querySelector('button[type="submit"]');
+            btn.textContent = 'Envoi en cours…';
+            btn.disabled = true;
+            fetch(recallForm.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+            .then(function(r) {
+                if (r.ok) {
+                    recallForm.innerHTML = '<p style="text-align:center;color:var(--accent);font-size:1.1rem;padding:30px 0;">✓ Merci ! Nous avons bien reçu votre demande et vous recontacterons sous 24h.</p>';
+                } else {
+                    btn.textContent = 'Envoyer ma demande';
+                    btn.disabled = false;
+                    alert('Une erreur est survenue. Veuillez réessayer.');
+                }
+            })
+            .catch(function() {
+                btn.textContent = 'Envoyer ma demande';
+                btn.disabled = false;
+                alert('Une erreur est survenue. Veuillez réessayer.');
+            });
+        });
+    }
+
 });
