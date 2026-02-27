@@ -2125,6 +2125,11 @@ h1, h2, h3 {
 .presta-category .container,
 .presta-final .container {
     margin-left: 220px;
+    margin-right: 0;
+    max-width: calc(100% - 220px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @media (max-width: 1024px) {
