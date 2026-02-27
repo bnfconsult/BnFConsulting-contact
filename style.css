@@ -2122,7 +2122,10 @@ h1, h2, h3 {
 }
 
 /* Décaler le contenu pour la roue sur grands écrans */
-.presta-category .container,
+.presta-category .container {
+    margin-left: 220px;
+}
+
 .presta-final .container {
     margin-left: 220px;
     margin-right: 0;
@@ -2147,9 +2150,12 @@ h1, h2, h3 {
     .presta-wheel-item.active {
         font-size: 0.82rem;
     }
-    .presta-category .container,
+    .presta-category .container {
+        margin-left: 180px;
+    }
     .presta-final .container {
         margin-left: 180px;
+        max-width: calc(100% - 180px);
     }
 }
 
@@ -2163,6 +2169,7 @@ h1, h2, h3 {
     .presta-category .container,
     .presta-final .container {
         margin-left: auto;
+        max-width: none;
     }
 }
 
