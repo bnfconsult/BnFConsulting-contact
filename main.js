@@ -509,6 +509,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function clear() { chatbotMessages.innerHTML = ''; }
 
+        // --- FORMULAIRE RAPPEL DANS LE CHATBOT ---
+        function showRecallForm() {
+            clear();
+            addBubble('Laissez vos coordonnées, nous vous recontactons sous 24h.');
+            var form = document.createElement('form');
+            form.className = 'cb-form';
+            form.innerHTML = '<input type="text" name="name" placeholder="Votre nom" required>' +
+                '<input type="email" name="email" placeholder="Votre email" required>' +
+                '<input type="tel" name="phone" placeholder="Téléphone">' +
+                '<textarea name="message" rows="2" placeholder="Votre besoin en quelques mots…"></textarea>' +
+                '<input type="hidden" name="_subject" value="Demande de rappel — Chatbot BnFConsulting">' +
+                '<button type="submit" class="cb-cta" style="border:none;cursor:pointer;text-align:center;display:block;width:100%;padding:10px;">Envoyer</button>';
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var data = new FormData(form);
+                fetch('https://formspree.io/f/mbdaboon', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+                .then(function(r) {
+                    if (r.ok) {
+                        clear();
+                        addBubble('Merci ! Nous avons bien reçu votre demande et vous recontacterons très vite.');
+                        addBack();
+                    } else {
+                        addBubble('Une erreur est survenue. Réessayez ou contactez-nous par email.');
+                    }
+                })
+                .catch(function() {
+                    addBubble('Une erreur est survenue. Réessayez ou contactez-nous par email.');
+                });
+            });
+            chatbotMessages.appendChild(form);
+            addBack();
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
         // --- SCÉNARIO 1 : Que fait BnF ? ---
         function showQueFait() {
             clear();
@@ -531,6 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { label: 'Voir le modèle', url: 'index.html#modele' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
+            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
             addBack();
         }
 
@@ -541,6 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { label: 'Notre méthode', url: 'prestations.html' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
+            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
             addBack();
         }
 
@@ -551,6 +587,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { label: 'Cas d\'usage', url: 'index.html#cibles' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
+            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
             addBack();
         }
 
@@ -560,6 +597,7 @@ document.addEventListener('DOMContentLoaded', () => {
             addCTAs([
                 { label: 'Réserver un diagnostic stratégique', url: CAL }
             ]);
+            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
             addBack();
         }
 
@@ -587,6 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
             addCTAs([
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
+            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
             addBack();
         }
 
@@ -597,6 +636,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { label: 'Voir nos prestations', url: 'prestations.html' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
+            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
             addBack();
         }
 
@@ -606,6 +646,7 @@ document.addEventListener('DOMContentLoaded', () => {
             addCTAs([
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
+            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
             addBack();
         }
 
@@ -627,6 +668,7 @@ document.addEventListener('DOMContentLoaded', () => {
             addCTAs([
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
+            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
             addBack();
         }
 
@@ -638,7 +680,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 addButtons([
                     { label: 'Que fait BnF ?', action: showQueFait },
                     { label: 'Comment ça marche ?', action: showComment },
-                    { label: 'J\'ai un besoin précis', action: showBesoin }
+                    { label: 'J\'ai un besoin précis', action: showBesoin },
+                    { label: 'Être rappelé', action: showRecallForm }
                 ]);
             }, 300);
         }
