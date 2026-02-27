@@ -562,7 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Nous analysons votre positionnement, votre visibilité et vos leviers invisibles afin de définir une trajectoire claire.');
             addCTAs([
-                { label: 'Voir le modèle', url: 'index.html#modele' },
+                { label: 'Découvrir nos prestations', url: 'prestations.html#cat-strategie' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
@@ -573,7 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Nous transformons la stratégie en systèmes concrets : automatisation, CRM, organisation, pilotage par la donnée.');
             addCTAs([
-                { label: 'Notre méthode', url: 'prestations.html' },
+                { label: 'Découvrir nos prestations', url: 'prestations.html#cat-operations' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
@@ -584,7 +584,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Nous amplifions ce qui est structuré : SEO, image, visibilité, activation de leviers ciblés.');
             addCTAs([
-                { label: 'Cas d\'usage', url: 'index.html#cibles' },
+                { label: 'Découvrir nos prestations', url: 'prestations.html#cat-croissance' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
@@ -595,7 +595,8 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('L\'audit est notre produit cœur. Il révèle les pertes invisibles, les incohérences internes et les freins à la croissance.');
             addCTAs([
-                { label: 'Réserver un diagnostic stratégique', url: CAL }
+                { label: 'Découvrir nos prestations', url: 'prestations.html#cat-strategie' },
+                { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
             addBack();
@@ -623,6 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Le diagnostic stratégique est un échange de 30 minutes pour identifier vos leviers inexploités, vos pertes invisibles et vos priorités réelles.');
             addCTAs([
+                { label: 'Découvrir nos prestations', url: 'prestations.html#cat-strategie' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
@@ -633,7 +635,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('La structuration transforme vos priorités en plan d\'action concret : process, outils, organisation, indicateurs de pilotage.');
             addCTAs([
-                { label: 'Voir nos prestations', url: 'prestations.html' },
+                { label: 'Découvrir nos prestations', url: 'prestations.html#cat-operations' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
@@ -644,6 +646,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('L\'activation met en mouvement ce qui a été structuré : déploiement, automatisation, visibilité, croissance mesurable.');
             addCTAs([
+                { label: 'Découvrir nos prestations', url: 'prestations.html#cat-croissance' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
@@ -655,17 +658,18 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Quel est votre principal enjeu actuellement ?');
             addButtons([
-                { label: 'Manque de visibilité', action: function() { showBesoinDetail('Votre entreprise a du potentiel mais reste invisible. Nous structurons votre positionnement, votre image et vos canaux pour générer une visibilité cohérente et durable.'); } },
-                { label: 'Organisation interne floue', action: function() { showBesoinDetail('Quand les process sont flous, l\'énergie se disperse. Nous clarifions les rôles, les flux et les outils pour créer un système pilotable.'); } },
-                { label: 'Croissance instable', action: function() { showBesoinDetail('Une croissance sans structure finit par s\'essouffler. Nous identifions les freins cachés et installons les fondations d\'une croissance maîtrisée.'); } },
-                { label: 'Besoin d\'automatisation', action: function() { showBesoinDetail('Les tâches répétitives freinent votre développement. Nous automatisons ce qui peut l\'être pour libérer du temps stratégique.'); } }
+                { label: 'Manque de visibilité', action: function() { showBesoinDetail('Votre entreprise a du potentiel mais reste invisible. Nous structurons votre positionnement, votre image et vos canaux pour générer une visibilité cohérente et durable.', 'prestations.html#cat-croissance'); } },
+                { label: 'Organisation interne floue', action: function() { showBesoinDetail('Quand les process sont flous, l\'énergie se disperse. Nous clarifions les rôles, les flux et les outils pour créer un système pilotable.', 'prestations.html#cat-operations'); } },
+                { label: 'Croissance instable', action: function() { showBesoinDetail('Une croissance sans structure finit par s\'essouffler. Nous identifions les freins cachés et installons les fondations d\'une croissance maîtrisée.', 'prestations.html#cat-strategie'); } },
+                { label: 'Besoin d\'automatisation', action: function() { showBesoinDetail('Les tâches répétitives freinent votre développement. Nous automatisons ce qui peut l\'être pour libérer du temps stratégique.', 'prestations.html#cat-operations'); } }
             ]);
         }
 
-        function showBesoinDetail(text) {
+        function showBesoinDetail(text, prestaUrl) {
             clear();
             addBubble(text);
             addCTAs([
+                { label: 'Découvrir nos prestations', url: prestaUrl },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
