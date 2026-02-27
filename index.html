@@ -190,15 +190,19 @@
     </section>
 
     <!-- SPÉCIALES BNF -->
-    <section class="section section-dark" id="speciales">
-        <div class="container">
+    <section class="section section-dark" id="speciales" style="position:relative; overflow:hidden;">
+        <video autoplay muted loop playsinline style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+            <source src="VIDEOS/Mountain.mp4" type="video/mp4">
+        </video>
+        <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1;"></div>
+        <div class="container" style="position:relative; z-index:2;">
             <p class="section-label">Spéciales BnF</p>
-            <h2 class="section-title">Nos dossiers <span class="accent">thématiques.</span></h2>
+            <h2 class="section-title" style="color:#fff;">Nos dossiers <span class="accent">thématiques.</span></h2>
 
             <div class="speciales-grid">
-                <a href="quiz.html" class="speciale-card">
+                <a href="quiz.html" class="speciale-card" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3);">
                     <span class="speciale-date">Fév 2026</span>
-                    <h3 class="speciale-title">Drones — Perspective stratégique</h3>
+                    <h3 class="speciale-title" style="color:#fff;">Drones — Perspective stratégique</h3>
                     <span class="speciale-arrow">→</span>
                 </a>
             </div>
