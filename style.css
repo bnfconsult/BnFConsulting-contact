@@ -2363,6 +2363,37 @@ h1, h2, h3 {
     z-index: 1001;
 }
 
+.phone-fab {
+    position: fixed;
+    top: 140px;
+    right: 24px;
+    z-index: 1001;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(84, 155, 162, 0.35);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.phone-fab:hover {
+    background: var(--title);
+    transform: scale(1.08);
+    box-shadow: 0 6px 28px rgba(84, 155, 162, 0.5);
+}
+
+.phone-fab svg {
+    width: 22px;
+    height: 22px;
+    fill: #fff;
+}
+
 .chatbot-trigger {
     position: relative;
     width: 48px;
@@ -2643,5 +2674,17 @@ h1, h2, h3 {
 
     .chatbot-tooltip {
         display: none;
+    }
+
+    .phone-fab {
+        top: 124px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .phone-fab svg {
+        width: 20px;
+        height: 20px;
     }
 }
