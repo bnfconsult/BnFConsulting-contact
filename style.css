@@ -1989,7 +1989,8 @@ h1, h2, h3 {
 }
 
 .presta-item {
-    background: var(--card-bg);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: var(--radius-lg);
     padding: 28px;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -1998,16 +1999,17 @@ h1, h2, h3 {
 .presta-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .presta-item h3 {
     font-size: 1.05rem;
-    color: var(--title);
+    color: #fff;
     margin-bottom: 10px;
 }
 
 .presta-item p {
-    color: var(--gray-400);
+    color: rgba(255, 255, 255, 0.55);
     font-size: 0.875rem;
     line-height: 1.7;
 }
