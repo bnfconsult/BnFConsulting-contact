@@ -2613,18 +2613,20 @@ h1, h2, h3 {
 }
 
 .cb-cta {
-    display: inline-block;
+    display: block;
+    width: 100%;
+    text-align: center;
     background: var(--accent);
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-size: 0.72rem;
     font-weight: 600;
-    padding: 8px 16px;
+    padding: 10px 16px;
     border-radius: 8px;
     text-decoration: none;
     margin-top: 4px;
-    margin-right: 6px;
     transition: background 0.2s;
+    box-sizing: border-box;
 }
 
 .cb-cta:hover {

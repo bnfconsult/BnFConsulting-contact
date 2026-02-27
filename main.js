@@ -675,7 +675,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- MESSAGE D'ACCUEIL ---
         function showWelcome() {
             clear();
-            addBubble('Bonjour. Souhaitez-vous comprendre ce que fait BnFConsulting ou comment fonctionne notre système ?');
+            addBubble('Bonjour.<br>Souhaitez-vous comprendre ce que fait BnFConsulting ou comment fonctionne notre système ?');
             setTimeout(function() {
                 addButtons([
                     { label: 'Que fait BnF ?', action: showQueFait },
