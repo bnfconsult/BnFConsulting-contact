@@ -1026,7 +1026,9 @@ h1, h2, h3 {
 }
 
 .target-card {
-    background: rgba(84, 155, 162, 0.06);
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(84, 155, 162, 0.25);
     border-radius: 50px;
     padding: 36px 32px;
@@ -1040,7 +1042,7 @@ h1, h2, h3 {
 .target-card:nth-child(3) { animation-delay: 2.6s; }
 
 .target-card:hover {
-    background: rgba(84, 155, 162, 0.12);
+    background: rgba(0, 0, 0, 0.7);
     border-color: rgba(84, 155, 162, 0.5);
     transform: translateY(-6px);
 }
