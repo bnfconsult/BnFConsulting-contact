@@ -659,8 +659,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        chatbotPanel.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
         document.addEventListener('click', function(e) {
-            if (!chatbotPanel.contains(e.target) && !chatbotTrigger.contains(e.target)) {
+            if (!chatbotTrigger.contains(e.target)) {
                 chatbotPanel.classList.remove('open');
             }
         });
