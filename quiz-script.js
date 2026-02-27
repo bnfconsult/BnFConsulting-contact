@@ -84,8 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
             label: 'Votre recommandation',
             title: 'Votre priorité : renforcer votre image.',
             text: 'Une direction artistique, des visuels professionnels et un plan drone structuré peuvent transformer votre perception.',
-            ctaText: 'Contacter BnFConsulting',
-            ctaUrl: 'mailto:bnfconsulting.contact@gmail.com',
+            ctaText: 'Prendre rendez-vous',
+            ctaUrl: 'https://calendar.app.google/owbWjVDz11BNwd2V6',
             ctaType: 'primary'
         },
         C: {
@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
             label: 'Votre recommandation',
             title: 'Votre priorité : structurer vos systèmes.',
             text: 'L\'automatisation et l\'intégration d\'IA peuvent vous faire gagner du temps et optimiser vos processus.',
-            ctaText: 'Contacter BnFConsulting',
-            ctaUrl: 'mailto:bnfconsulting.contact@gmail.com',
+            ctaText: 'Prendre rendez-vous',
+            ctaUrl: 'https://calendar.app.google/owbWjVDz11BNwd2V6',
             ctaType: 'primary'
         },
         E: {

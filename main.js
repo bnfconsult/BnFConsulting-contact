@@ -172,8 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon: '🎯',
                 title: 'Votre priorité : renforcer votre image.',
                 text: 'Direction artistique, visuels professionnels et plan drone peuvent transformer votre perception.',
-                ctaText: 'Contacter BnFConsulting',
-                ctaUrl: 'mailto:bnfconsulting.contact@gmail.com'
+                ctaText: 'Prendre rendez-vous',
+                ctaUrl: 'https://calendar.app.google/owbWjVDz11BNwd2V6'
             },
             C: {
                 icon: '🧭',
@@ -186,8 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon: '⚙️',
                 title: 'Votre priorité : structurer vos systèmes.',
                 text: 'L\'automatisation et l\'IA peuvent vous faire gagner du temps et optimiser vos processus.',
-                ctaText: 'Contacter BnFConsulting',
-                ctaUrl: 'mailto:bnfconsulting.contact@gmail.com'
+                ctaText: 'Prendre rendez-vous',
+                ctaUrl: 'https://calendar.app.google/owbWjVDz11BNwd2V6'
             },
             E: {
                 icon: '📊',
@@ -712,9 +712,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Tooltip on #probleme (index.html only)
-        var problemeSection = document.getElementById('probleme');
-        if (problemeSection && chatbotTooltip) {
+        // Tooltip chatbot on #cibles (Cas d'usage — index.html only)
+        var ciblesSection = document.getElementById('cibles');
+        if (ciblesSection && chatbotTooltip) {
             var tooltipObserver = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
@@ -722,11 +722,35 @@ document.addEventListener('DOMContentLoaded', () => {
                         setTimeout(function() {
                             chatbotTooltip.classList.remove('visible');
                         }, 4000);
-                        tooltipObserver.unobserve(problemeSection);
+                        tooltipObserver.unobserve(ciblesSection);
                     }
                 });
             }, { threshold: 0.2 });
-            tooltipObserver.observe(problemeSection);
+            tooltipObserver.observe(ciblesSection);
+        }
+
+        // Tooltip téléphone on #modele (Trois piliers — index.html only)
+        var phoneFab = document.querySelector('.phone-fab');
+        var modeleSection = document.getElementById('modele');
+        if (modeleSection && phoneFab) {
+            // Créer le tooltip
+            var phoneTooltip = document.createElement('span');
+            phoneTooltip.className = 'phone-tooltip';
+            phoneTooltip.textContent = 'Prendre rendez-vous';
+            phoneFab.appendChild(phoneTooltip);
+
+            var phoneObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        phoneTooltip.classList.add('visible');
+                        setTimeout(function() {
+                            phoneTooltip.classList.remove('visible');
+                        }, 4000);
+                        phoneObserver.unobserve(modeleSection);
+                    }
+                });
+            }, { threshold: 0.2 });
+            phoneObserver.observe(modeleSection);
         }
     }
 
