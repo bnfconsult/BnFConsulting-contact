@@ -450,38 +450,229 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
-    // --- Chatbot ---
+    // --- Chatbot scénarisé ---
     const chatbotTrigger = document.getElementById('chatbotTrigger');
     const chatbotPanel = document.getElementById('chatbotPanel');
     const chatbotClose = document.getElementById('chatbotClose');
     const chatbotTooltip = document.getElementById('chatbotTooltip');
+    const chatbotMessages = document.getElementById('chatbotMessages');
 
-    if (chatbotTrigger && chatbotPanel) {
-        chatbotTrigger.addEventListener('click', (e) => {
+    if (chatbotTrigger && chatbotPanel && chatbotMessages) {
+
+        const CAL = 'https://calendar.app.google/owbWjVDz11BNwd2V6';
+
+        function addBubble(text) {
+            var b = document.createElement('div');
+            b.className = 'cb-bubble';
+            b.innerHTML = text;
+            chatbotMessages.appendChild(b);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function addButtons(btns) {
+            var wrap = document.createElement('div');
+            wrap.className = 'cb-buttons';
+            btns.forEach(function(item) {
+                var btn = document.createElement('button');
+                btn.className = 'cb-btn';
+                btn.textContent = item.label;
+                btn.addEventListener('click', function() { item.action(); });
+                wrap.appendChild(btn);
+            });
+            chatbotMessages.appendChild(wrap);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function addCTAs(ctas) {
+            var wrap = document.createElement('div');
+            wrap.style.cssText = 'animation:cbFadeIn 0.3s ease;';
+            ctas.forEach(function(c) {
+                var a = document.createElement('a');
+                a.className = 'cb-cta';
+                a.textContent = c.label;
+                a.href = c.url;
+                if (c.url.indexOf('http') === 0) { a.target = '_blank'; a.rel = 'noopener'; }
+                wrap.appendChild(a);
+            });
+            chatbotMessages.appendChild(wrap);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function addBack() {
+            var btn = document.createElement('button');
+            btn.className = 'cb-back';
+            btn.textContent = '← Revenir au menu';
+            btn.addEventListener('click', function() { showWelcome(); });
+            chatbotMessages.appendChild(btn);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        function clear() { chatbotMessages.innerHTML = ''; }
+
+        // --- SCÉNARIO 1 : Que fait BnF ? ---
+        function showQueFait() {
+            clear();
+            addBubble('BnFConsulting orchestre stratégie, opérations et croissance pour transformer des structures dispersées en systèmes cohérents et pilotables.');
+            setTimeout(function() {
+                addBubble('Sur quel axe souhaitez-vous en savoir plus ?');
+                addButtons([
+                    { label: 'Stratégie', action: showStrategie },
+                    { label: 'Opérations', action: showOperations },
+                    { label: 'Croissance', action: showCroissance },
+                    { label: 'Audit stratégique', action: showAudit }
+                ]);
+            }, 400);
+        }
+
+        function showStrategie() {
+            clear();
+            addBubble('Nous analysons votre positionnement, votre visibilité et vos leviers invisibles afin de définir une trajectoire claire.');
+            addCTAs([
+                { label: 'Voir le modèle', url: 'index.html#modele' },
+                { label: 'Réserver un diagnostic', url: CAL }
+            ]);
+            addBack();
+        }
+
+        function showOperations() {
+            clear();
+            addBubble('Nous transformons la stratégie en systèmes concrets : automatisation, CRM, organisation, pilotage par la donnée.');
+            addCTAs([
+                { label: 'Notre méthode', url: 'prestations.html' },
+                { label: 'Réserver un diagnostic', url: CAL }
+            ]);
+            addBack();
+        }
+
+        function showCroissance() {
+            clear();
+            addBubble('Nous amplifions ce qui est structuré : SEO, image, visibilité, activation de leviers ciblés.');
+            addCTAs([
+                { label: 'Cas d\'usage', url: 'index.html#cibles' },
+                { label: 'Réserver un diagnostic', url: CAL }
+            ]);
+            addBack();
+        }
+
+        function showAudit() {
+            clear();
+            addBubble('L\'audit est notre produit cœur. Il révèle les pertes invisibles, les incohérences internes et les freins à la croissance.');
+            addCTAs([
+                { label: 'Réserver un diagnostic stratégique', url: CAL }
+            ]);
+            addBack();
+        }
+
+        // --- SCÉNARIO 2 : Comment ça marche ? ---
+        function showComment() {
+            clear();
+            addBubble('Chaque entreprise suit un parcours structuré :');
+            setTimeout(function() {
+                addBubble('1. Diagnostic stratégique<br>2. Identification des priorités<br>3. Structuration opérationnelle<br>4. Activation des leviers<br>5. Pilotage par la data');
+                setTimeout(function() {
+                    addBubble('Souhaitez-vous comprendre une étape en détail ?');
+                    addButtons([
+                        { label: 'Le diagnostic', action: showDiagnostic },
+                        { label: 'La structuration', action: showStructuration },
+                        { label: 'L\'activation', action: showActivation },
+                        { label: 'Prendre rendez-vous', action: function() { window.open(CAL, '_blank'); } }
+                    ]);
+                }, 300);
+            }, 400);
+        }
+
+        function showDiagnostic() {
+            clear();
+            addBubble('Le diagnostic stratégique est un échange de 30 minutes pour identifier vos leviers inexploités, vos pertes invisibles et vos priorités réelles.');
+            addCTAs([
+                { label: 'Réserver un diagnostic', url: CAL }
+            ]);
+            addBack();
+        }
+
+        function showStructuration() {
+            clear();
+            addBubble('La structuration transforme vos priorités en plan d\'action concret : process, outils, organisation, indicateurs de pilotage.');
+            addCTAs([
+                { label: 'Voir nos prestations', url: 'prestations.html' },
+                { label: 'Réserver un diagnostic', url: CAL }
+            ]);
+            addBack();
+        }
+
+        function showActivation() {
+            clear();
+            addBubble('L\'activation met en mouvement ce qui a été structuré : déploiement, automatisation, visibilité, croissance mesurable.');
+            addCTAs([
+                { label: 'Réserver un diagnostic', url: CAL }
+            ]);
+            addBack();
+        }
+
+        // --- SCÉNARIO 3 : J'ai un besoin précis ---
+        function showBesoin() {
+            clear();
+            addBubble('Quel est votre principal enjeu actuellement ?');
+            addButtons([
+                { label: 'Manque de visibilité', action: function() { showBesoinDetail('Votre entreprise a du potentiel mais reste invisible. Nous structurons votre positionnement, votre image et vos canaux pour générer une visibilité cohérente et durable.'); } },
+                { label: 'Organisation interne floue', action: function() { showBesoinDetail('Quand les process sont flous, l\'énergie se disperse. Nous clarifions les rôles, les flux et les outils pour créer un système pilotable.'); } },
+                { label: 'Croissance instable', action: function() { showBesoinDetail('Une croissance sans structure finit par s\'essouffler. Nous identifions les freins cachés et installons les fondations d\'une croissance maîtrisée.'); } },
+                { label: 'Besoin d\'automatisation', action: function() { showBesoinDetail('Les tâches répétitives freinent votre développement. Nous automatisons ce qui peut l\'être pour libérer du temps stratégique.'); } }
+            ]);
+        }
+
+        function showBesoinDetail(text) {
+            clear();
+            addBubble(text);
+            addCTAs([
+                { label: 'Réserver un diagnostic', url: CAL }
+            ]);
+            addBack();
+        }
+
+        // --- MESSAGE D'ACCUEIL ---
+        function showWelcome() {
+            clear();
+            addBubble('Bonjour. Souhaitez-vous comprendre ce que fait BnFConsulting ou comment fonctionne notre système ?');
+            setTimeout(function() {
+                addButtons([
+                    { label: 'Que fait BnF ?', action: showQueFait },
+                    { label: 'Comment ça marche ?', action: showComment },
+                    { label: 'J\'ai un besoin précis', action: showBesoin }
+                ]);
+            }, 300);
+        }
+
+        // Init
+        showWelcome();
+
+        // Toggle panel
+        chatbotTrigger.addEventListener('click', function(e) {
             e.stopPropagation();
             chatbotPanel.classList.toggle('open');
             if (chatbotTooltip) chatbotTooltip.classList.remove('visible');
         });
 
         if (chatbotClose) {
-            chatbotClose.addEventListener('click', () => {
+            chatbotClose.addEventListener('click', function() {
                 chatbotPanel.classList.remove('open');
             });
         }
 
-        document.addEventListener('click', (e) => {
+        document.addEventListener('click', function(e) {
             if (!chatbotPanel.contains(e.target) && !chatbotTrigger.contains(e.target)) {
                 chatbotPanel.classList.remove('open');
             }
         });
 
-        const problemeSection = document.getElementById('probleme');
+        // Tooltip on #probleme (index.html only)
+        var problemeSection = document.getElementById('probleme');
         if (problemeSection && chatbotTooltip) {
-            const tooltipObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
+            var tooltipObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
                         chatbotTooltip.classList.add('visible');
-                        setTimeout(() => {
+                        setTimeout(function() {
                             chatbotTooltip.classList.remove('visible');
                         }, 4000);
                         tooltipObserver.unobserve(problemeSection);
