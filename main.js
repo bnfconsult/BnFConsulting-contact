@@ -450,4 +450,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
+    // --- Chatbot ---
+    const chatbotTrigger = document.getElementById('chatbotTrigger');
+    const chatbotPanel = document.getElementById('chatbotPanel');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotTooltip = document.getElementById('chatbotTooltip');
+
+    if (chatbotTrigger && chatbotPanel) {
+        chatbotTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            chatbotPanel.classList.toggle('open');
+            if (chatbotTooltip) chatbotTooltip.classList.remove('visible');
+        });
+
+        if (chatbotClose) {
+            chatbotClose.addEventListener('click', () => {
+                chatbotPanel.classList.remove('open');
+            });
+        }
+
+        document.addEventListener('click', (e) => {
+            if (!chatbotPanel.contains(e.target) && !chatbotTrigger.contains(e.target)) {
+                chatbotPanel.classList.remove('open');
+            }
+        });
+
+        const problemeSection = document.getElementById('probleme');
+        if (problemeSection && chatbotTooltip) {
+            const tooltipObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        chatbotTooltip.classList.add('visible');
+                        setTimeout(() => {
+                            chatbotTooltip.classList.remove('visible');
+                        }, 4000);
+                        tooltipObserver.unobserve(problemeSection);
+                    }
+                });
+            }, { threshold: 0.2 });
+            tooltipObserver.observe(problemeSection);
+        }
+    }
+
 });
