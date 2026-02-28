@@ -622,7 +622,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function showDiagnostic() {
             clear();
-            addBubble('Le diagnostic stratégique est un échange de 30 minutes pour identifier vos leviers inexploités, vos pertes invisibles et vos priorités réelles.');
+            addBubble('Le diagnostic stratégique est un échange de 30 minutes pour identifier vos leviers inexploités, vos pertes invisibles et vos priorités réelles.<br><br>Il se suit d\'un audit digital qui se résulte en un rapport de développement stratégique.');
             addCTAs([
                 { label: 'Découvrir nos prestations', url: 'prestations.html#cat-strategie' },
                 { label: 'Réserver un diagnostic', url: CAL }

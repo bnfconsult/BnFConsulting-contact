@@ -1733,7 +1733,7 @@ h1, h2, h3 {
 }
 
 .hero-dossier + .section {
-    padding-top: 0;
+    padding-top: clamp(3rem, 5vw, 5rem);
 }
 
 /* Hint */
