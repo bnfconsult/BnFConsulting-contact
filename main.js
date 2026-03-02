@@ -758,6 +758,83 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    /* ── Dossiers Spéciales BnF ── */
+    document.querySelectorAll('.dossier-toggle').forEach(function(toggle) {
+        toggle.addEventListener('click', function() {
+            var dossierId = toggle.getAttribute('data-dossier');
+            var expand = document.getElementById('dossier-expand-' + dossierId);
+            if (!expand) return;
+
+            var isOpen = toggle.classList.contains('open');
+            if (isOpen) {
+                toggle.classList.remove('open');
+                expand.classList.remove('open');
+                expand.style.maxHeight = '0';
+            } else {
+                toggle.classList.add('open');
+                expand.classList.add('open');
+                expand.style.maxHeight = expand.scrollHeight + 'px';
+            }
+        });
+    });
+
+    // Set flip card height based on tallest face
+    function updateFlipHeight(dossierId) {
+        var flipCard = document.getElementById('dossier-flip-' + dossierId);
+        if (!flipCard) return;
+        var front = flipCard.querySelector('.dossier-flip-front');
+        var back = flipCard.querySelector('.dossier-flip-back');
+        // Temporarily make back position static to measure
+        back.style.position = 'static';
+        back.style.transform = 'none';
+        var backH = back.offsetHeight;
+        back.style.position = '';
+        back.style.transform = '';
+        var frontH = front.offsetHeight;
+        var maxH = Math.max(frontH, backH);
+        flipCard.style.minHeight = maxH + 'px';
+    }
+
+    document.querySelectorAll('.dossier-tab').forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            var dossierId = tab.getAttribute('data-dossier');
+            var tabType = tab.getAttribute('data-tab');
+            var flipCard = document.getElementById('dossier-flip-' + dossierId);
+            var expand = document.getElementById('dossier-expand-' + dossierId);
+            if (!flipCard) return;
+
+            // Update active tab
+            tab.closest('.dossier-tabs').querySelectorAll('.dossier-tab').forEach(function(t) {
+                t.classList.remove('active');
+            });
+            tab.classList.add('active');
+
+            // Flip the card
+            if (tabType === 'article') {
+                flipCard.classList.add('flipped');
+            } else {
+                flipCard.classList.remove('flipped');
+            }
+
+            // Recalculate heights after flip transition
+            setTimeout(function() {
+                updateFlipHeight(dossierId);
+                if (expand && expand.classList.contains('open')) {
+                    expand.style.maxHeight = expand.scrollHeight + 'px';
+                }
+            }, 750);
+        });
+    });
+
+    // Init flip card heights on image load
+    document.querySelectorAll('.dossier-infographie').forEach(function(img) {
+        var wrapper = img.closest('.dossier-wrapper');
+        if (!wrapper) return;
+        var dossierId = wrapper.id.replace('dossier-', '');
+        img.addEventListener('load', function() { updateFlipHeight(dossierId); });
+        if (img.complete) updateFlipHeight(dossierId);
+    });
+
     /* ── Formulaire rappel page (AJAX, pas de redirection) ── */
     var recallForm = document.getElementById('recallForm');
     if (recallForm) {

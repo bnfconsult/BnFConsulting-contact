@@ -204,11 +204,35 @@
             <h2 class="section-title" style="color:#fff;">Nos dossiers <span class="accent">thématiques.</span></h2>
 
             <div class="speciales-grid">
-                <a href="quiz.html" class="speciale-card" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3);">
-                    <span class="speciale-date">Fév 2026</span>
-                    <h3 class="speciale-title" style="color:#fff;">Drones — Perspective stratégique</h3>
-                    <span class="speciale-arrow">→</span>
-                </a>
+
+                <!-- DOSSIER FÉV 2026 -->
+                <div class="dossier-wrapper" id="dossier-fev2026">
+                    <button class="speciale-card dossier-toggle" data-dossier="fev2026" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; cursor:pointer;">
+                        <span class="speciale-date">Dossier — Fév 2026</span>
+                        <h3 class="speciale-title" style="color:#fff;">Drones — Perspective stratégique</h3>
+                        <span class="speciale-arrow dossier-arrow">▼</span>
+                    </button>
+
+                    <div class="dossier-expand" id="dossier-expand-fev2026">
+                        <div class="dossier-tabs">
+                            <button class="dossier-tab active" data-tab="infographie" data-dossier="fev2026">Infographie</button>
+                            <button class="dossier-tab" data-tab="article" data-dossier="fev2026">Article</button>
+                        </div>
+                        <div class="dossier-flip-container">
+                            <div class="dossier-flip-card" id="dossier-flip-fev2026">
+                                <div class="dossier-flip-front">
+                                    <img src="PHOTOS/unnamed.png" alt="Infographie Drones — Perspective stratégique" class="dossier-infographie">
+                                </div>
+                                <div class="dossier-flip-back">
+                                    <div class="dossier-article-content">
+                                        <p>XXXXX</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
