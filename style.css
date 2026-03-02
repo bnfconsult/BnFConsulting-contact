@@ -2799,8 +2799,21 @@ h1, h2, h3 {
 }
 
 .dossier-flip-front {
+    position: relative;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(84, 155, 162, 0.2);
+}
+
+.dossier-credit {
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    color: #549BA2;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: inherit;
 }
 
 .dossier-flip-back {
