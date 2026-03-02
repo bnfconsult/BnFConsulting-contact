@@ -2808,10 +2808,8 @@ h1, h2, h3 {
     top: 0;
     left: 0;
     transform: rotateY(180deg);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(10, 10, 10, 0.97);
     border: 1px solid rgba(84, 155, 162, 0.2);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
 }
 
 .dossier-infographie {
