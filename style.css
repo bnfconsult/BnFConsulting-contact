@@ -2848,6 +2848,31 @@ h1, h2, h3 {
     margin-bottom: 1rem;
 }
 
+.dossier-article-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.dossier-article-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.dossier-article-content ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.dossier-article-content ul li strong {
+    color: #fff;
+}
+
 @media (max-width: 768px) {
     .dossier-tab {
         font-size: 0.72rem;

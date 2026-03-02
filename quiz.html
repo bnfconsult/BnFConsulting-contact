@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BnFConsulting — Drones : Perspective stratégique</title>
-    <meta name="description" content="Dossier spécial BnFConsulting : le drone comme outil stratégique pour votre image et votre communication.">
+    <title>BnFConsulting — Spéciales BnF</title>
+    <meta name="description" content="Les dossiers thématiques BnFConsulting : analyses stratégiques exclusives.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -29,29 +29,67 @@
         </div>
     </nav>
 
-    <!-- HERO DOSSIER -->
+    <!-- HERO -->
     <section class="section section-black hero-dossier">
         <div class="container">
-            <p class="section-label">Dossier — Fév 2026</p>
-            <h1 class="section-title">Drones — <span class="accent">Perspective stratégique</span></h1>
-            <p class="section-intro">Voir autrement. Décider mieux.</p>
+            <p class="section-label">Spéciales BnF</p>
+            <h1 class="section-title">Nos dossiers <span class="accent">thématiques.</span></h1>
         </div>
     </section>
 
-    <!-- INFOGRAPHIE -->
-    <section style="background:#000; padding:0;">
-        <div style="max-width:900px; margin:0 auto; padding:clamp(40px,6vw,80px) 24px;">
-            <img src="PHOTOS/unnamed.png" alt="Infographie — Perspective stratégique drone" style="width:100%; height:auto; display:block; border-radius:16px;">
+    <!-- DOSSIERS -->
+    <section class="section section-dark" style="padding-top:0;">
+        <div class="container" style="max-width:900px;">
 
-            <!-- CTA -->
-            <div style="text-align:center; padding:clamp(40px,5vw,64px) 0 0;">
-                <p style="font-family:Georgia,serif; font-size:clamp(1.3rem,2.5vw,1.8rem); color:#fff; margin-bottom:24px;">Envie d'intégrer ce levier dans votre stratégie ?</p>
-                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" style="display:inline-block; padding:14px 32px; background:#549ba2; color:#fff; border-radius:10px; font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:600; text-decoration:none; letter-spacing:0.02em; transition:background 0.3s;" onmouseenter="this.style.background='#235357'" onmouseleave="this.style.background='#549ba2'">Réserver un diagnostic stratégique</a>
-                <div style="margin-top:32px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-                    <a href="index.html" style="display:inline-block; padding:10px 24px; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.7); border-radius:8px; font-family:Montserrat,sans-serif; font-size:0.8rem; font-weight:500; text-decoration:none; transition:all 0.3s;" onmouseenter="this.style.borderColor='#549ba2'; this.style.color='#fff'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.color='rgba(255,255,255,0.7)'">Revenir sur le site BnFConsulting</a>
-                    <a href="drones.html" style="display:inline-block; padding:10px 24px; border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.7); border-radius:8px; font-family:Montserrat,sans-serif; font-size:0.8rem; font-weight:500; text-decoration:none; transition:all 0.3s;" onmouseenter="this.style.borderColor='#549ba2'; this.style.color='#fff'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.2)'; this.style.color='rgba(255,255,255,0.7)'">Revenir sur BnFDrones</a>
+            <!-- DOSSIER FÉV 2026 -->
+            <div class="dossier-wrapper" id="dossier-fev2026">
+                <button class="speciale-card dossier-toggle" data-dossier="fev2026" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; cursor:pointer;">
+                    <span class="speciale-date">Dossier — Fév 2026</span>
+                    <h3 class="speciale-title" style="color:#fff;">Drones — Perspective stratégique</h3>
+                    <p style="color:rgba(255,255,255,0.5); font-size:0.9rem; margin-top:4px;">Voir autrement. Décider mieux.</p>
+                    <span class="speciale-arrow dossier-arrow">▼</span>
+                </button>
+
+                <div class="dossier-expand" id="dossier-expand-fev2026">
+                    <div class="dossier-tabs">
+                        <button class="dossier-tab active" data-tab="infographie" data-dossier="fev2026">Infographie</button>
+                        <button class="dossier-tab" data-tab="article" data-dossier="fev2026">Article</button>
+                    </div>
+                    <div class="dossier-flip-container">
+                        <div class="dossier-flip-card" id="dossier-flip-fev2026">
+                            <div class="dossier-flip-front">
+                                <img src="PHOTOS/unnamed.png" alt="Infographie Drones — Perspective stratégique" class="dossier-infographie">
+                            </div>
+                            <div class="dossier-flip-back">
+                                <div class="dossier-article-content">
+                                    <h2>Voir son activité d'en haut</h2>
+                                    <h3>Image, vision et décision stratégique</h3>
+                                    <p>Vous n'avez pas besoin de produire plus. Vous avez besoin de voir autrement.</p>
+                                    <p>Le drone n'est pas un gadget. C'est une décision stratégique BnF qui révèle la clarté là où le marketing uniforme crée du bruit.</p>
+                                    <h3>Le piège de l'uniformité</h3>
+                                    <p>Même formats, mêmes vidéos, mêmes discours : saturation, indifférence, invisibilité. Produire plus dilue. La hauteur différencie.</p>
+                                    <h3>Ce que la vue drone révèle</h3>
+                                    <ul>
+                                        <li><strong>Extérieur :</strong> Accessibilité, environnement concurrentiel, positionnement réel.</li>
+                                        <li><strong>Intérieur :</strong> Expérience client, cohérence visuelle, opportunités cachées.</li>
+                                    </ul>
+                                    <p>Elle expose freins, attractivité et espaces sous-exploités. Pas pour épater, pour décider.</p>
+                                    <h3>Une stratégie, pas un effet</h3>
+                                    <p>Intégrez le drone à votre narration : série éditoriale, fil visuel, axe de marque. Pertinent pour restaurants, boutiques, lieux physiques où l'espace vend la valeur. Inutile sans vision : évitez le "comme tout le monde".</p>
+                                    <h3>Maîtrisez les règles</h3>
+                                    <p>Zones interdites, assurances, droit à l'image : BnF gère la conformité pour une image irréprochable.</p>
+                                    <p><strong>BnF transforme la hauteur en levier unique : clarté → décision → croissance différenciée.</strong></p>
+                                    <div style="margin-top:2rem; display:flex; gap:12px; flex-wrap:wrap;">
+                                        <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary">Contactez BnF</a>
+                                        <a href="prestations.html" class="btn btn-outline" style="border:1px solid rgba(84,155,162,0.5); color:var(--accent); padding:12px 24px; border-radius:10px; text-decoration:none; font-size:0.85rem; font-weight:600; transition:all 0.3s;">Découvrez l'écosystème BnF</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </section>
 
