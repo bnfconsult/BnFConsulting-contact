@@ -198,6 +198,39 @@ h1, h2, h3 {
     background: var(--title) !important;
 }
 
+/* Language toggle FR/EN */
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 8px;
+}
+
+.lang-link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    transition: color var(--transition);
+    padding: 4px 2px;
+}
+
+.lang-link:hover {
+    color: var(--white);
+}
+
+.lang-link.active {
+    color: var(--white);
+}
+
+.lang-sep {
+    color: rgba(255,255,255,0.25);
+    font-size: 0.8rem;
+    font-weight: 300;
+    user-select: none;
+}
+
 /* Mobile toggle */
 .nav-toggle {
     display: none;
