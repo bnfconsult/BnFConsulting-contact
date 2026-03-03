@@ -2344,12 +2344,20 @@ h1, h2, h3 {
 
     .modele-card {
         position: sticky !important;
-        top: calc(120px + var(--modele-index) * 16px) !important;
+        top: calc(160px + var(--modele-index) * 16px) !important;
         max-width: 100% !important;
         z-index: calc(var(--modele-index) + 1);
         margin-bottom: 20px;
         background: rgba(20, 20, 20, 0.98) !important;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Dossier credit — petit sur mobile */
+    .dossier-credit {
+        font-size: 0.55rem;
+        bottom: 8px;
+        right: 10px;
+        letter-spacing: 0.05em;
     }
 }
 

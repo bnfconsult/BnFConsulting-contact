@@ -795,21 +795,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Set flip card height based on tallest face
+    // Set flip card height based on active face
     function updateFlipHeight(dossierId) {
         var flipCard = document.getElementById('dossier-flip-' + dossierId);
         if (!flipCard) return;
         var front = flipCard.querySelector('.dossier-flip-front');
         var back = flipCard.querySelector('.dossier-flip-back');
-        // Temporarily make back position static to measure
-        back.style.position = 'static';
-        back.style.transform = 'none';
-        var backH = back.offsetHeight;
-        back.style.position = '';
-        back.style.transform = '';
-        var frontH = front.offsetHeight;
-        var maxH = Math.max(frontH, backH);
-        flipCard.style.minHeight = maxH + 'px';
+        var isFlipped = flipCard.classList.contains('flipped');
+        if (isFlipped) {
+            // Article mode — measure back
+            back.style.position = 'static';
+            back.style.transform = 'none';
+            var activeH = back.offsetHeight;
+            back.style.position = '';
+            back.style.transform = '';
+        } else {
+            // Infographie mode — measure front
+            var activeH = front.offsetHeight;
+        }
+        flipCard.style.minHeight = activeH + 'px';
     }
 
     document.querySelectorAll('.dossier-tab').forEach(function(tab) {
