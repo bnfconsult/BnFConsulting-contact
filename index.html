@@ -70,50 +70,60 @@
         </div>
     </section>
 
-    <!-- LE PROBLÈME DU MARCHÉ -->
-    <section class="section section-black" id="probleme" style="padding-bottom:0;">
-        <div class="container">
+    <!-- LE PROBLÈME DU MARCHÉ — STACKING CARDS -->
+    <section class="section section-black" id="probleme" style="padding-bottom:clamp(2rem,4vw,4rem);">
+        <div class="container" style="max-width:800px; text-align:center;">
             <p class="section-label">Le problème du marché</p>
-            <h2 class="section-title">Les entreprises ne manquent pas d'actions.<br><span class="accent">Elles manquent de cohérence structurelle.</span></h2>
+            <h2 class="section-title" style="margin-bottom:1.5rem;">Les entreprises ne manquent pas d'actions.<br><span class="accent">Elles manquent de cohérence structurelle.</span></h2>
+            <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.9rem,1.4vw,1.05rem); line-height:1.7; max-width:550px; margin:0 auto;">La plupart des entreprises ne manquent ni d'énergie, ni de compétences. Elles manquent d'architecture.</p>
         </div>
     </section>
 
-    <!-- QUAND LA STRUCTURE DISPARAÎT -->
-    <section class="section section-dark" id="structure-disparait" style="padding-top:clamp(1.5rem,3vw,2.5rem); padding-bottom:clamp(3rem,6vw,6rem);">
-        <div class="container" style="max-width:800px; text-align:center;">
-            <h2 style="font-family:Georgia,'Times New Roman',serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.35; margin-bottom:1.5rem;">Quand la structure disparaît,<br><span class="accent" style="font-weight:600;">la complexité prend le contrôle.</span></h2>
-            <p style="color:rgba(255,255,255,0.55); font-size:clamp(0.9rem,1.5vw,1.05rem); line-height:1.7; max-width:600px; margin:0 auto;">La plupart des entreprises ne manquent ni d'énergie, ni de compétences.<br>Elles manquent d'architecture.</p>
+    <section class="stacking-section" id="structure-disparait">
+        <div class="stacking-header">
+            <h2 class="stacking-title">Quand la structure disparaît,<br><span class="accent">la complexité prend le contrôle.</span></h2>
+        </div>
 
-            <div style="margin-top:clamp(3rem,6vw,5rem); display:flex; flex-direction:column; gap:clamp(2.5rem,5vw,4rem);">
-
-                <div class="manifeste-bloc">
-                    <p class="manifeste-mot">SILOS</p>
-                    <p class="manifeste-texte">Chaque service avance de son côté. Les décisions se multiplient, mais la cohérence disparaît.</p>
+        <div class="stacking-cards-container">
+            <div class="stacking-card" style="--card-index:0;">
+                <div class="stacking-card-inner">
+                    <p class="stacking-card-num">01</p>
+                    <h3 class="stacking-card-mot">SILOS</h3>
+                    <p class="stacking-card-texte">Chaque service avance de son côté. Les décisions se multiplient, mais la cohérence disparaît.</p>
                 </div>
-
-                <div class="manifeste-bloc">
-                    <p class="manifeste-mot">IMPROVISATION</p>
-                    <p class="manifeste-texte">Des initiatives sont lancées sans cadre structurant. L'exécution précède la réflexion.</p>
-                </div>
-
-                <div class="manifeste-bloc">
-                    <p class="manifeste-mot">OPACITÉ</p>
-                    <p class="manifeste-texte">Les données existent, mais elles n'éclairent rien. Les décisions deviennent intuitives.</p>
-                </div>
-
-                <div class="manifeste-bloc">
-                    <p class="manifeste-mot">DÉSALIGNEMENT</p>
-                    <p class="manifeste-texte">L'image, l'opérationnel et la stratégie évoluent à des rythmes différents.</p>
-                </div>
-
-                <div class="manifeste-bloc">
-                    <p class="manifeste-mot">FRAGILITÉ</p>
-                    <p class="manifeste-texte">La croissance est réelle, mais elle repose sur une base instable.</p>
-                </div>
-
             </div>
+            <div class="stacking-card" style="--card-index:1;">
+                <div class="stacking-card-inner">
+                    <p class="stacking-card-num">02</p>
+                    <h3 class="stacking-card-mot">IMPROVISATION</h3>
+                    <p class="stacking-card-texte">Des initiatives sont lancées sans cadre structurant. L'exécution précède la réflexion.</p>
+                </div>
+            </div>
+            <div class="stacking-card" style="--card-index:2;">
+                <div class="stacking-card-inner">
+                    <p class="stacking-card-num">03</p>
+                    <h3 class="stacking-card-mot">OPACITÉ</h3>
+                    <p class="stacking-card-texte">Les données existent, mais elles n'éclairent rien. Les décisions deviennent intuitives.</p>
+                </div>
+            </div>
+            <div class="stacking-card" style="--card-index:3;">
+                <div class="stacking-card-inner">
+                    <p class="stacking-card-num">04</p>
+                    <h3 class="stacking-card-mot">DÉSALIGNEMENT</h3>
+                    <p class="stacking-card-texte">L'image, l'opérationnel et la stratégie évoluent à des rythmes différents.</p>
+                </div>
+            </div>
+            <div class="stacking-card" style="--card-index:4;">
+                <div class="stacking-card-inner">
+                    <p class="stacking-card-num">05</p>
+                    <h3 class="stacking-card-mot">FRAGILITÉ</h3>
+                    <p class="stacking-card-texte">La croissance est réelle, mais elle repose sur une base instable.</p>
+                </div>
+            </div>
+        </div>
 
-            <p style="font-family:Georgia,'Times New Roman',serif; font-size:clamp(1.1rem,2.5vw,1.5rem); color:rgba(255,255,255,0.9); margin-top:clamp(3rem,6vw,5rem); font-weight:400; line-height:1.5;">Sans structure, la croissance finit toujours par ralentir.</p>
+        <div class="stacking-footer">
+            <p class="stacking-closing">Sans structure, la croissance finit toujours par ralentir.</p>
         </div>
     </section>
 
