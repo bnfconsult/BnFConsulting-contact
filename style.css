@@ -2816,6 +2816,37 @@ h1, h2, h3 {
     font-family: inherit;
 }
 
+/* ---- MANIFESTE "QUAND LA STRUCTURE DISPARAÎT" ---- */
+.manifeste-bloc {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    text-align: center;
+}
+
+.manifeste-bloc.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.manifeste-mot {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+}
+
+.manifeste-texte {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: clamp(0.85rem, 1.3vw, 1rem);
+    line-height: 1.7;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
 .dossier-flip-back {
     position: absolute;
     top: 0;

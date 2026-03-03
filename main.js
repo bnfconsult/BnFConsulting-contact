@@ -81,6 +81,23 @@ document.addEventListener('DOMContentLoaded', () => {
         partnerCards.forEach(card => partnerObserver.observe(card));
     }
 
+    // --- Manifeste blocs fade-in ---
+    const manifesteBlocs = document.querySelectorAll('.manifeste-bloc');
+    if (manifesteBlocs.length) {
+        const manifesteObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    manifesteObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        manifesteBlocs.forEach(bloc => manifesteObserver.observe(bloc));
+    }
+
     // --- Smooth scroll for anchor links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
