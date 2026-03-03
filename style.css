@@ -2847,6 +2847,51 @@ h1, h2, h3 {
     margin: 0 auto;
 }
 
+/* ---- SCROLL INDICATOR (Prestations) ---- */
+.scroll-indicator {
+    position: fixed;
+    left: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40vh;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    display: none;
+}
+
+.scroll-indicator.visible {
+    opacity: 1;
+}
+
+.scroll-indicator-line {
+    width: 2px;
+    height: 100%;
+    background: rgba(84, 155, 162, 0.35);
+    border-radius: 2px;
+    position: relative;
+}
+
+.scroll-indicator-dot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(84, 155, 162, 0.5), 0 0 24px rgba(84, 155, 162, 0.2);
+    transition: top 0.15s ease-out;
+}
+
+@media (min-width: 1025px) {
+    .scroll-indicator {
+        display: block;
+    }
+}
+
 /* ---- GLASS CARDS (Cas d'usage) ---- */
 .glass-card {
     flex: 1 1 240px;
