@@ -2327,6 +2327,36 @@ h1, h2, h3 {
         justify-content: center;
         text-align: center;
     }
+
+    /* Modèle section — header sticky + pillar cards stacking */
+    .modele-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: #000;
+        padding-bottom: 1rem;
+    }
+
+    .modele-cards {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .modele-card {
+        position: sticky !important;
+        top: calc(80px + var(--modele-index) * 16px) !important;
+        max-width: 100% !important;
+        z-index: calc(var(--modele-index) + 1);
+        margin-bottom: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Produit cœur also stacks in the modele flow */
+    #produit-coeur {
+        position: sticky;
+        top: calc(80px + 3 * 16px);
+        z-index: 4;
+    }
 }
 
 @media (max-width: 480px) {
@@ -3016,12 +3046,12 @@ h1, h2, h3 {
         padding-bottom: clamp(1.5rem, 3vw, 2rem);
     }
     .stacking-card {
-        top: calc(80px + var(--card-index) * 16px);
+        top: calc(30vh + var(--card-index) * 16px);
         margin-bottom: 20px;
     }
     .stacking-footer {
         position: sticky;
-        top: calc(80px + 5 * 16px);
+        top: calc(30vh + 5 * 16px);
         z-index: 6;
         background: #000;
         padding-top: clamp(2rem, 4vw, 3rem);
@@ -3234,7 +3264,8 @@ h1, h2, h3 {
 
 @media (max-width: 480px) {
     .chatbot {
-        top: 72px;
+        top: auto;
+        bottom: 200px;
         right: 16px;
     }
 
@@ -3251,6 +3282,8 @@ h1, h2, h3 {
     .chatbot-panel {
         width: calc(100vw - 32px);
         right: 0;
+        bottom: 52px;
+        top: auto;
         height: 420px;
     }
 
@@ -3259,7 +3292,8 @@ h1, h2, h3 {
     }
 
     .phone-fab {
-        top: 124px;
+        top: auto;
+        bottom: 148px;
         right: 16px;
         width: 42px;
         height: 42px;
@@ -3270,11 +3304,23 @@ h1, h2, h3 {
         height: 20px;
     }
 
+    .phone-tooltip {
+        display: none;
+    }
+
     .lang-fab {
-        top: 176px;
+        top: auto;
+        bottom: 96px;
         right: 16px;
         width: 42px;
         height: 42px;
         font-size: 0.65rem;
+    }
+
+    .back-to-top {
+        bottom: 32px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
     }
 }

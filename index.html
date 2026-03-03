@@ -160,29 +160,31 @@
     </section>
 
     <!-- NOTRE MODÈLE (LES 3 PILIERS) -->
-    <section class="section section-black" id="modele" style="padding-bottom:clamp(1.5rem,3vw,2.5rem);">
+    <section class="section section-black modele-section" id="modele" style="padding-bottom:clamp(1.5rem,3vw,2.5rem);">
         <div class="container">
-            <p class="section-label">Notre modèle</p>
-            <h2 class="section-title">Trois piliers.<br><span class="accent">Un seul système.</span></h2>
+            <div class="modele-header">
+                <p class="section-label">Notre modèle</p>
+                <h2 class="section-title">Trois piliers.<br><span class="accent">Un seul système.</span></h2>
+            </div>
 
-            <div style="display:flex; gap:clamp(1rem,2vw,2rem); margin-top:3rem; justify-content:center; flex-wrap:wrap;">
+            <div class="modele-cards" style="display:flex; gap:clamp(1rem,2vw,2rem); margin-top:3rem; justify-content:center; flex-wrap:wrap;">
 
                 <!-- PILIER 01 -->
-                <div style="flex:1 1 280px; max-width:360px; background:rgba(255,255,255,0.03); border:1px solid rgba(84,155,162,0.3); border-radius:16px; padding:clamp(1.5rem,3vw,2.5rem); position:relative; transition:transform 0.3s ease, border-color 0.3s ease;" onmouseenter="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(84,155,162,0.7)'" onmouseleave="this.style.transform='translateY(0)';this.style.borderColor='rgba(84,155,162,0.3)'">
+                <div class="modele-card" style="flex:1 1 280px; max-width:360px; background:rgba(255,255,255,0.03); border:1px solid rgba(84,155,162,0.3); border-radius:16px; padding:clamp(1.5rem,3vw,2.5rem); position:relative; transition:transform 0.3s ease, border-color 0.3s ease; --modele-index:0;" onmouseenter="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(84,155,162,0.7)'" onmouseleave="this.style.transform='translateY(0)';this.style.borderColor='rgba(84,155,162,0.3)'">
                     <div style="font-family:Georgia,'Times New Roman',serif; font-size:clamp(2.5rem,5vw,3.5rem); font-weight:700; color:var(--accent); opacity:1; line-height:1; margin-bottom:0.75rem;">01</div>
                     <h3 style="font-family:Georgia,'Times New Roman',serif; font-size:clamp(1.25rem,2vw,1.5rem); color:#fff; margin-bottom:0.75rem;">Stratégie</h3>
                     <p style="color:rgba(255,255,255,0.6); font-size:0.95rem; line-height:1.65;">Voir clair. Identifier les leviers. Prioriser ce qui compte vraiment.</p>
                 </div>
 
                 <!-- PILIER 02 -->
-                <div style="flex:1 1 280px; max-width:360px; background:rgba(255,255,255,0.03); border:1px solid rgba(84,155,162,0.3); border-radius:16px; padding:clamp(1.5rem,3vw,2.5rem); position:relative; transition:transform 0.3s ease, border-color 0.3s ease;" onmouseenter="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(84,155,162,0.7)'" onmouseleave="this.style.transform='translateY(0)';this.style.borderColor='rgba(84,155,162,0.3)'">
+                <div class="modele-card" style="flex:1 1 280px; max-width:360px; background:rgba(255,255,255,0.03); border:1px solid rgba(84,155,162,0.3); border-radius:16px; padding:clamp(1.5rem,3vw,2.5rem); position:relative; transition:transform 0.3s ease, border-color 0.3s ease; --modele-index:1;" onmouseenter="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(84,155,162,0.7)'" onmouseleave="this.style.transform='translateY(0)';this.style.borderColor='rgba(84,155,162,0.3)'">
                     <div style="font-family:Georgia,'Times New Roman',serif; font-size:clamp(2.5rem,5vw,3.5rem); font-weight:700; color:var(--accent); opacity:1; line-height:1; margin-bottom:0.75rem;">02</div>
                     <h3 style="font-family:Georgia,'Times New Roman',serif; font-size:clamp(1.25rem,2vw,1.5rem); color:#fff; margin-bottom:0.75rem;">Opérations</h3>
                     <p style="color:rgba(255,255,255,0.6); font-size:0.95rem; line-height:1.65;">Transformer en système. Structurer les process. Automatiser l'exécution.</p>
                 </div>
 
                 <!-- PILIER 03 -->
-                <div style="flex:1 1 280px; max-width:360px; background:rgba(255,255,255,0.03); border:1px solid rgba(84,155,162,0.3); border-radius:16px; padding:clamp(1.5rem,3vw,2.5rem); position:relative; transition:transform 0.3s ease, border-color 0.3s ease;" onmouseenter="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(84,155,162,0.7)'" onmouseleave="this.style.transform='translateY(0)';this.style.borderColor='rgba(84,155,162,0.3)'">
+                <div class="modele-card" style="flex:1 1 280px; max-width:360px; background:rgba(255,255,255,0.03); border:1px solid rgba(84,155,162,0.3); border-radius:16px; padding:clamp(1.5rem,3vw,2.5rem); position:relative; transition:transform 0.3s ease, border-color 0.3s ease; --modele-index:2;" onmouseenter="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(84,155,162,0.7)'" onmouseleave="this.style.transform='translateY(0)';this.style.borderColor='rgba(84,155,162,0.3)'">
                     <div style="font-family:Georgia,'Times New Roman',serif; font-size:clamp(2.5rem,5vw,3.5rem); font-weight:700; color:var(--accent); opacity:1; line-height:1; margin-bottom:0.75rem;">03</div>
                     <h3 style="font-family:Georgia,'Times New Roman',serif; font-size:clamp(1.25rem,2vw,1.5rem); color:#fff; margin-bottom:0.75rem;">Croissance</h3>
                     <p style="color:rgba(255,255,255,0.6); font-size:0.95rem; line-height:1.65;">Amplifier ce qui est structuré. Mesurer. Ajuster. Accélérer.</p>
