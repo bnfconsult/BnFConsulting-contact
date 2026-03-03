@@ -2344,18 +2344,12 @@ h1, h2, h3 {
 
     .modele-card {
         position: sticky !important;
-        top: calc(80px + var(--modele-index) * 16px) !important;
+        top: calc(120px + var(--modele-index) * 16px) !important;
         max-width: 100% !important;
         z-index: calc(var(--modele-index) + 1);
         margin-bottom: 20px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    }
-
-    /* Produit cœur also stacks in the modele flow */
-    #produit-coeur {
-        position: sticky;
-        top: calc(80px + 3 * 16px);
-        z-index: 4;
+        background: rgba(20, 20, 20, 0.98) !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     }
 }
 
@@ -3048,6 +3042,9 @@ h1, h2, h3 {
     .stacking-card {
         top: calc(30vh + var(--card-index) * 16px);
         margin-bottom: 20px;
+    }
+    .stacking-card-inner {
+        background: rgba(20, 20, 20, 0.98);
     }
     .stacking-footer {
         position: sticky;
