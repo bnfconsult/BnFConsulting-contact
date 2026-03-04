@@ -133,11 +133,13 @@
         }
 
         .portal-flip-back span {
-            color: #549BA2;
+            color: #fff;
             font-size: clamp(0.9rem, 2vw, 1.4rem);
             font-weight: 700;
             letter-spacing: 0.2em;
             text-transform: uppercase;
+            text-align: center;
+            line-height: 1.4;
         }
 
         /* Hover sur les deux faces */
@@ -304,7 +306,7 @@
                     <img src="PHOTOS/2.png" alt="Flow Hub">
                 </div>
                 <div class="portal-flip-back">
-                    <span>Audit</span>
+                    <span>Audit<br>Digital</span>
                 </div>
             </div>
         </div>
@@ -346,8 +348,14 @@
             card.addEventListener('click', function(e) {
                 e.preventDefault();
 
-                // Si déjà retournée → naviguer
-                if (card.classList.contains('flipped')) {
+                // Si déjà en cours de flip, ignorer
+                if (card.classList.contains('flipped')) return;
+
+                // Retourner la bulle
+                card.classList.add('flipped');
+
+                // Après 1 seconde → ouvrir le lien
+                setTimeout(function() {
                     var href = card.getAttribute('data-href');
                     var external = card.getAttribute('data-external');
                     if (external) {
@@ -355,11 +363,7 @@
                     } else {
                         window.location.href = href;
                     }
-                    return;
-                }
-
-                // Sinon → retourner (les autres restent retournées)
-                card.classList.add('flipped');
+                }, 1000);
             });
         });
 
