@@ -137,6 +137,50 @@
             transform: scale(1.08);
         }
 
+        /* Labels sur les bulles */
+        .card-label {
+            position: absolute;
+            z-index: 2;
+            color: #1a3a4a;
+            font-size: clamp(0.55rem, 1.2vw, 0.75rem);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            pointer-events: none;
+            text-shadow: 0 0 8px rgba(0,0,0,0.3);
+        }
+
+        .card-label-top {
+            top: 10px;
+            left: 12px;
+        }
+
+        .card-label-bottom {
+            bottom: 10px;
+            left: 12px;
+        }
+
+        /* Petite icône drone */
+        .card-drone-icon {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            z-index: 2;
+            width: clamp(22px, 3vw, 36px);
+            height: clamp(22px, 3vw, 36px);
+            pointer-events: none;
+        }
+
+        @media (max-width: 480px) {
+            .card-label {
+                font-size: 0.5rem;
+                letter-spacing: 0.1em;
+            }
+            .card-label-top { top: 7px; left: 8px; }
+            .card-label-bottom { bottom: 7px; left: 8px; }
+            .card-drone-icon { top: 7px; right: 8px; width: 18px; height: 18px; }
+        }
+
         /* Léger overlay au survol */
         .portal-card::after {
             content: '';
@@ -220,23 +264,36 @@
 
     <div class="portal-container">
 
-        <!-- Bulle 1 : BnF Consulting -->
+        <!-- Bulle 1 : BnF Consulting — STRATÉGIE en haut -->
         <a href="home.html" class="portal-card">
+            <span class="card-label card-label-top">Stratégie</span>
             <img src="PHOTOS/BnFConsulting logo .jpg" alt="BnF Consulting">
         </a>
 
-        <!-- Bulle 2 : BnF Drones -->
+        <!-- Bulle 2 : BnF Drones — icône drone en haut à droite -->
         <a href="drones.html" class="portal-card">
+            <svg class="card-drone-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="12" y1="20" x2="52" y2="20" stroke="#1a3a4a" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="12" cy="20" r="8" stroke="#1a3a4a" stroke-width="2" fill="none"/>
+                <circle cx="52" cy="20" r="8" stroke="#1a3a4a" stroke-width="2" fill="none"/>
+                <line x1="32" y1="20" x2="32" y2="34" stroke="#1a3a4a" stroke-width="2.5" stroke-linecap="round"/>
+                <rect x="24" y="34" width="16" height="10" rx="4" stroke="#1a3a4a" stroke-width="2" fill="none"/>
+                <circle cx="32" cy="39" r="2.5" fill="#1a3a4a" opacity="0.6"/>
+                <line x1="24" y1="44" x2="18" y2="52" stroke="#1a3a4a" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="40" y1="44" x2="46" y2="52" stroke="#1a3a4a" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
             <img src="PHOTOS/BnFDrones logo.jpg" alt="BnF Drones">
         </a>
 
-        <!-- Bulle 3 : Flow Hub -->
+        <!-- Bulle 3 : Flow Hub — AUDIT en bas -->
         <a href="https://www.flow-hub.fr/" class="portal-card" target="_blank" rel="noopener">
+            <span class="card-label card-label-bottom">Audit</span>
             <img src="PHOTOS/2.png" alt="Flow Hub">
         </a>
 
-        <!-- Bulle 4 : Coordonnées / Linktree -->
+        <!-- Bulle 4 : Coordonnées / Linktree — COORDONNÉES en bas -->
         <a href="https://linktr.ee/benjaminf_" class="portal-card" target="_blank" rel="noopener">
+            <span class="card-label card-label-bottom">Coordonnées</span>
             <div class="portal-card-icon">
                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <!-- Personne -->
