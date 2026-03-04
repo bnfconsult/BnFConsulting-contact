@@ -1762,7 +1762,10 @@ h1, h2, h3 {
 /* Hero dossier rapproché du stack */
 .hero-dossier {
     padding-top: 160px;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
+    min-height: 50vh;
+    display: flex;
+    align-items: flex-end;
 }
 
 .hero-dossier + .section {
