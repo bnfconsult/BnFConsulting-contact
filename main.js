@@ -579,7 +579,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Nous analysons votre positionnement, votre visibilité et vos leviers invisibles afin de définir une trajectoire claire.');
             addCTAs([
-                { label: 'Notre modèle', url: 'index.html#modele' },
+                { label: 'Notre modèle', url: 'home.html#modele' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
@@ -590,7 +590,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Nous transformons la stratégie en systèmes concrets : automatisation, CRM, organisation, pilotage par la donnée.');
             addCTAs([
-                { label: 'Notre modèle', url: 'index.html#modele' },
+                { label: 'Notre modèle', url: 'home.html#modele' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
@@ -601,7 +601,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Nous amplifions ce qui est structuré : SEO, image, visibilité, activation de leviers ciblés.');
             addCTAs([
-                { label: 'Notre modèle', url: 'index.html#modele' },
+                { label: 'Notre modèle', url: 'home.html#modele' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
@@ -612,7 +612,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('L\'audit est notre produit cœur. Il révèle les pertes invisibles, les incohérences internes et les freins à la croissance.');
             addCTAs([
-                { label: 'Notre modèle', url: 'index.html#modele' },
+                { label: 'Notre modèle', url: 'home.html#modele' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
@@ -641,7 +641,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Le diagnostic stratégique est un échange de 30 minutes pour identifier vos leviers inexploités, vos pertes invisibles et vos priorités réelles.<br><br>Il se suit d\'un audit digital qui se résulte en un rapport de développement stratégique.');
             addCTAs([
-                { label: 'Notre modèle', url: 'index.html#modele' },
+                { label: 'Notre modèle', url: 'home.html#modele' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
@@ -652,7 +652,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('La structuration transforme vos priorités en plan d\'action concret : process, outils, organisation, indicateurs de pilotage.');
             addCTAs([
-                { label: 'Notre modèle', url: 'index.html#modele' },
+                { label: 'Notre modèle', url: 'home.html#modele' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
@@ -663,7 +663,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('L\'activation met en mouvement ce qui a été structuré : déploiement, automatisation, visibilité, croissance mesurable.');
             addCTAs([
-                { label: 'Notre modèle', url: 'index.html#modele' },
+                { label: 'Notre modèle', url: 'home.html#modele' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
