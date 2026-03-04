@@ -42,50 +42,30 @@
             grid-template-columns: repeat(2, 1fr);
             gap: clamp(16px, 3vw, 40px);
             padding: 0 20px;
-            perspective: 800px;
         }
 
-        .portal-card {
-            position: relative;
+        /* ---- FLIP CARD ---- */
+        .portal-flip {
             width: clamp(180px, 22vw, 300px);
             height: clamp(180px, 22vw, 300px);
-            border-radius: 20px;
-            overflow: hidden;
+            perspective: 1000px;
             cursor: pointer;
-            text-decoration: none;
-            display: block;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
-            transform-style: preserve-3d;
-            transition: box-shadow 0.4s ease;
-        }
-
-        /* ---- ENTRÉE : Fade + Scale ---- */
-        .portal-card {
             opacity: 0;
             transform: scale(0.3);
         }
 
-        .portal-card:nth-child(1) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards, floatSoft 8s ease-in-out 1.2s infinite; }
-        .portal-card:nth-child(2) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s forwards, floatSoft 8s ease-in-out 1.7s infinite; }
-        .portal-card:nth-child(3) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s forwards, floatSoft 8s ease-in-out 2.2s infinite; }
-        .portal-card:nth-child(4) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.7s forwards, floatSoft 8s ease-in-out 2.7s infinite; }
+        /* Entrée fade + scale */
+        .portal-flip:nth-child(1) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards, floatSoft 8s ease-in-out 1.2s infinite; }
+        .portal-flip:nth-child(2) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s forwards, floatSoft 8s ease-in-out 1.7s infinite; }
+        .portal-flip:nth-child(3) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s forwards, floatSoft 8s ease-in-out 2.2s infinite; }
+        .portal-flip:nth-child(4) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.7s forwards, floatSoft 8s ease-in-out 2.7s infinite; }
 
         @keyframes fadeScale {
-            0% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-            60% {
-                opacity: 1;
-                transform: scale(1.04);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+            0% { opacity: 0; transform: scale(0.3); }
+            60% { opacity: 1; transform: scale(1.04); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
-        /* ---- IDLE : Flottement doux ---- */
         @keyframes floatSoft {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-8px); }
@@ -95,25 +75,39 @@
             to { opacity: 1; }
         }
 
-        /* ---- HOVER : base (mobile fallback) ---- */
-        .portal-card:hover {
-            box-shadow: 0 16px 60px rgba(84, 155, 162, 0.25),
-                        0 0 40px rgba(84, 155, 162, 0.1);
+        .portal-flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
         }
 
-        .portal-card img {
+        .portal-flip.flipped .portal-flip-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Face avant (image) */
+        .portal-flip-front,
+        .portal-flip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .portal-flip-front img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s ease;
         }
 
-        .portal-card:hover img {
-            transform: scale(1.04);
-        }
-
-        /* Bulle icône SVG (coordonnées) */
+        /* Face avant icône SVG (bulle coordonnées) */
         .portal-card-icon {
             width: 100%;
             height: 100%;
@@ -121,24 +115,39 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.6s ease;
-        }
-
-        .portal-card:hover .portal-card-icon {
-            background: linear-gradient(135deg, #0d2224 0%, #133538 50%, #0d2224 100%);
         }
 
         .portal-card-icon svg {
             width: 45%;
             height: 45%;
-            transition: transform 0.6s ease;
         }
 
-        .portal-card:hover .portal-card-icon svg {
-            transform: scale(1.06);
+        /* Face arrière (mot) */
+        .portal-flip-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #0a1a1c 0%, #0f2b2e 60%, #0d2226 100%);
+            border: 1px solid rgba(84, 155, 162, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Labels sur les bulles */
+        .portal-flip-back span {
+            color: #549BA2;
+            font-size: clamp(0.9rem, 2vw, 1.4rem);
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        /* Hover sur les deux faces */
+        .portal-flip:hover .portal-flip-front,
+        .portal-flip:hover .portal-flip-back {
+            box-shadow: 0 12px 50px rgba(84, 155, 162, 0.2),
+                        0 0 30px rgba(84, 155, 162, 0.08);
+        }
+
+        /* Labels sur la face avant */
         .card-label {
             position: absolute;
             z-index: 2;
@@ -150,15 +159,13 @@
             pointer-events: none;
             text-shadow: 0 0 8px rgba(0,0,0,0.3);
         }
+        .card-label-top { top: 10px; left: 12px; }
+        .card-label-bottom { bottom: 10px; left: 12px; }
 
-        .card-label-top {
-            top: 10px;
-            left: 12px;
-        }
-
-        .card-label-bottom {
-            bottom: 10px;
-            left: 12px;
+        @media (max-width: 480px) {
+            .card-label { font-size: 0.5rem; letter-spacing: 0.1em; }
+            .card-label-top { top: 7px; left: 8px; }
+            .card-label-bottom { bottom: 7px; left: 8px; }
         }
 
         /* Petite icône drone */
@@ -170,31 +177,6 @@
             width: clamp(22px, 3vw, 36px);
             height: clamp(22px, 3vw, 36px);
             pointer-events: none;
-        }
-
-        @media (max-width: 480px) {
-            .card-label {
-                font-size: 0.5rem;
-                letter-spacing: 0.1em;
-            }
-            .card-label-top { top: 7px; left: 8px; }
-            .card-label-bottom { bottom: 7px; left: 8px; }
-            .card-drone-icon { top: 7px; right: 8px; width: 18px; height: 18px; }
-        }
-
-        /* Léger overlay au survol */
-        .portal-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 20px;
-            border: 2px solid transparent;
-            transition: border-color 0.4s ease;
-            pointer-events: none;
-        }
-
-        .portal-card:hover::after {
-            border-color: rgba(84, 155, 162, 0.4);
         }
 
         /* ---- CREDIT ---- */
@@ -227,9 +209,13 @@
                 padding: 0 24px;
             }
 
-            .portal-card {
+            .portal-flip {
                 width: 38vw;
                 height: 38vw;
+            }
+
+            .portal-flip-front,
+            .portal-flip-back {
                 border-radius: 14px;
             }
         }
@@ -245,11 +231,22 @@
                 padding: 0 20px;
             }
 
-            .portal-card {
+            .portal-flip {
                 width: 40vw;
                 height: 40vw;
+            }
+
+            .portal-flip-front,
+            .portal-flip-back {
                 border-radius: 12px;
             }
+
+            .portal-flip-back span {
+                font-size: 0.65rem;
+                letter-spacing: 0.12em;
+            }
+
+            .card-drone-icon { top: 7px; right: 8px; width: 18px; height: 18px; }
 
             .portal-credit {
                 font-size: 0.6rem;
@@ -264,82 +261,131 @@
 
     <div class="portal-container">
 
-        <!-- Bulle 1 : BnF Consulting — STRATÉGIE en haut -->
-        <a href="home.html" class="portal-card">
-            <span class="card-label card-label-top">Stratégie</span>
-            <img src="PHOTOS/BnFConsulting logo .jpg" alt="BnF Consulting">
-        </a>
-
-        <!-- Bulle 2 : BnF Drones — icône drone en haut à droite -->
-        <a href="drones.html" class="portal-card">
-            <svg class="card-drone-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="12" y1="20" x2="52" y2="20" stroke="#1a3a4a" stroke-width="2.5" stroke-linecap="round"/>
-                <circle cx="12" cy="20" r="8" stroke="#1a3a4a" stroke-width="2" fill="none"/>
-                <circle cx="52" cy="20" r="8" stroke="#1a3a4a" stroke-width="2" fill="none"/>
-                <line x1="32" y1="20" x2="32" y2="34" stroke="#1a3a4a" stroke-width="2.5" stroke-linecap="round"/>
-                <rect x="24" y="34" width="16" height="10" rx="4" stroke="#1a3a4a" stroke-width="2" fill="none"/>
-                <circle cx="32" cy="39" r="2.5" fill="#1a3a4a" opacity="0.6"/>
-                <line x1="24" y1="44" x2="18" y2="52" stroke="#1a3a4a" stroke-width="1.5" stroke-linecap="round"/>
-                <line x1="40" y1="44" x2="46" y2="52" stroke="#1a3a4a" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-            <img src="PHOTOS/BnFDrones logo.jpg" alt="BnF Drones">
-        </a>
-
-        <!-- Bulle 3 : Flow Hub — AUDIT en bas -->
-        <a href="https://www.flow-hub.fr/" class="portal-card" target="_blank" rel="noopener">
-            <span class="card-label card-label-bottom">Audit</span>
-            <img src="PHOTOS/2.png" alt="Flow Hub">
-        </a>
-
-        <!-- Bulle 4 : Coordonnées / Linktree — COORDONNÉES en bas -->
-        <a href="https://linktr.ee/benjaminf_" class="portal-card" target="_blank" rel="noopener">
-            <span class="card-label card-label-bottom">Coordonnées</span>
-            <div class="portal-card-icon">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="30" r="12" stroke="#549BA2" stroke-width="2.5" fill="none"/>
-                    <path d="M28 72c0-12.15 9.85-22 22-22s22 9.85 22 22" stroke="#549BA2" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                    <rect x="10" y="78" width="18" height="13" rx="2" stroke="#549BA2" stroke-width="1.8" fill="none" opacity="0.7"/>
-                    <path d="M10 80l9 5 9-5" stroke="#549BA2" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7"/>
-                    <rect x="41" y="78" width="18" height="13" rx="3" stroke="#549BA2" stroke-width="1.8" fill="none" opacity="0.7"/>
-                    <line x1="47" y1="87" x2="53" y2="87" stroke="#549BA2" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-                    <circle cx="81" cy="84.5" r="6.5" stroke="#549BA2" stroke-width="1.8" fill="none" opacity="0.7"/>
-                    <ellipse cx="81" cy="84.5" rx="3" ry="6.5" stroke="#549BA2" stroke-width="1.2" fill="none" opacity="0.7"/>
-                    <line x1="74.5" y1="84.5" x2="87.5" y2="84.5" stroke="#549BA2" stroke-width="1.2" opacity="0.7"/>
-                </svg>
+        <!-- Bulle 1 : BnF Consulting -->
+        <div class="portal-flip" data-href="home.html">
+            <div class="portal-flip-inner">
+                <div class="portal-flip-front">
+                    <span class="card-label card-label-top">Stratégie</span>
+                    <img src="PHOTOS/BnFConsulting logo .jpg" alt="BnF Consulting">
+                </div>
+                <div class="portal-flip-back">
+                    <span>Stratégie</span>
+                </div>
             </div>
-        </a>
+        </div>
+
+        <!-- Bulle 2 : BnF Drones -->
+        <div class="portal-flip" data-href="drones.html">
+            <div class="portal-flip-inner">
+                <div class="portal-flip-front">
+                    <svg class="card-drone-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="12" y1="20" x2="52" y2="20" stroke="#1a3a4a" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="12" cy="20" r="8" stroke="#1a3a4a" stroke-width="2" fill="none"/>
+                        <circle cx="52" cy="20" r="8" stroke="#1a3a4a" stroke-width="2" fill="none"/>
+                        <line x1="32" y1="20" x2="32" y2="34" stroke="#1a3a4a" stroke-width="2.5" stroke-linecap="round"/>
+                        <rect x="24" y="34" width="16" height="10" rx="4" stroke="#1a3a4a" stroke-width="2" fill="none"/>
+                        <circle cx="32" cy="39" r="2.5" fill="#1a3a4a" opacity="0.6"/>
+                        <line x1="24" y1="44" x2="18" y2="52" stroke="#1a3a4a" stroke-width="1.5" stroke-linecap="round"/>
+                        <line x1="40" y1="44" x2="46" y2="52" stroke="#1a3a4a" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <img src="PHOTOS/BnFDrones logo.jpg" alt="BnF Drones">
+                </div>
+                <div class="portal-flip-back">
+                    <span>Drones</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bulle 3 : Flow Hub -->
+        <div class="portal-flip" data-href="https://www.flow-hub.fr/" data-external="true">
+            <div class="portal-flip-inner">
+                <div class="portal-flip-front">
+                    <span class="card-label card-label-bottom">Audit</span>
+                    <img src="PHOTOS/2.png" alt="Flow Hub">
+                </div>
+                <div class="portal-flip-back">
+                    <span>Audit</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bulle 4 : Coordonnées / Linktree -->
+        <div class="portal-flip" data-href="https://linktr.ee/benjaminf_" data-external="true">
+            <div class="portal-flip-inner">
+                <div class="portal-flip-front">
+                    <span class="card-label card-label-bottom">Coordonnées</span>
+                    <div class="portal-card-icon">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="30" r="12" stroke="#549BA2" stroke-width="2.5" fill="none"/>
+                            <path d="M28 72c0-12.15 9.85-22 22-22s22 9.85 22 22" stroke="#549BA2" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                            <rect x="10" y="78" width="18" height="13" rx="2" stroke="#549BA2" stroke-width="1.8" fill="none" opacity="0.7"/>
+                            <path d="M10 80l9 5 9-5" stroke="#549BA2" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7"/>
+                            <rect x="41" y="78" width="18" height="13" rx="3" stroke="#549BA2" stroke-width="1.8" fill="none" opacity="0.7"/>
+                            <line x1="47" y1="87" x2="53" y2="87" stroke="#549BA2" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+                            <circle cx="81" cy="84.5" r="6.5" stroke="#549BA2" stroke-width="1.8" fill="none" opacity="0.7"/>
+                            <ellipse cx="81" cy="84.5" rx="3" ry="6.5" stroke="#549BA2" stroke-width="1.2" fill="none" opacity="0.7"/>
+                            <line x1="74.5" y1="84.5" x2="87.5" y2="84.5" stroke="#549BA2" stroke-width="1.2" opacity="0.7"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="portal-flip-back">
+                    <span>Coordonnées</span>
+                </div>
+            </div>
+        </div>
 
     </div>
 
     <p class="portal-credit">By BnF</p>
 
-    <!-- Tilt 3D au hover (desktop uniquement) -->
     <script>
     (function() {
-        if ('ontouchstart' in window) return; // pas de tilt sur mobile
-
-        var cards = document.querySelectorAll('.portal-card');
+        var cards = document.querySelectorAll('.portal-flip');
 
         cards.forEach(function(card) {
-            card.addEventListener('mousemove', function(e) {
-                var rect = card.getBoundingClientRect();
-                var x = e.clientX - rect.left;
-                var y = e.clientY - rect.top;
-                var centerX = rect.width / 2;
-                var centerY = rect.height / 2;
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
 
-                var rotateX = ((y - centerY) / centerY) * -8;
-                var rotateY = ((x - centerX) / centerX) * 8;
+                // Si déjà retournée → naviguer
+                if (card.classList.contains('flipped')) {
+                    var href = card.getAttribute('data-href');
+                    var external = card.getAttribute('data-external');
+                    if (external) {
+                        window.open(href, '_blank', 'noopener');
+                    } else {
+                        window.location.href = href;
+                    }
+                    return;
+                }
 
-                card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale(1.03)';
-                card.style.transition = 'transform 0.1s ease, box-shadow 0.4s ease';
-            });
-
-            card.addEventListener('mouseleave', function() {
-                card.style.transform = '';
-                card.style.transition = 'transform 0.5s ease, box-shadow 0.4s ease';
+                // Sinon → retourner (les autres restent retournées)
+                card.classList.add('flipped');
             });
         });
+
+        // Tilt 3D au hover (desktop uniquement)
+        if (!('ontouchstart' in window)) {
+            cards.forEach(function(card) {
+                var inner = card.querySelector('.portal-flip-inner');
+
+                card.addEventListener('mousemove', function(e) {
+                    if (card.classList.contains('flipped')) return;
+                    var rect = card.getBoundingClientRect();
+                    var x = e.clientX - rect.left;
+                    var y = e.clientY - rect.top;
+                    var rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -6;
+                    var rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 6;
+                    inner.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+                    inner.style.transition = 'transform 0.1s ease';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    if (card.classList.contains('flipped')) return;
+                    inner.style.transform = '';
+                    inner.style.transition = 'transform 0.5s ease';
+                });
+            });
+        }
     })();
     </script>
 
