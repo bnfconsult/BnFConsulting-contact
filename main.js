@@ -81,6 +81,25 @@ document.addEventListener('DOMContentLoaded', () => {
         partnerCards.forEach(card => partnerObserver.observe(card));
     }
 
+    // --- Drone showcase scroll reveal ---
+    const droneRevealEls = document.querySelectorAll(
+        '.drone-showcase__header, .drone-showcase__media, .drone-feature-card'
+    );
+    if (droneRevealEls.length) {
+        const droneObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    droneObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+        droneRevealEls.forEach(el => droneObserver.observe(el));
+    }
+
     // --- Manifeste blocs fade-in ---
     const manifesteBlocs = document.querySelectorAll('.manifeste-bloc');
     if (manifesteBlocs.length) {

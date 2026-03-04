@@ -28,22 +28,136 @@
             max-width: 800px;
             margin: 0 auto;
         }
+        /* --- Drone Showcase — Elite Service Sections --- */
+        .drone-showcase {
+            padding: clamp(80px, 10vw, 120px) 0;
+            scroll-margin-top: 100px;
+        }
+        .drone-showcase--dark { background: #0f1a1b; }
+        .drone-showcase--darker { background: #000; }
+
+        .drone-showcase__header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto clamp(40px, 6vw, 60px);
+        }
+        .drone-showcase__title {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+            color: #fff;
+            font-weight: 400;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .drone-showcase__desc {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: clamp(0.9rem, 1.4vw, 1rem);
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .drone-showcase__media {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(84, 155, 162, 0.15);
+            transition: border-color 0.5s ease, box-shadow 0.5s ease;
+            margin-bottom: clamp(40px, 6vw, 60px);
+        }
+        .drone-showcase__media:hover {
+            border-color: rgba(84, 155, 162, 0.4);
+            box-shadow: 0 0 40px rgba(84, 155, 162, 0.1), 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+        .drone-showcase__media img,
+        .drone-showcase__media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .drone-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(12px, 2vw, 20px);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .drone-feature-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(84, 155, 162, 0.2);
+            border-radius: 14px;
+            padding: clamp(20px, 3vw, 28px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .drone-feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(84, 155, 162, 0.35), transparent);
+        }
+        .drone-feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(84, 155, 162, 0.5);
+            box-shadow: 0 0 20px rgba(84, 155, 162, 0.1), 0 12px 32px rgba(0, 0, 0, 0.3);
+        }
+        .drone-feature-card__num {
+            display: block;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+            font-weight: 700;
+            color: #549ba2;
+            opacity: 0.5;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .drone-feature-card__text {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: clamp(0.825rem, 1.2vw, 0.9375rem);
+            line-height: 1.65;
+            font-weight: 400;
+        }
+
+        /* Scroll-reveal for showcase elements */
+        .drone-showcase__header,
+        .drone-showcase__media,
+        .drone-feature-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .drone-showcase__header.visible,
+        .drone-showcase__media.visible,
+        .drone-feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .drone-feature-card:nth-child(2) { transition-delay: 0.1s; }
+        .drone-feature-card:nth-child(3) { transition-delay: 0.2s; }
+        .drone-feature-card:nth-child(4) { transition-delay: 0.3s; }
+
+        .drone-services-intro {
+            background: #0f1a1b;
+            padding: 80px 0;
+            text-align: center;
+            scroll-margin-top: 80px;
+        }
+
         @media (max-width: 768px) {
-            #service-photo, #service-video, #service-interieur {
-                flex-direction: column !important;
-                gap: 24px !important;
-            }
-            #service-photo > div, #service-video > div, #service-interieur > div {
-                flex: 1 1 100% !important;
-                min-width: 0 !important;
-                width: 100% !important;
-            }
-            #service-video > div:first-child {
-                order: 1 !important;
-            }
-            #service-video > div:last-child {
-                order: 0 !important;
-            }
+            .drone-features { grid-template-columns: 1fr; }
+            .drone-showcase__media { aspect-ratio: 4 / 3; border-radius: 14px; }
+            .drone-showcase { padding: clamp(60px, 8vw, 80px) 0; }
             .hero-content-backdrop {
                 padding: 32px 20px;
                 border-radius: 16px;
@@ -177,114 +291,113 @@
     </section>
 
     <!-- OUR SERVICES BANNER -->
-    <section id="drone-services" style="background:#0f1a1b; padding:80px 0; text-align:center; scroll-margin-top:80px;">
-        <div style="max-width:1200px; margin:0 auto; padding:0 24px;">
-            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">What we do</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(2rem,4vw,3rem); color:#fff; margin-bottom:20px;">Our <span style="color:#549ba2;">Services</span></h2>
-            <p style="max-width:600px; margin:0 auto; color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7;">
+    <section class="drone-services-intro" id="drone-services">
+        <div class="container" style="text-align:center;">
+            <p class="section-label">What we do</p>
+            <h2 class="section-title">Our <span class="accent">Services</span></h2>
+            <p class="section-intro" style="max-width:600px; margin:0 auto;">
                 Drone photography services tailored to each project, both indoors and outdoors.
             </p>
         </div>
     </section>
 
-    <!-- SERVICES -->
-    <section style="background:#1a2a2c; padding:80px 0;">
-        <div style="max-width:1100px; margin:0 auto; padding:0 24px;">
-
-            <!-- Service 01 -->
-            <div id="service-photo" style="display:flex; flex-wrap:wrap; gap:48px; align-items:center; margin-bottom:80px; scroll-margin-top:100px;">
-                <div style="flex:1 1 400px; min-width:280px;">
-                    <p style="font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:10px;">Service 01</p>
-                    <h3 style="font-family:Georgia,serif; font-size:clamp(1.5rem,2.5vw,2rem); color:#fff; margin-bottom:16px;">Drone Photo <span style="color:#549ba2;">4K</span></h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.9375rem; line-height:1.8; margin-bottom:16px;">Ultra high-definition aerial photographs to capture your properties from their best angle. Every shot is designed to showcase space, light and surroundings.</p>
-                    <ul style="list-style:none; padding:0; margin:0;">
-                        <li style="color:rgba(255,255,255,0.7); font-size:0.875rem; padding:6px 0 6px 20px; position:relative;">
-                            <span style="position:absolute; left:0; top:14px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:block;"></span>
-                            High resolution aerial photos (4K)
-                        </li>
-                        <li style="color:rgba(255,255,255,0.7); font-size:0.875rem; padding:6px 0 6px 20px; position:relative;">
-                            <span style="position:absolute; left:0; top:14px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:block;"></span>
-                            Exterior and environment shots
-                        </li>
-                        <li style="color:rgba(255,255,255,0.7); font-size:0.875rem; padding:6px 0 6px 20px; position:relative;">
-                            <span style="position:absolute; left:0; top:14px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:block;"></span>
-                            Professional retouching and delivery
-                        </li>
-                        <li style="color:rgba(255,255,255,0.7); font-size:0.875rem; padding:6px 0 6px 20px; position:relative;">
-                            <span style="position:absolute; left:0; top:14px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:block;"></span>
-                            Ideal for real estate listings and marketing materials
-                        </li>
-                    </ul>
+    <!-- SERVICE 01 — Drone Photo 4K -->
+    <section class="drone-showcase drone-showcase--dark" id="service-photo">
+        <div class="container">
+            <div class="drone-showcase__header">
+                <p class="section-label">Service 01</p>
+                <h3 class="drone-showcase__title">Drone Photo <span class="accent">4K</span></h3>
+                <p class="drone-showcase__desc">Ultra high-definition aerial photographs to capture your properties from their best angle. Every shot is designed to showcase space, light and surroundings.</p>
+            </div>
+            <div class="drone-showcase__media">
+                <img src="../PHOTOS/Drones/Best_3.JPG" alt="4K drone photo" loading="lazy">
+            </div>
+            <div class="drone-features">
+                <div class="drone-feature-card">
+                    <span class="drone-feature-card__num">01</span>
+                    <p class="drone-feature-card__text">High resolution aerial photos (4K)</p>
                 </div>
-                <div style="flex:1 1 400px; min-width:280px; aspect-ratio:4/3; border-radius:16px; overflow:hidden;">
-                    <img src="../PHOTOS/Drones/Best_3.JPG" alt="4K drone photo" style="width:100%; height:100%; object-fit:cover; display:block;">
+                <div class="drone-feature-card">
+                    <span class="drone-feature-card__num">02</span>
+                    <p class="drone-feature-card__text">Exterior and environment shots</p>
+                </div>
+                <div class="drone-feature-card">
+                    <span class="drone-feature-card__num">03</span>
+                    <p class="drone-feature-card__text">Professional retouching and delivery</p>
+                </div>
+                <div class="drone-feature-card">
+                    <span class="drone-feature-card__num">04</span>
+                    <p class="drone-feature-card__text">Ideal for real estate listings and marketing materials</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Service 02 -->
-            <div id="service-video" style="display:flex; flex-wrap:wrap; gap:48px; align-items:center; margin-bottom:80px; scroll-margin-top:100px;">
-                <div style="flex:1 1 400px; min-width:280px; aspect-ratio:4/3; border-radius:16px; overflow:hidden; order:0;">
-                    <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; display:block;">
-                        <source src="../VIDEOS/arche.mp4" type="video/mp4">
-                    </video>
+    <!-- SERVICE 02 — Cinematic Video -->
+    <section class="drone-showcase drone-showcase--darker" id="service-video">
+        <div class="container">
+            <div class="drone-showcase__header">
+                <p class="section-label">Service 02</p>
+                <h3 class="drone-showcase__title">Cinematic <span class="accent">Video</span></h3>
+                <p class="drone-showcase__desc">Immersive and fluid video content, shot with latest-generation drones. Tracking shots, flyovers, dives — a result that radically changes the perception of your spaces.</p>
+            </div>
+            <div class="drone-showcase__media">
+                <video autoplay muted loop playsinline>
+                    <source src="../VIDEOS/arche.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="drone-features">
+                <div class="drone-feature-card">
+                    <span class="drone-feature-card__num">01</span>
+                    <p class="drone-feature-card__text">Cinematic drone video in 4K</p>
                 </div>
-                <div style="flex:1 1 400px; min-width:280px; order:1;">
-                    <p style="font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:10px;">Service 02</p>
-                    <h3 style="font-family:Georgia,serif; font-size:clamp(1.5rem,2.5vw,2rem); color:#fff; margin-bottom:16px;">Cinematic <span style="color:#549ba2;">Video</span></h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.9375rem; line-height:1.8; margin-bottom:16px;">Immersive and fluid video content, shot with latest-generation drones. Tracking shots, flyovers, dives — a result that radically changes the perception of your spaces.</p>
-                    <ul style="list-style:none; padding:0; margin:0;">
-                        <li style="color:rgba(255,255,255,0.7); font-size:0.875rem; padding:6px 0 6px 20px; position:relative;">
-                            <span style="position:absolute; left:0; top:14px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:block;"></span>
-                            Cinematic drone video in 4K
-                        </li>
-                        <li style="color:rgba(255,255,255,0.7); font-size:0.875rem; padding:6px 0 6px 20px; position:relative;">
-                            <span style="position:absolute; left:0; top:14px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:block;"></span>
-                            Smooth, professional movements
-                        </li>
-                        <li style="color:rgba(255,255,255,0.7); font-size:0.875rem; padding:6px 0 6px 20px; position:relative;">
-                            <span style="position:absolute; left:0; top:14px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:block;"></span>
-                            Editing included upon request
-                        </li>
-                        <li style="color:rgba(255,255,255,0.7); font-size:0.875rem; padding:6px 0 6px 20px; position:relative;">
-                            <span style="position:absolute; left:0; top:14px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:block;"></span>
-                            Perfect for virtual tours and marketing content
-                        </li>
-                    </ul>
+                <div class="drone-feature-card">
+                    <span class="drone-feature-card__num">02</span>
+                    <p class="drone-feature-card__text">Smooth, professional movements</p>
+                </div>
+                <div class="drone-feature-card">
+                    <span class="drone-feature-card__num">03</span>
+                    <p class="drone-feature-card__text">Editing included upon request</p>
+                </div>
+                <div class="drone-feature-card">
+                    <span class="drone-feature-card__num">04</span>
+                    <p class="drone-feature-card__text">Perfect for virtual tours and marketing content</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Service 03 -->
-            <div id="service-interieur" style="display:flex; flex-wrap:wrap; gap:48px; align-items:center; scroll-margin-top:100px;">
-                <div style="flex:1 1 400px; min-width:280px;">
-                    <p style="font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:10px;">Service 03</p>
-                    <h3 style="font-family:Georgia,serif; font-size:clamp(1.5rem,2.5vw,2rem); color:#fff; margin-bottom:16px;">Indoor <span style="color:#549ba2;">Photography</span></h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.9375rem; line-height:1.8; margin-bottom:16px;">With compact drones designed for enclosed spaces, we capture the interior of your premises, shops and properties with fluidity and angles impossible to achieve otherwise.</p>
-                    <ul style="list-style:none; padding:0; margin:0;">
-                        <li style="color:rgba(255,255,255,0.7); font-size:0.875rem; padding:6px 0 6px 20px; position:relative;">
-                            <span style="position:absolute; left:0; top:14px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:block;"></span>
-                            Compact drone for indoor spaces
-                        </li>
-                        <li style="color:rgba(255,255,255,0.7); font-size:0.875rem; padding:6px 0 6px 20px; position:relative;">
-                            <span style="position:absolute; left:0; top:14px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:block;"></span>
-                            Smooth and immersive video
-                        </li>
-                        <li style="color:rgba(255,255,255,0.7); font-size:0.875rem; padding:6px 0 6px 20px; position:relative;">
-                            <span style="position:absolute; left:0; top:14px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:block;"></span>
-                            Showcasing volumes and layout
-                        </li>
-                        <li style="color:rgba(255,255,255,0.7); font-size:0.875rem; padding:6px 0 6px 20px; position:relative;">
-                            <span style="position:absolute; left:0; top:14px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:block;"></span>
-                            Suitable for shops, showrooms and real estate
-                        </li>
-                    </ul>
+    <!-- SERVICE 03 — Indoor Photography -->
+    <section class="drone-showcase drone-showcase--dark" id="service-interieur">
+        <div class="container">
+            <div class="drone-showcase__header">
+                <p class="section-label">Service 03</p>
+                <h3 class="drone-showcase__title">Indoor <span class="accent">Photography</span></h3>
+                <p class="drone-showcase__desc">With compact drones designed for enclosed spaces, we capture the interior of your premises, shops and properties with fluidity and angles impossible to achieve otherwise.</p>
+            </div>
+            <div class="drone-showcase__media">
+                <video autoplay muted loop playsinline>
+                    <source src="../VIDEOS/Design sans titre (2).mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="drone-features">
+                <div class="drone-feature-card">
+                    <span class="drone-feature-card__num">01</span>
+                    <p class="drone-feature-card__text">Compact drone for indoor spaces</p>
                 </div>
-                <div style="flex:1 1 400px; min-width:280px; aspect-ratio:4/3; border-radius:16px; overflow:hidden;">
-                    <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; display:block;">
-                        <source src="../VIDEOS/Design sans titre (2).mp4" type="video/mp4">
-                    </video>
+                <div class="drone-feature-card">
+                    <span class="drone-feature-card__num">02</span>
+                    <p class="drone-feature-card__text">Smooth and immersive video</p>
+                </div>
+                <div class="drone-feature-card">
+                    <span class="drone-feature-card__num">03</span>
+                    <p class="drone-feature-card__text">Showcasing volumes and layout</p>
+                </div>
+                <div class="drone-feature-card">
+                    <span class="drone-feature-card__num">04</span>
+                    <p class="drone-feature-card__text">Suitable for shops, showrooms and real estate</p>
                 </div>
             </div>
-
         </div>
     </section>
 
