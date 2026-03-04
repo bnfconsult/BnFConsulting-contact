@@ -122,10 +122,10 @@
             height: 45%;
         }
 
-        /* Face arrière (mot) */
+        /* Face arrière (mot) — 100% opaque */
         .portal-flip-back {
             transform: rotateY(180deg);
-            background: linear-gradient(135deg, #0a1a1c 0%, #0f2b2e 60%, #0d2226 100%);
+            background: #0b1e20;
             border: 1px solid rgba(84, 155, 162, 0.25);
             display: flex;
             align-items: center;
@@ -163,11 +163,14 @@
         }
         .card-label-top { top: 10px; left: 12px; }
         .card-label-bottom { bottom: 10px; left: 12px; }
+        .card-label-bottom-right { bottom: 10px; right: 12px; left: auto; }
+        .card-label-white { color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
 
         @media (max-width: 480px) {
             .card-label { font-size: 0.5rem; letter-spacing: 0.1em; }
             .card-label-top { top: 7px; left: 8px; }
             .card-label-bottom { bottom: 7px; left: 8px; }
+            .card-label-bottom-right { bottom: 7px; right: 8px; left: auto; }
         }
 
         /* Petite icône drone */
@@ -190,6 +193,16 @@
             margin-top: clamp(30px, 5vh, 60px);
             opacity: 0;
             animation: fadeIn 1.5s ease 2.2s forwards;
+        }
+
+        .portal-copyright {
+            color: rgba(255, 255, 255, 0.15);
+            font-size: clamp(0.5rem, 0.9vw, 0.65rem);
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            margin-top: 8px;
+            opacity: 0;
+            animation: fadeIn 1.5s ease 2.5s forwards;
         }
 
         /* ---- RESPONSIVE MOBILE ---- */
@@ -302,7 +315,7 @@
         <div class="portal-flip" data-href="https://www.flow-hub.fr/" data-external="true">
             <div class="portal-flip-inner">
                 <div class="portal-flip-front">
-                    <span class="card-label card-label-bottom">Audit</span>
+                    <span class="card-label card-label-bottom card-label-white">Audit Digital</span>
                     <img src="PHOTOS/2.png" alt="Flow Hub">
                 </div>
                 <div class="portal-flip-back">
@@ -315,7 +328,7 @@
         <div class="portal-flip" data-href="https://linktr.ee/benjaminf_" data-external="true">
             <div class="portal-flip-inner">
                 <div class="portal-flip-front">
-                    <span class="card-label card-label-bottom">Coordonnées</span>
+                    <span class="card-label card-label-bottom-right card-label-white">Coordonnées</span>
                     <div class="portal-card-icon">
                         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="50" cy="30" r="12" stroke="#549BA2" stroke-width="2.5" fill="none"/>
@@ -339,6 +352,7 @@
     </div>
 
     <p class="portal-credit">By BnF</p>
+    <p class="portal-copyright">All rights reserved. BnFConsulting&bull;2026</p>
 
     <script>
     (function() {
