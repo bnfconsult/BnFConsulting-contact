@@ -42,6 +42,7 @@
             grid-template-columns: repeat(2, 1fr);
             gap: clamp(16px, 3vw, 40px);
             padding: 0 20px;
+            perspective: 800px;
         }
 
         .portal-card {
@@ -54,50 +55,50 @@
             text-decoration: none;
             display: block;
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                        box-shadow 0.4s ease;
+            transform-style: preserve-3d;
+            transition: box-shadow 0.4s ease;
         }
 
-        /* Animation d'entrée : tombe d'en haut + rebond léger */
+        /* ---- ENTRÉE : Fade + Scale ---- */
         .portal-card {
             opacity: 0;
-            transform: translateY(-100vh);
+            transform: scale(0.3);
         }
 
-        .portal-card:nth-child(1) { animation: dropIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards, float 6s ease-in-out 1.5s infinite; }
-        .portal-card:nth-child(2) { animation: dropIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s forwards, float 6s ease-in-out 2s infinite; }
-        .portal-card:nth-child(3) { animation: dropIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1.3s forwards, float 6s ease-in-out 2.5s infinite; }
-        .portal-card:nth-child(4) { animation: dropIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 1.8s forwards, float 6s ease-in-out 3s infinite; }
+        .portal-card:nth-child(1) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards, floatSoft 8s ease-in-out 1.2s infinite; }
+        .portal-card:nth-child(2) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s forwards, floatSoft 8s ease-in-out 1.7s infinite; }
+        .portal-card:nth-child(3) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s forwards, floatSoft 8s ease-in-out 2.2s infinite; }
+        .portal-card:nth-child(4) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.7s forwards, floatSoft 8s ease-in-out 2.7s infinite; }
 
-        @keyframes dropIn {
+        @keyframes fadeScale {
             0% {
                 opacity: 0;
-                transform: translateY(-100vh);
+                transform: scale(0.3);
             }
-            70% {
+            60% {
                 opacity: 1;
-                transform: translateY(10px);
+                transform: scale(1.04);
             }
             100% {
                 opacity: 1;
-                transform: translateY(0);
+                transform: scale(1);
             }
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
+        /* ---- IDLE : Flottement doux ---- */
+        @keyframes floatSoft {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
         @keyframes fadeIn {
             to { opacity: 1; }
         }
 
-        /* Hover */
+        /* ---- HOVER : base (mobile fallback) ---- */
         .portal-card:hover {
-            transform: scale(1.08) translateY(-8px);
-            box-shadow: 0 12px 60px rgba(84, 155, 162, 0.3),
-                        0 0 30px rgba(84, 155, 162, 0.15);
+            box-shadow: 0 16px 60px rgba(84, 155, 162, 0.25),
+                        0 0 40px rgba(84, 155, 162, 0.1);
         }
 
         .portal-card img {
@@ -105,11 +106,11 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
         }
 
         .portal-card:hover img {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
 
         /* Bulle icône SVG (coordonnées) */
@@ -134,7 +135,7 @@
         }
 
         .portal-card:hover .portal-card-icon svg {
-            transform: scale(1.08);
+            transform: scale(1.06);
         }
 
         /* Labels sur les bulles */
@@ -188,13 +189,12 @@
             inset: 0;
             border-radius: 20px;
             border: 2px solid transparent;
-            transition: border-color 0.4s ease, background 0.4s ease;
+            transition: border-color 0.4s ease;
             pointer-events: none;
         }
 
         .portal-card:hover::after {
-            border-color: rgba(84, 155, 162, 0.5);
-            background: rgba(84, 155, 162, 0.05);
+            border-color: rgba(84, 155, 162, 0.4);
         }
 
         /* ---- CREDIT ---- */
@@ -205,7 +205,7 @@
             letter-spacing: 0.15em;
             margin-top: clamp(30px, 5vh, 60px);
             opacity: 0;
-            animation: fadeIn 1.5s ease 0.5s forwards;
+            animation: fadeIn 1.5s ease 2.2s forwards;
         }
 
         /* ---- RESPONSIVE MOBILE ---- */
@@ -296,16 +296,12 @@
             <span class="card-label card-label-bottom">Coordonnées</span>
             <div class="portal-card-icon">
                 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Personne -->
                     <circle cx="50" cy="30" r="12" stroke="#549BA2" stroke-width="2.5" fill="none"/>
                     <path d="M28 72c0-12.15 9.85-22 22-22s22 9.85 22 22" stroke="#549BA2" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-                    <!-- Enveloppe -->
                     <rect x="10" y="78" width="18" height="13" rx="2" stroke="#549BA2" stroke-width="1.8" fill="none" opacity="0.7"/>
                     <path d="M10 80l9 5 9-5" stroke="#549BA2" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7"/>
-                    <!-- Téléphone -->
                     <rect x="41" y="78" width="18" height="13" rx="3" stroke="#549BA2" stroke-width="1.8" fill="none" opacity="0.7"/>
                     <line x1="47" y1="87" x2="53" y2="87" stroke="#549BA2" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-                    <!-- Globe / lien -->
                     <circle cx="81" cy="84.5" r="6.5" stroke="#549BA2" stroke-width="1.8" fill="none" opacity="0.7"/>
                     <ellipse cx="81" cy="84.5" rx="3" ry="6.5" stroke="#549BA2" stroke-width="1.2" fill="none" opacity="0.7"/>
                     <line x1="74.5" y1="84.5" x2="87.5" y2="84.5" stroke="#549BA2" stroke-width="1.2" opacity="0.7"/>
@@ -316,6 +312,36 @@
     </div>
 
     <p class="portal-credit">By BnF</p>
+
+    <!-- Tilt 3D au hover (desktop uniquement) -->
+    <script>
+    (function() {
+        if ('ontouchstart' in window) return; // pas de tilt sur mobile
+
+        var cards = document.querySelectorAll('.portal-card');
+
+        cards.forEach(function(card) {
+            card.addEventListener('mousemove', function(e) {
+                var rect = card.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                var centerX = rect.width / 2;
+                var centerY = rect.height / 2;
+
+                var rotateX = ((y - centerY) / centerY) * -8;
+                var rotateY = ((x - centerX) / centerX) * 8;
+
+                card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale(1.03)';
+                card.style.transition = 'transform 0.1s ease, box-shadow 0.4s ease';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                card.style.transform = '';
+                card.style.transition = 'transform 0.5s ease, box-shadow 0.4s ease';
+            });
+        });
+    })();
+    </script>
 
 </body>
 </html>
