@@ -39,8 +39,12 @@
     </nav>
 
     <!-- HERO -->
-    <section class="section section-black hero-dossier">
-        <div class="container">
+    <section class="section section-black hero-dossier" style="position:relative; overflow:hidden;">
+        <video autoplay muted loop playsinline style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+            <source src="VIDEOS/Water.mp4" type="video/mp4">
+        </video>
+        <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1;"></div>
+        <div class="container" style="position:relative; z-index:2;">
             <p class="section-label">Spéciales BnF</p>
             <h1 class="section-title">Nos dossiers <span class="accent">thématiques.</span></h1>
         </div>
