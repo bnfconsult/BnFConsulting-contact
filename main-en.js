@@ -571,7 +571,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('We analyze your positioning, visibility and hidden levers to define a clear trajectory.');
             addCTAs([
-                { label: 'Discover our services', url: 'prestations.html#cat-strategie' },
+                { label: 'Our model', url: 'index.html#modele' },
                 { label: 'Book a diagnosis', url: CAL }
             ]);
             addButtons([{ label: 'Get a callback', action: showRecallForm }]);
@@ -582,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('We turn strategy into concrete systems: automation, CRM, organization, data-driven management.');
             addCTAs([
-                { label: 'Discover our services', url: 'prestations.html#cat-operations' },
+                { label: 'Our model', url: 'index.html#modele' },
                 { label: 'Book a diagnosis', url: CAL }
             ]);
             addButtons([{ label: 'Get a callback', action: showRecallForm }]);
@@ -593,7 +593,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('We amplify what is structured: SEO, image, visibility, targeted lever activation.');
             addCTAs([
-                { label: 'Discover our services', url: 'prestations.html#cat-croissance' },
+                { label: 'Our model', url: 'index.html#modele' },
                 { label: 'Book a diagnosis', url: CAL }
             ]);
             addButtons([{ label: 'Get a callback', action: showRecallForm }]);
@@ -604,7 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('The audit is our core product. It reveals invisible losses, internal inconsistencies and growth barriers.');
             addCTAs([
-                { label: 'Discover our services', url: 'prestations.html#cat-strategie' },
+                { label: 'Our model', url: 'index.html#modele' },
                 { label: 'Book a diagnosis', url: CAL }
             ]);
             addButtons([{ label: 'Get a callback', action: showRecallForm }]);
@@ -633,7 +633,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('The strategic diagnosis is a 30-minute exchange to identify your untapped levers, invisible losses and real priorities.<br><br>It is followed by a digital audit resulting in a strategic development report.');
             addCTAs([
-                { label: 'Discover our services', url: 'prestations.html#cat-strategie' },
+                { label: 'Our model', url: 'index.html#modele' },
                 { label: 'Book a diagnosis', url: CAL }
             ]);
             addButtons([{ label: 'Get a callback', action: showRecallForm }]);
@@ -644,7 +644,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Structuring turns your priorities into a concrete action plan: processes, tools, organization, management indicators.');
             addCTAs([
-                { label: 'Discover our services', url: 'prestations.html#cat-operations' },
+                { label: 'Our model', url: 'index.html#modele' },
                 { label: 'Book a diagnosis', url: CAL }
             ]);
             addButtons([{ label: 'Get a callback', action: showRecallForm }]);
@@ -655,7 +655,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Activation sets in motion what has been structured: deployment, automation, visibility, measurable growth.');
             addCTAs([
-                { label: 'Discover our services', url: 'prestations.html#cat-croissance' },
+                { label: 'Our model', url: 'index.html#modele' },
                 { label: 'Book a diagnosis', url: CAL }
             ]);
             addButtons([{ label: 'Get a callback', action: showRecallForm }]);
@@ -667,10 +667,10 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('What is your main challenge right now?');
             addButtons([
-                { label: 'Lack of visibility', action: function() { showBesoinDetail('Your business has potential but remains invisible. We structure your positioning, image and channels to generate coherent, lasting visibility.', 'prestations.html#cat-croissance'); } },
-                { label: 'Unclear internal organization', action: function() { showBesoinDetail('When processes are unclear, energy is scattered. We clarify roles, workflows and tools to create a manageable system.', 'prestations.html#cat-operations'); } },
-                { label: 'Unstable growth', action: function() { showBesoinDetail('Growth without structure eventually runs out of steam. We identify hidden barriers and build the foundations for controlled growth.', 'prestations.html#cat-strategie'); } },
-                { label: 'Need for automation', action: function() { showBesoinDetail('Repetitive tasks slow down your development. We automate what can be to free up strategic time.', 'prestations.html#cat-operations'); } }
+                { label: 'Lack of visibility', action: function() { showBesoinDetail('Your business has potential but remains invisible. We structure your positioning, image and channels to generate coherent, lasting visibility.', 'index.html#modele'); } },
+                { label: 'Unclear internal organization', action: function() { showBesoinDetail('When processes are unclear, energy is scattered. We clarify roles, workflows and tools to create a manageable system.', 'index.html#modele'); } },
+                { label: 'Unstable growth', action: function() { showBesoinDetail('Growth without structure eventually runs out of steam. We identify hidden barriers and build the foundations for controlled growth.', 'index.html#modele'); } },
+                { label: 'Need for automation', action: function() { showBesoinDetail('Repetitive tasks slow down your development. We automate what can be to free up strategic time.', 'index.html#modele'); } }
             ]);
         }
 
@@ -678,7 +678,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble(text);
             addCTAs([
-                { label: 'Discover our services', url: prestaUrl },
+                { label: 'Our model', url: prestaUrl },
                 { label: 'Book a diagnosis', url: CAL }
             ]);
             addButtons([{ label: 'Get a callback', action: showRecallForm }]);
