@@ -2355,13 +2355,6 @@ h1, h2, h3 {
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     }
 
-    /* Dossier credit — petit sur mobile */
-    .dossier-credit {
-        font-size: 0.55rem;
-        bottom: 8px;
-        right: 10px;
-        letter-spacing: 0.05em;
-    }
 }
 
 @media (max-width: 480px) {
@@ -2917,6 +2910,16 @@ h1, h2, h3 {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-family: inherit;
+}
+
+@media (max-width: 768px) {
+    .dossier-credit {
+        font-size: 0.5rem !important;
+        bottom: 6px !important;
+        right: 8px !important;
+        letter-spacing: 0.03em !important;
+        opacity: 0.7;
+    }
 }
 
 /* ---- MANIFESTE "QUAND LA STRUCTURE DISPARAÎT" ---- */
