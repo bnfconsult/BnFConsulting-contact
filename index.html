@@ -69,6 +69,12 @@
             align-items: center;
             gap: 0.3em;
         }
+        .intro-sub-words {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3em;
+        }
         .intro-word {
             color: #fff;
             font-family: 'Montserrat', sans-serif;
@@ -81,25 +87,37 @@
         .intro-word.visible {
             opacity: 1;
         }
-        .intro-words-stack.collapse {
-            flex-direction: row;
-            gap: 0.3em;
-            transition: none;
+
+        /* Transition vers position finale */
+        .intro-overlay.to-final {
+            background: transparent;
+            transition: background 0.8s ease;
         }
-        .intro-words-stack.collapse .intro-word {
+        .intro-words-stack.to-final {
+            transform: translateY(calc(-40vh + 60px));
+            gap: 8px;
+            transition: transform 0.8s ease, gap 0.8s ease;
+        }
+        .intro-words-stack.to-final .intro-word {
+            transition: font-size 0.8s ease, letter-spacing 0.8s ease, opacity 0.8s ease;
+        }
+        .intro-words-stack.to-final .intro-word[data-word="Bienvenue"] {
             font-size: clamp(1.8rem, 4vw, 3.2rem);
             letter-spacing: 0.25em;
-            transition: font-size 0.6s ease, letter-spacing 0.6s ease;
         }
-        .intro-words-stack.collapse .intro-word[data-word="Bienvenue"] {
-            font-size: clamp(1.8rem, 4vw, 3.2rem);
+        .intro-sub-words.to-final {
+            flex-direction: row;
+            gap: 0.25em;
         }
-        .intro-words-stack.collapse .intro-word[data-word="dans"],
-        .intro-words-stack.collapse .intro-word[data-word="l'écosystème"],
-        .intro-words-stack.collapse .intro-word[data-word="BnF"] {
+        .intro-sub-words.to-final .intro-word {
             font-size: clamp(0.85rem, 1.8vw, 1.2rem);
             letter-spacing: 0.15em;
             opacity: 0.7;
+        }
+        .intro-overlay.intro-hidden {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
         }
 
         /* ---- GRILLE ---- */
@@ -374,12 +392,13 @@
                 font-size: clamp(1.8rem, 8vw, 4rem);
                 letter-spacing: 0.1em;
             }
-            .intro-words-stack.collapse .intro-word[data-word="Bienvenue"] {
+            .intro-words-stack.to-final {
+                transform: translateY(calc(-40vh + 40px));
+            }
+            .intro-words-stack.to-final .intro-word[data-word="Bienvenue"] {
                 font-size: 1.3rem;
             }
-            .intro-words-stack.collapse .intro-word[data-word="dans"],
-            .intro-words-stack.collapse .intro-word[data-word="l'écosystème"],
-            .intro-words-stack.collapse .intro-word[data-word="BnF"] {
+            .intro-sub-words.to-final .intro-word {
                 font-size: 0.65rem;
             }
 
@@ -451,12 +470,13 @@
                 font-size: clamp(1.5rem, 7vw, 3rem);
                 letter-spacing: 0.08em;
             }
-            .intro-words-stack.collapse .intro-word[data-word="Bienvenue"] {
+            .intro-words-stack.to-final {
+                transform: translateY(calc(-40vh + 35px));
+            }
+            .intro-words-stack.to-final .intro-word[data-word="Bienvenue"] {
                 font-size: 1.1rem;
             }
-            .intro-words-stack.collapse .intro-word[data-word="dans"],
-            .intro-words-stack.collapse .intro-word[data-word="l'écosystème"],
-            .intro-words-stack.collapse .intro-word[data-word="BnF"] {
+            .intro-sub-words.to-final .intro-word {
                 font-size: 0.55rem;
             }
 
@@ -507,9 +527,11 @@
     <div class="intro-overlay" id="introOverlay">
         <div class="intro-words-stack" id="introStack">
             <span class="intro-word" data-word="Bienvenue">Bienvenue</span>
-            <span class="intro-word" data-word="dans">dans</span>
-            <span class="intro-word" data-word="l'écosystème">l'écosystème</span>
-            <span class="intro-word" data-word="BnF">BnF</span>
+            <div class="intro-sub-words" id="introSubWords">
+                <span class="intro-word" data-word="dans">dans</span>
+                <span class="intro-word" data-word="l'écosystème">l'écosystème</span>
+                <span class="intro-word" data-word="BnF">BnF</span>
+            </div>
         </div>
     </div>
 
@@ -612,6 +634,7 @@
         // ---- INTRO ANIMATION ----
         var introOverlay = document.getElementById('introOverlay');
         var introStack = document.getElementById('introStack');
+        var introSubWords = document.getElementById('introSubWords');
         var introWords = introStack.querySelectorAll('.intro-word');
         var portalTitle = document.getElementById('portalTitle');
         var wordDelay = 300;
@@ -619,12 +642,19 @@
 
         function showNextWord() {
             if (wordIndex >= introWords.length) {
-                // Tous visibles → pause puis transition vers titre final
+                // Tous visibles → transition vers position finale
                 setTimeout(function() {
-                    introOverlay.classList.add('fade-out');
-                    portalTitle.style.opacity = '1';
-                    portalTitle.style.transition = 'opacity 0.8s ease';
-                }, 600);
+                    // Lancer la transition des mots vers leur position finale
+                    introOverlay.classList.add('to-final');
+                    introStack.classList.add('to-final');
+                    introSubWords.classList.add('to-final');
+
+                    // Après la transition, cacher l'overlay et montrer le vrai titre
+                    setTimeout(function() {
+                        introOverlay.classList.add('intro-hidden');
+                        portalTitle.style.opacity = '1';
+                    }, 850);
+                }, 400);
                 return;
             }
             introWords[wordIndex].classList.add('visible');
