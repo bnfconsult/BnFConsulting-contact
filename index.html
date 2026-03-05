@@ -91,25 +91,21 @@
             position: relative;
             width: 100%;
             height: 100%;
-            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
         }
 
-        .portal-flip.flipped .portal-flip-inner {
-            transform: rotateY(180deg);
-        }
-
         /* Face avant (image) */
-        .portal-flip-front,
-        .portal-flip-back {
+        .portal-flip-front {
             position: absolute;
             width: 100%;
             height: 100%;
             border-radius: 20px;
             overflow: hidden;
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .portal-flip-back {
+            display: none;
         }
 
         .portal-flip-front img {
@@ -134,31 +130,87 @@
             height: 45%;
         }
 
-        /* Face arrière (mot) — 100% opaque */
-        .portal-flip-back {
-            transform: rotateY(180deg);
-            background: #0b1e20;
-            border: 1px solid rgba(84, 155, 162, 0.25);
+        /* Hover glow */
+        .portal-flip:hover .portal-flip-front {
+            box-shadow: 0 12px 50px rgba(84, 155, 162, 0.2),
+                        0 0 30px rgba(84, 155, 162, 0.08);
+        }
+
+        /* ---- ZOOM IMMERSIF ---- */
+        .zoom-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: 9999;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .zoom-overlay.active { pointer-events: all; }
+
+        .zoom-card {
+            position: absolute;
+            overflow: hidden;
+            will-change: width, height, top, left, border-radius;
+        }
+        .zoom-card img,
+        .zoom-card .portal-card-icon {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .zoom-card .portal-card-icon {
             display: flex;
             align-items: center;
             justify-content: center;
+            background: linear-gradient(135deg, #0a1a1c 0%, #0f2b2e 50%, #0a1a1c 100%);
+        }
+        .zoom-card .portal-card-icon svg {
+            width: 45%; height: 45%;
         }
 
-        .portal-flip-back span {
-            color: #fff;
-            font-size: clamp(0.9rem, 2vw, 1.4rem);
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            text-align: center;
-            line-height: 1.4;
+        /* Glow pendant le zoom */
+        .zoom-card::after {
+            content: '';
+            position: absolute;
+            top: -40%; left: -40%;
+            width: 180%; height: 180%;
+            background: radial-gradient(ellipse at center, rgba(84,155,162,0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+            z-index: 1;
         }
+        .zoom-card.glow-active::after { opacity: 1; }
 
-        /* Hover sur les deux faces */
-        .portal-flip:hover .portal-flip-front,
-        .portal-flip:hover .portal-flip-back {
-            box-shadow: 0 12px 50px rgba(84, 155, 162, 0.2),
-                        0 0 30px rgba(84, 155, 162, 0.08);
+        /* Flash blanc cinématique */
+        .zoom-flash {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #fff;
+            opacity: 0;
+            z-index: 10000;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .zoom-flash.active { opacity: 1; }
+
+        /* Estompage des éléments pendant le zoom */
+        body.zoom-active .portal-title,
+        body.zoom-active .portal-credit,
+        body.zoom-active .portal-copyright {
+            transition: opacity 0.4s ease, filter 0.4s ease;
+            opacity: 0 !important;
+            filter: blur(8px);
+        }
+        body.zoom-active .portal-flip {
+            transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
+            opacity: 0 !important;
+            filter: blur(12px);
+            transform: scale(0.92) !important;
+        }
+        body.zoom-active .portal-flip.zoom-source {
+            opacity: 0 !important;
+            transition: opacity 0.1s ease !important;
         }
 
         /* Labels sur la face avant */
@@ -410,46 +462,131 @@
     <p class="portal-credit">By BnF</p>
     <p class="portal-copyright">All rights reserved. BnFConsulting&bull;2026</p>
 
+    <div class="zoom-overlay" id="zoomOverlay"></div>
+    <div class="zoom-flash" id="zoomFlash"></div>
+
     <script>
     (function() {
         var cards = document.querySelectorAll('.portal-flip');
+        var isZooming = false;
 
+        // ---- ZOOM IMMERSIF AU CLIC ----
         cards.forEach(function(card) {
             card.addEventListener('click', function(e) {
                 e.preventDefault();
+                if (isZooming) return;
 
-                // Si déjà en cours de flip, ignorer
-                if (card.classList.contains('flipped')) return;
+                var href = card.getAttribute('data-href');
+                if (!href) return;
 
-                // Retourner la bulle
-                card.classList.add('flipped');
+                isZooming = true;
 
-                // Après 1 seconde → ouvrir le lien
+                // 1. Préparer le clone
+                var frontFace = card.querySelector('.portal-flip-front');
+                var rect = frontFace.getBoundingClientRect();
+                var computedStyle = getComputedStyle(frontFace);
+                var currentRadius = parseFloat(computedStyle.borderRadius) || 20;
+
+                var overlay = document.getElementById('zoomOverlay');
+                var zoomCard = document.createElement('div');
+                zoomCard.className = 'zoom-card';
+                zoomCard.innerHTML = frontFace.innerHTML;
+
+                // Retirer les labels du clone
+                var labels = zoomCard.querySelectorAll('.card-label');
+                labels.forEach(function(l) { l.remove(); });
+
+                // Positionner le clone exactement sur la bulle
+                zoomCard.style.top = rect.top + 'px';
+                zoomCard.style.left = rect.left + 'px';
+                zoomCard.style.width = rect.width + 'px';
+                zoomCard.style.height = rect.height + 'px';
+                zoomCard.style.borderRadius = currentRadius + 'px';
+                zoomCard.style.boxShadow = '0 8px 40px rgba(0,0,0,0.6)';
+
+                overlay.appendChild(zoomCard);
+                overlay.classList.add('active');
+
+                // 2. Masquer la bulle originale + estomper le reste
+                card.classList.add('zoom-source');
+                var inner = card.querySelector('.portal-flip-inner');
+                inner.style.transform = '';
+                inner.style.transition = 'none';
+                document.body.classList.add('zoom-active');
+
+                // 3. Glow teal
                 setTimeout(function() {
-                    var href = card.getAttribute('data-href');
-                    var external = card.getAttribute('data-external');
-                    if (href) {
-                        if (external) {
-                            window.open(href, '_blank', 'noopener');
-                        } else {
-                            window.location.href = href;
-                        }
+                    zoomCard.classList.add('glow-active');
+                }, 50);
+
+                // 4. Animation zoom plein écran
+                var vw = window.innerWidth;
+                var vh = window.innerHeight;
+
+                var animation = zoomCard.animate([
+                    {
+                        top: rect.top + 'px',
+                        left: rect.left + 'px',
+                        width: rect.width + 'px',
+                        height: rect.height + 'px',
+                        borderRadius: currentRadius + 'px',
+                        boxShadow: '0 8px 40px rgba(0,0,0,0.6)',
+                        offset: 0
+                    },
+                    {
+                        top: (rect.top - 15) + 'px',
+                        left: (rect.left - 8) + 'px',
+                        width: (rect.width + 16) + 'px',
+                        height: (rect.height + 16) + 'px',
+                        borderRadius: (currentRadius * 0.8) + 'px',
+                        boxShadow: '0 20px 80px rgba(84,155,162,0.3), 0 0 60px rgba(84,155,162,0.15)',
+                        offset: 0.25
+                    },
+                    {
+                        top: '0px',
+                        left: '0px',
+                        width: vw + 'px',
+                        height: vh + 'px',
+                        borderRadius: '0px',
+                        boxShadow: '0 0 0 rgba(0,0,0,0)',
+                        offset: 1
                     }
-                    // Reset flip pour quand l'utilisateur revient
+                ], {
+                    duration: 800,
+                    delay: 150,
+                    easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                    fill: 'forwards'
+                });
+
+                // 5. Flash blanc + navigation
+                animation.onfinish = function() {
+                    var flash = document.getElementById('zoomFlash');
+                    flash.classList.add('active');
+
                     setTimeout(function() {
-                        card.classList.remove('flipped');
-                    }, 500);
-                }, 1000);
+                        window.location.href = href;
+
+                        // Cleanup pour bouton retour
+                        setTimeout(function() {
+                            flash.classList.remove('active');
+                            overlay.classList.remove('active');
+                            zoomCard.remove();
+                            card.classList.remove('zoom-source');
+                            document.body.classList.remove('zoom-active');
+                            isZooming = false;
+                        }, 500);
+                    }, 250);
+                };
             });
         });
 
-        // Tilt 3D au hover (desktop uniquement)
+        // ---- TILT 3D AU HOVER (desktop) ----
         if (!('ontouchstart' in window)) {
             cards.forEach(function(card) {
                 var inner = card.querySelector('.portal-flip-inner');
 
                 card.addEventListener('mousemove', function(e) {
-                    if (card.classList.contains('flipped')) return;
+                    if (card.classList.contains('zoom-source')) return;
                     var rect = card.getBoundingClientRect();
                     var x = e.clientX - rect.left;
                     var y = e.clientY - rect.top;
@@ -460,12 +597,25 @@
                 });
 
                 card.addEventListener('mouseleave', function() {
-                    if (card.classList.contains('flipped')) return;
+                    if (card.classList.contains('zoom-source')) return;
                     inner.style.transform = '';
                     inner.style.transition = 'transform 0.5s ease';
                 });
             });
         }
+
+        // ---- CLEANUP BOUTON RETOUR ----
+        window.addEventListener('pageshow', function(e) {
+            if (e.persisted) {
+                document.body.classList.remove('zoom-active');
+                var overlay = document.getElementById('zoomOverlay');
+                overlay.innerHTML = '';
+                overlay.classList.remove('active');
+                document.getElementById('zoomFlash').classList.remove('active');
+                cards.forEach(function(c) { c.classList.remove('zoom-source'); });
+                isZooming = false;
+            }
+        });
     })();
     </script>
 
