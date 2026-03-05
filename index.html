@@ -32,8 +32,26 @@
             letter-spacing: 0.25em;
             text-transform: uppercase;
             margin-bottom: clamp(30px, 5vh, 60px);
+            display: flex;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .portal-title .letter {
             opacity: 0;
-            animation: fadeIn 1.2s ease forwards;
+            transform: translateY(30px);
+            display: inline-block;
+            animation: letterReveal 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .portal-title .letter-space {
+            width: 0.3em;
+        }
+
+        @keyframes letterReveal {
+            0% { opacity: 0; transform: translateY(30px); }
+            60% { opacity: 1; transform: translateY(-3px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         /* ---- GRILLE ---- */
@@ -263,7 +281,7 @@
             .card-label-top { top: 6px; left: 6px; }
             .card-label-bottom { bottom: 6px; left: 6px; }
             .card-label-bottom-right { bottom: 6px; right: 6px; left: auto; }
-            .card-label-top-right { top: 6px; right: 6px; left: auto; }
+            .card-label-top-right { top: 4px; right: 4px; left: auto; text-align: right; max-width: 70%; line-height: 1.3; }
             .card-label-top-center { top: 4px; left: 50%; transform: translateX(-50%); white-space: normal; width: 90%; line-height: 1.3; }
             .card-label-bottom-center { bottom: 6px; left: 50%; transform: translateX(-50%); }
 
@@ -308,7 +326,7 @@
             .card-label-top { top: 4px !important; left: 4px !important; }
             .card-label-bottom { bottom: 4px !important; left: 4px !important; }
             .card-label-bottom-right { bottom: 4px !important; right: 4px !important; left: auto !important; }
-            .card-label-top-right { top: 4px !important; right: 4px !important; left: auto !important; }
+            .card-label-top-right { top: 3px !important; right: 3px !important; left: auto !important; text-align: right !important; max-width: 70% !important; line-height: 1.3 !important; }
             .card-label-top-center { top: 3px !important; left: 50% !important; transform: translateX(-50%) !important; white-space: normal !important; width: 90% !important; line-height: 1.3 !important; }
             .card-label-bottom-center { bottom: 4px !important; left: 50% !important; transform: translateX(-50%) !important; }
 
@@ -318,7 +336,7 @@
 </head>
 <body>
 
-    <h1 class="portal-title">Bienvenue</h1>
+    <h1 class="portal-title" id="portal-title">Bienvenue</h1>
 
     <div class="portal-container">
 
@@ -406,6 +424,25 @@
 
     <script>
     (function() {
+        // Animation lettre par lettre pour "Bienvenue"
+        var title = document.getElementById('portal-title');
+        if (title) {
+            var text = title.textContent;
+            title.textContent = '';
+            for (var i = 0; i < text.length; i++) {
+                var span = document.createElement('span');
+                if (text[i] === ' ') {
+                    span.className = 'letter letter-space';
+                    span.innerHTML = '&nbsp;';
+                } else {
+                    span.className = 'letter';
+                    span.textContent = text[i];
+                }
+                span.style.animationDelay = (0.1 + i * 0.08) + 's';
+                title.appendChild(span);
+            }
+        }
+
         var cards = document.querySelectorAll('.portal-flip');
 
         cards.forEach(function(card) {
