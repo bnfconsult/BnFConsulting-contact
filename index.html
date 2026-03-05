@@ -36,12 +36,13 @@
             animation: fadeIn 1.2s ease forwards;
         }
 
-        /* ---- GRILLE 2x2 ---- */
+        /* ---- GRILLE ---- */
         .portal-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: clamp(16px, 3vw, 40px);
             padding: 0 20px;
+            justify-items: center;
         }
 
         /* ---- FLIP CARD ---- */
@@ -59,6 +60,11 @@
         .portal-flip:nth-child(2) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s forwards, floatSoft 8s ease-in-out 1.7s infinite; }
         .portal-flip:nth-child(3) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s forwards, floatSoft 8s ease-in-out 2.2s infinite; }
         .portal-flip:nth-child(4) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.7s forwards, floatSoft 8s ease-in-out 2.7s infinite; }
+        .portal-flip:nth-child(5) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2.2s forwards, floatSoft 8s ease-in-out 3.2s infinite; }
+
+        /* Centrer les 2 dernières bulles de la 2e rangée */
+        .portal-flip:nth-child(4) { grid-column: 1 / 2; justify-self: end; }
+        .portal-flip:nth-child(5) { grid-column: 2 / 3; justify-self: start; }
 
         @keyframes fadeScale {
             0% { opacity: 0; transform: scale(0.3); }
@@ -165,6 +171,7 @@
         .card-label-bottom { bottom: 10px; left: 12px; }
         .card-label-bottom-right { bottom: 10px; right: 12px; left: auto; }
         .card-label-top-right { top: 10px; right: 12px; left: auto; }
+        .card-label-top-center { top: 10px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
         .card-label-white { color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
 
         @media (max-width: 480px) {
@@ -173,6 +180,7 @@
             .card-label-bottom { bottom: 7px; left: 8px; }
             .card-label-bottom-right { bottom: 7px; right: 8px; left: auto; }
             .card-label-top-right { top: 7px; right: 8px; left: auto; }
+            .card-label-top-center { top: 7px; left: 50%; transform: translateX(-50%); }
         }
 
         /* Petite icône drone */
@@ -220,44 +228,21 @@
                 margin-bottom: 24px;
             }
 
+            /* 3 colonnes en haut, 2 en bas — les 5 bulles rentrent */
             .portal-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 14px;
-                padding: 0 24px;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                padding: 0 12px;
             }
 
             .portal-flip {
-                width: 38vw;
-                height: 38vw;
+                width: 28vw;
+                height: 28vw;
             }
 
-            .portal-flip-front,
-            .portal-flip-back {
-                border-radius: 14px;
-            }
-
-            .card-label-top-right {
-                top: 8px;
-                right: 10px;
-                left: auto;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .portal-title {
-                font-size: 1.2rem;
-                margin-bottom: 20px;
-            }
-
-            .portal-container {
-                gap: 12px;
-                padding: 0 20px;
-            }
-
-            .portal-flip {
-                width: 40vw;
-                height: 40vw;
-            }
+            /* Les 2 dernières bulles centrées sur la 2ème ligne */
+            .portal-flip:nth-child(4) { grid-column: 1 / 2; justify-self: end; }
+            .portal-flip:nth-child(5) { grid-column: 2 / 3; justify-self: start; }
 
             .portal-flip-front,
             .portal-flip-back {
@@ -265,20 +250,21 @@
             }
 
             .portal-flip-back span {
-                font-size: 0.65rem;
-                letter-spacing: 0.12em;
+                font-size: 0.6rem;
+                letter-spacing: 0.1em;
             }
 
             .card-label {
-                font-size: 0.45rem !important;
-                letter-spacing: 0.08em !important;
+                font-size: 0.4rem;
+                letter-spacing: 0.08em;
             }
-            .card-label-top { top: 6px !important; left: 6px !important; }
-            .card-label-bottom { bottom: 6px !important; left: 6px !important; }
-            .card-label-bottom-right { bottom: 6px !important; right: 6px !important; left: auto !important; }
-            .card-label-top-right { top: 6px !important; right: 6px !important; left: auto !important; }
+            .card-label-top { top: 6px; left: 6px; }
+            .card-label-bottom { bottom: 6px; left: 6px; }
+            .card-label-bottom-right { bottom: 6px; right: 6px; left: auto; }
+            .card-label-top-right { top: 6px; right: 6px; left: auto; }
+            .card-label-top-center { top: 6px; left: 50%; transform: translateX(-50%); }
 
-            .card-drone-icon { top: 6px; right: 6px; width: 16px; height: 16px; }
+            .card-drone-icon { top: 5px; right: 5px; width: 14px; height: 14px; }
 
             .portal-credit {
                 font-size: 0.6rem;
@@ -289,6 +275,40 @@
                 font-size: 0.4rem;
                 margin-top: 6px;
             }
+        }
+
+        @media (max-width: 420px) {
+            .portal-container {
+                gap: 8px;
+                padding: 0 8px;
+            }
+
+            .portal-flip {
+                width: 29vw;
+                height: 29vw;
+            }
+
+            .portal-flip-front,
+            .portal-flip-back {
+                border-radius: 10px;
+            }
+
+            .portal-flip-back span {
+                font-size: 0.5rem;
+                letter-spacing: 0.08em;
+            }
+
+            .card-label {
+                font-size: 0.32rem !important;
+                letter-spacing: 0.06em !important;
+            }
+            .card-label-top { top: 4px !important; left: 4px !important; }
+            .card-label-bottom { bottom: 4px !important; left: 4px !important; }
+            .card-label-bottom-right { bottom: 4px !important; right: 4px !important; left: auto !important; }
+            .card-label-top-right { top: 4px !important; right: 4px !important; left: auto !important; }
+            .card-label-top-center { top: 4px !important; left: 50% !important; transform: translateX(-50%) !important; }
+
+            .card-drone-icon { top: 4px; right: 4px; width: 12px; height: 12px; }
         }
     </style>
 </head>
@@ -315,7 +335,7 @@
         <div class="portal-flip" data-href="drones.html">
             <div class="portal-flip-inner">
                 <div class="portal-flip-front">
-                    <span class="card-label card-label-top-right">Prises de vues aériennes</span>
+                    <span class="card-label card-label-top-center">Prises de vues aériennes</span>
                     <img src="PHOTOS/BnFDrones logo.jpg" alt="BnF Drones">
                 </div>
                 <div class="portal-flip-back">
@@ -324,7 +344,20 @@
             </div>
         </div>
 
-        <!-- Bulle 3 : Flow Hub -->
+        <!-- Bulle 3 : KIBART -->
+        <div class="portal-flip">
+            <div class="portal-flip-inner">
+                <div class="portal-flip-front">
+                    <span class="card-label card-label-bottom">Art & cohésion budgétaire</span>
+                    <img src="PHOTOS/Logo KIBART.png" alt="KIBART">
+                </div>
+                <div class="portal-flip-back">
+                    <span>Art &<br>Cohésion</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bulle 4 : Flow Hub -->
         <div class="portal-flip" data-href="https://www.flow-hub.fr/" data-external="true">
             <div class="portal-flip-inner">
                 <div class="portal-flip-front">
@@ -337,7 +370,7 @@
             </div>
         </div>
 
-        <!-- Bulle 4 : Coordonnées / Linktree -->
+        <!-- Bulle 5 : Coordonnées / Linktree -->
         <div class="portal-flip" data-href="https://linktr.ee/benjaminf_" data-external="true">
             <div class="portal-flip-inner">
                 <div class="portal-flip-front">
