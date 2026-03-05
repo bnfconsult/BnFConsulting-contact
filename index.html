@@ -171,7 +171,8 @@
         .card-label-bottom { bottom: 10px; left: 12px; }
         .card-label-bottom-right { bottom: 10px; right: 12px; left: auto; }
         .card-label-top-right { top: 10px; right: 12px; left: auto; }
-        .card-label-top-center { top: 10px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+        .card-label-top-center { top: 10px; left: 50%; transform: translateX(-50%); white-space: nowrap; text-align: center; }
+        .card-label-bottom-center { bottom: 10px; left: 50%; transform: translateX(-50%); white-space: nowrap; text-align: center; }
         .card-label-white { color: #fff; text-shadow: 0 1px 6px rgba(0,0,0,0.6); }
 
         @media (max-width: 480px) {
@@ -181,6 +182,7 @@
             .card-label-bottom-right { bottom: 7px; right: 8px; left: auto; }
             .card-label-top-right { top: 7px; right: 8px; left: auto; }
             .card-label-top-center { top: 7px; left: 50%; transform: translateX(-50%); }
+            .card-label-bottom-center { bottom: 7px; left: 50%; transform: translateX(-50%); }
         }
 
         /* Petite icône drone */
@@ -262,7 +264,8 @@
             .card-label-bottom { bottom: 6px; left: 6px; }
             .card-label-bottom-right { bottom: 6px; right: 6px; left: auto; }
             .card-label-top-right { top: 6px; right: 6px; left: auto; }
-            .card-label-top-center { top: 6px; left: 50%; transform: translateX(-50%); }
+            .card-label-top-center { top: 4px; left: 50%; transform: translateX(-50%); white-space: normal; width: 90%; line-height: 1.3; }
+            .card-label-bottom-center { bottom: 6px; left: 50%; transform: translateX(-50%); }
 
             .card-drone-icon { top: 5px; right: 5px; width: 14px; height: 14px; }
 
@@ -306,7 +309,8 @@
             .card-label-bottom { bottom: 4px !important; left: 4px !important; }
             .card-label-bottom-right { bottom: 4px !important; right: 4px !important; left: auto !important; }
             .card-label-top-right { top: 4px !important; right: 4px !important; left: auto !important; }
-            .card-label-top-center { top: 4px !important; left: 50% !important; transform: translateX(-50%) !important; }
+            .card-label-top-center { top: 3px !important; left: 50% !important; transform: translateX(-50%) !important; white-space: normal !important; width: 90% !important; line-height: 1.3 !important; }
+            .card-label-bottom-center { bottom: 4px !important; left: 50% !important; transform: translateX(-50%) !important; }
 
             .card-drone-icon { top: 4px; right: 4px; width: 12px; height: 12px; }
         }
@@ -374,7 +378,7 @@
         <div class="portal-flip" data-href="https://linktr.ee/benjaminf_" data-external="true">
             <div class="portal-flip-inner">
                 <div class="portal-flip-front">
-                    <span class="card-label card-label-bottom-right card-label-white">Coordonnées</span>
+                    <span class="card-label card-label-bottom-center card-label-white">Coordonnées</span>
                     <div class="portal-card-icon">
                         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="50" cy="30" r="12" stroke="#549BA2" stroke-width="2.5" fill="none"/>
