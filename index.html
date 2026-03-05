@@ -428,11 +428,17 @@
                 setTimeout(function() {
                     var href = card.getAttribute('data-href');
                     var external = card.getAttribute('data-external');
-                    if (external) {
-                        window.open(href, '_blank', 'noopener');
-                    } else {
-                        window.location.href = href;
+                    if (href) {
+                        if (external) {
+                            window.open(href, '_blank', 'noopener');
+                        } else {
+                            window.location.href = href;
+                        }
                     }
+                    // Reset flip pour quand l'utilisateur revient
+                    setTimeout(function() {
+                        card.classList.remove('flipped');
+                    }, 500);
                 }, 1000);
             });
         });
