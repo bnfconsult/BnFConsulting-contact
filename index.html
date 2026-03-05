@@ -27,19 +27,61 @@
         /* ---- TITRE ---- */
         .portal-title {
             color: #fff;
-            font-size: clamp(1.8rem, 4vw, 3.2rem);
             font-weight: 300;
             letter-spacing: 0.25em;
-            text-transform: uppercase;
-            margin-bottom: clamp(30px, 5vh, 60px);
+            margin-bottom: clamp(20px, 4vh, 40px);
+            text-align: center;
             opacity: 0;
-            animation: titleShrink 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+        }
+        .portal-title-main {
+            display: block;
+            font-size: clamp(1.8rem, 4vw, 3.2rem);
+            text-transform: uppercase;
+        }
+        .portal-title-sub {
+            display: block;
+            font-size: clamp(0.85rem, 1.8vw, 1.2rem);
+            letter-spacing: 0.15em;
+            margin-top: 8px;
+            font-weight: 300;
+            opacity: 0.7;
         }
 
-        @keyframes titleShrink {
-            0% { opacity: 0; font-size: clamp(3.5rem, 12vw, 8rem); letter-spacing: 0.4em; }
-            20% { opacity: 1; font-size: clamp(3.5rem, 12vw, 8rem); letter-spacing: 0.4em; }
-            100% { opacity: 1; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: 0.25em; }
+        /* ---- INTRO PLEIN ÉCRAN ---- */
+        .intro-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: #000;
+            z-index: 8000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease;
+        }
+        .intro-overlay.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .intro-word {
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: clamp(3rem, 12vw, 8rem);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            position: absolute;
+            opacity: 0;
+            transform: scale(1.1);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .intro-word.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .intro-word.fade-out {
+            opacity: 0;
+            transform: scale(0.9);
         }
 
         /* ---- GRILLE ---- */
@@ -62,11 +104,11 @@
         }
 
         /* Entrée fade + scale */
-        .portal-flip:nth-child(1) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2.5s forwards, floatSoft 8s ease-in-out 3.5s infinite; }
-        .portal-flip:nth-child(2) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2.8s forwards, floatSoft 8s ease-in-out 3.8s infinite; }
-        .portal-flip:nth-child(3) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.1s forwards, floatSoft 8s ease-in-out 4.1s infinite; }
-        .portal-flip:nth-child(4) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.4s forwards, floatSoft 8s ease-in-out 4.4s infinite; }
-        .portal-flip:nth-child(5) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.7s forwards, floatSoft 8s ease-in-out 4.7s infinite; }
+        .portal-flip:nth-child(1) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 5.5s forwards, floatSoft 8s ease-in-out 6.5s infinite; }
+        .portal-flip:nth-child(2) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 5.8s forwards, floatSoft 8s ease-in-out 6.8s infinite; }
+        .portal-flip:nth-child(3) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 6.1s forwards, floatSoft 8s ease-in-out 7.1s infinite; }
+        .portal-flip:nth-child(4) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 6.4s forwards, floatSoft 8s ease-in-out 7.4s infinite; }
+        .portal-flip:nth-child(5) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 6.7s forwards, floatSoft 8s ease-in-out 7.7s infinite; }
 
         /* Centrer les 2 dernières bulles de la 2e rangée */
         .portal-flip:nth-child(4) { grid-column: 1 / 2; justify-self: end; }
@@ -256,23 +298,23 @@
 
         /* ---- CREDIT ---- */
         .portal-credit {
-            color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.85);
             font-size: clamp(0.65rem, 1.2vw, 0.85rem);
             font-weight: 300;
             letter-spacing: 0.15em;
             margin-top: clamp(30px, 5vh, 60px);
             opacity: 0;
-            animation: fadeIn 1.5s ease 4.2s forwards;
+            animation: fadeIn 1.5s ease 7.2s forwards;
         }
 
         .portal-copyright {
-            color: rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.5);
             font-size: clamp(0.5rem, 0.9vw, 0.65rem);
             font-weight: 300;
             letter-spacing: 0.08em;
             margin-top: 8px;
             opacity: 0;
-            animation: fadeIn 1.5s ease 4.5s forwards;
+            animation: fadeIn 1.5s ease 7.5s forwards;
         }
 
         /* ---- RESPONSIVE MOBILE ---- */
@@ -376,7 +418,15 @@
 </head>
 <body>
 
-    <h1 class="portal-title">Bienvenue</h1>
+    <!-- Intro plein écran -->
+    <div class="intro-overlay" id="introOverlay">
+        <span class="intro-word" id="introWord"></span>
+    </div>
+
+    <h1 class="portal-title" id="portalTitle">
+        <span class="portal-title-main">Bienvenue</span>
+        <span class="portal-title-sub">dans l'écosystème BnF</span>
+    </h1>
 
     <div class="portal-container">
 
@@ -467,6 +517,53 @@
 
     <script>
     (function() {
+        // ---- INTRO ANIMATION ----
+        var introOverlay = document.getElementById('introOverlay');
+        var introWord = document.getElementById('introWord');
+        var portalTitle = document.getElementById('portalTitle');
+        var words = ['Bienvenue', 'dans', "l'écosystème", 'BnF'];
+        var wordIndex = 0;
+        var wordDelay = 750; // 3/4 de seconde
+
+        function showNextWord() {
+            if (wordIndex >= words.length) {
+                // Tous les mots affichés → dézoomer vers le titre final
+                introWord.classList.remove('visible');
+                introWord.classList.add('fade-out');
+                setTimeout(function() {
+                    introOverlay.classList.add('fade-out');
+                    portalTitle.style.opacity = '1';
+                    portalTitle.style.transition = 'opacity 0.8s ease';
+                }, 300);
+                return;
+            }
+
+            // Afficher le mot
+            introWord.textContent = words[wordIndex];
+            introWord.className = 'intro-word';
+
+            // Petit délai pour déclencher la transition
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() {
+                    introWord.classList.add('visible');
+                });
+            });
+
+            // Après 0.75s, faire disparaître puis passer au suivant
+            setTimeout(function() {
+                introWord.classList.remove('visible');
+                introWord.classList.add('fade-out');
+
+                setTimeout(function() {
+                    wordIndex++;
+                    showNextWord();
+                }, 350);
+            }, wordDelay);
+        }
+
+        // Lancer l'intro après un court délai
+        setTimeout(showNextWord, 400);
+
         var cards = document.querySelectorAll('.portal-flip');
         var isZooming = false;
 
