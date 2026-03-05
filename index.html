@@ -113,8 +113,8 @@
 
         /* ---- FLIP CARD ---- */
         .portal-flip {
-            width: clamp(180px, 22vw, 300px);
-            height: clamp(180px, 22vw, 300px);
+            width: clamp(140px, 18vw, 240px);
+            height: clamp(140px, 18vw, 240px);
             perspective: 1000px;
             cursor: pointer;
             opacity: 0;
@@ -315,6 +315,21 @@
         }
 
         /* ---- CREDIT ---- */
+        .portal-description {
+            color: rgba(255, 255, 255, 0.75);
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.7rem, 1.3vw, 1rem);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            line-height: 1.6;
+            text-align: center;
+            max-width: 700px;
+            margin: clamp(15px, 3vh, 30px) auto 0;
+            padding: 0 20px;
+            opacity: 0;
+            animation: fadeIn 1.5s ease 4.5s forwards;
+        }
+
         .portal-credit {
             color: rgba(255, 255, 255, 0.85);
             font-size: clamp(0.65rem, 1.2vw, 0.85rem);
@@ -376,8 +391,8 @@
             }
 
             .portal-flip {
-                width: 28vw;
-                height: 28vw;
+                width: 24vw;
+                height: 24vw;
             }
 
             /* Les 2 dernières bulles centrées sur la 2ème ligne */
@@ -407,9 +422,16 @@
 
             .card-drone-icon { top: 5px; right: 5px; width: 14px; height: 14px; }
 
+            .portal-description {
+                font-size: 0.55rem;
+                padding: 0 15px;
+                margin-top: 12px;
+                line-height: 1.5;
+            }
+
             .portal-credit {
                 font-size: 0.6rem;
-                margin-top: 20px;
+                margin-top: 12px;
             }
 
             .portal-copyright {
@@ -444,8 +466,8 @@
             }
 
             .portal-flip {
-                width: 29vw;
-                height: 29vw;
+                width: 25vw;
+                height: 25vw;
             }
 
             .portal-flip-front,
@@ -470,6 +492,12 @@
             .card-label-bottom-center { bottom: 4px !important; left: 50% !important; transform: translateX(-50%) !important; }
 
             .card-drone-icon { top: 4px; right: 4px; width: 12px; height: 12px; }
+
+            .portal-description {
+                font-size: 0.48rem;
+                padding: 0 12px;
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -570,6 +598,8 @@
         </div>
 
     </div>
+
+    <p class="portal-description">J'accompagne les entreprises dans leur développement en identifiant les freins à leur croissance et en orchestrant les expertises de partenaires spécialisés pour y répondre.</p>
 
     <p class="portal-credit">By BnF</p>
     <p class="portal-copyright">All rights reserved. BnFConsulting&bull;2026</p>
