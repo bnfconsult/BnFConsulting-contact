@@ -32,26 +32,14 @@
             letter-spacing: 0.25em;
             text-transform: uppercase;
             margin-bottom: clamp(30px, 5vh, 60px);
-            display: flex;
-            justify-content: center;
-            gap: 0;
-        }
-
-        .portal-title .letter {
             opacity: 0;
-            transform: translateY(30px);
-            display: inline-block;
-            animation: letterReveal 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+            animation: titleShrink 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
         }
 
-        .portal-title .letter-space {
-            width: 0.3em;
-        }
-
-        @keyframes letterReveal {
-            0% { opacity: 0; transform: translateY(30px); }
-            60% { opacity: 1; transform: translateY(-3px); }
-            100% { opacity: 1; transform: translateY(0); }
+        @keyframes titleShrink {
+            0% { opacity: 0; font-size: clamp(3.5rem, 12vw, 8rem); letter-spacing: 0.4em; }
+            20% { opacity: 1; font-size: clamp(3.5rem, 12vw, 8rem); letter-spacing: 0.4em; }
+            100% { opacity: 1; font-size: clamp(1.8rem, 4vw, 3.2rem); letter-spacing: 0.25em; }
         }
 
         /* ---- GRILLE ---- */
@@ -74,11 +62,11 @@
         }
 
         /* Entrée fade + scale */
-        .portal-flip:nth-child(1) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards, floatSoft 8s ease-in-out 1.2s infinite; }
-        .portal-flip:nth-child(2) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s forwards, floatSoft 8s ease-in-out 1.7s infinite; }
-        .portal-flip:nth-child(3) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s forwards, floatSoft 8s ease-in-out 2.2s infinite; }
-        .portal-flip:nth-child(4) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.7s forwards, floatSoft 8s ease-in-out 2.7s infinite; }
-        .portal-flip:nth-child(5) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2.2s forwards, floatSoft 8s ease-in-out 3.2s infinite; }
+        .portal-flip:nth-child(1) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2.5s forwards, floatSoft 8s ease-in-out 3.5s infinite; }
+        .portal-flip:nth-child(2) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2.8s forwards, floatSoft 8s ease-in-out 3.8s infinite; }
+        .portal-flip:nth-child(3) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.1s forwards, floatSoft 8s ease-in-out 4.1s infinite; }
+        .portal-flip:nth-child(4) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.4s forwards, floatSoft 8s ease-in-out 4.4s infinite; }
+        .portal-flip:nth-child(5) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.7s forwards, floatSoft 8s ease-in-out 4.7s infinite; }
 
         /* Centrer les 2 dernières bulles de la 2e rangée */
         .portal-flip:nth-child(4) { grid-column: 1 / 2; justify-self: end; }
@@ -222,7 +210,7 @@
             letter-spacing: 0.15em;
             margin-top: clamp(30px, 5vh, 60px);
             opacity: 0;
-            animation: fadeIn 1.5s ease 2.2s forwards;
+            animation: fadeIn 1.5s ease 4.2s forwards;
         }
 
         .portal-copyright {
@@ -232,7 +220,7 @@
             letter-spacing: 0.08em;
             margin-top: 8px;
             opacity: 0;
-            animation: fadeIn 1.5s ease 2.5s forwards;
+            animation: fadeIn 1.5s ease 4.5s forwards;
         }
 
         /* ---- RESPONSIVE MOBILE ---- */
@@ -336,7 +324,7 @@
 </head>
 <body>
 
-    <h1 class="portal-title" id="portal-title">Bienvenue</h1>
+    <h1 class="portal-title">Bienvenue</h1>
 
     <div class="portal-container">
 
@@ -424,25 +412,6 @@
 
     <script>
     (function() {
-        // Animation lettre par lettre pour "Bienvenue"
-        var title = document.getElementById('portal-title');
-        if (title) {
-            var text = title.textContent;
-            title.textContent = '';
-            for (var i = 0; i < text.length; i++) {
-                var span = document.createElement('span');
-                if (text[i] === ' ') {
-                    span.className = 'letter letter-space';
-                    span.innerHTML = '&nbsp;';
-                } else {
-                    span.className = 'letter';
-                    span.textContent = text[i];
-                }
-                span.style.animationDelay = (0.1 + i * 0.08) + 's';
-                title.appendChild(span);
-            }
-        }
-
         var cards = document.querySelectorAll('.portal-flip');
 
         cards.forEach(function(card) {
