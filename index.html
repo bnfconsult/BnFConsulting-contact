@@ -63,6 +63,12 @@
             opacity: 0;
             pointer-events: none;
         }
+        .intro-words-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3em;
+        }
         .intro-word {
             color: #fff;
             font-family: 'Montserrat', sans-serif;
@@ -70,14 +76,30 @@
             font-size: clamp(2rem, 9vw, 8rem);
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            position: absolute;
             opacity: 0;
         }
         .intro-word.visible {
             opacity: 1;
         }
-        .intro-word.fade-out {
-            opacity: 0;
+        .intro-words-stack.collapse {
+            flex-direction: row;
+            gap: 0.3em;
+            transition: none;
+        }
+        .intro-words-stack.collapse .intro-word {
+            font-size: clamp(1.8rem, 4vw, 3.2rem);
+            letter-spacing: 0.25em;
+            transition: font-size 0.6s ease, letter-spacing 0.6s ease;
+        }
+        .intro-words-stack.collapse .intro-word[data-word="Bienvenue"] {
+            font-size: clamp(1.8rem, 4vw, 3.2rem);
+        }
+        .intro-words-stack.collapse .intro-word[data-word="dans"],
+        .intro-words-stack.collapse .intro-word[data-word="l'écosystème"],
+        .intro-words-stack.collapse .intro-word[data-word="BnF"] {
+            font-size: clamp(0.85rem, 1.8vw, 1.2rem);
+            letter-spacing: 0.15em;
+            opacity: 0.7;
         }
 
         /* ---- GRILLE ---- */
@@ -337,6 +359,14 @@
                 font-size: clamp(1.8rem, 8vw, 4rem);
                 letter-spacing: 0.1em;
             }
+            .intro-words-stack.collapse .intro-word[data-word="Bienvenue"] {
+                font-size: 1.3rem;
+            }
+            .intro-words-stack.collapse .intro-word[data-word="dans"],
+            .intro-words-stack.collapse .intro-word[data-word="l'écosystème"],
+            .intro-words-stack.collapse .intro-word[data-word="BnF"] {
+                font-size: 0.65rem;
+            }
 
             /* 3 colonnes en haut, 2 en bas — les 5 bulles rentrent */
             .portal-container {
@@ -399,6 +429,14 @@
                 font-size: clamp(1.5rem, 7vw, 3rem);
                 letter-spacing: 0.08em;
             }
+            .intro-words-stack.collapse .intro-word[data-word="Bienvenue"] {
+                font-size: 1.1rem;
+            }
+            .intro-words-stack.collapse .intro-word[data-word="dans"],
+            .intro-words-stack.collapse .intro-word[data-word="l'écosystème"],
+            .intro-words-stack.collapse .intro-word[data-word="BnF"] {
+                font-size: 0.55rem;
+            }
 
             .portal-container {
                 gap: 8px;
@@ -439,7 +477,12 @@
 
     <!-- Intro plein écran -->
     <div class="intro-overlay" id="introOverlay">
-        <span class="intro-word" id="introWord"></span>
+        <div class="intro-words-stack" id="introStack">
+            <span class="intro-word" data-word="Bienvenue">Bienvenue</span>
+            <span class="intro-word" data-word="dans">dans</span>
+            <span class="intro-word" data-word="l'écosystème">l'écosystème</span>
+            <span class="intro-word" data-word="BnF">BnF</span>
+        </div>
     </div>
 
     <h1 class="portal-title" id="portalTitle">
@@ -538,46 +581,25 @@
     (function() {
         // ---- INTRO ANIMATION ----
         var introOverlay = document.getElementById('introOverlay');
-        var introWord = document.getElementById('introWord');
+        var introStack = document.getElementById('introStack');
+        var introWords = introStack.querySelectorAll('.intro-word');
         var portalTitle = document.getElementById('portalTitle');
-        var words = ['Bienvenue', 'dans', "l'écosystème", 'BnF'];
+        var wordDelay = 300;
         var wordIndex = 0;
-        var wordDelay = 300; // 300ms
 
         function showNextWord() {
-            if (wordIndex >= words.length) {
-                // Tous les mots affichés → dézoomer vers le titre final
-                introWord.classList.remove('visible');
-                introWord.classList.add('fade-out');
+            if (wordIndex >= introWords.length) {
+                // Tous visibles → pause puis transition vers titre final
                 setTimeout(function() {
                     introOverlay.classList.add('fade-out');
                     portalTitle.style.opacity = '1';
                     portalTitle.style.transition = 'opacity 0.8s ease';
-                }, 300);
+                }, 600);
                 return;
             }
-
-            // Afficher le mot
-            introWord.textContent = words[wordIndex];
-            introWord.className = 'intro-word';
-
-            // Petit délai pour déclencher la transition
-            requestAnimationFrame(function() {
-                requestAnimationFrame(function() {
-                    introWord.classList.add('visible');
-                });
-            });
-
-            // Après 0.75s, faire disparaître puis passer au suivant
-            setTimeout(function() {
-                introWord.classList.remove('visible');
-                introWord.classList.add('fade-out');
-
-                setTimeout(function() {
-                    wordIndex++;
-                    showNextWord();
-                }, 350);
-            }, wordDelay);
+            introWords[wordIndex].classList.add('visible');
+            wordIndex++;
+            setTimeout(showNextWord, wordDelay);
         }
 
         // Lancer l'intro après un court délai
