@@ -94,8 +94,7 @@
             transition: background 0.8s ease;
         }
         .intro-words-stack.to-final {
-            transform: translateY(calc(-40vh + 60px));
-            gap: 8px;
+            gap: 4px;
             transition: transform 0.8s ease, gap 0.8s ease;
         }
         .intro-words-stack.to-final .intro-word {
@@ -380,10 +379,10 @@
                 margin-bottom: 16px;
             }
             .portal-title-main {
-                font-size: 1.3rem;
+                font-size: 3.9rem;
             }
             .portal-title-sub {
-                font-size: 0.65rem;
+                font-size: 1.95rem;
                 letter-spacing: 0.1em;
                 margin-top: 4px;
             }
@@ -392,14 +391,11 @@
                 font-size: clamp(1.8rem, 8vw, 4rem);
                 letter-spacing: 0.1em;
             }
-            .intro-words-stack.to-final {
-                transform: translateY(calc(-40vh + 40px));
-            }
             .intro-words-stack.to-final .intro-word[data-word="Bienvenue"] {
-                font-size: 1.3rem;
+                font-size: 3.9rem;
             }
             .intro-sub-words.to-final .intro-word {
-                font-size: 0.65rem;
+                font-size: 1.95rem;
             }
 
             /* 3 colonnes en haut, 2 en bas — les 5 bulles rentrent */
@@ -442,7 +438,7 @@
             .card-drone-icon { top: 5px; right: 5px; width: 14px; height: 14px; }
 
             .portal-description {
-                font-size: 0.55rem;
+                font-size: 1.65rem;
                 padding: 0 15px;
                 margin-top: 12px;
                 line-height: 1.5;
@@ -461,23 +457,20 @@
 
         @media (max-width: 420px) {
             .portal-title-main {
-                font-size: 1.1rem;
+                font-size: 3.3rem;
             }
             .portal-title-sub {
-                font-size: 0.55rem;
+                font-size: 1.65rem;
             }
             .intro-word {
                 font-size: clamp(1.5rem, 7vw, 3rem);
                 letter-spacing: 0.08em;
             }
-            .intro-words-stack.to-final {
-                transform: translateY(calc(-40vh + 35px));
-            }
             .intro-words-stack.to-final .intro-word[data-word="Bienvenue"] {
-                font-size: 1.1rem;
+                font-size: 3.3rem;
             }
             .intro-sub-words.to-final .intro-word {
-                font-size: 0.55rem;
+                font-size: 1.65rem;
             }
 
             .portal-container {
@@ -514,7 +507,7 @@
             .card-drone-icon { top: 4px; right: 4px; width: 12px; height: 12px; }
 
             .portal-description {
-                font-size: 0.48rem;
+                font-size: 1.44rem;
                 padding: 0 12px;
                 margin-top: 10px;
             }
@@ -640,21 +633,41 @@
         var wordDelay = 300;
         var wordIndex = 0;
 
+        function startFinalTransition() {
+            // Mesurer la position cible du vrai titre
+            portalTitle.style.opacity = '0.001';
+            portalTitle.style.visibility = 'visible';
+            var titleRect = portalTitle.getBoundingClientRect();
+            var titleCenterY = titleRect.top + titleRect.height / 2;
+            portalTitle.style.opacity = '0';
+            portalTitle.style.visibility = '';
+
+            // Mesurer la position actuelle du stack
+            var stackRect = introStack.getBoundingClientRect();
+            var stackCenterY = stackRect.top + stackRect.height / 2;
+
+            // Calculer le décalage exact
+            var offsetY = titleCenterY - stackCenterY;
+
+            // Appliquer le transform calculé
+            introStack.style.transform = 'translateY(' + offsetY + 'px)';
+
+            // Lancer les transitions CSS
+            introOverlay.classList.add('to-final');
+            introStack.classList.add('to-final');
+            introSubWords.classList.add('to-final');
+
+            // Après la transition, swap vers le vrai titre
+            setTimeout(function() {
+                introOverlay.classList.add('intro-hidden');
+                portalTitle.style.opacity = '1';
+            }, 850);
+        }
+
         function showNextWord() {
             if (wordIndex >= introWords.length) {
                 // Tous visibles → transition vers position finale
-                setTimeout(function() {
-                    // Lancer la transition des mots vers leur position finale
-                    introOverlay.classList.add('to-final');
-                    introStack.classList.add('to-final');
-                    introSubWords.classList.add('to-final');
-
-                    // Après la transition, cacher l'overlay et montrer le vrai titre
-                    setTimeout(function() {
-                        introOverlay.classList.add('intro-hidden');
-                        portalTitle.style.opacity = '1';
-                    }, 850);
-                }, 400);
+                setTimeout(startFinalTransition, 400);
                 return;
             }
             introWords[wordIndex].classList.add('visible');
