@@ -22,6 +22,28 @@
             justify-content: center;
             font-family: 'Montserrat', -apple-system, sans-serif;
             overflow: hidden;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: url('PHOTOS/Drones/Best_teinture_vert (4).JPG') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.7) 100%);
+            z-index: 0;
+        }
+        body > * {
+            position: relative;
+            z-index: 1;
         }
 
         /* ---- TITRE ---- */
@@ -40,8 +62,8 @@
         }
         .portal-title-sub {
             display: block;
-            font-size: clamp(0.85rem, 1.8vw, 1.2rem);
-            letter-spacing: 0.15em;
+            font-size: clamp(1.8rem, 4vw, 3.2rem);
+            letter-spacing: 0.25em;
             margin-top: 8px;
             font-weight: 300;
             opacity: 0.7;
@@ -109,8 +131,8 @@
             gap: 0.25em;
         }
         .intro-sub-words.to-final .intro-word {
-            font-size: clamp(0.85rem, 1.8vw, 1.2rem);
-            letter-spacing: 0.15em;
+            font-size: clamp(1.8rem, 4vw, 3.2rem);
+            letter-spacing: 0.25em;
             opacity: 0.7;
         }
         .intro-overlay.intro-hidden {
@@ -178,7 +200,7 @@
             height: 100%;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(84, 155, 162, 0.3);
         }
 
         .portal-flip-back {
@@ -382,8 +404,8 @@
                 font-size: 1.95rem;
             }
             .portal-title-sub {
-                font-size: 0.98rem;
-                letter-spacing: 0.1em;
+                font-size: 1.95rem;
+                letter-spacing: 0.15em;
                 margin-top: 4px;
             }
 
@@ -395,7 +417,7 @@
                 font-size: 1.95rem;
             }
             .intro-sub-words.to-final .intro-word {
-                font-size: 0.98rem;
+                font-size: 1.95rem;
             }
 
             /* 3 colonnes en haut, 2 en bas — les 5 bulles rentrent */
@@ -460,7 +482,7 @@
                 font-size: 1.65rem;
             }
             .portal-title-sub {
-                font-size: 0.83rem;
+                font-size: 1.65rem;
             }
             .intro-word {
                 font-size: clamp(1.5rem, 7vw, 3rem);
@@ -470,7 +492,7 @@
                 font-size: 1.65rem;
             }
             .intro-sub-words.to-final .intro-word {
-                font-size: 0.83rem;
+                font-size: 1.65rem;
             }
 
             .portal-container {
