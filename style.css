@@ -3216,7 +3216,10 @@ h1, h2, h3 {
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--axe-bg) center/cover no-repeat;
+    background-image: var(--axe-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     opacity: 0.25;
     z-index: 0;
     transition: opacity 0.3s ease;
