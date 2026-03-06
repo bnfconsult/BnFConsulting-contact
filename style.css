@@ -2381,13 +2381,7 @@ h1, h2, h3 {
     }
 
     .quick-nav {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
-
-    .quick-nav-item {
-        text-align: center;
+        display: none;
     }
 
     .btn-large {
