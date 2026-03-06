@@ -78,6 +78,9 @@
         </div>
     </section>
 
+    <!-- Séparation visuelle -->
+    <div class="section-divider"></div>
+
     <section class="stacking-section" id="structure-disparait">
         <div class="stacking-header">
             <h2 class="stacking-title">Quand la structure disparaît,<br><span class="accent">la complexité prend le contrôle.</span></h2>
@@ -135,40 +138,34 @@
             <div class="axes-grid">
 
                 <!-- AXE 1 -->
-                <div class="axe-card axe-card-img" onclick="this.classList.toggle('axe-open')">
-                    <img src="PHOTOS/Chess.jpg" alt="" class="axe-card-photo">
-                    <div class="axe-card-inner-bubble">
-                        <div class="axe-num">01</div>
-                        <h3 class="axe-label">Stratégie</h3>
-                        <p class="axe-brand">BnF Consulting</p>
-                        <div class="axe-content">
-                            <p class="axe-desc">Analyse stratégique et identification des freins au développement.</p>
-                            <ul class="axe-list">
-                                <li>Audit stratégique</li>
-                                <li>Structuration du développement</li>
-                                <li>Alignement des opérations</li>
-                                <li>Accompagnement des dirigeants</li>
-                            </ul>
-                        </div>
+                <div class="axe-card" onclick="this.classList.toggle('axe-open')">
+                    <div class="axe-num">01</div>
+                    <h3 class="axe-label">Stratégie</h3>
+                    <p class="axe-brand">BnF Consulting</p>
+                    <div class="axe-content">
+                        <p class="axe-desc">Analyse stratégique et identification des freins au développement.</p>
+                        <ul class="axe-list">
+                            <li>Audit stratégique</li>
+                            <li>Structuration du développement</li>
+                            <li>Alignement des opérations</li>
+                            <li>Accompagnement des dirigeants</li>
+                        </ul>
                     </div>
                 </div>
 
                 <!-- AXE 2 -->
-                <div class="axe-card axe-card-img" onclick="this.classList.toggle('axe-open')">
-                    <img src="PHOTOS/Archi.jpg" alt="" class="axe-card-photo">
-                    <div class="axe-card-inner-bubble">
-                        <div class="axe-num">02</div>
-                        <h3 class="axe-label">Optimisation</h3>
-                        <p class="axe-brand">Flow</p>
-                        <div class="axe-content">
-                            <p class="axe-desc">Optimisation des processus et des systèmes pour améliorer l'efficacité opérationnelle.</p>
-                            <ul class="axe-list">
-                                <li>Optimisation des workflows</li>
-                                <li>Automatisation</li>
-                                <li>Structuration digitale</li>
-                                <li>Amélioration de la performance opérationnelle</li>
-                            </ul>
-                        </div>
+                <div class="axe-card" onclick="this.classList.toggle('axe-open')">
+                    <div class="axe-num">02</div>
+                    <h3 class="axe-label">Optimisation</h3>
+                    <p class="axe-brand">Flow</p>
+                    <div class="axe-content">
+                        <p class="axe-desc">Optimisation des processus et des systèmes pour améliorer l'efficacité opérationnelle.</p>
+                        <ul class="axe-list">
+                            <li>Optimisation des workflows</li>
+                            <li>Automatisation</li>
+                            <li>Structuration digitale</li>
+                            <li>Amélioration de la performance opérationnelle</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -213,36 +210,44 @@
                 <p class="axe-intervention-text">Révélation des pertes invisibles, incohérences internes et freins à la croissance.<br>Transformation du flou en décisions mesurables.</p>
             </a>
 
-            <!-- SECTION 5 : Intervention adaptée -->
-            <div class="axe-intervention">
-                <h3 class="axe-intervention-title">Une intervention adaptée <span class="accent">à chaque entreprise</span></h3>
-                <p class="axe-intervention-text">Certaines entreprises ont besoin d'une transformation globale. D'autres ont simplement besoin d'activer un levier précis.</p>
-                <div class="axe-intervention-options">
-                    <div class="axe-option">
-                        <span class="axe-option-icon">◎</span>
-                        <span>Un seul axe</span>
-                    </div>
-                    <div class="axe-option">
-                        <span class="axe-option-icon">◎◎</span>
-                        <span>Plusieurs axes</span>
-                    </div>
-                    <div class="axe-option">
-                        <span class="axe-option-icon">◎◎◎</span>
-                        <span>Architecture complète</span>
-                    </div>
+        </div>
+    </section>
+
+    <!-- SECTION : Intervention adaptée (photo fond) -->
+    <section class="section intervention-photo-section" id="intervention">
+        <div class="intervention-photo-bg">
+            <img src="PHOTOS/Drones/Best_teinture_violette.JPG" alt="">
+        </div>
+        <div class="intervention-photo-overlay"></div>
+        <div class="container container-relative" style="text-align:center;">
+            <h2 class="section-title" style="color:#fff;">Une intervention adaptée <span class="accent">à chaque entreprise</span></h2>
+            <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.9rem,1.5vw,1.05rem); line-height:1.7; max-width:600px; margin:0 auto 2.5rem;">Certaines entreprises ont besoin d'une transformation globale. D'autres ont simplement besoin d'activer un levier précis.</p>
+            <div class="axe-intervention-options">
+                <div class="axe-option">
+                    <span class="axe-option-icon">◎</span>
+                    <span>Un seul axe</span>
+                </div>
+                <div class="axe-option">
+                    <span class="axe-option-icon">◎◎</span>
+                    <span>Plusieurs axes</span>
+                </div>
+                <div class="axe-option">
+                    <span class="axe-option-icon">◎◎◎</span>
+                    <span>Architecture complète</span>
                 </div>
             </div>
-
         </div>
     </section>
 
     <!-- CTA FINAL -->
-    <section class="section section-cta" id="cta-final">
-        <div class="container">
-            <h2 class="cta-title">Prêt à structurer<br><span class="accent">votre croissance ?</span></h2>
-            <p class="cta-text">Un diagnostic stratégique de 30 minutes pour identifier vos leviers inexploités.</p>
-            <div class="cta-buttons">
-                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary btn-large">Demander un audit stratégique</a>
+    <section class="section section-black" id="cta-final" style="padding:0;">
+        <div class="container" style="max-width:800px; padding:clamp(2rem,4vw,3rem) 24px;">
+            <div class="cta-bubble">
+                <h2 class="cta-title">Prêt à structurer<br><span class="accent">votre croissance ?</span></h2>
+                <p class="cta-text">Un diagnostic stratégique de 30 minutes pour identifier vos leviers inexploités.</p>
+                <div class="cta-buttons">
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary btn-large">Demander un audit stratégique</a>
+                </div>
             </div>
         </div>
     </section>
