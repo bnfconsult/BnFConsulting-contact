@@ -2989,7 +2989,7 @@ h1, h2, h3 {
 
 .stacking-card {
     position: sticky;
-    top: calc(120px + var(--card-index) * 20px);
+    top: calc(220px + var(--card-index) * 20px);
     margin-bottom: 30px;
     z-index: calc(var(--card-index) + 1);
 }
@@ -3062,7 +3062,7 @@ h1, h2, h3 {
         padding-bottom: clamp(1.5rem, 3vw, 2rem);
     }
     .stacking-card {
-        top: calc(30vh + var(--card-index) * 16px);
+        top: calc(38vh + var(--card-index) * 16px);
         margin-bottom: 20px;
     }
     .stacking-card-inner {
