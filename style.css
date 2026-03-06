@@ -3189,6 +3189,182 @@ h1, h2, h3 {
     line-height: 1.65;
 }
 
+/* ---- LES 4 AXES ---- */
+.axes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1rem, 2vw, 1.5rem);
+    margin-top: 3rem;
+}
+
+.axe-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(84, 155, 162, 0.2);
+    border-radius: 16px;
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.axe-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(84, 155, 162, 0.6);
+    box-shadow: 0 0 30px rgba(84, 155, 162, 0.15), 0 0 60px rgba(84, 155, 162, 0.05);
+}
+
+.axe-num {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.axe-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.25rem;
+}
+
+.axe-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.axe-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+/* Desktop: hover reveal */
+@media (hover: hover) {
+    .axe-card:hover .axe-content {
+        max-height: 300px;
+        opacity: 1;
+    }
+}
+
+/* Mobile/touch: click reveal */
+.axe-card.axe-open .axe-content {
+    max-height: 300px;
+    opacity: 1;
+}
+
+.axe-desc {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: clamp(0.8rem, 1.3vw, 0.92rem);
+    line-height: 1.65;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.axe-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.axe-list li {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+    padding: 4px 0;
+    padding-left: 1.2em;
+    position: relative;
+}
+
+.axe-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    opacity: 0.7;
+}
+
+/* SECTION 5 : Intervention */
+.axe-intervention {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    text-align: center;
+    padding: clamp(2rem, 4vw, 3rem);
+    border: 1px solid rgba(84, 155, 162, 0.15);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.axe-intervention-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.axe-intervention-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: clamp(0.85rem, 1.4vw, 1rem);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.axe-intervention-options {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2rem);
+    flex-wrap: wrap;
+}
+
+.axe-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+    font-weight: 500;
+}
+
+.axe-option-icon {
+    color: var(--accent);
+    font-size: 1.2rem;
+    letter-spacing: -0.15em;
+}
+
+/* Responsive axes */
+@media (max-width: 768px) {
+    .axes-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .axe-card {
+        padding: clamp(1.2rem, 4vw, 1.8rem);
+    }
+
+    .axe-intervention-options {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .axe-option {
+        flex-direction: row;
+        gap: 0.75rem;
+    }
+}
+
 .dossier-flip-back {
     position: absolute;
     top: 0;
