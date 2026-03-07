@@ -3414,7 +3414,7 @@ h1, h2, h3 {
 
 /* SECTION 5 : Intervention */
 .axe-intervention {
-    margin-top: clamp(3rem, 6vw, 5rem);
+    margin-top: clamp(1.5rem, 3vw, 2rem);
     text-align: center;
     padding: clamp(2rem, 4vw, 3rem);
     border: 1px solid rgba(84, 155, 162, 0.15);
