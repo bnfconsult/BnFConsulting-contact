@@ -11,12 +11,230 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BnFConsulting — BnF Specials</title>
-    <meta name="description" content="BnFConsulting thematic reports: exclusive strategic analyses.">
+    <title>KIBART — Creative Activation Axis</title>
+    <meta name="description" content="KIBART by BnFConsulting — Art as an experience lever. Artistic interventions for businesses, events and professional spaces.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <style>
+        .hero-content-backdrop {
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 20px;
+            padding: 48px 56px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .kibart-byline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Applications grid 2x2 with photo backgrounds --- */
+        .kibart-apps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .kibart-app-card {
+            position: relative;
+            aspect-ratio: 16/7.5;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(84,155,162,0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            cursor: default;
+        }
+        .kibart-app-card:hover {
+            border-color: rgba(84,155,162,0.5);
+            transform: translateY(-4px);
+        }
+        .kibart-app-card img,
+        .kibart-app-card video {
+            width: 100%; height: 100%;
+            object-fit: cover; display: block;
+            transition: transform 0.4s ease;
+        }
+        .kibart-app-card:hover img,
+        .kibart-app-card:hover video {
+            transform: scale(1.05);
+        }
+        .kibart-app-card .card-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+        }
+        .kibart-app-card .card-title {
+            position: absolute;
+            bottom: 20px; left: 24px;
+            font-family: Georgia, serif;
+            color: #fff;
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-weight: 400;
+            margin: 0;
+            z-index: 2;
+        }
+        .kibart-app-card .card-title .accent {
+            color: #549ba2;
+        }
+
+        /* --- Carousel --- */
+        .kibart-carousel {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 16px;
+            aspect-ratio: 16/9;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(84,155,162,0.2);
+        }
+        .kibart-carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+        .kibart-carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.3);
+            font-family: Montserrat, sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+        .kibart-carousel-slide img {
+            width: 100%; height: 100%;
+            object-fit: cover; display: block;
+        }
+        .kibart-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(84,155,162,0.3);
+            color: #fff;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 3;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .kibart-carousel-btn:hover {
+            background: rgba(84,155,162,0.4);
+        }
+        .kibart-carousel-btn.prev { left: 16px; }
+        .kibart-carousel-btn.next { right: 16px; }
+        .kibart-carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        .kibart-carousel-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.25);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .kibart-carousel-dot.active {
+            background: #549ba2;
+        }
+
+        /* --- Axes architecture grid --- */
+        .kibart-axes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .kibart-axe-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(84,155,162,0.2);
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+        }
+        .kibart-axe-card:hover {
+            border-color: #549ba2;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+        }
+        .kibart-axe-card.active {
+            border-color: #549ba2;
+            background: rgba(84,155,162,0.08);
+        }
+        .kibart-axe-card h4 {
+            font-family: Georgia, serif;
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .kibart-axe-card .axe-synergy {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.7rem;
+            font-style: italic;
+            line-height: 1.4;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content-backdrop {
+                padding: 32px 20px;
+                border-radius: 16px;
+            }
+            .kibart-apps-grid {
+                grid-template-columns: 1fr;
+            }
+            .kibart-app-card {
+                aspect-ratio: 16/7;
+            }
+            .kibart-axes-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .kibart-axe-card {
+                padding: 20px 14px;
+            }
+            .kibart-axe-card h4 {
+                font-size: 0.9rem;
+            }
+            .kibart-carousel {
+                aspect-ratio: 4/3;
+                border-radius: 12px;
+            }
+            .kibart-carousel-btn {
+                width: 36px; height: 36px;
+                font-size: 1rem;
+            }
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+            .quick-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -31,135 +249,223 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="drones.html">Visibility Axis</a></li>
                 <li><a href="quiz.html">Creative Activation Axis</a></li>
-                <li><a href="../flow.html">Optimisation Axis</a></li>
+                <li><a href="flow.html">Optimisation Axis</a></li>
                 <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Strategic diagnosis</a></li>
                 <li class="lang-toggle"><a href="../quiz.html" class="lang-link">FR</a><span class="lang-sep">|</span><a href="quiz.html" class="lang-link active">EN</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="section section-black hero-dossier" style="position:relative; overflow:hidden;">
-        <video autoplay muted loop playsinline style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
-            <source src="../VIDEOS/desert.mp4" type="video/mp4">
-        </video>
-        <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1;"></div>
-        <div class="container" style="position:relative; z-index:2;">
-            <p class="section-label">BnF Specials</p>
-            <h1 class="section-title">Our thematic <span class="accent">reports.</span></h1>
+    <!-- 1 — HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="../PHOTOS/Mountain.jpg" alt="KIBART — Mountain background" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-content-backdrop">
+                <p class="section-label" style="margin-bottom:4px;">KIBART <span style="color:rgba(255,255,255,0.4); font-weight:400;">by BnF</span></p>
+                <p class="kibart-byline" style="margin-bottom:20px;">Creativity Axis — BnF Architecture</p>
+                <h1 class="hero-title">Art as an<br><span class="accent">experience lever</span></h1>
+                <p class="hero-sub" style="max-width:620px; margin:0 auto;">
+                    In the BNF architecture, creativity is not a decor. It is a lever capable of transforming the perception of a place, an event or a business.
+                </p>
+                <p style="color:rgba(255,255,255,0.45); font-size:clamp(0.8rem,1.1vw,0.9rem); font-style:italic; margin:20px auto 0; text-align:center; max-width:500px;">
+                    "KIBART — Art as an experience lever."
+                </p>
+                <div class="hero-ctas" style="margin-top:32px;">
+                    <a href="#kibart-contact" class="btn btn-primary btn-large">Create an artistic experience</a>
+                </div>
+                <div class="quick-nav" style="margin-top: 40px;">
+                    <a href="#kibart-levier" class="quick-nav-item">The lever</a>
+                    <a href="#kibart-applications" class="quick-nav-item">Applications</a>
+                    <a href="#kibart-univers" class="quick-nav-item">Universe</a>
+                    <a href="#kibart-pour-qui" class="quick-nav-item">For whom</a>
+                    <a href="#kibart-contact" class="quick-nav-item">Contact</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- REPORTS -->
-    <section class="section section-dark" style="padding-top:0;">
-        <div class="container" style="max-width:900px;">
+    <!-- 2 — THE STRATEGIC LEVER -->
+    <section style="background:#0a0a0a; padding:clamp(80px,10vw,120px) 0; scroll-margin-top:100px;" id="kibart-levier">
+        <div class="container" style="text-align:center; max-width:700px;">
+            <p class="section-label">The lever</p>
+            <h2 class="section-title" style="margin-bottom:1.5rem;">Art as an <span class="accent">experience</span></h2>
+            <p class="section-intro" style="max-width:620px; margin:0 auto 40px; line-height:1.8;">
+                It is not just about creating an event. It is about delivering experiences that leave a lasting impression.
+            </p>
+            <p style="color:rgba(255,255,255,0.8); font-family:Georgia,serif; font-size:clamp(1rem,1.5vw,1.15rem); line-height:1.8; margin-bottom:28px;">
+                Art acts as a catalyst:
+            </p>
+            <div style="display:flex; flex-direction:column; gap:16px; align-items:center;">
+                <p style="color:#fff; font-family:Georgia,serif; font-size:clamp(1.1rem,1.8vw,1.4rem); margin:0; line-height:1.5;">
+                    <span style="color:#549ba2; margin-right:10px;">—</span> it triggers conversations
+                </p>
+                <p style="color:#fff; font-family:Georgia,serif; font-size:clamp(1.1rem,1.8vw,1.4rem); margin:0; line-height:1.5;">
+                    <span style="color:#549ba2; margin-right:10px;">—</span> it creates emotions
+                </p>
+                <p style="color:#fff; font-family:Georgia,serif; font-size:clamp(1.1rem,1.8vw,1.4rem); margin:0; line-height:1.5;">
+                    <span style="color:#549ba2; margin-right:10px;">—</span> it gives a strong identity to a place or a moment
+                </p>
+            </div>
+        </div>
+    </section>
 
-            <!-- FEB 2026 REPORT -->
-            <div class="dossier-wrapper" id="dossier-fev2026">
-                <button class="speciale-card dossier-toggle" data-dossier="fev2026" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; cursor:pointer;">
-                    <span class="speciale-date">Report — Feb 2026</span>
-                    <h3 class="speciale-title" style="color:#fff;">Drones — Strategic Perspective</h3>
-                    <p style="color:rgba(255,255,255,0.5); font-size:0.9rem; margin-top:4px;">See differently. Decide better.</p>
-                    <span class="speciale-arrow dossier-arrow">▼</span>
-                </button>
-
-                <div class="dossier-expand" id="dossier-expand-fev2026">
-                    <div class="dossier-tabs">
-                        <button class="dossier-tab active" data-tab="infographie" data-dossier="fev2026">Infographic</button>
-                        <button class="dossier-tab" data-tab="article" data-dossier="fev2026">Article</button>
-                    </div>
-                    <div class="dossier-flip-container">
-                        <div class="dossier-flip-card" id="dossier-flip-fev2026">
-                            <div class="dossier-flip-front">
-                                <img src="../PHOTOS/INFO_FEV (2).png" alt="Infographic Drones — Strategic Perspective" class="dossier-infographie">
-                                <span class="dossier-credit">by BnFConsulting</span>
-                            </div>
-                            <div class="dossier-flip-back">
-                                <div class="dossier-article-content">
-                                    <h2>See your business from above</h2>
-                                    <h3>Image, vision and strategic decision-making</h3>
-                                    <p>You don't need to produce more. You need to see differently.</p>
-                                    <p>The drone is not a gadget. It's a strategic BnF decision that brings clarity where uniform marketing creates noise.</p>
-                                    <h3>The uniformity trap</h3>
-                                    <p>Same formats, same videos, same messaging: saturation, indifference, invisibility. Producing more dilutes. Height differentiates.</p>
-                                    <h3>What the drone view reveals</h3>
-                                    <ul>
-                                        <li><strong>Exterior:</strong> Accessibility, competitive environment, actual positioning.</li>
-                                        <li><strong>Interior:</strong> Customer experience, visual consistency, hidden opportunities.</li>
-                                    </ul>
-                                    <p>It exposes barriers, attractiveness and underused spaces. Not to impress, but to decide.</p>
-                                    <h3>A strategy, not an effect</h3>
-                                    <p>Integrate the drone into your narrative: editorial series, visual thread, brand axis. Relevant for restaurants, shops, physical locations where space sells value. Pointless without vision: avoid the "like everyone else" approach.</p>
-                                    <h3>Master the rules</h3>
-                                    <p>No-fly zones, insurance, image rights: BnF handles compliance for a flawless image.</p>
-                                    <p><strong>BnF turns height into a unique lever: clarity → decision → differentiated growth.</strong></p>
-                                    <div style="margin-top:2rem; display:flex; gap:12px; flex-wrap:wrap;">
-                                        <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary">Contact BnF</a>
-                                        <a href="index.html#modele" class="btn btn-outline" style="border:1px solid rgba(84,155,162,0.5); color:var(--accent); padding:12px 24px; border-radius:10px; text-decoration:none; font-size:0.85rem; font-weight:600; transition:all 0.3s;">Discover the BnF ecosystem</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- 3 — APPLICATIONS -->
+    <section style="background:#0f1a1b; padding:clamp(60px, 8vw, 100px) 0; scroll-margin-top:100px;" id="kibart-applications">
+        <div class="container" style="text-align:center; margin-bottom:48px;">
+            <p class="section-label">Applications</p>
+            <h2 class="section-title">Artistic experiences <span class="accent">for businesses</span></h2>
+            <p class="section-intro" style="max-width:650px; margin:0 auto; line-height:1.8;">
+                KIBART designs artistic interventions tailored to professional contexts. These experiences create unifying moments for teams and memorable ones for guests.
+            </p>
+        </div>
+        <div class="container">
+            <div class="kibart-apps-grid">
+                <!-- APP 01 — Live art -->
+                <div class="kibart-app-card">
+                    <img src="../PHOTOS/Live painting .jpeg" alt="Live art" loading="lazy">
+                    <div class="card-overlay"></div>
+                    <h3 class="card-title">Live <span class="accent">art</span></h3>
+                </div>
+                <!-- APP 02 — Immersive experiences -->
+                <div class="kibart-app-card">
+                    <img src="../PHOTOS/Drones/Best_teinture_vert (4).JPG" alt="Immersive experiences" loading="lazy">
+                    <div class="card-overlay"></div>
+                    <h3 class="card-title">Immersive <span class="accent">experiences</span></h3>
+                </div>
+                <!-- APP 03 — Artistic events -->
+                <div class="kibart-app-card">
+                    <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; display:block;">
+                        <source src="../VIDEOS/KIBART event.mp4" type="video/mp4">
+                    </video>
+                    <div class="card-overlay"></div>
+                    <h3 class="card-title">Artistic <span class="accent">events</span></h3>
+                </div>
+                <!-- APP 04 — Space enhancement -->
+                <div class="kibart-app-card">
+                    <img src="../PHOTOS/Galerie voitures.jpeg" alt="Space enhancement" loading="lazy">
+                    <div class="card-overlay"></div>
+                    <h3 class="card-title">Space <span class="accent">enhancement</span></h3>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- MARCH 2026 REPORT -->
-            <div class="dossier-wrapper" id="dossier-mars2026" style="margin-top:1rem;">
-                <button class="speciale-card dossier-toggle" data-dossier="mars2026" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; cursor:pointer;">
-                    <span class="speciale-date">Report — Mar 2026</span>
-                    <h3 class="speciale-title" style="color:#fff;">The digital audit</h3>
-                    <p style="color:rgba(255,255,255,0.5); font-size:0.9rem; margin-top:4px;">See to build better.</p>
-                    <span class="speciale-arrow dossier-arrow">▼</span>
-                </button>
+    <!-- 4 — THE KIBART UNIVERSE (Carousel) -->
+    <section style="background:#000; padding:clamp(60px, 8vw, 100px) 0; scroll-margin-top:100px;" id="kibart-univers">
+        <div class="container" style="text-align:center; margin-bottom:48px;">
+            <p class="section-label">The KIBART universe</p>
+            <h2 class="section-title">Creativity as a <span class="accent">differentiating lever</span></h2>
+            <p class="section-intro" style="max-width:650px; margin:0 auto; line-height:1.8;">
+                In an environment where events and venues look alike, art becomes a powerful differentiating factor.
+            </p>
+            <p class="section-intro" style="max-width:650px; margin:16px auto 0; line-height:1.8;">
+                KIBART mobilises a network of artists to create artistic experiences capable of transforming the perception of a space, an event or a brand.
+            </p>
+        </div>
+        <div class="container">
+            <div class="kibart-carousel" id="kibartCarousel">
+                <div class="kibart-carousel-track" id="carouselTrack">
+                    <div class="kibart-carousel-slide">Photo coming soon — 01</div>
+                    <div class="kibart-carousel-slide">Photo coming soon — 02</div>
+                    <div class="kibart-carousel-slide">Photo coming soon — 03</div>
+                    <div class="kibart-carousel-slide">Photo coming soon — 04</div>
+                </div>
+                <button class="kibart-carousel-btn prev" onclick="moveCarousel(-1)" aria-label="Previous">&#8249;</button>
+                <button class="kibart-carousel-btn next" onclick="moveCarousel(1)" aria-label="Next">&#8250;</button>
+            </div>
+            <div class="kibart-carousel-dots" id="carouselDots">
+                <button class="kibart-carousel-dot active" onclick="goToSlide(0)"></button>
+                <button class="kibart-carousel-dot" onclick="goToSlide(1)"></button>
+                <button class="kibart-carousel-dot" onclick="goToSlide(2)"></button>
+                <button class="kibart-carousel-dot" onclick="goToSlide(3)"></button>
+            </div>
+            <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.8rem,1.1vw,0.9rem); line-height:1.7; text-align:center; max-width:600px; margin:32px auto 0; font-style:italic;">
+                Art is a language capable of connecting individuals, teams and businesses around a shared experience.
+            </p>
+        </div>
+    </section>
 
-                <div class="dossier-expand" id="dossier-expand-mars2026">
-                    <div class="dossier-tabs">
-                        <button class="dossier-tab active" data-tab="infographie" data-dossier="mars2026">Infographic</button>
-                        <button class="dossier-tab" data-tab="article" data-dossier="mars2026">Article</button>
-                    </div>
-                    <div class="dossier-flip-container">
-                        <div class="dossier-flip-card" id="dossier-flip-mars2026">
-                            <div class="dossier-flip-front">
-                                <img src="../PHOTOS/INFO_MARS.png" alt="Infographic The digital audit" class="dossier-infographie">
-                                <span class="dossier-credit">by BnFConsulting</span>
-                            </div>
-                            <div class="dossier-flip-back">
-                                <div class="dossier-article-content">
-                                    <h2>The digital audit, a strategic lever</h2>
-                                    <h3>Not an inspection. A decision.</h3>
-                                    <p>Optimizing blindly? The BnF audit is not a critique: it's the strategic reading that reveals barriers and opportunities before taking action.</p>
-                                    <p><strong>You can't optimize what you don't understand.</strong></p>
-                                    <h3>What the BnF audit reveals</h3>
-                                    <p>Hidden inconsistencies, attention loss, conversion barriers, image/reality gaps, underused levers. BnF Strategy pillar: Mandatory global diagnosis.</p>
-                                    <h3>The 4 key BnF dimensions</h3>
-                                    <ul>
-                                        <li><strong>A. Readability:</strong> Clear promise? Structured offer?</li>
-                                        <li><strong>B. Consistency:</strong> Website/Google/social/field alignment?</li>
-                                        <li><strong>C. Performance:</strong> Smooth journey or friction?</li>
-                                        <li><strong>D. Data:</strong> Are KPIs truly driving decisions? (BnF Data & Steering pillar)</li>
-                                    </ul>
-                                    <h3>Risk without an audit</h3>
-                                    <p>Adding tools on unstable foundations = amplifying errors. Investing without structure = waste. BnF systemic logic: Foundations first.</p>
-                                    <h3>What BnF concretely activates</h3>
-                                    <ul>
-                                        <li>Clarify trajectory.</li>
-                                        <li>Prioritize maximum ROI.</li>
-                                        <li>Avoid unnecessary spending.</li>
-                                        <li>Structure before automating.</li>
-                                    </ul>
-                                    <p><strong>The BnF audit = entry into the ecosystem: Clarity → Consistency → Sustainable growth.</strong></p>
-                                    <div style="margin-top:2rem; display:flex; gap:12px; flex-wrap:wrap;">
-                                        <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary">Contact BnF</a>
-                                        <a href="index.html#modele" class="btn btn-outline" style="border:1px solid rgba(84,155,162,0.5); color:var(--accent); padding:12px 24px; border-radius:10px; text-decoration:none; font-size:0.85rem; font-weight:600; transition:all 0.3s;">BnF Ecosystem</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- 5 — FOR WHOM -->
+    <section id="kibart-pour-qui" style="background:#0f1a1b; padding:80px 0; scroll-margin-top:100px;">
+        <div style="max-width:1200px; margin:0 auto; padding:0 24px; text-align:center;">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">For whom?</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(2rem,4vw,3rem); color:#fff; margin-bottom:12px;">Businesses and <span style="color:#549ba2;">organisations</span></h2>
+            <p style="max-width:600px; margin:0 auto 48px; color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7;">
+                KIBART works with those who want to create original experiences.
+            </p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; text-align:left;">
+                <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
+                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Businesses</h3>
+                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Create inspiring moments for their teams.</p>
+                </div>
+                <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
+                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Professional events</h3>
+                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Bring a unique artistic dimension.</p>
+                </div>
+                <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
+                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Commercial spaces</h3>
+                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Transform a venue into a visual experience.</p>
+                </div>
+                <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
+                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Communities & enthusiasts</h3>
+                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Create gatherings around art.</p>
                 </div>
             </div>
+        </div>
+    </section>
 
+    <!-- 6 — CTA — ACTIVATE THIS LEVER -->
+    <section class="section" id="kibart-contact" style="position:relative; overflow:hidden; scroll-margin-top:100px; padding:clamp(80px,10vw,120px) 0;">
+        <img src="../PHOTOS/pink art.jpg" alt="" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+        <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1;"></div>
+        <div class="container" style="position:relative; z-index:2; display:flex; justify-content:center;">
+            <div class="hero-content-backdrop" style="text-align:center; max-width:800px;">
+                <p class="section-label" style="margin-bottom:8px;">Activate this lever</p>
+                <h2 style="font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; font-weight:400; margin-bottom:20px; line-height:1.2;">Integrating creativity <span class="accent">into your strategy</span></h2>
+                <p style="color:rgba(255,255,255,0.8); font-size:clamp(0.9rem,1.3vw,1rem); line-height:1.8; max-width:620px; margin:0 auto 32px;">
+                    In the BNF architecture, the creative axis comes into play when experience, image and emotion become differentiating factors.
+                </p>
+                <a href="#kibart-contact" class="btn btn-primary btn-large">Create an artistic experience</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7 — BACK TO BNF ARCHITECTURE -->
+    <section style="background:#000; padding:clamp(60px, 8vw, 100px) 0;">
+        <div class="container" style="text-align:center;">
+            <p class="section-label">BnF Architecture</p>
+            <h2 class="section-title" style="margin-bottom:12px;">KIBART is one of the levers of <span class="accent">the BNF architecture</span></h2>
+            <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:600px; margin:0 auto 48px;">
+                Each axis can be activated individually or combined to transform a project.
+            </p>
+            <div class="kibart-axes-grid">
+                <a href="index.html" class="kibart-axe-card">
+                    <h4>Strategy</h4>
+                    <p style="color:rgba(255,255,255,0.5); font-size:0.8rem; margin:0;">Coming soon</p>
+                    <p class="axe-synergy">Combines with Optimisation and Creativity</p>
+                </a>
+                <a href="flow.html" class="kibart-axe-card">
+                    <h4>Optimisation</h4>
+                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">Flow</p>
+                    <p class="axe-synergy">Combines with Strategy and Visibility</p>
+                </a>
+                <a href="drones.html" class="kibart-axe-card">
+                    <h4>Visibility</h4>
+                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">BnFDrones</p>
+                    <p class="axe-synergy">Combines with Optimisation and Creativity</p>
+                </a>
+                <a href="quiz.html" class="kibart-axe-card active">
+                    <h4>Creativity</h4>
+                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">KIBART</p>
+                    <p class="axe-synergy">Combines with Visibility and Strategy</p>
+                </a>
+            </div>
+            <div style="margin-top:48px;">
+                <a href="index.html" class="btn btn-primary btn-outline btn-large">Back to BnFConsulting site</a>
+            </div>
         </div>
     </section>
 
@@ -167,19 +473,22 @@
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-brand">
-                <span class="footer-logo"><img src="../PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting"></span>
-                <p>Strategic & operational orchestration.</p>
+                <span class="footer-logo"><img src="../PHOTOS/Logo_paysage (2).jpg" alt="KIBART by BnFConsulting"></span>
+                <p>KIBART — Art as an experience lever.</p>
             </div>
             <div class="footer-links">
-                <a href="mailto:bnfconsulting.contact@gmail.com">Contact us</a>
+                <a href="mailto:bnfconsulting.contact@gmail.com">Contact</a>
             </div>
             <div class="footer-copy">
-                <p>&copy; 2026 BnFConsulting. All rights reserved.</p>
+                <p>&copy; 2026 KIBART by BnFConsulting. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- FAB MENU -->
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+    <!-- BOTTOM LEFT BURGER -->
     <div class="fab-menu" id="fabMenu">
         <button class="fab-trigger" id="fabTrigger" aria-label="Quick menu">
             <span class="fab-bar"></span>
@@ -192,7 +501,7 @@
                 <a href="index.html" class="fab-link">Home</a>
                 <a href="drones.html" class="fab-link">Visibility Axis</a>
                 <a href="quiz.html" class="fab-link">Creative Activation Axis</a>
-                <a href="../flow.html" class="fab-link">Optimisation Axis</a>
+                <a href="flow.html" class="fab-link">Optimisation Axis</a>
             </div>
             <div class="fab-divider"></div>
             <div class="fab-section">
@@ -218,11 +527,33 @@
         </div>
     </div>
 
-    <!-- PHONE / BOOKING BUTTON -->
+    <!-- PHONE / APPOINTMENT BUTTON -->
     <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" class="phone-fab" aria-label="Book an appointment">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1.03 1.03 0 011.05-.24c1.12.37 2.33.57 3.54.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.21.2 2.42.57 3.54.11.35.03.74-.24 1.05l-2.21 2.2z"/></svg>
     </a>
 
     <script src="../main-en.js"></script>
+    <script>
+        // --- Carousel KIBART ---
+        let currentSlide = 0;
+        const track = document.getElementById('carouselTrack');
+        const dots = document.querySelectorAll('.kibart-carousel-dot');
+        const totalSlides = dots.length;
+
+        function moveCarousel(dir) {
+            currentSlide = (currentSlide + dir + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+        }
+        // Auto-scroll every 5 seconds
+        setInterval(() => moveCarousel(1), 5000);
+    </script>
 </body>
 </html>

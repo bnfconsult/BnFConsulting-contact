@@ -147,14 +147,22 @@
         .drone-feature-card:nth-child(3) { transition-delay: 0.2s; }
         .drone-feature-card:nth-child(4) { transition-delay: 0.3s; }
 
+        /* Drone services intro banner */
         .drone-services-intro {
             background: #0f1a1b;
-            padding: 80px 0;
+            padding: 80px 0 30px;
             text-align: center;
             scroll-margin-top: 80px;
         }
 
+        /* Applications grid responsive */
+        .drone-apps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(12px, 2vw, 24px);
+        }
         @media (max-width: 768px) {
+            .drone-apps-grid { grid-template-columns: 1fr; }
             .drone-features { grid-template-columns: 1fr; }
             .drone-showcase__media { aspect-ratio: 4 / 3; border-radius: 14px; }
             .drone-showcase { padding: clamp(60px, 8vw, 80px) 0; }
@@ -196,6 +204,19 @@
             position: relative;
             z-index: 2;
         }
+        .drone-portfolio-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a2a2c, #0f1a1b);
+            border: 1px dashed rgba(84, 155, 162, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
         .drone-byline {
             font-family: 'Montserrat', sans-serif;
             font-size: 0.75rem;
@@ -203,6 +224,124 @@
             color: rgba(255, 255, 255, 0.5);
             letter-spacing: 0.05em;
             margin-bottom: 12px;
+        }
+        .drone-hero-logo {
+            height: 36px;
+            width: auto;
+            margin: 0 auto 28px;
+            opacity: 0.85;
+        }
+        /* (Old service block/text/visual classes removed — replaced by .drone-showcase) */
+        .drone-badge-soon {
+            display: inline-block;
+            background: rgba(84, 155, 162, 0.15);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: 1px solid rgba(84, 155, 162, 0.3);
+        }
+        .drone-pricing-card {
+            background: transparent;
+            border: 1px solid rgba(84, 155, 162, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 48px 36px;
+            text-align: center;
+            transition: all var(--transition);
+            position: relative;
+        }
+        .drone-pricing-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(84, 155, 162, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .drone-pricing-card.featured {
+            border: 2px solid var(--accent);
+            background: rgba(84, 155, 162, 0.05);
+        }
+        .drone-pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: var(--white);
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .drone-pricing-card h3 {
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .drone-price {
+            font-family: Georgia, serif;
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin: 20px 0;
+        }
+        .drone-price small {
+            font-size: 0.875rem;
+            color: var(--gray-400);
+            font-family: 'Montserrat', sans-serif;
+        }
+        .drone-pricing-features {
+            text-align: left;
+            margin: 24px 0 32px;
+        }
+        .drone-pricing-features li {
+            padding: 8px 0;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9375rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .drone-pricing-features li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .drone-pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+        .drone-includes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px 40px;
+            max-width: 700px;
+            margin: 40px auto 0;
+        }
+        .drone-includes-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+        }
+        .drone-includes-item::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .drone-includes-item span {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9375rem;
         }
         .drone-portfolio-grid {
             display: grid;
@@ -226,12 +365,122 @@
         .drone-portfolio-item:hover img {
             transform: scale(1.05);
         }
+        .drone-portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 60%);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            transition: all var(--transition);
+        }
+        .drone-portfolio-overlay span {
+            color: var(--white);
+            font-size: 0.9375rem;
+            font-weight: 600;
+        }
+        .drone-portfolio-item:hover .drone-portfolio-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 70%);
+        }
+        .drone-bubble-card {
+            background: rgba(84, 155, 162, 0.06);
+            border: 1px solid rgba(84, 155, 162, 0.25);
+            border-radius: 50px;
+            padding: 40px 32px;
+            text-align: center;
+            animation: bubbleFloat 4s infinite ease-in-out;
+        }
+        .drone-bubble-card:nth-child(2) { animation-delay: 1.3s; }
+        .drone-bubble-card:nth-child(3) { animation-delay: 2.6s; }
+        .drone-bubble-card h3 {
+            font-family: Georgia, serif;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+        .drone-bubble-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+        }
+        .drone-contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .drone-contact-info h3 {
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+        .drone-contact-item {
+            margin-bottom: 24px;
+        }
+        .drone-contact-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .drone-contact-item p,
+        .drone-contact-item a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9375rem;
+        }
+        .drone-contact-item a:hover {
+            color: var(--accent);
+        }
+        .drone-contact-calendar {
+            background: var(--gray-800);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            border: 1px solid rgba(84, 155, 162, 0.1);
+        }
+        .drone-contact-calendar h3 {
+            color: var(--white);
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+        }
+        .drone-contact-calendar p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            margin-bottom: 24px;
+        }
+
+        /* Responsive drone */
         @media (max-width: 1024px) {
+            .drone-pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .drone-portfolio-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .drone-contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        @media (max-width: 768px) {
+            .drone-pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .drone-includes-grid {
+                grid-template-columns: 1fr;
+            }
+            .drone-archi-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+            .drone-archi-grid a {
+                padding: 20px 14px !important;
+            }
+            .drone-archi-grid h4 {
+                font-size: 0.9rem !important;
+            }
         }
         @media (max-width: 480px) {
+            .drone-pricing-grid,
             .drone-portfolio-grid {
                 grid-template-columns: 1fr;
             }
@@ -253,7 +502,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="drones.html">Visibility Axis</a></li>
                 <li><a href="quiz.html">Creative Activation Axis</a></li>
-                <li><a href="../flow.html">Optimisation Axis</a></li>
+                <li><a href="flow.html">Optimisation Axis</a></li>
                 <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Strategic diagnosis</a></li>
                 <li class="lang-toggle"><a href="../drones.html" class="lang-link">FR</a><span class="lang-sep">|</span><a href="drones.html" class="lang-link active">EN</a></li>
             </ul>
@@ -271,134 +520,87 @@
                 <img src="../PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting" style="height:96px; width:auto; opacity:0.85; border-radius:4px;">
             </div>
             <div class="hero-content-backdrop">
-                <div class="drone-byline-wrap" style="display:flex; align-items:baseline; gap:8px; justify-content:center;">
-                    <p class="section-label" style="margin-bottom:0;">BnFDrones</p><span class="drone-byline">by BnFConsulting</span>
-                </div>
+                <p class="section-label" style="margin-bottom:4px;">BnFDrones <span style="color:rgba(255,255,255,0.4); font-weight:400;">by BnF</span></p>
+                <p class="drone-byline" style="margin-bottom:20px;">Visibility Axis — BnF Architecture</p>
                 <h1 class="hero-title">Change your<br><span class="accent">perspective</span></h1>
-                <p class="hero-sub">
-                    An example of an ultra-personalized strategy: activated and adapted to your challenges for a differentiating and measurable impact. See the world from the sky.
+                <p class="hero-sub" style="max-width:620px; margin:0 auto;">
+                    The aerial view reveals what ground-level sight cannot see.
                 </p>
-                <div class="hero-ctas">
-                    <a href="#drone-services" class="btn btn-primary btn-large">Our Services</a>
-                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary btn-outline btn-large">Book an appointment</a>
+                <p class="hero-sub" style="max-width:620px; margin:12px auto 0;">
+                    It is a strategic lever of perception and differentiation.
+                </p>
+                <p style="color:#549ba2; font-size:clamp(0.8rem,1.2vw,0.95rem); font-weight:500; letter-spacing:0.08em; margin:28px auto 0; text-align:center;">
+                    See differently &rarr; Decide better &rarr; Stand out
+                </p>
+                <div class="hero-ctas" style="margin-top:32px;">
+                    <a href="#drone-services" class="btn btn-primary btn-large">Activate this lever</a>
                 </div>
                 <div class="quick-nav" style="margin-top: 40px;">
-                    <a href="#service-photo" class="quick-nav-item">4K Photo</a>
-                    <a href="#service-video" class="quick-nav-item">Drone Video</a>
-                    <a href="#service-interieur" class="quick-nav-item">Interior</a>
-                    <a href="#drone-clients" class="quick-nav-item">Our clients</a>
+                    <a href="#drone-services" class="quick-nav-item">The lever</a>
+                    <a href="#service-photo" class="quick-nav-item">Applications</a>
+                    <a href="#drone-portfolio" class="quick-nav-item">Portfolio</a>
+                    <a href="#drone-clients" class="quick-nav-item">Use cases</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- OUR SERVICES BANNER -->
+    <!-- THE LEVER BANNER -->
     <section class="drone-services-intro" id="drone-services">
         <div class="container" style="text-align:center;">
-            <p class="section-label">What we do</p>
-            <h2 class="section-title">Our <span class="accent">Services</span></h2>
-            <p class="section-intro" style="max-width:600px; margin:0 auto;">
-                Drone photography services tailored to each project, both indoors and outdoors.
+            <p class="section-label">The lever</p>
+            <h2 class="section-title" style="margin-bottom:1.5rem;">Not content. <span class="accent">A competitive advantage.</span></h2>
+            <p class="section-intro" style="max-width:620px; margin:0 auto; line-height:1.8;">
+                Aerial imagery does not decorate. It repositions, differentiates and sells. Every shot is designed as a strategic lever serving your business.
             </p>
         </div>
     </section>
 
-    <!-- SERVICE 01 — Drone Photo 4K -->
-    <section class="drone-showcase drone-showcase--dark" id="service-photo">
+    <!-- APPLICATIONS — 3-column compact grid -->
+    <section class="drone-showcase drone-showcase--dark" id="service-photo" style="padding:clamp(30px, 4vw, 50px) 0 clamp(60px, 8vw, 100px);">
         <div class="container">
-            <div class="drone-showcase__header">
-                <p class="section-label">Service 01</p>
-                <h3 class="drone-showcase__title">Drone Photo <span class="accent">4K</span></h3>
-                <p class="drone-showcase__desc">Ultra high-definition aerial photographs to capture your properties from their best angle. Every shot is designed to showcase space, light and surroundings.</p>
-            </div>
-            <div class="drone-showcase__media">
-                <img src="../PHOTOS/Drones/Best_3.JPG" alt="4K drone photo" loading="lazy">
-            </div>
-            <div class="drone-features">
-                <div class="drone-feature-card">
-                    <span class="drone-feature-card__num">01</span>
-                    <p class="drone-feature-card__text">High resolution aerial photos (4K)</p>
-                </div>
-                <div class="drone-feature-card">
-                    <span class="drone-feature-card__num">02</span>
-                    <p class="drone-feature-card__text">Exterior and environment shots</p>
-                </div>
-                <div class="drone-feature-card">
-                    <span class="drone-feature-card__num">03</span>
-                    <p class="drone-feature-card__text">Professional retouching and delivery</p>
-                </div>
-                <div class="drone-feature-card">
-                    <span class="drone-feature-card__num">04</span>
-                    <p class="drone-feature-card__text">Ideal for real estate listings and marketing materials</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="drone-apps-grid">
 
-    <!-- SERVICE 02 — Cinematic Video -->
-    <section class="drone-showcase drone-showcase--darker" id="service-video">
-        <div class="container">
-            <div class="drone-showcase__header">
-                <p class="section-label">Service 02</p>
-                <h3 class="drone-showcase__title">Cinematic <span class="accent">Video</span></h3>
-                <p class="drone-showcase__desc">Immersive and fluid video content, shot with latest-generation drones. Tracking shots, flyovers, dives — a result that radically changes the perception of your spaces.</p>
-            </div>
-            <div class="drone-showcase__media">
-                <video autoplay muted loop playsinline>
-                    <source src="../VIDEOS/arche.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="drone-features">
-                <div class="drone-feature-card">
-                    <span class="drone-feature-card__num">01</span>
-                    <p class="drone-feature-card__text">Cinematic drone video in 4K</p>
+                <!-- APPLICATION 01 -->
+                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; overflow:hidden; transition:transform 0.3s ease, border-color 0.3s ease;" onmouseenter="this.style.borderColor='rgba(84,155,162,0.5)';this.style.transform='translateY(-4px)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)'">
+                    <div style="aspect-ratio:16/10; overflow:hidden;">
+                        <img src="../PHOTOS/Drones/Best_3.JPG" alt="4K drone photo" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
+                    </div>
+                    <div style="padding:clamp(16px, 2.5vw, 24px);">
+                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Application 01</p>
+                        <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.8vw, 1.3rem); margin-bottom:10px;"><span style="color:#549ba2;">4K</span> Drone Photo</h3>
+                        <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.75rem, 1.1vw, 0.875rem); line-height:1.65;">Capture your spaces in ultra-high definition to showcase every angle, every light.</p>
+                    </div>
                 </div>
-                <div class="drone-feature-card">
-                    <span class="drone-feature-card__num">02</span>
-                    <p class="drone-feature-card__text">Smooth, professional movements</p>
-                </div>
-                <div class="drone-feature-card">
-                    <span class="drone-feature-card__num">03</span>
-                    <p class="drone-feature-card__text">Editing included upon request</p>
-                </div>
-                <div class="drone-feature-card">
-                    <span class="drone-feature-card__num">04</span>
-                    <p class="drone-feature-card__text">Perfect for virtual tours and marketing content</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- SERVICE 03 — Indoor Photography -->
-    <section class="drone-showcase drone-showcase--dark" id="service-interieur">
-        <div class="container">
-            <div class="drone-showcase__header">
-                <p class="section-label">Service 03</p>
-                <h3 class="drone-showcase__title">Indoor <span class="accent">Photography</span></h3>
-                <p class="drone-showcase__desc">With compact drones designed for enclosed spaces, we capture the interior of your premises, shops and properties with fluidity and angles impossible to achieve otherwise.</p>
-            </div>
-            <div class="drone-showcase__media">
-                <video autoplay muted loop playsinline>
-                    <source src="../VIDEOS/Design sans titre (2).mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="drone-features">
-                <div class="drone-feature-card">
-                    <span class="drone-feature-card__num">01</span>
-                    <p class="drone-feature-card__text">Compact drone for indoor spaces</p>
+                <!-- APPLICATION 02 -->
+                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; overflow:hidden; transition:transform 0.3s ease, border-color 0.3s ease;" onmouseenter="this.style.borderColor='rgba(84,155,162,0.5)';this.style.transform='translateY(-4px)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)'">
+                    <div style="aspect-ratio:16/10; overflow:hidden;">
+                        <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; display:block;">
+                            <source src="../VIDEOS/arche.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div style="padding:clamp(16px, 2.5vw, 24px);">
+                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Application 02</p>
+                        <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.8vw, 1.3rem); margin-bottom:10px;"><span style="color:#549ba2;">Cinematic</span> Video</h3>
+                        <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.75rem, 1.1vw, 0.875rem); line-height:1.65;">Flyovers, tracking shots and dives — an immersive rendering that transforms the perception of your spaces.</p>
+                    </div>
                 </div>
-                <div class="drone-feature-card">
-                    <span class="drone-feature-card__num">02</span>
-                    <p class="drone-feature-card__text">Smooth and immersive video</p>
+
+                <!-- APPLICATION 03 -->
+                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; overflow:hidden; transition:transform 0.3s ease, border-color 0.3s ease;" onmouseenter="this.style.borderColor='rgba(84,155,162,0.5)';this.style.transform='translateY(-4px)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)'">
+                    <div style="aspect-ratio:16/10; overflow:hidden;">
+                        <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; display:block;">
+                            <source src="../VIDEOS/Design sans titre (2).mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div style="padding:clamp(16px, 2.5vw, 24px);">
+                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Application 03</p>
+                        <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.8vw, 1.3rem); margin-bottom:10px;"><span style="color:#549ba2;">Indoor</span> Photography</h3>
+                        <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.75rem, 1.1vw, 0.875rem); line-height:1.65;">Compact drones in enclosed spaces for angles and fluidity impossible otherwise.</p>
+                    </div>
                 </div>
-                <div class="drone-feature-card">
-                    <span class="drone-feature-card__num">03</span>
-                    <p class="drone-feature-card__text">Showcasing volumes and layout</p>
-                </div>
-                <div class="drone-feature-card">
-                    <span class="drone-feature-card__num">04</span>
-                    <p class="drone-feature-card__text">Suitable for shops, showrooms and real estate</p>
-                </div>
+
             </div>
         </div>
     </section>
@@ -411,6 +613,7 @@
             <p class="section-intro" style="max-width: 600px; margin: 0 auto; color: rgba(255,255,255,0.8); font-size: 0.875rem;">
                 Discover our latest drone shots.
             </p>
+
             <div class="drone-portfolio-grid" style="margin-top: 30px;">
                 <a href="https://domainedelarche.com/" target="_blank" rel="noopener" class="drone-portfolio-item" style="display:block; text-decoration:none; position:relative;">
                     <img src="../PHOTOS/Drones/DJI_0333.JPG" alt="Domaine de l'Arche" style="width:100%;height:100%;object-fit:cover;display:block;">
@@ -420,28 +623,46 @@
         </div>
     </section>
 
-    <!-- BNF SPECIALS INSERT -->
-    <section style="background:#000; padding:clamp(40px,5vw,64px) 0;">
-        <div style="max-width:700px; margin:0 auto; padding:0 24px;">
-            <a href="quiz.html" style="display:block; text-decoration:none; background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.25); border-radius:16px; padding:clamp(28px,4vw,40px) clamp(24px,3vw,40px); transition:all 0.3s;" onmouseenter="this.style.borderColor='#549ba2'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.25)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                <p style="font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Read the BnF Specials</p>
-                <p style="color:rgba(255,255,255,0.5); font-size:0.8rem; margin-bottom:16px;">Our thematic reports.</p>
-                <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
-                    <span style="font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:600; color:rgba(255,255,255,0.4); letter-spacing:0.05em;">Feb 2026</span>
-                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1.1rem,2vw,1.4rem); margin:0;">Drones — <span style="color:#549ba2;">Strategic Perspective</span></h3>
-                </div>
-                <div style="display:flex; align-items:center; gap:16px;">
-                    <span style="font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:600; color:rgba(255,255,255,0.4); letter-spacing:0.05em;">Mar 2026</span>
-                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1.1rem,2vw,1.4rem); margin:0;">The digital audit — <span style="color:#549ba2;">Strategic Lever</span></h3>
-                </div>
-            </a>
+    <!-- BNF ARCHITECTURE — The 4 axes -->
+    <section style="background:#000; padding:clamp(60px, 8vw, 100px) 0;">
+        <div class="container" style="text-align:center;">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">BnF Architecture</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; font-weight:400; margin-bottom:12px; line-height:1.2;">BnFDrones is one of the levers of the <span style="color:#549ba2;">BNF architecture</span></h2>
+            <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:600px; margin:0 auto 48px;">
+                Each axis can be activated individually or combined to transform a project.
+            </p>
+            <div class="drone-archi-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; max-width:1000px; margin:0 auto;">
+                <a href="index.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Strategy</h4>
+                    <p style="color:rgba(255,255,255,0.5); font-size:0.8rem; margin:0;">Coming soon</p>
+                    <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Combines with Optimisation and Creativity</p>
+                </a>
+                <a href="flow.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Optimisation</h4>
+                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">Flow</p>
+                    <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Combines with Strategy and Visibility</p>
+                </a>
+                <a href="drones.html" style="background:rgba(84,155,162,0.08); border:1px solid #549ba2; border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Visibility</h4>
+                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">BnFDrones</p>
+                    <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Combines with Optimisation and Creativity</p>
+                </a>
+                <a href="quiz.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Creativity</h4>
+                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">KIBART</p>
+                    <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Combines with Visibility and Strategy</p>
+                </a>
+            </div>
+            <div style="margin-top:48px;">
+                <a href="index.html" class="btn btn-primary btn-outline btn-large">Back to BnFConsulting website</a>
+            </div>
         </div>
     </section>
 
     <!-- OUR CLIENTS -->
     <section id="drone-clients" style="background:#0f1a1b; padding:80px 0; scroll-margin-top:100px;">
         <div style="max-width:1200px; margin:0 auto; padding:0 24px; text-align:center;">
-            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">For whom?</p>
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Who is it for?</p>
             <h2 style="font-family:Georgia,serif; font-size:clamp(2rem,4vw,3rem); color:#fff; margin-bottom:12px;">Our <span style="color:#549ba2;">clients</span></h2>
             <p style="max-width:600px; margin:0 auto 48px; color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7;">
                 We support everyone who wants to change their perspective.
@@ -453,19 +674,19 @@
                 </div>
                 <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
                     <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Businesses</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Unique visual content for your premises, events and marketing materials.</p>
+                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Unique visual content for your premises, events and communication materials.</p>
                 </div>
                 <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
                     <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Retail</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Show your space from a unique angle to attract and delight your customers.</p>
+                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Showcase your space from a unique angle to attract and captivate your customers.</p>
                 </div>
                 <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
                     <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Individuals</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Sell or rent your property with professional images that make the difference.</p>
+                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Sell or rent your property with professional images that make all the difference.</p>
                 </div>
                 <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
                     <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Developers</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Present your new developments with aerial shots that showcase the site's potential.</p>
+                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Present your new developments with aerial shots that showcase the site's full potential.</p>
                 </div>
             </div>
         </div>
@@ -480,7 +701,7 @@
         <div class="container" style="text-align: center; position:relative; z-index:2;">
             <p class="section-label">Ready to take off?</p>
             <h2 class="section-title">Give a new <span class="accent">dimension</span> to your projects</h2>
-            <p class="cta-text" style="max-width: 600px; margin: 0 auto 40px; color: #ffffff;">Contact us to discuss your project and get a personalized quote.</p>
+            <p class="cta-text" style="max-width: 600px; margin: 0 auto 40px; color: #ffffff;">Contact us to discuss your project and get a personalised quote.</p>
             <div class="cta-buttons">
                 <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0lSWiR3YvCYrRK1n6PhTA2Dg9KJm5psH786OHg5agcrpp6GE6qjBsjjPwZGrTkF7lB0n6G66n-" target="_blank" rel="noopener" class="btn btn-primary btn-large">Book an appointment</a>
                 <a href="mailto:bnfconsulting.contact@gmail.com" class="btn btn-primary btn-outline btn-large">Contact us</a>
@@ -509,10 +730,10 @@
         </div>
     </footer>
 
-    <!-- BACK TO TOP -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+    <!-- BACK TO TOP BUTTON -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
 
-    <!-- FAB MENU -->
+    <!-- BOTTOM-LEFT BURGER -->
     <div class="fab-menu" id="fabMenu">
         <button class="fab-trigger" id="fabTrigger" aria-label="Quick menu">
             <span class="fab-bar"></span>
@@ -525,7 +746,7 @@
                 <a href="index.html" class="fab-link">Home</a>
                 <a href="drones.html" class="fab-link">Visibility Axis</a>
                 <a href="quiz.html" class="fab-link">Creative Activation Axis</a>
-                <a href="../flow.html" class="fab-link">Optimisation Axis</a>
+                <a href="flow.html" class="fab-link">Optimisation Axis</a>
             </div>
             <div class="fab-divider"></div>
             <div class="fab-section">
