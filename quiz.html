@@ -56,12 +56,14 @@
             border-color: rgba(84,155,162,0.5);
             transform: translateY(-4px);
         }
-        .kibart-app-card img {
+        .kibart-app-card img,
+        .kibart-app-card video {
             width: 100%; height: 100%;
             object-fit: cover; display: block;
             transition: transform 0.4s ease;
         }
-        .kibart-app-card:hover img {
+        .kibart-app-card:hover img,
+        .kibart-app-card:hover video {
             transform: scale(1.05);
         }
         .kibart-app-card .card-overlay {
@@ -285,10 +287,8 @@
     </section>
 
     <!-- 2 — LE LEVIER STRATÉGIQUE (photo en fond sur toute la section) -->
-    <section style="position:relative; overflow:hidden; padding:clamp(80px,10vw,120px) 0; scroll-margin-top:100px;" id="kibart-levier">
-        <img src="PHOTOS/Drones/Best_teinture_vert (4).JPG" alt="" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
-        <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.78); z-index:1;"></div>
-        <div class="container" style="position:relative; z-index:2; text-align:center; max-width:700px;">
+    <section style="background:#0a0a0a; padding:clamp(80px,10vw,120px) 0; scroll-margin-top:100px;" id="kibart-levier">
+        <div class="container" style="text-align:center; max-width:700px;">
             <p class="section-label">Le levier</p>
             <h2 class="section-title" style="margin-bottom:1.5rem;">L'art comme <span class="accent">expérience</span></h2>
             <p class="section-intro" style="max-width:620px; margin:0 auto 40px; line-height:1.8;">
@@ -324,7 +324,7 @@
             <div class="kibart-apps-grid">
                 <!-- APP 01 — Art en direct -->
                 <div class="kibart-app-card">
-                    <img src="PHOTOS/Drones/Best_teinture_vert (4).JPG" alt="Art en direct" loading="lazy">
+                    <img src="PHOTOS/Live painting .jpeg" alt="Art en direct" loading="lazy">
                     <div class="card-overlay"></div>
                     <h3 class="card-title">Art en <span class="accent">direct</span></h3>
                 </div>
@@ -336,13 +336,15 @@
                 </div>
                 <!-- APP 03 — Événements artistiques -->
                 <div class="kibart-app-card">
-                    <img src="PHOTOS/Drones/Best_teinture_vert (4).JPG" alt="Événements artistiques" loading="lazy">
+                    <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover; display:block;">
+                        <source src="VIDEOS/KIBART event.mp4" type="video/mp4">
+                    </video>
                     <div class="card-overlay"></div>
                     <h3 class="card-title">Événements <span class="accent">artistiques</span></h3>
                 </div>
                 <!-- APP 04 — Valorisation des espaces -->
                 <div class="kibart-app-card">
-                    <img src="PHOTOS/Drones/Best_teinture_vert (4).JPG" alt="Valorisation des espaces" loading="lazy">
+                    <img src="PHOTOS/Galerie voitures.jpeg" alt="Valorisation des espaces" loading="lazy">
                     <div class="card-overlay"></div>
                     <h3 class="card-title">Valorisation des <span class="accent">espaces</span></h3>
                 </div>
