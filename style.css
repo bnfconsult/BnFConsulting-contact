@@ -171,11 +171,11 @@ h1, h2, h3 {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 36px;
+    gap: 20px;
 }
 
 .nav-links a {
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     font-weight: 500;
     color: var(--gray-400);
     letter-spacing: 0.03em;
@@ -2076,6 +2076,62 @@ h1, h2, h3 {
     padding-left: 6px;
 }
 
+/* Burger: Accueil encadré seul */
+.fab-home {
+    display: inline-block;
+    border: 1px solid rgba(84, 155, 162, 0.35);
+    border-radius: 12px;
+    padding: 8px 16px !important;
+    margin-bottom: 4px;
+    transition: all var(--transition);
+}
+.fab-home:hover {
+    border-color: var(--accent);
+    padding-left: 16px !important;
+}
+
+/* Burger: Groupe des 3 axes */
+.fab-axes-group {
+    border: 1px solid rgba(84, 155, 162, 0.35);
+    border-radius: 12px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 4px;
+}
+
+.fab-axes-group .fab-link {
+    display: flex;
+    align-items: center;
+    padding: 6px 6px;
+    border-radius: 8px;
+    transition: all var(--transition);
+}
+
+.fab-axes-group .fab-link::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.fab-axes-group .fab-link:hover {
+    background: rgba(84, 155, 162, 0.12);
+    padding-left: 10px;
+}
+
+/* Séparateur entre axes dans burger */
+.fab-axe-sep {
+    height: 1px;
+    background: rgba(84, 155, 162, 0.12);
+    margin: 0 6px;
+}
+
 .fab-divider {
     height: 1px;
     background: rgba(84, 155, 162, 0.12);
@@ -2412,6 +2468,11 @@ h1, h2, h3 {
         display: none !important;
     }
 
+    /* Le groupe axes dans le burger s'adapte bien au mobile */
+    .fab-panel {
+        width: 260px;
+    }
+
     /* Logo centré en tête de hero sur mobile */
     .drone-hero-mobile-logo {
         display: block !important;
@@ -2518,6 +2579,17 @@ h1, h2, h3 {
 
     .quick-nav {
         display: none;
+    }
+
+    /* Mini navbar axes visible sur mobile */
+    .mobile-axes-nav {
+        display: flex;
+    }
+
+    /* Axes wrapper sur mobile */
+    .axes-wrapper {
+        padding: 10px;
+        border-radius: 18px;
     }
 
     .btn-large {
@@ -3337,11 +3409,70 @@ h1, h2, h3 {
 }
 
 /* ---- LES 4 AXES ---- */
+/* Grande bulle englobant les 4 axes */
+.axes-wrapper {
+    border: 1px solid rgba(84, 155, 162, 0.25);
+    border-radius: 24px;
+    padding: clamp(12px, 2vw, 20px);
+    margin-top: 3rem;
+    background: rgba(84, 155, 162, 0.03);
+}
+
 .axes-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(1rem, 2vw, 1.5rem);
-    margin-top: 3rem;
+}
+
+/* Mini navbar mobile dans le hero */
+.mobile-axes-nav {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(84, 155, 162, 0.35);
+    border-radius: 20px;
+    padding: 8px 12px;
+    margin-top: 24px;
+    gap: 0;
+}
+
+.mobile-axe-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 10px;
+    border-radius: 14px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.mobile-axe-link::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+}
+
+.mobile-axe-link:hover,
+.mobile-axe-link:active {
+    background: rgba(84, 155, 162, 0.15);
+    color: var(--white);
+}
+
+.mobile-axe-sep {
+    width: 1px;
+    height: 14px;
+    background: rgba(84, 155, 162, 0.25);
+    flex-shrink: 0;
 }
 
 .axe-card {
