@@ -468,6 +468,16 @@
             .drone-includes-grid {
                 grid-template-columns: 1fr;
             }
+            .drone-archi-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+            .drone-archi-grid a {
+                padding: 20px 14px !important;
+            }
+            .drone-archi-grid h4 {
+                font-size: 0.9rem !important;
+            }
         }
         @media (max-width: 480px) {
             .drone-pricing-grid,
@@ -612,14 +622,39 @@
         </div>
     </section>
 
-    <!-- ENCART AXE ACTIVATION CRÉATIVE -->
-    <section style="background:#000; padding:clamp(40px,5vw,64px) 0;">
-        <div style="max-width:700px; margin:0 auto; padding:0 24px;">
-            <a href="quiz.html" style="display:block; text-decoration:none; background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.25); border-radius:16px; padding:clamp(28px,4vw,40px) clamp(24px,3vw,40px); transition:all 0.3s;" onmouseenter="this.style.borderColor='#549ba2'; this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.25)'; this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-                <p style="font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Axe Activation Créative</p>
-                <p style="color:rgba(255,255,255,0.5); font-size:0.8rem; margin-bottom:16px;">KIBART — L'art comme levier d'entreprise.</p>
-                <p style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem,1.8vw,1.2rem); line-height:1.6; margin:0;">Introduire la créativité comme force différenciante dans vos projets.</p>
-            </a>
+    <!-- ARCHITECTURE BNF — Les 4 axes -->
+    <section style="background:#000; padding:clamp(60px, 8vw, 100px) 0;">
+        <div class="container" style="text-align:center;">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Architecture BnF</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; font-weight:400; margin-bottom:12px; line-height:1.2;">BnFDrones est l'un des leviers de <span style="color:#549ba2;">l'architecture BNF</span></h2>
+            <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:600px; margin:0 auto 48px;">
+                Chaque axe peut être activé individuellement ou combiné pour transformer un projet.
+            </p>
+            <div class="drone-archi-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; max-width:1000px; margin:0 auto;">
+                <a href="home.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Stratégie</h4>
+                    <p style="color:rgba(255,255,255,0.5); font-size:0.8rem; margin:0;">Bientôt disponible</p>
+                    <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Se combine avec Optimisation et Créativité</p>
+                </a>
+                <a href="home.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Optimisation</h4>
+                    <p style="color:rgba(255,255,255,0.5); font-size:0.8rem; margin:0;">Bientôt disponible</p>
+                    <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Se combine avec Stratégie et Visibilité</p>
+                </a>
+                <a href="drones.html" style="background:rgba(84,155,162,0.08); border:1px solid #549ba2; border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Visibilité</h4>
+                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">BnFDrones</p>
+                    <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Se combine avec Optimisation et Créativité</p>
+                </a>
+                <a href="quiz.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Créativité</h4>
+                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">KIBART</p>
+                    <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Se combine avec Visibilité et Stratégie</p>
+                </a>
+            </div>
+            <div style="margin-top:48px;">
+                <a href="home.html" class="btn btn-primary btn-outline btn-large">Retour au site BnFConsulting</a>
+            </div>
         </div>
     </section>
 
