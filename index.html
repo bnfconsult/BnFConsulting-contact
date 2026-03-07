@@ -348,14 +348,7 @@
 
         @keyframes fadeIn { to { opacity: 1; } }
 
-        /* Floating */
-        .orbital-wrapper.visible {
-            animation: orbitalIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards, floatSoft 8s ease-in-out 4.5s infinite;
-        }
-        @keyframes floatSoft {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
+        /* No floating — orbital stays fixed after entry */
 
         /* ---- RESPONSIVE ---- */
         @media (max-width: 768px) {
