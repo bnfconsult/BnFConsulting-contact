@@ -144,7 +144,7 @@
         /* ---- GRILLE ---- */
         .portal-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: clamp(20px, 4vw, 50px);
             padding: 0 30px;
             justify-items: center;
@@ -165,11 +165,6 @@
         .portal-flip:nth-child(2) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.3s forwards, floatSoft 8s ease-in-out 4.3s infinite; }
         .portal-flip:nth-child(3) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.6s forwards, floatSoft 8s ease-in-out 4.6s infinite; }
         .portal-flip:nth-child(4) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.9s forwards, floatSoft 8s ease-in-out 4.9s infinite; }
-        .portal-flip:nth-child(5) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 4.2s forwards, floatSoft 8s ease-in-out 5.2s infinite; }
-
-        /* Centrer les 2 dernières bulles de la 2e rangée */
-        .portal-flip:nth-child(4) { grid-column: 1 / 2; justify-self: end; }
-        .portal-flip:nth-child(5) { grid-column: 2 / 3; justify-self: start; }
 
         @keyframes fadeScale {
             0% { opacity: 0; transform: scale(0.3); }
@@ -397,21 +392,16 @@
                 font-size: 1.95rem;
             }
 
-            /* 3 colonnes en haut, 2 en bas — les 5 bulles rentrent */
             .portal-container {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
                 padding: 0 12px;
             }
 
             .portal-flip {
-                width: 24vw;
-                height: 24vw;
+                width: 34vw;
+                height: 34vw;
             }
-
-            /* Les 2 dernières bulles centrées sur la 2ème ligne */
-            .portal-flip:nth-child(4) { grid-column: 1 / 2; justify-self: end; }
-            .portal-flip:nth-child(5) { grid-column: 2 / 3; justify-self: start; }
 
             .portal-flip-front,
             .portal-flip-back {
@@ -473,8 +463,8 @@
             }
 
             .portal-flip {
-                width: 25vw;
-                height: 25vw;
+                width: 38vw;
+                height: 38vw;
             }
 
             .portal-flip-front,
@@ -526,11 +516,11 @@
 
     <div class="portal-container">
 
-        <!-- Bulle 1 : BnF Consulting -->
+        <!-- Bulle 1 : Stratégie — BnF Consulting -->
         <div class="portal-flip" data-href="home.html">
             <div class="portal-flip-inner">
                 <div class="portal-flip-front">
-                    <span class="card-title">Stratégie Gagnante</span>
+                    <span class="card-title">Stratégie</span>
                     <div class="card-icon">
                         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="50" cy="50" r="38" stroke="#549BA2" stroke-width="2" fill="none"/>
@@ -539,17 +529,40 @@
                             <circle cx="50" cy="50" r="4" fill="#549BA2"/>
                         </svg>
                     </div>
-                    <span class="card-subtitle">Boostez votre croissance<br>sans risque — BnF Consulting</span>
+                    <span class="card-subtitle">BnF Consulting</span>
                 </div>
                 <div class="portal-flip-back"></div>
             </div>
         </div>
 
-        <!-- Bulle 2 : BnF Drones -->
-        <div class="portal-flip" data-href="drones.html">
+        <!-- Bulle 2 : Optimisation — Flow -->
+        <div class="portal-flip" data-href="home.html">
             <div class="portal-flip-inner">
                 <div class="portal-flip-front">
-                    <span class="card-title">Prestige Aérien</span>
+                    <span class="card-title">Optimisation</span>
+                    <div class="card-icon">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="15" y="25" width="20" height="20" rx="3" stroke="#549BA2" stroke-width="2" fill="none"/>
+                            <rect x="65" y="25" width="20" height="20" rx="3" stroke="#549BA2" stroke-width="2" fill="none"/>
+                            <rect x="15" y="55" width="20" height="20" rx="3" stroke="#549BA2" stroke-width="2" fill="none" opacity="0.7"/>
+                            <rect x="65" y="55" width="20" height="20" rx="3" stroke="#549BA2" stroke-width="2" fill="none" opacity="0.7"/>
+                            <line x1="35" y1="35" x2="65" y2="35" stroke="#549BA2" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="25" y1="45" x2="25" y2="55" stroke="#549BA2" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="75" y1="45" x2="75" y2="55" stroke="#549BA2" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="35" y1="65" x2="65" y2="65" stroke="#549BA2" stroke-width="1.5" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <span class="card-subtitle">Flow</span>
+                </div>
+                <div class="portal-flip-back"></div>
+            </div>
+        </div>
+
+        <!-- Bulle 3 : Visibilité — BnF Drones -->
+        <div class="portal-flip" data-href="home.html">
+            <div class="portal-flip-inner">
+                <div class="portal-flip-front">
+                    <span class="card-title">Visibilité</span>
                     <div class="card-icon">
                         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="42" y="42" width="16" height="16" rx="3" stroke="#549BA2" stroke-width="2" fill="none"/>
@@ -563,66 +576,24 @@
                             <circle cx="76" cy="50" r="5" stroke="#549BA2" stroke-width="1.5" fill="none" opacity="0.7"/>
                         </svg>
                     </div>
-                    <span class="card-subtitle">Innovation visuelle pour<br>marques d'exception — BnF Drones</span>
+                    <span class="card-subtitle">BnF Drones</span>
                 </div>
                 <div class="portal-flip-back"></div>
             </div>
         </div>
 
-        <!-- Bulle 3 : KIBART -->
-        <div class="portal-flip" data-href="https://linktr.ee/kibart_" data-external="true">
+        <!-- Bulle 4 : Activation créative — KIBART -->
+        <div class="portal-flip" data-href="home.html">
             <div class="portal-flip-inner">
                 <div class="portal-flip-front">
-                    <span class="card-title">Team Building Artistique</span>
+                    <span class="card-title">Activation créative</span>
                     <div class="card-icon">
                         <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <polygon points="50,15 61,40 88,40 66,55 74,82 50,66 26,82 34,55 12,40 39,40" stroke="#549BA2" stroke-width="2" fill="none"/>
                             <circle cx="50" cy="50" r="10" stroke="#549BA2" stroke-width="1.5" fill="none" opacity="0.5"/>
                         </svg>
                     </div>
-                    <span class="card-subtitle">Instantané pour<br>vos équipes ! — KIBART</span>
-                </div>
-                <div class="portal-flip-back"></div>
-            </div>
-        </div>
-
-        <!-- Bulle 4 : Flow Hub -->
-        <div class="portal-flip" data-href="https://www.flow-hub.fr/" data-external="true">
-            <div class="portal-flip-inner">
-                <div class="portal-flip-front">
-                    <span class="card-title">Restructuration &<br>Optimisation Digitale</span>
-                    <div class="card-icon">
-                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="15" y="25" width="20" height="20" rx="3" stroke="#549BA2" stroke-width="2" fill="none"/>
-                            <rect x="65" y="25" width="20" height="20" rx="3" stroke="#549BA2" stroke-width="2" fill="none"/>
-                            <rect x="15" y="55" width="20" height="20" rx="3" stroke="#549BA2" stroke-width="2" fill="none" opacity="0.7"/>
-                            <rect x="65" y="55" width="20" height="20" rx="3" stroke="#549BA2" stroke-width="2" fill="none" opacity="0.7"/>
-                            <line x1="35" y1="35" x2="65" y2="35" stroke="#549BA2" stroke-width="1.5" opacity="0.6"/>
-                            <line x1="25" y1="45" x2="25" y2="55" stroke="#549BA2" stroke-width="1.5" opacity="0.6"/>
-                            <line x1="75" y1="45" x2="75" y2="55" stroke="#549BA2" stroke-width="1.5" opacity="0.6"/>
-                            <line x1="35" y1="65" x2="65" y2="65" stroke="#549BA2" stroke-width="1.5" opacity="0.6"/>
-                        </svg>
-                    </div>
-                    <span class="card-subtitle">Heures sauvées,<br>profits doublés — Flow</span>
-                </div>
-                <div class="portal-flip-back"></div>
-            </div>
-        </div>
-
-        <!-- Bulle 5 : Coordonnées / Linktree -->
-        <div class="portal-flip" data-href="https://linktr.ee/benjaminf_" data-external="true">
-            <div class="portal-flip-inner">
-                <div class="portal-flip-front">
-                    <span class="card-title">Contact</span>
-                    <div class="card-icon">
-                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50" cy="35" r="14" stroke="#549BA2" stroke-width="2" fill="none"/>
-                            <path d="M25 78c0-13.8 11.2-25 25-25s25 11.2 25 25" stroke="#549BA2" stroke-width="2" stroke-linecap="round" fill="none"/>
-                            <rect x="35" y="80" width="30" height="10" rx="3" stroke="#549BA2" stroke-width="1.5" fill="none" opacity="0.6"/>
-                            <path d="M35 82l15 6 15-6" stroke="#549BA2" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.6"/>
-                        </svg>
-                    </div>
-                    <span class="card-subtitle">Coordonnées</span>
+                    <span class="card-subtitle">KIBART</span>
                 </div>
                 <div class="portal-flip-back"></div>
             </div>
