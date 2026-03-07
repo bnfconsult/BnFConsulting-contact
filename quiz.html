@@ -11,12 +11,36 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BnFConsulting — Spéciales BnF</title>
-    <meta name="description" content="Les dossiers thématiques BnFConsulting : analyses stratégiques exclusives.">
+    <title>KIBART — Axe Activation Créative</title>
+    <meta name="description" content="KIBART by BnFConsulting — Introduire l'art et la créativité comme leviers différenciants dans les projets d'entreprise.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .hero-content-backdrop {
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 20px;
+            padding: 48px 56px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .kibart-byline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.05em;
+        }
+        @media (max-width: 768px) {
+            .hero-content-backdrop {
+                padding: 32px 20px;
+                border-radius: 16px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -28,9 +52,9 @@
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="home.html#probleme">Le problème</a></li>
-                <li><a href="drones.html">Drones</a></li>
-                <li><a href="quiz.html">Spéciales BnF</a></li>
+                <li><a href="home.html">Accueil</a></li>
+                <li><a href="drones.html">Axe Visibilité</a></li>
+                <li><a href="quiz.html">Axe Activation Créative</a></li>
                 <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Diagnostic stratégique</a></li>
                 <li class="lang-toggle"><a href="quiz.html" class="lang-link active">FR</a><span class="lang-sep">|</span><a href="en/quiz.html" class="lang-link">EN</a></li>
             </ul>
@@ -38,127 +62,40 @@
     </nav>
 
     <!-- HERO -->
-    <section class="section section-black hero-dossier" style="position:relative; overflow:hidden;">
-        <video autoplay muted loop playsinline style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
-            <source src="VIDEOS/desert.mp4" type="video/mp4">
-        </video>
-        <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1;"></div>
-        <div class="container" style="position:relative; z-index:2;">
-            <p class="section-label">Spéciales BnF</p>
-            <h1 class="section-title">Nos dossiers <span class="accent">thématiques.</span></h1>
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="PHOTOS/Drones/Best_teinture_vert (4).JPG" alt="KIBART">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-content-backdrop">
+                <p class="section-label" style="margin-bottom:4px;">KIBART</p>
+                <p class="kibart-byline" style="margin-bottom:20px;">Axe Activation Créative — Architecture BnF</p>
+                <h1 class="hero-title">L'art comme<br><span class="accent">levier d'entreprise</span></h1>
+                <p class="hero-sub" style="max-width:620px; margin:0 auto;">
+                    Introduire la créativité comme force différenciante dans vos projets.
+                </p>
+                <p style="color:#549ba2; font-size:clamp(0.8rem,1.2vw,0.95rem); font-weight:500; letter-spacing:0.08em; margin:28px auto 0; text-align:center;">
+                    Créer → Différencier → Impacter
+                </p>
+                <div class="hero-ctas" style="margin-top:32px;">
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary btn-large">Diagnostic stratégique — 30 min</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- DOSSIERS -->
-    <section class="section section-dark" style="padding-top:0;">
-        <div class="container" style="max-width:900px;">
-
-            <!-- DOSSIER FÉV 2026 -->
-            <div class="dossier-wrapper" id="dossier-fev2026">
-                <button class="speciale-card dossier-toggle" data-dossier="fev2026" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; cursor:pointer;">
-                    <span class="speciale-date">Dossier — Fév 2026</span>
-                    <h3 class="speciale-title" style="color:#fff;">Drones — Perspective stratégique</h3>
-                    <p style="color:rgba(255,255,255,0.5); font-size:0.9rem; margin-top:4px;">Voir autrement. Décider mieux.</p>
-                    <span class="speciale-arrow dossier-arrow">▼</span>
-                </button>
-
-                <div class="dossier-expand" id="dossier-expand-fev2026">
-                    <div class="dossier-tabs">
-                        <button class="dossier-tab active" data-tab="infographie" data-dossier="fev2026">Infographie</button>
-                        <button class="dossier-tab" data-tab="article" data-dossier="fev2026">Article</button>
-                    </div>
-                    <div class="dossier-flip-container">
-                        <div class="dossier-flip-card" id="dossier-flip-fev2026">
-                            <div class="dossier-flip-front">
-                                <img src="PHOTOS/INFO_FEV (2).png" alt="Infographie Drones — Perspective stratégique" class="dossier-infographie">
-                                <span class="dossier-credit">by BnFConsulting</span>
-                            </div>
-                            <div class="dossier-flip-back">
-                                <div class="dossier-article-content">
-                                    <h2>Voir son activité d'en haut</h2>
-                                    <h3>Image, vision et décision stratégique</h3>
-                                    <p>Vous n'avez pas besoin de produire plus. Vous avez besoin de voir autrement.</p>
-                                    <p>Le drone n'est pas un gadget. C'est une décision stratégique BnF qui révèle la clarté là où le marketing uniforme crée du bruit.</p>
-                                    <h3>Le piège de l'uniformité</h3>
-                                    <p>Même formats, mêmes vidéos, mêmes discours : saturation, indifférence, invisibilité. Produire plus dilue. La hauteur différencie.</p>
-                                    <h3>Ce que la vue drone révèle</h3>
-                                    <ul>
-                                        <li><strong>Extérieur :</strong> Accessibilité, environnement concurrentiel, positionnement réel.</li>
-                                        <li><strong>Intérieur :</strong> Expérience client, cohérence visuelle, opportunités cachées.</li>
-                                    </ul>
-                                    <p>Elle expose freins, attractivité et espaces sous-exploités. Pas pour épater, pour décider.</p>
-                                    <h3>Une stratégie, pas un effet</h3>
-                                    <p>Intégrez le drone à votre narration : série éditoriale, fil visuel, axe de marque. Pertinent pour restaurants, boutiques, lieux physiques où l'espace vend la valeur. Inutile sans vision : évitez le "comme tout le monde".</p>
-                                    <h3>Maîtrisez les règles</h3>
-                                    <p>Zones interdites, assurances, droit à l'image : BnF gère la conformité pour une image irréprochable.</p>
-                                    <p><strong>BnF transforme la hauteur en levier unique : clarté → décision → croissance différenciée.</strong></p>
-                                    <div style="margin-top:2rem; display:flex; gap:12px; flex-wrap:wrap;">
-                                        <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary">Contactez BnF</a>
-                                        <a href="home.html#modele" class="btn btn-outline" style="border:1px solid rgba(84,155,162,0.5); color:var(--accent); padding:12px 24px; border-radius:10px; text-decoration:none; font-size:0.85rem; font-weight:600; transition:all 0.3s;">Découvrez l'écosystème BnF</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- CONTENU À VENIR -->
+    <section class="section section-black" style="text-align:center;">
+        <div class="container" style="max-width:700px;">
+            <p class="section-label">Bientôt disponible</p>
+            <h2 class="section-title">Contenu en <span class="accent">construction</span></h2>
+            <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.9rem,1.4vw,1.05rem); line-height:1.7; margin-top:1rem;">
+                Cette page présentera en détail l'Axe Activation Créative de l'architecture BnF.
+            </p>
+            <div style="margin-top:2.5rem;">
+                <a href="home.html" class="btn btn-primary btn-outline btn-large">Retour à l'architecture BnF</a>
             </div>
-
-            <!-- DOSSIER MARS 2026 -->
-            <div class="dossier-wrapper" id="dossier-mars2026" style="margin-top:1rem;">
-                <button class="speciale-card dossier-toggle" data-dossier="mars2026" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; cursor:pointer;">
-                    <span class="speciale-date">Dossier — Mars 2026</span>
-                    <h3 class="speciale-title" style="color:#fff;">L'audit digital</h3>
-                    <p style="color:rgba(255,255,255,0.5); font-size:0.9rem; margin-top:4px;">Voir pour mieux construire.</p>
-                    <span class="speciale-arrow dossier-arrow">▼</span>
-                </button>
-
-                <div class="dossier-expand" id="dossier-expand-mars2026">
-                    <div class="dossier-tabs">
-                        <button class="dossier-tab active" data-tab="infographie" data-dossier="mars2026">Infographie</button>
-                        <button class="dossier-tab" data-tab="article" data-dossier="mars2026">Article</button>
-                    </div>
-                    <div class="dossier-flip-container">
-                        <div class="dossier-flip-card" id="dossier-flip-mars2026">
-                            <div class="dossier-flip-front">
-                                <img src="PHOTOS/INFO_MARS.png" alt="Infographie L'audit digital" class="dossier-infographie">
-                                <span class="dossier-credit">by BnFConsulting</span>
-                            </div>
-                            <div class="dossier-flip-back">
-                                <div class="dossier-article-content">
-                                    <h2>L'audit digital, levier stratégique</h2>
-                                    <h3>Pas un contrôle. Une décision.</h3>
-                                    <p>Vous optimisez à l'aveugle ? L'audit BnF n'est pas une critique : c'est la lecture stratégique qui révèle freins et opportunités avant d'agir.</p>
-                                    <p><strong>On n'optimise pas ce qu'on ne comprend pas.</strong></p>
-                                    <h3>Ce que l'audit BnF révèle</h3>
-                                    <p>Incohérences cachées, pertes d'attention, freins conversion, décalages image/réalité, leviers sous-utilisés. Pilier BnF Stratégie : Diagnostic global obligatoire.</p>
-                                    <h3>Les 4 dimensions clés BnF</h3>
-                                    <ul>
-                                        <li><strong>A. Lisibilité :</strong> Promesse claire ? Offre structurée ?</li>
-                                        <li><strong>B. Cohérence :</strong> Alignement site/Google/réseaux/terrain ?</li>
-                                        <li><strong>C. Performance :</strong> Parcours fluide ou friction ?</li>
-                                        <li><strong>D. Données :</strong> KPIs pilotent-ils vraiment ? (Pilier Data & Pilotage BnF)</li>
-                                    </ul>
-                                    <h3>Risque sans audit</h3>
-                                    <p>Ajouter outils sur instable = amplifier erreurs. Investir sans structure = gaspillage. Logique systémique BnF : Fondations d'abord.</p>
-                                    <h3>Ce que BnF active concrètement</h3>
-                                    <ul>
-                                        <li>Clarifier trajectoire.</li>
-                                        <li>Prioriser ROI max.</li>
-                                        <li>Éviter dépenses inutiles.</li>
-                                        <li>Structurer avant automatiser.</li>
-                                    </ul>
-                                    <p><strong>L'audit BnF = entrée dans l'écosystème : Clarté → Cohérence → Croissance durable.</strong></p>
-                                    <div style="margin-top:2rem; display:flex; gap:12px; flex-wrap:wrap;">
-                                        <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary">Contact BnF</a>
-                                        <a href="home.html#modele" class="btn btn-outline" style="border:1px solid rgba(84,155,162,0.5); color:var(--accent); padding:12px 24px; border-radius:10px; text-decoration:none; font-size:0.85rem; font-weight:600; transition:all 0.3s;">Écosystème BnF</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -173,7 +110,7 @@
                 <a href="mailto:bnfconsulting.contact@gmail.com">Nous contacter</a>
             </div>
             <div class="footer-copy">
-                <p>&copy; 2026 BnFConsulting. Tous droits réservés.</p>
+                <p>&copy; 2019-2026 BnFConsulting. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -189,23 +126,14 @@
             <div class="fab-section">
                 <p class="fab-label">Navigation</p>
                 <a href="home.html" class="fab-link">Accueil</a>
-                <a href="home.html#probleme" class="fab-link">Le problème</a>
-                <a href="drones.html" class="fab-link">Drones</a>
-                <a href="quiz.html" class="fab-link">Spéciales BnF</a>
+                <a href="drones.html" class="fab-link">Axe Visibilité</a>
+                <a href="quiz.html" class="fab-link">Axe Activation Créative</a>
             </div>
             <div class="fab-divider"></div>
             <div class="fab-section">
                 <p class="fab-label">Contact</p>
-                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="fab-link">📅 Prendre rendez-vous</a>
-                <a href="mailto:bnfconsulting.contact@gmail.com" class="fab-link">✉️ Email</a>
-            </div>
-            <div class="fab-divider"></div>
-            <div class="fab-section">
-                <p class="fab-label">Réseaux</p>
-                <div class="fab-socials">
-                    <a href="https://linktr.ee/benjaminf_" target="_blank" rel="noopener" class="fab-social" aria-label="Réseaux">Réseaux</a>
-                    <a href="https://www.flow-hub.fr/" target="_blank" rel="noopener" class="fab-social" aria-label="Partenaires">Partenaires</a>
-                </div>
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="fab-link">Prendre rendez-vous</a>
+                <a href="mailto:bnfconsulting.contact@gmail.com" class="fab-link">Email</a>
             </div>
         </div>
     </div>
