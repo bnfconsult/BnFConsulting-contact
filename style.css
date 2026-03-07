@@ -3289,6 +3289,7 @@ h1, h2, h3 {
     padding: clamp(1.5rem, 3vw, 2.5rem);
     position: relative;
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
     overflow: hidden;
 }
 
@@ -3356,8 +3357,21 @@ h1, h2, h3 {
 }
 
 .axe-content {
-    max-height: none;
-    overflow: visible;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+/* Reste affiché après hover (classe ajoutée par JS) */
+.axe-card.axe-revealed .axe-content {
+    max-height: 400px;
+    opacity: 1;
+}
+
+/* Mobile: click toggle */
+.axe-card.axe-open .axe-content {
+    max-height: 400px;
     opacity: 1;
 }
 
