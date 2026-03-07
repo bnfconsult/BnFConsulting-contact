@@ -187,6 +187,61 @@ h1, h2, h3 {
     color: var(--white);
 }
 
+/* Accueil encadré seul */
+.nav-home a {
+    border: 1px solid rgba(84, 155, 162, 0.35);
+    border-radius: 20px;
+    padding: 6px 16px;
+    transition: all var(--transition);
+}
+.nav-home a:hover {
+    border-color: var(--accent);
+    color: var(--white);
+}
+
+/* Groupe des 3 axes dans un seul cadre */
+.nav-axes-group {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid rgba(84, 155, 162, 0.35);
+    border-radius: 20px;
+    padding: 4px 6px;
+}
+
+.nav-axes-group a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    border-radius: 16px;
+    transition: all var(--transition);
+    white-space: nowrap;
+}
+
+.nav-axes-group a::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+}
+
+.nav-axes-group a:hover {
+    background: rgba(84, 155, 162, 0.12);
+    color: var(--white);
+}
+
+/* Séparateur entre axes */
+.nav-axe-sep {
+    width: 1px;
+    height: 14px;
+    background: rgba(84, 155, 162, 0.25);
+    flex-shrink: 0;
+}
+
 .nav-cta {
     padding: 10px 24px;
     background: var(--accent) !important;
