@@ -7,14 +7,10 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background: radial-gradient(circle at center, #111 0%, #000 70%);
+            background: #000;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -30,7 +26,7 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             background: url('PHOTOS/Drones/Best_teinture_vert (4).JPG') center/cover no-repeat;
-            opacity: 0.15;
+            opacity: 0.12;
             z-index: 0;
         }
         body::after {
@@ -38,38 +34,12 @@
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.7) 100%);
+            background: radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.8) 100%);
             z-index: 0;
         }
-        body > * {
-            position: relative;
-            z-index: 1;
-        }
+        body > * { position: relative; z-index: 1; }
 
-        /* ---- TITRE ---- */
-        .portal-title {
-            color: #fff;
-            font-weight: 300;
-            letter-spacing: 0.25em;
-            margin-bottom: clamp(40px, 7vh, 80px);
-            text-align: center;
-            opacity: 0;
-        }
-        .portal-title-main {
-            display: block;
-            font-size: clamp(1.8rem, 4vw, 3.2rem);
-            text-transform: uppercase;
-        }
-        .portal-title-sub {
-            display: block;
-            font-size: clamp(1.8rem, 4vw, 3.2rem);
-            letter-spacing: 0.25em;
-            margin-top: 8px;
-            font-weight: 300;
-            opacity: 0.7;
-        }
-
-        /* ---- INTRO PLEIN ÉCRAN ---- */
+        /* ---- INTRO ---- */
         .intro-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -80,10 +50,6 @@
             align-items: center;
             justify-content: center;
             transition: opacity 0.6s ease;
-        }
-        .intro-overlay.fade-out {
-            opacity: 0;
-            pointer-events: none;
         }
         .intro-words-stack {
             display: flex;
@@ -106,11 +72,8 @@
             text-transform: uppercase;
             opacity: 0;
         }
-        .intro-word.visible {
-            opacity: 1;
-        }
+        .intro-word.visible { opacity: 1; }
 
-        /* Transition vers position finale */
         .intro-overlay.to-final {
             background: transparent;
             transition: background 0.8s ease;
@@ -141,216 +104,238 @@
             transition: opacity 0.3s ease;
         }
 
-        /* ---- GRILLE ---- */
-        .portal-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: clamp(20px, 4vw, 50px);
-            padding: 0 30px;
-            justify-items: center;
-        }
-
-        /* ---- FLIP CARD ---- */
-        .portal-flip {
-            width: clamp(140px, 18vw, 240px);
-            height: clamp(140px, 18vw, 240px);
-            perspective: 1000px;
-            cursor: pointer;
+        /* ---- TITRE ---- */
+        .portal-title {
+            color: #fff;
+            font-weight: 300;
+            letter-spacing: 0.25em;
+            margin-bottom: clamp(30px, 5vh, 60px);
+            text-align: center;
             opacity: 0;
-            transform: scale(0.3);
+        }
+        .portal-title-main {
+            display: block;
+            font-size: clamp(1.8rem, 4vw, 3.2rem);
+            text-transform: uppercase;
+        }
+        .portal-title-sub {
+            display: block;
+            font-size: clamp(1.8rem, 4vw, 3.2rem);
+            letter-spacing: 0.25em;
+            margin-top: 8px;
+            font-weight: 300;
+            opacity: 0.7;
         }
 
-        /* Entrée fade + scale */
-        .portal-flip:nth-child(1) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.0s forwards, floatSoft 8s ease-in-out 4.0s infinite; }
-        .portal-flip:nth-child(2) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.3s forwards, floatSoft 8s ease-in-out 4.3s infinite; }
-        .portal-flip:nth-child(3) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.6s forwards, floatSoft 8s ease-in-out 4.6s infinite; }
-        .portal-flip:nth-child(4) { animation: fadeScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3.9s forwards, floatSoft 8s ease-in-out 4.9s infinite; }
+        /* ---- ORBITAL ---- */
+        .orbital-wrapper {
+            opacity: 0;
+            transform: scale(0.6);
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .orbital-wrapper.visible {
+            animation: orbitalIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
 
-        @keyframes fadeScale {
-            0% { opacity: 0; transform: scale(0.3); }
-            60% { opacity: 1; transform: scale(1.04); }
+        @keyframes orbitalIn {
+            0% { opacity: 0; transform: scale(0.6); }
+            60% { opacity: 1; transform: scale(1.03); }
             100% { opacity: 1; transform: scale(1); }
         }
 
-        @keyframes floatSoft {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        .portal-flip-inner {
+        .orbital-container {
             position: relative;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
+            width: clamp(320px, 50vw, 520px);
+            height: clamp(320px, 50vw, 520px);
         }
 
-        /* Face avant (carte uniforme) */
-        .portal-flip-front {
+        /* Rings */
+        .orbital-ring {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(84, 155, 162, 0.3);
-            background: linear-gradient(135deg, #0a1a1c 0%, #0f2b2e 50%, #0a1a1c 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15% 10%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(84, 155, 162, 0.12);
+            border-radius: 50%;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .orbital-ring-1 { width: 55%; height: 55%; }
+        .orbital-ring-2 { width: 85%; height: 85%; border-color: rgba(84, 155, 162, 0.08); }
+        .orbital-ring-3 { width: 100%; height: 100%; border-color: rgba(84, 155, 162, 0.04); }
+
+        /* Dotted orbit path */
+        .orbital-ring-dots {
+            position: absolute;
+            width: 70%; height: 70%;
+            border: 1px dashed rgba(84, 155, 162, 0.1);
+            border-radius: 50%;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbitSpin 120s linear infinite;
         }
 
-        .portal-flip-back {
-            display: none;
+        @keyframes orbitSpin {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
-        .card-title {
-            color: #fff;
-            font-size: clamp(0.45rem, 0.9vw, 0.65rem);
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
+        /* Center */
+        .orbital-center {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
-            line-height: 1.4;
+            z-index: 3;
         }
-
-        .card-icon svg {
-            width: 100%;
-            height: 100%;
+        .orbital-center-logo {
+            width: clamp(70px, 10vw, 110px);
+            height: auto;
+            border-radius: 8px;
+            opacity: 0.9;
+            margin-bottom: 10px;
         }
-        .card-icon {
-            width: 35%;
-            height: 35%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .card-subtitle {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: clamp(0.35rem, 0.7vw, 0.5rem);
-            font-weight: 300;
-            letter-spacing: 0.1em;
-            text-align: center;
-            line-height: 1.3;
-        }
-
-        /* Hover premium */
-        .portal-flip:hover .portal-flip-front {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 30px rgba(84,155,162,0.4);
-        }
-
-        /* ---- ZOOM IMMERSIF ---- */
-        .zoom-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            z-index: 9999;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        .zoom-overlay.active { pointer-events: all; }
-
-        .zoom-card {
-            position: absolute;
-            overflow: hidden;
-            will-change: width, height, top, left, border-radius;
-        }
-        .zoom-card .portal-flip-front {
-            position: relative;
-            width: 100%; height: 100%;
-        }
-
-        /* Glow pendant le zoom */
-        .zoom-card::after {
-            content: '';
-            position: absolute;
-            top: -40%; left: -40%;
-            width: 180%; height: 180%;
-            background: radial-gradient(ellipse at center, rgba(84,155,162,0.3) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.6s ease;
-            pointer-events: none;
-            z-index: 1;
-        }
-        .zoom-card.glow-active::after { opacity: 1; }
-
-        /* Flash blanc cinématique */
-        .zoom-flash {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: #fff;
-            opacity: 0;
-            z-index: 10000;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-        .zoom-flash.active { opacity: 1; }
-
-        /* Estompage des éléments pendant le zoom */
-        body.zoom-active .portal-title,
-        body.zoom-active .portal-credit,
-        body.zoom-active .portal-copyright {
-            transition: opacity 0.4s ease, filter 0.4s ease;
-            opacity: 0 !important;
-            filter: blur(8px);
-        }
-        body.zoom-active .portal-flip {
-            transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease;
-            opacity: 0 !important;
-            filter: blur(12px);
-            transform: scale(0.92) !important;
-        }
-        body.zoom-active .portal-flip.zoom-source {
-            opacity: 0 !important;
-            transition: opacity 0.1s ease !important;
-        }
-
-        /* Ligne navigation */
-        .portal-nav-hint {
+        .orbital-center-tagline {
             color: rgba(255, 255, 255, 0.4);
-            font-size: clamp(0.55rem, 1vw, 0.75rem);
+            font-size: clamp(0.5rem, 0.9vw, 0.7rem);
             font-weight: 300;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            text-align: center;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeIn 1.5s ease 2.8s forwards;
         }
 
-        /* ---- CREDIT ---- */
-        .portal-description {
-            color: rgba(255, 255, 255, 0.75);
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(0.7rem, 1.3vw, 1rem);
+        /* Satellite nodes */
+        .orbital-node {
+            position: absolute;
+            width: clamp(90px, 12vw, 130px);
+            text-align: center;
+            z-index: 2;
+            transition: transform 0.4s ease;
+        }
+        .orbital-wrapper:hover .orbital-node {
+            transform: scale(1.08);
+        }
+
+        /* Positioning: N, E, S, W */
+        .orbital-node-1 {
+            top: 2%; left: 50%;
+            transform: translateX(-50%);
+        }
+        .orbital-node-2 {
+            top: 50%; right: 0%;
+            transform: translateY(-50%);
+        }
+        .orbital-node-3 {
+            bottom: 2%; left: 50%;
+            transform: translateX(-50%);
+        }
+        .orbital-node-4 {
+            top: 50%; left: 0%;
+            transform: translateY(-50%);
+        }
+
+        .orbital-wrapper:hover .orbital-node-1 { transform: translateX(-50%) scale(1.08); }
+        .orbital-wrapper:hover .orbital-node-2 { transform: translateY(-50%) scale(1.08); }
+        .orbital-wrapper:hover .orbital-node-3 { transform: translateX(-50%) scale(1.08); }
+        .orbital-wrapper:hover .orbital-node-4 { transform: translateY(-50%) scale(1.08); }
+
+        .node-num {
+            color: #549BA2;
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
+            font-weight: 700;
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .node-label {
+            color: #fff;
+            font-size: clamp(0.55rem, 1vw, 0.75rem);
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+        .node-brand {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: clamp(0.4rem, 0.75vw, 0.55rem);
             font-weight: 300;
-            letter-spacing: 0.05em;
-            line-height: 1.6;
-            text-align: center;
-            max-width: 700px;
-            margin: clamp(25px, 5vh, 50px) auto 0;
-            padding: 0 20px;
-            opacity: 0;
-            animation: fadeIn 1.5s ease 4.5s forwards;
+            letter-spacing: 0.08em;
         }
 
+        /* Connector dots */
+        .orbital-dot {
+            position: absolute;
+            width: 5px; height: 5px;
+            background: #549BA2;
+            border-radius: 50%;
+            opacity: 0.4;
+            z-index: 1;
+        }
+        .orbital-dot-1 { top: 22%; left: 24%; }
+        .orbital-dot-2 { top: 22%; right: 24%; }
+        .orbital-dot-3 { bottom: 22%; right: 24%; }
+        .orbital-dot-4 { bottom: 22%; left: 24%; }
+
+        /* CTA */
+        .orbital-cta {
+            text-align: center;
+            margin-top: clamp(20px, 4vh, 40px);
+            opacity: 0;
+            animation: fadeIn 1.5s ease 3.8s forwards;
+        }
+        .orbital-cta-text {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: clamp(0.6rem, 1vw, 0.8rem);
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .orbital-cta-btn {
+            display: inline-block;
+            color: #fff;
+            font-size: clamp(0.65rem, 1.1vw, 0.85rem);
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            padding: 12px 32px;
+            border: 1px solid rgba(84, 155, 162, 0.35);
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(8px);
+            background: rgba(84, 155, 162, 0.06);
+        }
+        .orbital-cta-btn:hover {
+            border-color: rgba(84, 155, 162, 0.7);
+            background: rgba(84, 155, 162, 0.12);
+            box-shadow: 0 0 30px rgba(84, 155, 162, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Hover glow on whole orbital */
+        .orbital-wrapper:hover .orbital-ring-1 {
+            border-color: rgba(84, 155, 162, 0.25);
+            box-shadow: 0 0 40px rgba(84, 155, 162, 0.06);
+            transition: all 0.5s ease;
+        }
+        .orbital-wrapper:hover .orbital-ring-2 {
+            border-color: rgba(84, 155, 162, 0.15);
+            transition: all 0.5s ease;
+        }
+        .orbital-wrapper:hover .orbital-dot {
+            opacity: 0.7;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Footer */
         .portal-credit {
             color: rgba(255, 255, 255, 0.85);
             font-size: clamp(0.65rem, 1.2vw, 0.85rem);
             font-weight: 300;
             letter-spacing: 0.15em;
-            margin-top: clamp(20px, 3vh, 40px);
+            margin-top: clamp(25px, 4vh, 50px);
             opacity: 0;
-            animation: fadeIn 1.5s ease 4.7s forwards;
+            animation: fadeIn 1.5s ease 4.2s forwards;
         }
-
         .portal-copyright {
             color: rgba(255, 255, 255, 0.5);
             font-size: clamp(0.5rem, 0.9vw, 0.65rem);
@@ -358,138 +343,60 @@
             letter-spacing: 0.08em;
             margin-top: 8px;
             opacity: 0;
-            animation: fadeIn 1.5s ease 5.0s forwards;
+            animation: fadeIn 1.5s ease 4.5s forwards;
         }
 
-        /* ---- RESPONSIVE MOBILE ---- */
+        @keyframes fadeIn { to { opacity: 1; } }
+
+        /* Floating */
+        .orbital-wrapper.visible {
+            animation: orbitalIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards, floatSoft 8s ease-in-out 4.5s infinite;
+        }
+        @keyframes floatSoft {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* ---- RESPONSIVE ---- */
         @media (max-width: 768px) {
-            body {
-                overflow-y: auto;
-                padding: 40px 0;
-            }
+            body { overflow-y: auto; padding: 30px 0; }
 
             .portal-title {
                 letter-spacing: 0.15em;
-                margin-bottom: 30px;
+                margin-bottom: 20px;
             }
-            .portal-title-main {
-                font-size: 1.95rem;
-            }
-            .portal-title-sub {
-                font-size: 1.95rem;
-                letter-spacing: 0.15em;
-                margin-top: 4px;
+            .portal-title-main { font-size: 1.8rem; }
+            .portal-title-sub { font-size: 1.8rem; letter-spacing: 0.15em; margin-top: 4px; }
+
+            .intro-word { font-size: clamp(1.8rem, 8vw, 4rem); letter-spacing: 0.1em; }
+            .intro-words-stack.to-final .intro-word[data-word="Bienvenue"] { font-size: 1.8rem; }
+            .intro-sub-words.to-final .intro-word { font-size: 1.8rem; }
+
+            .orbital-container {
+                width: 85vw;
+                height: 85vw;
             }
 
-            .intro-word {
-                font-size: clamp(1.8rem, 8vw, 4rem);
-                letter-spacing: 0.1em;
-            }
-            .intro-words-stack.to-final .intro-word[data-word="Bienvenue"] {
-                font-size: 1.95rem;
-            }
-            .intro-sub-words.to-final .intro-word {
-                font-size: 1.95rem;
-            }
+            .node-num { font-size: 1.3rem; }
+            .node-label { font-size: 0.55rem; }
+            .node-brand { font-size: 0.42rem; }
 
-            .portal-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-                padding: 0 12px;
-            }
-
-            .portal-flip {
-                width: 34vw;
-                height: 34vw;
-            }
-
-            .portal-flip-front,
-            .portal-flip-back {
-                border-radius: 12px;
-            }
-
-            .card-title {
-                font-size: 0.4rem;
-                letter-spacing: 0.1em;
-            }
-            .card-subtitle {
-                font-size: 0.3rem;
-                letter-spacing: 0.05em;
-            }
-            .portal-nav-hint {
-                font-size: 0.45rem;
-                margin-bottom: 12px;
-            }
-
-            .portal-description {
-                font-size: 0.83rem;
-                padding: 0 15px;
-                margin-top: 12px;
-                line-height: 1.5;
-            }
-
-            .portal-credit {
-                font-size: 0.6rem;
-                margin-top: 12px;
-            }
-
-            .portal-copyright {
-                font-size: 0.4rem;
-                margin-top: 6px;
-            }
+            .orbital-cta { margin-top: 15px; }
+            .portal-credit { font-size: 0.6rem; margin-top: 15px; }
+            .portal-copyright { font-size: 0.4rem; margin-top: 6px; }
         }
 
         @media (max-width: 420px) {
-            .portal-title-main {
-                font-size: 1.65rem;
-            }
-            .portal-title-sub {
-                font-size: 1.65rem;
-            }
-            .intro-word {
-                font-size: clamp(1.5rem, 7vw, 3rem);
-                letter-spacing: 0.08em;
-            }
-            .intro-words-stack.to-final .intro-word[data-word="Bienvenue"] {
-                font-size: 1.65rem;
-            }
-            .intro-sub-words.to-final .intro-word {
-                font-size: 1.65rem;
-            }
+            .portal-title-main { font-size: 1.5rem; }
+            .portal-title-sub { font-size: 1.5rem; }
+            .intro-word { font-size: clamp(1.5rem, 7vw, 3rem); letter-spacing: 0.08em; }
+            .intro-words-stack.to-final .intro-word[data-word="Bienvenue"] { font-size: 1.5rem; }
+            .intro-sub-words.to-final .intro-word { font-size: 1.5rem; }
 
-            .portal-container {
-                gap: 8px;
-                padding: 0 8px;
-            }
-
-            .portal-flip {
-                width: 38vw;
-                height: 38vw;
-            }
-
-            .portal-flip-front,
-            .portal-flip-back {
-                border-radius: 10px;
-            }
-
-            .card-title {
-                font-size: 0.32rem;
-                letter-spacing: 0.08em;
-            }
-            .card-subtitle {
-                font-size: 0.25rem;
-                letter-spacing: 0.04em;
-            }
-            .portal-nav-hint {
-                font-size: 0.4rem;
-                margin-bottom: 8px;
-            }
-
-            .portal-description {
-                font-size: 0.72rem;
-                padding: 0 12px;
-                margin-top: 10px;
-            }
+            .orbital-container { width: 92vw; height: 92vw; }
+            .node-num { font-size: 1.1rem; }
+            .node-label { font-size: 0.48rem; }
+            .node-brand { font-size: 0.38rem; }
         }
     </style>
 </head>
@@ -512,102 +419,66 @@
         <span class="portal-title-sub">dans l'écosystème BnF</span>
     </h1>
 
-    <p class="portal-nav-hint">Choisissez un accès à l'écosystème</p>
+    <!-- Orbital architecture -->
+    <a href="home.html" class="orbital-wrapper" id="orbitalWrapper">
+        <div class="orbital-container">
 
-    <div class="portal-container">
+            <!-- Rings -->
+            <div class="orbital-ring orbital-ring-3"></div>
+            <div class="orbital-ring orbital-ring-2"></div>
+            <div class="orbital-ring orbital-ring-dots"></div>
+            <div class="orbital-ring orbital-ring-1"></div>
 
-        <!-- Bulle 1 : Stratégie — BnF Consulting -->
-        <div class="portal-flip" data-href="home.html">
-            <div class="portal-flip-inner">
-                <div class="portal-flip-front">
-                    <span class="card-title">Stratégie</span>
-                    <div class="card-icon">
-                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="50" cy="50" r="38" stroke="#549BA2" stroke-width="2" fill="none"/>
-                            <circle cx="50" cy="50" r="25" stroke="#549BA2" stroke-width="2" fill="none" opacity="0.7"/>
-                            <circle cx="50" cy="50" r="12" stroke="#549BA2" stroke-width="2" fill="none" opacity="0.5"/>
-                            <circle cx="50" cy="50" r="4" fill="#549BA2"/>
-                        </svg>
-                    </div>
-                    <span class="card-subtitle">BnF Consulting</span>
-                </div>
-                <div class="portal-flip-back"></div>
+            <!-- Connector dots -->
+            <div class="orbital-dot orbital-dot-1"></div>
+            <div class="orbital-dot orbital-dot-2"></div>
+            <div class="orbital-dot orbital-dot-3"></div>
+            <div class="orbital-dot orbital-dot-4"></div>
+
+            <!-- Center -->
+            <div class="orbital-center">
+                <img src="PHOTOS/Logo_paysage (2).jpg" alt="BnF" class="orbital-center-logo">
+                <div class="orbital-center-tagline">Architecture</div>
             </div>
-        </div>
 
-        <!-- Bulle 2 : Optimisation — Flow -->
-        <div class="portal-flip" data-href="home.html">
-            <div class="portal-flip-inner">
-                <div class="portal-flip-front">
-                    <span class="card-title">Optimisation</span>
-                    <div class="card-icon">
-                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="15" y="25" width="20" height="20" rx="3" stroke="#549BA2" stroke-width="2" fill="none"/>
-                            <rect x="65" y="25" width="20" height="20" rx="3" stroke="#549BA2" stroke-width="2" fill="none"/>
-                            <rect x="15" y="55" width="20" height="20" rx="3" stroke="#549BA2" stroke-width="2" fill="none" opacity="0.7"/>
-                            <rect x="65" y="55" width="20" height="20" rx="3" stroke="#549BA2" stroke-width="2" fill="none" opacity="0.7"/>
-                            <line x1="35" y1="35" x2="65" y2="35" stroke="#549BA2" stroke-width="1.5" opacity="0.6"/>
-                            <line x1="25" y1="45" x2="25" y2="55" stroke="#549BA2" stroke-width="1.5" opacity="0.6"/>
-                            <line x1="75" y1="45" x2="75" y2="55" stroke="#549BA2" stroke-width="1.5" opacity="0.6"/>
-                            <line x1="35" y1="65" x2="65" y2="65" stroke="#549BA2" stroke-width="1.5" opacity="0.6"/>
-                        </svg>
-                    </div>
-                    <span class="card-subtitle">Flow</span>
-                </div>
-                <div class="portal-flip-back"></div>
+            <!-- Node 1: Top — Stratégie -->
+            <div class="orbital-node orbital-node-1">
+                <div class="node-num">01</div>
+                <div class="node-label">Stratégie</div>
+                <div class="node-brand">BnF Consulting</div>
             </div>
-        </div>
 
-        <!-- Bulle 3 : Visibilité — BnF Drones -->
-        <div class="portal-flip" data-href="home.html">
-            <div class="portal-flip-inner">
-                <div class="portal-flip-front">
-                    <span class="card-title">Visibilité</span>
-                    <div class="card-icon">
-                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="42" y="42" width="16" height="16" rx="3" stroke="#549BA2" stroke-width="2" fill="none"/>
-                            <line x1="50" y1="42" x2="50" y2="28" stroke="#549BA2" stroke-width="2"/>
-                            <line x1="50" y1="58" x2="50" y2="72" stroke="#549BA2" stroke-width="2"/>
-                            <line x1="42" y1="50" x2="28" y2="50" stroke="#549BA2" stroke-width="2"/>
-                            <line x1="58" y1="50" x2="72" y2="50" stroke="#549BA2" stroke-width="2"/>
-                            <circle cx="50" cy="24" r="5" stroke="#549BA2" stroke-width="1.5" fill="none" opacity="0.7"/>
-                            <circle cx="50" cy="76" r="5" stroke="#549BA2" stroke-width="1.5" fill="none" opacity="0.7"/>
-                            <circle cx="24" cy="50" r="5" stroke="#549BA2" stroke-width="1.5" fill="none" opacity="0.7"/>
-                            <circle cx="76" cy="50" r="5" stroke="#549BA2" stroke-width="1.5" fill="none" opacity="0.7"/>
-                        </svg>
-                    </div>
-                    <span class="card-subtitle">BnF Drones</span>
-                </div>
-                <div class="portal-flip-back"></div>
+            <!-- Node 2: Right — Optimisation -->
+            <div class="orbital-node orbital-node-2">
+                <div class="node-num">02</div>
+                <div class="node-label">Optimisation</div>
+                <div class="node-brand">Flow</div>
             </div>
-        </div>
 
-        <!-- Bulle 4 : Activation créative — KIBART -->
-        <div class="portal-flip" data-href="home.html">
-            <div class="portal-flip-inner">
-                <div class="portal-flip-front">
-                    <span class="card-title">Activation créative</span>
-                    <div class="card-icon">
-                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <polygon points="50,15 61,40 88,40 66,55 74,82 50,66 26,82 34,55 12,40 39,40" stroke="#549BA2" stroke-width="2" fill="none"/>
-                            <circle cx="50" cy="50" r="10" stroke="#549BA2" stroke-width="1.5" fill="none" opacity="0.5"/>
-                        </svg>
-                    </div>
-                    <span class="card-subtitle">KIBART</span>
-                </div>
-                <div class="portal-flip-back"></div>
+            <!-- Node 3: Bottom — Visibilité -->
+            <div class="orbital-node orbital-node-3">
+                <div class="node-num">03</div>
+                <div class="node-label">Visibilité</div>
+                <div class="node-brand">BnF Drones</div>
             </div>
-        </div>
 
+            <!-- Node 4: Left — Activation créative -->
+            <div class="orbital-node orbital-node-4">
+                <div class="node-num">04</div>
+                <div class="node-label">Activation créative</div>
+                <div class="node-brand">KIBART</div>
+            </div>
+
+        </div>
+    </a>
+
+    <div class="orbital-cta">
+        <p class="orbital-cta-text">Une architecture. Quatre expertises.</p>
+        <a href="home.html" class="orbital-cta-btn">Découvrir &rarr;</a>
     </div>
-
-    <p class="portal-description">Orchestration stratégique & activation d'expertises.</p>
 
     <p class="portal-credit">By BnF</p>
     <p class="portal-copyright">All rights reserved. BnFConsulting&bull;2026</p>
-
-    <div class="zoom-overlay" id="zoomOverlay"></div>
-    <div class="zoom-flash" id="zoomFlash"></div>
 
     <script>
     (function() {
@@ -617,11 +488,11 @@
         var introSubWords = document.getElementById('introSubWords');
         var introWords = introStack.querySelectorAll('.intro-word');
         var portalTitle = document.getElementById('portalTitle');
+        var orbitalWrapper = document.getElementById('orbitalWrapper');
         var wordDelay = 300;
         var wordIndex = 0;
 
         function startFinalTransition() {
-            // Mesurer la position cible du vrai titre
             portalTitle.style.opacity = '0.001';
             portalTitle.style.visibility = 'visible';
             var titleRect = portalTitle.getBoundingClientRect();
@@ -629,31 +500,26 @@
             portalTitle.style.opacity = '0';
             portalTitle.style.visibility = '';
 
-            // Mesurer la position actuelle du stack
             var stackRect = introStack.getBoundingClientRect();
             var stackCenterY = stackRect.top + stackRect.height / 2;
-
-            // Calculer le décalage exact
             var offsetY = titleCenterY - stackCenterY;
 
-            // Appliquer le transform calculé
             introStack.style.transform = 'translateY(' + offsetY + 'px)';
 
-            // Lancer les transitions CSS
             introOverlay.classList.add('to-final');
             introStack.classList.add('to-final');
             introSubWords.classList.add('to-final');
 
-            // Après la transition, swap vers le vrai titre
             setTimeout(function() {
                 introOverlay.classList.add('intro-hidden');
                 portalTitle.style.opacity = '1';
+                // Show orbital
+                orbitalWrapper.classList.add('visible');
             }, 850);
         }
 
         function showNextWord() {
             if (wordIndex >= introWords.length) {
-                // Tous visibles → transition vers position finale
                 setTimeout(startFinalTransition, 400);
                 return;
             }
@@ -662,158 +528,7 @@
             setTimeout(showNextWord, wordDelay);
         }
 
-        // Lancer l'intro après un court délai
         setTimeout(showNextWord, 400);
-
-        var cards = document.querySelectorAll('.portal-flip');
-        var isZooming = false;
-
-        // ---- ZOOM IMMERSIF AU CLIC ----
-        cards.forEach(function(card) {
-            card.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (isZooming) return;
-
-                var href = card.getAttribute('data-href');
-                if (!href) return;
-
-                isZooming = true;
-
-                // 1. Préparer le clone
-                var frontFace = card.querySelector('.portal-flip-front');
-                var rect = frontFace.getBoundingClientRect();
-                var computedStyle = getComputedStyle(frontFace);
-                var currentRadius = parseFloat(computedStyle.borderRadius) || 20;
-
-                var overlay = document.getElementById('zoomOverlay');
-                var zoomCard = document.createElement('div');
-                zoomCard.className = 'zoom-card';
-                zoomCard.innerHTML = frontFace.innerHTML;
-
-                // Retirer les labels du clone
-                var labels = zoomCard.querySelectorAll('.card-label');
-                labels.forEach(function(l) { l.remove(); });
-
-                // Positionner le clone exactement sur la bulle
-                zoomCard.style.top = rect.top + 'px';
-                zoomCard.style.left = rect.left + 'px';
-                zoomCard.style.width = rect.width + 'px';
-                zoomCard.style.height = rect.height + 'px';
-                zoomCard.style.borderRadius = currentRadius + 'px';
-                zoomCard.style.boxShadow = '0 8px 40px rgba(0,0,0,0.6)';
-
-                overlay.appendChild(zoomCard);
-                overlay.classList.add('active');
-
-                // 2. Masquer la bulle originale + estomper le reste
-                card.classList.add('zoom-source');
-                var inner = card.querySelector('.portal-flip-inner');
-                inner.style.transform = '';
-                inner.style.transition = 'none';
-                document.body.classList.add('zoom-active');
-
-                // 3. Glow teal
-                setTimeout(function() {
-                    zoomCard.classList.add('glow-active');
-                }, 50);
-
-                // 4. Animation zoom plein écran
-                var vw = window.innerWidth;
-                var vh = window.innerHeight;
-
-                var animation = zoomCard.animate([
-                    {
-                        top: rect.top + 'px',
-                        left: rect.left + 'px',
-                        width: rect.width + 'px',
-                        height: rect.height + 'px',
-                        borderRadius: currentRadius + 'px',
-                        boxShadow: '0 8px 40px rgba(0,0,0,0.6)',
-                        offset: 0
-                    },
-                    {
-                        top: (rect.top - 15) + 'px',
-                        left: (rect.left - 8) + 'px',
-                        width: (rect.width + 16) + 'px',
-                        height: (rect.height + 16) + 'px',
-                        borderRadius: (currentRadius * 0.8) + 'px',
-                        boxShadow: '0 20px 80px rgba(84,155,162,0.3), 0 0 60px rgba(84,155,162,0.15)',
-                        offset: 0.25
-                    },
-                    {
-                        top: '0px',
-                        left: '0px',
-                        width: vw + 'px',
-                        height: vh + 'px',
-                        borderRadius: '0px',
-                        boxShadow: '0 0 0 rgba(0,0,0,0)',
-                        offset: 1
-                    }
-                ], {
-                    duration: 800,
-                    delay: 150,
-                    easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                    fill: 'forwards'
-                });
-
-                // 5. Flash blanc + navigation
-                animation.onfinish = function() {
-                    var flash = document.getElementById('zoomFlash');
-                    flash.classList.add('active');
-
-                    setTimeout(function() {
-                        window.location.href = href;
-
-                        // Cleanup pour bouton retour
-                        setTimeout(function() {
-                            flash.classList.remove('active');
-                            overlay.classList.remove('active');
-                            zoomCard.remove();
-                            card.classList.remove('zoom-source');
-                            document.body.classList.remove('zoom-active');
-                            isZooming = false;
-                        }, 500);
-                    }, 250);
-                };
-            });
-        });
-
-        // ---- TILT 3D AU HOVER (desktop) ----
-        if (!('ontouchstart' in window)) {
-            cards.forEach(function(card) {
-                var inner = card.querySelector('.portal-flip-inner');
-
-                card.addEventListener('mousemove', function(e) {
-                    if (card.classList.contains('zoom-source')) return;
-                    var rect = card.getBoundingClientRect();
-                    var x = e.clientX - rect.left;
-                    var y = e.clientY - rect.top;
-                    var rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -6;
-                    var rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 6;
-                    inner.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
-                    inner.style.transition = 'transform 0.1s ease';
-                });
-
-                card.addEventListener('mouseleave', function() {
-                    if (card.classList.contains('zoom-source')) return;
-                    inner.style.transform = '';
-                    inner.style.transition = 'transform 0.5s ease';
-                });
-            });
-        }
-
-        // ---- CLEANUP BOUTON RETOUR ----
-        window.addEventListener('pageshow', function(e) {
-            if (e.persisted) {
-                document.body.classList.remove('zoom-active');
-                var overlay = document.getElementById('zoomOverlay');
-                overlay.innerHTML = '';
-                overlay.classList.remove('active');
-                document.getElementById('zoomFlash').classList.remove('active');
-                cards.forEach(function(c) { c.classList.remove('zoom-source'); });
-                isZooming = false;
-            }
-        });
     })();
     </script>
 
