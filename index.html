@@ -348,6 +348,31 @@
 
         @keyframes fadeIn { to { opacity: 1; } }
 
+        /* Rotating orbit container */
+        .orbital-orbit {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            animation: orbitRotate 45s linear infinite;
+        }
+
+        @keyframes orbitRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Counter-rotate node content so text stays upright */
+        .node-inner {
+            animation: orbitRotateReverse 45s linear infinite;
+        }
+
+        @keyframes orbitRotateReverse {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+        }
+
         /* No floating — orbital stays fixed after entry */
 
         /* ---- RESPONSIVE ---- */
@@ -422,44 +447,50 @@
             <div class="orbital-ring orbital-ring-dots"></div>
             <div class="orbital-ring orbital-ring-1"></div>
 
-            <!-- Connector dots -->
-            <div class="orbital-dot orbital-dot-1"></div>
-            <div class="orbital-dot orbital-dot-2"></div>
-            <div class="orbital-dot orbital-dot-3"></div>
-            <div class="orbital-dot orbital-dot-4"></div>
-
-            <!-- Center -->
+            <!-- Center (fixed) -->
             <div class="orbital-center">
                 <img src="PHOTOS/Logo_paysage (2).jpg" alt="BnF" class="orbital-center-logo">
                 <div class="orbital-center-tagline">Architecture</div>
             </div>
 
-            <!-- Node 1: Top — Stratégie -->
-            <div class="orbital-node orbital-node-1">
-                <div class="node-num">01</div>
-                <div class="node-label">Stratégie</div>
-                <div class="node-brand">BnF Consulting</div>
-            </div>
+            <!-- Rotating orbit with nodes + dots -->
+            <div class="orbital-orbit">
+                <div class="orbital-dot orbital-dot-1"></div>
+                <div class="orbital-dot orbital-dot-2"></div>
+                <div class="orbital-dot orbital-dot-3"></div>
+                <div class="orbital-dot orbital-dot-4"></div>
 
-            <!-- Node 2: Right — Optimisation -->
-            <div class="orbital-node orbital-node-2">
-                <div class="node-num">02</div>
-                <div class="node-label">Optimisation</div>
-                <div class="node-brand">Flow</div>
-            </div>
+                <div class="orbital-node orbital-node-1">
+                    <div class="node-inner">
+                        <div class="node-num">01</div>
+                        <div class="node-label">Stratégie</div>
+                        <div class="node-brand">BnF Consulting</div>
+                    </div>
+                </div>
 
-            <!-- Node 3: Bottom — Visibilité -->
-            <div class="orbital-node orbital-node-3">
-                <div class="node-num">03</div>
-                <div class="node-label">Visibilité</div>
-                <div class="node-brand">BnF Drones</div>
-            </div>
+                <div class="orbital-node orbital-node-2">
+                    <div class="node-inner">
+                        <div class="node-num">02</div>
+                        <div class="node-label">Optimisation</div>
+                        <div class="node-brand">Flow</div>
+                    </div>
+                </div>
 
-            <!-- Node 4: Left — Activation créative -->
-            <div class="orbital-node orbital-node-4">
-                <div class="node-num">04</div>
-                <div class="node-label">Activation créative</div>
-                <div class="node-brand">KIBART</div>
+                <div class="orbital-node orbital-node-3">
+                    <div class="node-inner">
+                        <div class="node-num">03</div>
+                        <div class="node-label">Visibilité</div>
+                        <div class="node-brand">BnF Drones</div>
+                    </div>
+                </div>
+
+                <div class="orbital-node orbital-node-4">
+                    <div class="node-inner">
+                        <div class="node-num">04</div>
+                        <div class="node-label">Activation créative</div>
+                        <div class="node-brand">KIBART</div>
+                    </div>
+                </div>
             </div>
 
         </div>

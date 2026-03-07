@@ -2389,6 +2389,13 @@ h1, h2, h3 {
         transform: translateY(0);
     }
 
+    .hero {
+        min-height: 80vh;
+        padding: 80px 24px 50px;
+        justify-content: flex-start;
+        padding-top: 20vh;
+    }
+
     .hero-title {
         font-size: clamp(1.5rem, 5.5vw, 2.25rem);
         padding: 0 8px;
@@ -3045,7 +3052,7 @@ h1, h2, h3 {
 
 .stacking-header {
     text-align: center;
-    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 2rem);
+    padding: 15vh clamp(1rem, 3vw, 2rem) 2rem;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -3363,13 +3370,13 @@ h1, h2, h3 {
     opacity: 0;
 }
 
-/* Reste affiché après hover (classe ajoutée par JS) */
-.axe-card.axe-revealed .axe-content {
+/* Desktop: hover reveal (temporaire) */
+.axe-card:hover .axe-content {
     max-height: 400px;
     opacity: 1;
 }
 
-/* Mobile: click toggle */
+/* Click toggle (desktop + mobile) */
 .axe-card.axe-open .axe-content {
     max-height: 400px;
     opacity: 1;
@@ -3499,6 +3506,11 @@ h1, h2, h3 {
 
     .axe-option-icon {
         font-size: 1.1rem;
+    }
+
+    /* Réduire le gap entre axes et produit cœur sur mobile */
+    #axes {
+        padding-bottom: 10px !important;
     }
 }
 
