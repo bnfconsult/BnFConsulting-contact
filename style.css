@@ -2592,6 +2592,42 @@ h1, h2, h3 {
         border-radius: 18px;
     }
 
+    /* Architecture BnF grids → 2x2 carré sur mobile */
+    .archi-grid,
+    .drone-archi-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+    }
+
+    .archi-grid a,
+    .drone-archi-grid a {
+        padding: 20px 14px !important;
+    }
+
+    .archi-grid h4,
+    .drone-archi-grid h4 {
+        font-size: 0.9rem !important;
+    }
+
+    /* Cas d'usage cards en colonne sur mobile */
+    .glass-card {
+        min-width: 0;
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+
+    /* CTA buttons stack sur mobile */
+    .cta-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .cta-buttons a {
+        margin-left: 0 !important;
+    }
+
     .btn-large {
         padding: 16px 32px;
         font-size: 0.9375rem;
