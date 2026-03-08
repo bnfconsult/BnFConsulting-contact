@@ -2578,7 +2578,37 @@ h1, h2, h3 {
     }
 
     .quick-nav {
-        display: none;
+        display: flex;
+        gap: 0;
+        margin-top: 28px;
+        border: 1px solid rgba(84, 155, 162, 0.35);
+        border-radius: 25px;
+        padding: 6px 8px;
+        justify-content: center;
+        align-items: center;
+    }
+    .quick-nav-desktop-only {
+        display: none !important;
+    }
+    .quick-nav-axe {
+        border: none !important;
+        padding: 10px 14px !important;
+        font-size: 0.72rem !important;
+        border-radius: 18px !important;
+        animation: none !important;
+        opacity: 1 !important;
+        position: relative;
+    }
+    .quick-nav-axe + .quick-nav-axe::before {
+        content: '';
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: #549ba2;
+        position: absolute;
+        left: -3px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     /* Mini navbar axes visible sur mobile */
