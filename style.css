@@ -2579,36 +2579,30 @@ h1, h2, h3 {
 
     .quick-nav {
         display: flex;
-        gap: 0;
+        flex-direction: column;
+        gap: 10px;
         margin-top: 28px;
-        border: 1px solid rgba(84, 155, 162, 0.35);
-        border-radius: 25px;
-        padding: 6px 8px;
+        border: none;
+        border-radius: 0;
+        padding: 0 20px;
         justify-content: center;
-        align-items: center;
+        align-items: stretch;
     }
     .quick-nav-desktop-only {
         display: none !important;
     }
     .quick-nav-axe {
-        border: none !important;
-        padding: 10px 14px !important;
-        font-size: 0.72rem !important;
-        border-radius: 18px !important;
+        border: 1px solid rgba(84, 155, 162, 0.3) !important;
+        padding: 14px 20px !important;
+        font-size: 0.8rem !important;
+        border-radius: 14px !important;
         animation: none !important;
         opacity: 1 !important;
-        position: relative;
+        text-align: center;
+        background: rgba(84, 155, 162, 0.06);
     }
     .quick-nav-axe + .quick-nav-axe::before {
-        content: '';
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        background: #549ba2;
-        position: absolute;
-        left: -3px;
-        top: 50%;
-        transform: translateY(-50%);
+        display: none;
     }
 
     /* Mini navbar axes visible sur mobile */
