@@ -2586,7 +2586,11 @@ h1, h2, h3 {
         border-radius: 0;
         padding: 0 20px;
         justify-content: center;
-        align-items: stretch;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
     }
     .quick-nav-desktop-only {
         display: none !important;
@@ -2599,6 +2603,8 @@ h1, h2, h3 {
         animation: none !important;
         opacity: 1 !important;
         text-align: center;
+        width: 100%;
+        box-sizing: border-box;
         background: rgba(84, 155, 162, 0.06);
     }
     .quick-nav-axe + .quick-nav-axe::before {
