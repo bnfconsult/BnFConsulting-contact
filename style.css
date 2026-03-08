@@ -3824,6 +3824,17 @@ h1, h2, h3 {
     }
 }
 
+@media (max-width: 768px) {
+    .levier-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        max-width: 320px !important;
+    }
+    .levier-grid > div {
+        aspect-ratio: 16/9 !important;
+    }
+}
+
 @media (max-width: 480px) {
     .chatbot {
         top: auto;
