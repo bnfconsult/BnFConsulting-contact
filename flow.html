@@ -36,21 +36,55 @@
         }
 
         /* --- Pain points quotes --- */
-        .flow-pain-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            max-width: 900px;
-            margin: 48px auto 0;
+        /* Scrolling testimonials marquee */
+        .flow-pain-marquee {
+            overflow: hidden;
+            margin: 48px 0 0;
+            padding: 20px 0;
+            position: relative;
+        }
+        .flow-pain-marquee::before,
+        .flow-pain-marquee::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .flow-pain-marquee::before {
+            left: 0;
+            background: linear-gradient(90deg, #0a0a0a, transparent);
+        }
+        .flow-pain-marquee::after {
+            right: 0;
+            background: linear-gradient(-90deg, #0a0a0a, transparent);
+        }
+        .flow-pain-track {
+            display: flex;
+            gap: 24px;
+            animation: painScroll 25s linear infinite;
+            width: max-content;
+        }
+        .flow-pain-track:hover {
+            animation-play-state: paused;
+        }
+        @keyframes painScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         .flow-pain-card {
             background: rgba(255,255,255,0.04);
             border: 1px solid rgba(84,155,162,0.2);
             border-radius: 16px;
-            padding: clamp(20px, 3vw, 28px);
+            padding: clamp(24px, 3vw, 32px) clamp(28px, 3vw, 36px);
+            min-width: 320px;
+            max-width: 400px;
+            flex-shrink: 0;
+            transition: border-color 0.4s ease;
             position: relative;
             overflow: hidden;
-            transition: transform 0.4s ease, border-color 0.4s ease;
         }
         .flow-pain-card::before {
             content: '';
@@ -60,7 +94,6 @@
             background: linear-gradient(90deg, transparent, rgba(84,155,162,0.35), transparent);
         }
         .flow-pain-card:hover {
-            transform: translateY(-4px);
             border-color: rgba(84,155,162,0.5);
         }
         .flow-pain-card p {
@@ -234,7 +267,6 @@
         }
 
         /* --- Scroll reveal --- */
-        .flow-pain-card,
         .flow-engine-card,
         .flow-method-card {
             opacity: 0;
@@ -242,7 +274,6 @@
             transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
                         transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .flow-pain-card.visible,
         .flow-engine-card.visible,
         .flow-method-card.visible {
             opacity: 1;
@@ -252,9 +283,6 @@
         .flow-engine-card:nth-child(3) { transition-delay: 0.2s; }
         .flow-engine-card:nth-child(4) { transition-delay: 0.3s; }
         .flow-engine-card:nth-child(5) { transition-delay: 0.4s; }
-        .flow-pain-card:nth-child(2) { transition-delay: 0.1s; }
-        .flow-pain-card:nth-child(3) { transition-delay: 0.2s; }
-        .flow-pain-card:nth-child(4) { transition-delay: 0.3s; }
         .flow-method-card:nth-child(2) { transition-delay: 0.15s; }
         .flow-method-card:nth-child(3) { transition-delay: 0.3s; }
 
@@ -264,8 +292,8 @@
                 padding: 32px 20px;
                 border-radius: 16px;
             }
-            .flow-pain-grid {
-                grid-template-columns: 1fr;
+            .flow-pain-card {
+                min-width: 260px;
             }
             .flow-engines-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -375,8 +403,26 @@
                 On ne vous dit pas quoi faire. On le fait avec vous — et on mesure. Chaque action est pens&eacute;e pour g&eacute;n&eacute;rer un impact mesurable sur votre activit&eacute;.
             </p>
         </div>
-        <div class="container">
-            <div class="flow-pain-grid">
+        <div class="flow-pain-marquee">
+            <div class="flow-pain-track">
+                <!-- Original set -->
+                <div class="flow-pain-card">
+                    <span class="pain-icon">&laquo;</span>
+                    <p>Je sens qu'on laisse de la performance sur la table.</p>
+                </div>
+                <div class="flow-pain-card">
+                    <span class="pain-icon">&laquo;</span>
+                    <p>Mon &eacute;quipe s'&eacute;puise sur des t&acirc;ches qui ne font pas avancer.</p>
+                </div>
+                <div class="flow-pain-card">
+                    <span class="pain-icon">&laquo;</span>
+                    <p>Je pilote &agrave; vue — et &ccedil;a me co&ucirc;te des opportunit&eacute;s.</p>
+                </div>
+                <div class="flow-pain-card">
+                    <span class="pain-icon">&laquo;</span>
+                    <p>L'IA, l'automatisation... je sais que c'est cl&eacute;, mais je ne sais pas par o&ugrave; commencer.</p>
+                </div>
+                <!-- Duplicate for seamless loop -->
                 <div class="flow-pain-card">
                     <span class="pain-icon">&laquo;</span>
                     <p>Je sens qu'on laisse de la performance sur la table.</p>
