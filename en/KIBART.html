@@ -84,6 +84,44 @@
             color: #549ba2;
         }
 
+        /* --- Card text reveal on click --- */
+        .kibart-app-card.clickable {
+            cursor: pointer;
+        }
+        .card-text-reveal {
+            position: absolute; inset: 0;
+            background: rgba(10, 26, 28, 0.92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px 24px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            z-index: 5;
+        }
+        .card-text-reveal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .card-text-reveal p {
+            color: #dce9ea;
+            font-family: Georgia, serif;
+            font-size: clamp(0.78rem, 1.3vw, 0.95rem);
+            line-height: 1.7;
+            text-align: center;
+            margin: 0;
+            max-width: 420px;
+        }
+        .card-text-reveal .close-hint {
+            position: absolute;
+            top: 12px; right: 16px;
+            color: rgba(84,155,162,0.6);
+            font-size: 20px;
+            font-family: sans-serif;
+            line-height: 1;
+        }
+
         /* --- Carousel --- */
         .kibart-carousel {
             position: relative;
@@ -340,12 +378,16 @@
                     <h3 class="card-title">Live <span class="accent">art</span></h3>
                 </div>
                 <!-- APP 02 — Artistic events -->
-                <div class="kibart-app-card">
+                <div class="kibart-app-card clickable" onclick="this.querySelector('.card-text-reveal').classList.toggle('active')">
                     <video autoplay muted loop playsinline preload="none" style="width:100%; height:100%; object-fit:cover; display:block;">
                         <source src="../VIDEOS/Kibart.mp4" type="video/mp4">
                     </video>
                     <div class="card-overlay"></div>
                     <h3 class="card-title">Artistic <span class="accent">events</span></h3>
+                    <div class="card-text-reveal">
+                        <span class="close-hint">✕</span>
+                        <p>KIBART designs artistic events that transform a venue or a gathering into a true experience.<br><br>Artists, creative performances, and visual installations create a unique and memorable atmosphere for your teams or guests.<br><br>These experiences can also be enhanced with aerial filming and staging using drones, to document the event and produce impactful visual content.</p>
+                    </div>
                 </div>
                 <!-- APP 04 — Space enhancement -->
                 <div class="kibart-app-card">
