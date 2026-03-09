@@ -89,9 +89,11 @@
             cursor: pointer;
         }
         .card-text-reveal {
-            position: absolute; inset: 0;
-            background: rgba(10, 26, 28, 0.92);
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 26, 28, 0.94);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 28px 24px;
@@ -99,6 +101,7 @@
             pointer-events: none;
             transition: opacity 0.4s ease;
             z-index: 5;
+            overflow-y: auto;
         }
         .card-text-reveal.active {
             opacity: 1;
@@ -107,19 +110,49 @@
         .card-text-reveal p {
             color: #dce9ea;
             font-family: Georgia, serif;
-            font-size: clamp(0.78rem, 1.3vw, 0.95rem);
-            line-height: 1.7;
+            font-size: clamp(0.82rem, 1.2vw, 0.95rem);
+            line-height: 1.75;
             text-align: center;
-            margin: 0;
-            max-width: 420px;
+            margin: 0 auto;
+            max-width: 480px;
         }
         .card-text-reveal .close-hint {
-            position: absolute;
-            top: 12px; right: 16px;
-            color: rgba(84,155,162,0.6);
-            font-size: 20px;
-            font-family: sans-serif;
-            line-height: 1;
+            display: inline-block;
+            margin-top: 16px;
+            color: rgba(84,155,162,0.7);
+            font-size: 0.72rem;
+            font-family: Montserrat, sans-serif;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(84,155,162,0.3);
+            border-radius: 20px;
+            padding: 5px 16px;
+            flex-shrink: 0;
+        }
+        /* Expanded card: remove fixed aspect-ratio so text fits */
+        .kibart-app-card.expanded {
+            aspect-ratio: unset !important;
+            min-height: 0;
+        }
+        .kibart-app-card.expanded .card-text-reveal {
+            position: relative;
+            inset: unset;
+            opacity: 1;
+            pointer-events: auto;
+            padding: 28px 24px 24px;
+        }
+        .kibart-app-card.expanded video,
+        .kibart-app-card.expanded img {
+            display: none !important;
+        }
+        .kibart-app-card.expanded .card-overlay {
+            display: none;
+        }
+        .kibart-app-card.expanded .card-title {
+            position: relative;
+            bottom: unset; left: unset;
+            text-align: center;
+            padding: 20px 24px 0;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
         }
 
         /* --- Carousel --- */
@@ -378,15 +411,15 @@
                     <h3 class="card-title">Live <span class="accent">art</span></h3>
                 </div>
                 <!-- APP 02 — Artistic events -->
-                <div class="kibart-app-card clickable" onclick="this.querySelector('.card-text-reveal').classList.toggle('active')">
+                <div class="kibart-app-card clickable" onclick="this.classList.toggle('expanded')">
                     <video autoplay muted loop playsinline preload="none" style="width:100%; height:100%; object-fit:cover; display:block;">
                         <source src="../VIDEOS/Kibart.mp4" type="video/mp4">
                     </video>
                     <div class="card-overlay"></div>
                     <h3 class="card-title">Artistic <span class="accent">events</span></h3>
                     <div class="card-text-reveal">
-                        <span class="close-hint">✕</span>
                         <p>KIBART designs artistic events that transform a venue or a gathering into a true experience.<br><br>Artists, creative performances, and visual installations create a unique and memorable atmosphere for your teams or guests.<br><br>These experiences can also be enhanced with aerial filming and staging using drones, to document the event and produce impactful visual content.</p>
+                        <span class="close-hint">✕ Close</span>
                     </div>
                 </div>
                 <!-- APP 04 — Space enhancement -->
