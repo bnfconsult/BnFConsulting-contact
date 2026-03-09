@@ -3542,6 +3542,43 @@ h1, h2, h3 {
     flex-shrink: 0;
 }
 
+/* ============================
+   TOP AXES BAR (mobile only)
+   ============================ */
+.top-axes-bar {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 10001;
+    background: rgba(15, 26, 27, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(84, 155, 162, 0.2);
+    padding: 9px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+.top-axes-bar .mobile-axe-link {
+    font-size: 0.68rem;
+    padding: 5px 9px;
+}
+.top-axes-bar .mobile-axe-sep {
+    height: 12px;
+}
+@media (max-width: 768px) {
+    .top-axes-bar {
+        display: flex;
+    }
+    .has-top-bar #nav,
+    .has-top-bar .nav {
+        top: 40px !important;
+    }
+    .has-top-bar {
+        padding-top: 40px;
+    }
+}
+
 .axe-card {
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(84, 155, 162, 0.2);
