@@ -215,28 +215,23 @@
             transform: scale(1.08);
         }
 
-        /* Positioning: N, E, S, W */
+        /* Positioning: 3 nodes at 120° intervals (top, bottom-right, bottom-left) */
         .orbital-node-1 {
-            top: 2%; left: 50%;
+            top: 0%; left: 50%;
             transform: translateX(-50%);
         }
         .orbital-node-2 {
-            top: 50%; right: 0%;
-            transform: translateY(-50%);
+            bottom: 12%; right: 2%;
+            transform: translate(0, 0);
         }
         .orbital-node-3 {
-            bottom: 2%; left: 50%;
-            transform: translateX(-50%);
-        }
-        .orbital-node-4 {
-            top: 50%; left: 0%;
-            transform: translateY(-50%);
+            bottom: 12%; left: 2%;
+            transform: translate(0, 0);
         }
 
         .orbital-wrapper:hover .orbital-node-1 { transform: translateX(-50%) scale(1.08); }
-        .orbital-wrapper:hover .orbital-node-2 { transform: translateY(-50%) scale(1.08); }
-        .orbital-wrapper:hover .orbital-node-3 { transform: translateX(-50%) scale(1.08); }
-        .orbital-wrapper:hover .orbital-node-4 { transform: translateY(-50%) scale(1.08); }
+        .orbital-wrapper:hover .orbital-node-2 { transform: translate(0, 0) scale(1.08); }
+        .orbital-wrapper:hover .orbital-node-3 { transform: translate(0, 0) scale(1.08); }
 
         .node-num {
             color: #549BA2;
@@ -270,10 +265,9 @@
             opacity: 0.4;
             z-index: 1;
         }
-        .orbital-dot-1 { top: 22%; left: 24%; }
-        .orbital-dot-2 { top: 22%; right: 24%; }
-        .orbital-dot-3 { bottom: 22%; right: 24%; }
-        .orbital-dot-4 { bottom: 22%; left: 24%; }
+        .orbital-dot-1 { top: 18%; left: 18%; }
+        .orbital-dot-2 { top: 18%; right: 18%; }
+        .orbital-dot-3 { bottom: 30%; left: 50%; transform: translateX(-50%); }
 
         /* CTA */
         .orbital-cta {
@@ -458,7 +452,6 @@
                 <div class="orbital-dot orbital-dot-1"></div>
                 <div class="orbital-dot orbital-dot-2"></div>
                 <div class="orbital-dot orbital-dot-3"></div>
-                <div class="orbital-dot orbital-dot-4"></div>
 
                 <div class="orbital-node orbital-node-1">
                     <div class="node-inner">
@@ -480,7 +473,7 @@
                     <div class="node-inner">
                         <div class="node-num">03</div>
                         <div class="node-label">Visibilité</div>
-                        <div class="node-brand">BnF Drones</div>
+                        <div class="node-brand">DPM</div>
                     </div>
                 </div>
 
