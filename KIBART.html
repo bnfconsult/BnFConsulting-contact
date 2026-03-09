@@ -272,9 +272,51 @@
                 justify-content: center;
             }
         }
+        /* --- Top axes bar (mobile only) --- */
+        .top-axes-bar {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 10001;
+            background: rgba(15, 26, 27, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(84,155,162,0.2);
+            padding: 7px 12px;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+        }
+        .top-axes-bar .mobile-axe-link {
+            font-size: 0.68rem;
+            padding: 5px 9px;
+        }
+        .top-axes-bar .mobile-axe-sep {
+            height: 12px;
+        }
+        @media (max-width: 768px) {
+            .top-axes-bar {
+                display: flex;
+            }
+            #nav {
+                top: 38px !important;
+            }
+            body {
+                padding-top: 38px;
+            }
+        }
     </style>
 </head>
 <body>
+
+    <!-- TOP AXES BAR (mobile only) -->
+    <div class="top-axes-bar">
+        <a href="drones.html" class="mobile-axe-link">Visibilité</a>
+        <span class="mobile-axe-sep"></span>
+        <a href="KIBART.html" class="mobile-axe-link">Activation Créative</a>
+        <span class="mobile-axe-sep"></span>
+        <a href="flow.html" class="mobile-axe-link">Optimisation</a>
+    </div>
 
     <!-- NAVIGATION -->
     <nav class="nav" id="nav" aria-label="Navigation principale">
