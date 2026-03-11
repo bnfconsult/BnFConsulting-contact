@@ -676,10 +676,10 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Quel est votre principal enjeu actuellement ?');
             addButtons([
-                { label: 'Manque de visibilité', action: showBesoinVisibilite },
+                { label: 'Gagnez en visibilité', action: showBesoinVisibilite },
                 { label: 'Organisation interne floue', action: showBesoinOrga },
-                { label: 'Croissance instable', action: showBesoinCroissance },
-                { label: 'Besoin d\'automatisation', action: showBesoinAuto },
+                { label: 'Stabilisez votre croissance', action: showBesoinCroissance },
+                { label: 'Automatisez votre infrastructure digitale', action: showBesoinAuto },
                 { label: 'Drone et prise de vue aérienne', action: showBesoinDrone }
             ]);
         }
