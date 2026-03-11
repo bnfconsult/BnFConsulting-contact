@@ -721,20 +721,6 @@ document.addEventListener('DOMContentLoaded', () => {
             addBack();
         }
 
-        // --- SCÉNARIO 4 : Découvrir l'écosystème BNF ---
-        function showEcosysteme() {
-            clear();
-            addBubble('Une entreprise n\'achète pas une prestation isolée.<br>Elle entre dans un système.');
-            setTimeout(function() {
-                addBubble('BNF Consulting → Stratégie<br>Flow → Optimisation<br>DRONE PRO MOTION → Visibilité');
-                addCTAs([
-                    { label: 'Découvrir l\'écosystème', url: 'home.html#modele' },
-                    { label: 'Réserver un diagnostic', url: CAL }
-                ]);
-                addBack();
-            }, 400);
-        }
-
         // --- MESSAGE D'ACCUEIL ---
         function showWelcome() {
             clear();
@@ -744,7 +730,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     { label: 'Comprendre l\'architecture BNF', action: showArchitecture },
                     { label: 'Comment se profile notre accompagnement', action: showAccompagnement },
                     { label: 'J\'ai un besoin précis', action: showBesoin },
-                    { label: 'Découvrir l\'écosystème BNF', action: showEcosysteme },
                     { label: 'Être rappelé', action: showRecallForm }
                 ]);
             }, 300);
