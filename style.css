@@ -2997,7 +2997,7 @@ h1, h2, h3 {
     padding: 10px 14px;
     border-radius: 8px;
     cursor: pointer;
-    text-align: center;
+    text-align: left;
     transition: all 0.2s;
 }
 
