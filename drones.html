@@ -489,6 +489,7 @@
         }
         @media (max-width: 768px) {
             .gallery-grid { grid-template-columns: repeat(3, 1fr) !important; }
+            .immo-text { text-align: left !important; }
         }
     </style>
 </head>
@@ -674,8 +675,8 @@
                 </div>
 
                 <div style="padding:clamp(32px, 5vw, 56px) clamp(20px, 4vw, 48px);">
-                <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.85rem, 1.2vw, 0.95rem); line-height:1.8; margin-bottom:32px; text-align:center; max-width:700px; margin-left:auto; margin-right:auto;">
-                    Les annonces se ressemblent. La vue aérienne révèle ce que les photos au sol ne montrent pas : l'environnement, le terrain, le quartier.<br>En quelques secondes, l'acheteur comprend le bien.
+                <p class="immo-text" style="color:rgba(255,255,255,0.7); font-size:clamp(0.85rem, 1.2vw, 0.95rem); line-height:1.8; margin-bottom:32px; text-align:center; max-width:700px; margin-left:auto; margin-right:auto;">
+                    Les annonces se ressemblent.<br>La vue aérienne révèle ce que les photos au sol ne montrent pas&nbsp;:<br>l'environnement, le terrain, le quartier.<br>En quelques secondes, l'acheteur comprend le bien.
                 </p>
 
                 <!-- Grille 2x2 : ce que ça change -->
@@ -702,16 +703,16 @@
                 <!-- Idéal pour — ligne de tags -->
                 <h4 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.6vw, 1.2rem); margin-bottom:14px; text-align:center;">Idéal <span style="color:#549ba2;">pour</span></h4>
                 <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:32px;">
-                    <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Maisons avec terrain</span>
-                    <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Propriétés de prestige</span>
                     <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Villas</span>
                     <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Programmes neufs</span>
+                    <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Maisons avec terrain</span>
+                    <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Propriétés de prestige</span>
                     <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Environnements remarquables</span>
                 </div>
 
                 <!-- CTA + Fermer -->
                 <div style="text-align:center; padding:24px 0 8px; border-top:1px solid rgba(84,155,162,0.15);">
-                    <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.8rem, 1.1vw, 0.9rem); line-height:1.7; margin-bottom:20px;">Valorisez vos mandats avec une perspective différente.</p>
+                    <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.8rem, 1.1vw, 0.9rem); line-height:1.7; margin-bottom:20px;">Valorisez vos mandats et générez plus de visites.</p>
                     <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary" style="margin-bottom:24px;">Prendre rendez-vous</a>
                     <br>
                     <button onclick="event.stopPropagation(); toggleImmoCard();" style="background:none; border:none; color:rgba(255,255,255,0.4); font-size:0.8rem; cursor:pointer; padding:12px; font-family:Montserrat,sans-serif; letter-spacing:0.05em; transition:color 0.3s;" onmouseenter="this.style.color='#549ba2'" onmouseleave="this.style.color='rgba(255,255,255,0.4)'">Fermer</button>
