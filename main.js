@@ -621,9 +621,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function showVisibilite() {
             clear();
-            addBubble('Activation des leviers de visibilité et d\'image.');
+            addBubble('La manière dont le monde vous voit.');
             setTimeout(function() {
-                addBubble('• Stratégie digitale<br>• SEO<br>• Identité de marque<br>• Prises de vue aériennes drone');
+                addBubble('Stratégie digitale — Identité de marque — Contenu premium');
                 addCTAs([
                     { label: 'Voir les leviers de visibilité', url: 'drones.html' }
                 ]);
