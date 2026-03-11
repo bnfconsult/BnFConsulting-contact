@@ -649,7 +649,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Chaque entreprise suit un parcours structuré.');
             setTimeout(function() {
-                addBubble('1. Diagnostic stratégique<br>Que faites-vous ?<br><br>2. Identification des leviers pouvant être optimisés<br><br>3. Structuration opérationnelle<br>Mise en place des préconisations<br><br>4. Activation des leviers<br>Activation des préconisations<br><br>5. Pilotage par la donnée<br>Temps économisé et automatisation');
+                addBubble('1. Diagnostic stratégique<br><i style="color:#549ba2;">Que faites-vous ?</i><br><br>2. Identification des leviers pouvant être optimisés<br><i style="color:#549ba2;">Comment vous faites ?</i><br><br>3. Structuration opérationnelle<br><i style="color:#549ba2;">Proposition en place des préconisations</i><br><br>4. Activation des leviers<br><i style="color:#549ba2;">Activation des préconisations</i><br><br>5. Pilotage par la donnée<br><i style="color:#549ba2;">Temps économisé et automatisation</i>');
                 addCTAs([
                     { label: 'Réserver un diagnostic', url: CAL }
                 ]);
