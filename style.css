@@ -2752,8 +2752,9 @@ h1, h2, h3 {
     box-shadow: 0 6px 28px rgba(84, 155, 162, 0.5);
 }
 
-/* Language toggle button (fixed, below phone-fab) */
+/* Language toggle button (fixed, below phone-fab) — hidden on desktop */
 .lang-fab {
+    display: none;
     position: fixed;
     top: 192px;
     right: 24px;
@@ -3952,6 +3953,7 @@ h1, h2, h3 {
     }
 
     .lang-fab {
+        display: block;
         top: auto;
         bottom: 96px;
         right: 16px;
