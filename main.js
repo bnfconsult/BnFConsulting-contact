@@ -715,7 +715,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Captation aérienne, contenu visuel stratégique, différenciation marketing : la vue d\'en haut change la perspective.');
             addCTAs([
-                { label: 'Voir DRONE PRO MOTION', url: 'drones.html' }
+                { label: 'Voir DPM', url: 'drones.html' }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
             addBack();
