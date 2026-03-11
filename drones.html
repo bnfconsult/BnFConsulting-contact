@@ -620,32 +620,38 @@
     </section>
 
     <!-- SECTION IMMOBILIER -->
-    <section style="background:#0f1a1b; padding:clamp(60px, 8vw, 100px) 0;">
-        <div class="container" style="max-width:700px; margin:0 auto; text-align:center;">
+    <section id="immo-section" style="background:#0f1a1b; padding:clamp(60px, 8vw, 100px) 0; transition:padding 0.5s ease;">
+        <!-- Titre au-dessus -->
+        <div style="text-align:center; margin-bottom:32px;">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Secteur</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; font-weight:400; line-height:1.2;">Survolez votre <span style="color:#549ba2;">cas</span></h2>
+        </div>
+
+        <!-- Conteneur carte (centré quand fermé, pleine largeur quand ouvert) -->
+        <div id="immo-wrapper" style="max-width:700px; margin:0 auto; text-align:center; transition:max-width 0.5s ease;">
             <!-- Carte fermée -->
-            <div id="immo-card" onclick="toggleImmoCard()" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-radius:20px; overflow:hidden; cursor:pointer; transition:border-color 0.4s ease, box-shadow 0.4s ease, max-width 0.5s ease;" onmouseenter="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.5)';this.style.boxShadow='0 0 30px rgba(84,155,162,0.1), 0 16px 48px rgba(0,0,0,0.3)'}" onmouseleave="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.25)';this.style.boxShadow='none'}">
+            <div id="immo-card" onclick="toggleImmoCard()" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-radius:20px; overflow:hidden; cursor:pointer; transition:border-color 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease;" onmouseenter="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.5)';this.style.boxShadow='0 0 30px rgba(84,155,162,0.1), 0 16px 48px rgba(0,0,0,0.3)'}" onmouseleave="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.25)';this.style.boxShadow='none'}">
                 <!-- Image -->
-                <div style="aspect-ratio:16/9; overflow:hidden;">
+                <div id="immo-img-wrap" style="aspect-ratio:16/9; overflow:hidden; transition:aspect-ratio 0.4s ease;">
                     <img id="immo-img" src="PHOTOS/Drones/Best_3.JPG" alt="Agences immobilières — Vue aérienne" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s ease;" onmouseenter="this.style.transform='scale(1.03)'" onmouseleave="this.style.transform='scale(1)'">
                 </div>
                 <!-- Titre affiché quand fermé -->
                 <div id="immo-preview" style="padding:clamp(20px, 3vw, 32px);">
-                    <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Secteur</p>
                     <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1.1rem, 2vw, 1.5rem); margin-bottom:10px;">Agences <span style="color:#549ba2;">immobilières</span></h3>
                     <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.8rem, 1.1vw, 0.9rem); line-height:1.7;">Valorisez vos mandats et attirez plus de visites</p>
                 </div>
             </div>
 
-            <!-- Contenu détaillé (caché par défaut) -->
-            <div id="immo-detail" style="display:none; max-width:700px; margin:0 auto; text-align:left; padding:clamp(24px, 4vw, 40px) clamp(16px, 3vw, 32px) clamp(24px, 4vw, 40px); background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-top:none; border-radius:0 0 20px 20px; margin-top:-1px;">
+            <!-- Contenu détaillé (caché par défaut) — pleine largeur -->
+            <div id="immo-detail" style="display:none; text-align:left; padding:clamp(32px, 5vw, 56px) clamp(20px, 4vw, 48px); background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-top:none; border-radius:0 0 20px 20px; margin-top:-1px;">
 
-                <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.85rem, 1.2vw, 0.95rem); line-height:1.8; margin-bottom:32px; text-align:center;">
+                <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.85rem, 1.2vw, 0.95rem); line-height:1.8; margin-bottom:32px; text-align:center; max-width:700px; margin-left:auto; margin-right:auto;">
                     Les annonces se ressemblent. La vue aérienne révèle ce que les photos au sol ne montrent pas : l'environnement, le terrain, le quartier. En quelques secondes, l'acheteur comprend le bien.
                 </p>
 
                 <!-- Grille 2x2 : ce que ça change -->
                 <h4 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.6vw, 1.2rem); margin-bottom:16px; text-align:center;">Ce que la vue aérienne <span style="color:#549ba2;">change</span></h4>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:32px;">
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:32px; max-width:800px; margin-left:auto; margin-right:auto;">
                     <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.15); border-radius:12px; padding:16px 18px;">
                         <p style="color:#549ba2; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Contexte</p>
                         <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin:0;">Environnement et emplacement réel du bien</p>
@@ -786,13 +792,20 @@
         var card = document.getElementById('immo-card');
         var detail = document.getElementById('immo-detail');
         var preview = document.getElementById('immo-preview');
+        var wrapper = document.getElementById('immo-wrapper');
+        var imgWrap = document.getElementById('immo-img-wrap');
+        var section = document.getElementById('immo-section');
         if (detail.style.display === 'none') {
             detail.style.display = 'block';
             preview.style.display = 'none';
             card.classList.add('open');
-            card.style.borderRadius = '20px 20px 0 0';
-            card.style.borderColor = 'rgba(84,155,162,0.5)';
-            card.style.boxShadow = '0 0 30px rgba(84,155,162,0.1), 0 16px 48px rgba(0,0,0,0.3)';
+            card.style.borderRadius = '0';
+            card.style.borderColor = 'rgba(84,155,162,0.25)';
+            card.style.borderLeft = 'none';
+            card.style.borderRight = 'none';
+            wrapper.style.maxWidth = '100%';
+            imgWrap.style.aspectRatio = '21/9';
+            section.style.padding = 'clamp(60px, 8vw, 100px) 0 0';
             card.scrollIntoView({behavior:'smooth', block:'start'});
         } else {
             detail.style.display = 'none';
@@ -800,7 +813,12 @@
             card.classList.remove('open');
             card.style.borderRadius = '20px';
             card.style.borderColor = 'rgba(84,155,162,0.25)';
+            card.style.borderLeft = '1px solid rgba(84,155,162,0.25)';
+            card.style.borderRight = '1px solid rgba(84,155,162,0.25)';
             card.style.boxShadow = 'none';
+            wrapper.style.maxWidth = '700px';
+            imgWrap.style.aspectRatio = '16/9';
+            section.style.padding = 'clamp(60px, 8vw, 100px) 0';
         }
     }
     </script>
