@@ -619,6 +619,76 @@
         </div>
     </section>
 
+    <!-- SECTION IMMOBILIER -->
+    <section style="background:#0f1a1b; padding:clamp(60px, 8vw, 100px) 0;">
+        <div class="container" style="max-width:700px; margin:0 auto; text-align:center;">
+            <!-- Carte fermée -->
+            <div id="immo-card" onclick="toggleImmoCard()" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-radius:20px; overflow:hidden; cursor:pointer; transition:border-color 0.4s ease, box-shadow 0.4s ease, max-width 0.5s ease;" onmouseenter="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.5)';this.style.boxShadow='0 0 30px rgba(84,155,162,0.1), 0 16px 48px rgba(0,0,0,0.3)'}" onmouseleave="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.25)';this.style.boxShadow='none'}">
+                <!-- Image -->
+                <div style="aspect-ratio:16/9; overflow:hidden;">
+                    <img id="immo-img" src="PHOTOS/Drones/Best_3.JPG" alt="Agences immobilières — Vue aérienne" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s ease;" onmouseenter="this.style.transform='scale(1.03)'" onmouseleave="this.style.transform='scale(1)'">
+                </div>
+                <!-- Titre affiché quand fermé -->
+                <div id="immo-preview" style="padding:clamp(20px, 3vw, 32px);">
+                    <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Secteur</p>
+                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1.1rem, 2vw, 1.5rem); margin-bottom:10px;">Agences <span style="color:#549ba2;">immobilières</span></h3>
+                    <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.8rem, 1.1vw, 0.9rem); line-height:1.7;">Valorisez vos mandats et attirez plus de visites</p>
+                </div>
+            </div>
+
+            <!-- Contenu détaillé (caché par défaut) -->
+            <div id="immo-detail" style="display:none; max-width:700px; margin:0 auto; text-align:left; padding:0 clamp(16px, 3vw, 32px) clamp(24px, 4vw, 40px); background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-top:none; border-radius:0 0 20px 20px; margin-top:-1px;">
+
+                <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.85rem, 1.2vw, 0.95rem); line-height:1.8; margin-bottom:16px;">
+                    Dans l'immobilier, de nombreuses annonces se ressemblent. Même formats, mêmes angles, mêmes photos.
+                </p>
+                <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.85rem, 1.2vw, 0.95rem); line-height:1.8; margin-bottom:16px;">
+                    Dans cet environnement saturé, les biens deviennent difficiles à distinguer et l'attention des acheteurs diminue.
+                </p>
+                <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.85rem, 1.2vw, 0.95rem); line-height:1.8; margin-bottom:16px;">
+                    La vue aérienne permet de révéler ce que les images au sol ne montrent pas : l'environnement du bien, son emplacement réel, la taille du terrain et la qualité du quartier. Elle apporte immédiatement du contexte et valorise le bien dans son ensemble.
+                </p>
+                <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.85rem, 1.2vw, 0.95rem); line-height:1.8; margin-bottom:32px;">
+                    Un contenu visuel premium qui attire davantage l'attention, génère plus de visites et accélère les ventes.
+                </p>
+
+                <h4 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.6vw, 1.2rem); margin-bottom:16px;">Ce que la vue aérienne <span style="color:#549ba2;">révèle</span></h4>
+                <ul style="list-style:none; padding:0; margin-bottom:32px;">
+                    <li style="color:rgba(255,255,255,0.65); font-size:clamp(0.825rem, 1.1vw, 0.9rem); line-height:1.8; padding-left:16px; position:relative;"><span style="position:absolute; left:0; color:#549ba2;">—</span> L'environnement du bien</li>
+                    <li style="color:rgba(255,255,255,0.65); font-size:clamp(0.825rem, 1.1vw, 0.9rem); line-height:1.8; padding-left:16px; position:relative;"><span style="position:absolute; left:0; color:#549ba2;">—</span> La proximité avec les transports, commerces et écoles</li>
+                    <li style="color:rgba(255,255,255,0.65); font-size:clamp(0.825rem, 1.1vw, 0.9rem); line-height:1.8; padding-left:16px; position:relative;"><span style="position:absolute; left:0; color:#549ba2;">—</span> La taille réelle du terrain</li>
+                    <li style="color:rgba(255,255,255,0.65); font-size:clamp(0.825rem, 1.1vw, 0.9rem); line-height:1.8; padding-left:16px; position:relative;"><span style="position:absolute; left:0; color:#549ba2;">—</span> La qualité du quartier</li>
+                    <li style="color:rgba(255,255,255,0.65); font-size:clamp(0.825rem, 1.1vw, 0.9rem); line-height:1.8; padding-left:16px; position:relative;"><span style="position:absolute; left:0; color:#549ba2;">—</span> L'architecture et la disposition de la propriété</li>
+                </ul>
+
+                <h4 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.6vw, 1.2rem); margin-bottom:16px;">Un levier de <span style="color:#549ba2;">différenciation</span></h4>
+                <ul style="list-style:none; padding:0; margin-bottom:32px;">
+                    <li style="color:rgba(255,255,255,0.65); font-size:clamp(0.825rem, 1.1vw, 0.9rem); line-height:1.8; padding-left:16px; position:relative;"><span style="position:absolute; left:0; color:#549ba2;">—</span> Capter l'attention dans les portails immobiliers</li>
+                    <li style="color:rgba(255,255,255,0.65); font-size:clamp(0.825rem, 1.1vw, 0.9rem); line-height:1.8; padding-left:16px; position:relative;"><span style="position:absolute; left:0; color:#549ba2;">—</span> Valoriser les biens premium</li>
+                    <li style="color:rgba(255,255,255,0.65); font-size:clamp(0.825rem, 1.1vw, 0.9rem); line-height:1.8; padding-left:16px; position:relative;"><span style="position:absolute; left:0; color:#549ba2;">—</span> Renforcer l'image professionnelle de l'agence</li>
+                    <li style="color:rgba(255,255,255,0.65); font-size:clamp(0.825rem, 1.1vw, 0.9rem); line-height:1.8; padding-left:16px; position:relative;"><span style="position:absolute; left:0; color:#549ba2;">—</span> Se différencier des annonces concurrentes</li>
+                </ul>
+
+                <h4 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.6vw, 1.2rem); margin-bottom:16px;">Pour <span style="color:#549ba2;">qui</span> ?</h4>
+                <ul style="list-style:none; padding:0; margin-bottom:32px;">
+                    <li style="color:rgba(255,255,255,0.65); font-size:clamp(0.825rem, 1.1vw, 0.9rem); line-height:1.8; padding-left:16px; position:relative;"><span style="position:absolute; left:0; color:#549ba2;">—</span> Maisons avec terrain</li>
+                    <li style="color:rgba(255,255,255,0.65); font-size:clamp(0.825rem, 1.1vw, 0.9rem); line-height:1.8; padding-left:16px; position:relative;"><span style="position:absolute; left:0; color:#549ba2;">—</span> Propriétés de prestige</li>
+                    <li style="color:rgba(255,255,255,0.65); font-size:clamp(0.825rem, 1.1vw, 0.9rem); line-height:1.8; padding-left:16px; position:relative;"><span style="position:absolute; left:0; color:#549ba2;">—</span> Villas</li>
+                    <li style="color:rgba(255,255,255,0.65); font-size:clamp(0.825rem, 1.1vw, 0.9rem); line-height:1.8; padding-left:16px; position:relative;"><span style="position:absolute; left:0; color:#549ba2;">—</span> Programmes immobiliers neufs</li>
+                    <li style="color:rgba(255,255,255,0.65); font-size:clamp(0.825rem, 1.1vw, 0.9rem); line-height:1.8; padding-left:16px; position:relative;"><span style="position:absolute; left:0; color:#549ba2;">—</span> Biens situés dans des environnements remarquables</li>
+                </ul>
+
+                <div style="text-align:center; padding:24px 0 8px; border-top:1px solid rgba(84,155,162,0.15);">
+                    <p style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.6vw, 1.2rem); margin-bottom:8px;">Changez de <span style="color:#549ba2;">perspective</span></p>
+                    <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.8rem, 1.1vw, 0.9rem); line-height:1.7; margin-bottom:24px;">Valorisez vos mandats avec une perspective différente.</p>
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary" style="margin-bottom:24px;">Prendre rendez-vous</a>
+                    <br>
+                    <button onclick="event.stopPropagation(); toggleImmoCard();" style="background:none; border:none; color:rgba(255,255,255,0.4); font-size:0.8rem; cursor:pointer; padding:12px; font-family:Montserrat,sans-serif; letter-spacing:0.05em; transition:color 0.3s;" onmouseenter="this.style.color='#549ba2'" onmouseleave="this.style.color='rgba(255,255,255,0.4)'">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- GALERIE PHOTO -->
     <section id="drone-portfolio" style="background:#0a1a1c; padding:clamp(60px, 8vw, 100px) 0; scroll-margin-top:100px;">
         <div class="container" style="text-align:center;">
@@ -714,6 +784,29 @@
             distX = 0;
         }, {passive: true});
     })();
+
+    /* --- Toggle carte immobilier --- */
+    function toggleImmoCard() {
+        var card = document.getElementById('immo-card');
+        var detail = document.getElementById('immo-detail');
+        var preview = document.getElementById('immo-preview');
+        if (detail.style.display === 'none') {
+            detail.style.display = 'block';
+            preview.style.display = 'none';
+            card.classList.add('open');
+            card.style.borderRadius = '20px 20px 0 0';
+            card.style.borderColor = 'rgba(84,155,162,0.5)';
+            card.style.boxShadow = '0 0 30px rgba(84,155,162,0.1), 0 16px 48px rgba(0,0,0,0.3)';
+            card.scrollIntoView({behavior:'smooth', block:'start'});
+        } else {
+            detail.style.display = 'none';
+            preview.style.display = 'block';
+            card.classList.remove('open');
+            card.style.borderRadius = '20px';
+            card.style.borderColor = 'rgba(84,155,162,0.25)';
+            card.style.boxShadow = 'none';
+        }
+    }
     </script>
 
     <!-- ARCHITECTURE BNF — Les 4 axes -->
