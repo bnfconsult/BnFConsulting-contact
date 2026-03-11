@@ -2997,7 +2997,7 @@ h1, h2, h3 {
     padding: 10px 14px;
     border-radius: 8px;
     cursor: pointer;
-    text-align: left;
+    text-align: center;
     transition: all 0.2s;
 }
 
@@ -3035,6 +3035,8 @@ h1, h2, h3 {
     font-size: 0.7rem;
     cursor: pointer;
     padding: 6px 0;
+    text-align: center;
+    width: 100%;
     margin-top: 4px;
     transition: color 0.2s;
 }
