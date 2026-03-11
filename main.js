@@ -534,6 +534,19 @@ document.addEventListener('DOMContentLoaded', () => {
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
         }
 
+        function addActionBtn(label, action) {
+            var wrap = document.createElement('div');
+            wrap.style.cssText = 'text-align:center; animation:cbFadeIn 0.3s ease;';
+            var btn = document.createElement('button');
+            btn.className = 'cb-cta';
+            btn.textContent = label;
+            btn.style.cursor = 'pointer';
+            btn.addEventListener('click', function() { action(); });
+            wrap.appendChild(btn);
+            chatbotMessages.appendChild(wrap);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
         function addBack() {
             var btn = document.createElement('button');
             btn.className = 'cb-back';
@@ -627,7 +640,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 addCTAs([
                     { label: 'Voir les leviers de visibilité', url: 'drones.html' }
                 ]);
-                addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
+                addActionBtn('Être rappelé', showRecallForm);
                 addBack();
             }, 300);
         }
@@ -653,7 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 addCTAs([
                     { label: 'Réserver un diagnostic', url: CAL }
                 ]);
-                addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
+                addActionBtn('Être rappelé', showRecallForm);
                 addBack();
             }, 400);
         }
@@ -717,7 +730,7 @@ document.addEventListener('DOMContentLoaded', () => {
             addCTAs([
                 { label: 'Voir DPM', url: 'drones.html' }
             ]);
-            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
+            addActionBtn('Être rappelé', showRecallForm);
             addBack();
         }
 
