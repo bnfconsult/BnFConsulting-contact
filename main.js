@@ -555,7 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 '<input type="email" name="email" placeholder="Votre email" required>' +
                 '<input type="tel" name="phone" placeholder="Téléphone">' +
                 '<textarea name="message" rows="2" placeholder="Votre besoin en quelques mots…"></textarea>' +
-                '<input type="hidden" name="_subject" value="Demande de rappel — Chatbot BnFConsulting">' +
+                '<input type="hidden" name="_subject" value="Demande de rappel — Chatbot BNF CONSULTING">' +
                 '<button type="submit" class="cb-cta" style="border:none;cursor:pointer;text-align:center;display:block;width:100%;padding:10px;">Envoyer</button>';
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -579,114 +579,83 @@ document.addEventListener('DOMContentLoaded', () => {
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
         }
 
-        // --- SCÉNARIO 1 : Que fait BnF ? ---
-        function showQueFait() {
+        // --- SCÉNARIO 1 : Comprendre l'architecture BNF ---
+        function showArchitecture() {
             clear();
-            addBubble('BnFConsulting orchestre stratégie, opérations et croissance pour transformer des structures dispersées en systèmes cohérents et pilotables.');
+            addBubble('BNF n\'est pas une agence classique.<br>C\'est une architecture stratégique permettant de structurer et développer une entreprise.');
             setTimeout(function() {
-                addBubble('Sur quel axe souhaitez-vous en savoir plus ?');
                 addButtons([
                     { label: 'Stratégie', action: showStrategie },
-                    { label: 'Opérations', action: showOperations },
-                    { label: 'Croissance', action: showCroissance },
-                    { label: 'Audit stratégique', action: showAudit }
+                    { label: 'Optimisation', action: showOptimisation },
+                    { label: 'Visibilité', action: showVisibilite },
+                    { label: 'Produit cœur : rapport stratégique', action: showProduitCoeur }
                 ]);
             }, 400);
         }
 
         function showStrategie() {
             clear();
-            addBubble('Nous analysons votre positionnement, votre visibilité et vos leviers invisibles afin de définir une trajectoire claire.');
-            addCTAs([
-                { label: 'Notre modèle', url: 'home.html#modele' },
-                { label: 'Réserver un diagnostic', url: CAL }
-            ]);
-            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
-            addBack();
-        }
-
-        function showOperations() {
-            clear();
-            addBubble('Nous transformons la stratégie en systèmes concrets : automatisation, CRM, organisation, pilotage par la donnée.');
-            addCTAs([
-                { label: 'Notre modèle', url: 'home.html#modele' },
-                { label: 'Réserver un diagnostic', url: CAL }
-            ]);
-            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
-            addBack();
-        }
-
-        function showCroissance() {
-            clear();
-            addBubble('Nous amplifions ce qui est structuré : SEO, image, visibilité, activation de leviers ciblés.');
-            addCTAs([
-                { label: 'Notre modèle', url: 'home.html#modele' },
-                { label: 'Réserver un diagnostic', url: CAL }
-            ]);
-            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
-            addBack();
-        }
-
-        function showAudit() {
-            clear();
-            addBubble('L\'audit est notre produit cœur. Il révèle les pertes invisibles, les incohérences internes et les freins à la croissance.');
-            addCTAs([
-                { label: 'Notre modèle', url: 'home.html#modele' },
-                { label: 'Réserver un diagnostic', url: CAL }
-            ]);
-            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
-            addBack();
-        }
-
-        // --- SCÉNARIO 2 : Comment ça marche ? ---
-        function showComment() {
-            clear();
-            addBubble('Chaque entreprise suit un parcours structuré :');
+            addBubble('Lecture stratégique globale de l\'entreprise.');
             setTimeout(function() {
-                addBubble('1. Diagnostic stratégique<br>2. Identification des priorités<br>3. Structuration opérationnelle<br>4. Activation des leviers<br>5. Pilotage par la data');
-                setTimeout(function() {
-                    addBubble('Souhaitez-vous comprendre une étape en détail ?');
-                    addButtons([
-                        { label: 'Le diagnostic', action: showDiagnostic },
-                        { label: 'La structuration', action: showStructuration },
-                        { label: 'L\'activation', action: showActivation },
-                        { label: 'Prendre rendez-vous', action: function() { window.open(CAL, '_blank'); } }
-                    ]);
-                }, 300);
+                addBubble('• Analyse du positionnement<br>• Analyse concurrentielle<br>• Identification des leviers pouvant être optimisés');
+                addCTAs([
+                    { label: 'Voir BNF Consulting', url: 'home.html' },
+                    { label: 'Réserver un diagnostic', url: CAL }
+                ]);
+                addBack();
+            }, 300);
+        }
+
+        function showOptimisation() {
+            clear();
+            addBubble('Transformation de la stratégie en système opérationnel.');
+            setTimeout(function() {
+                addBubble('• Structuration des opérations<br>• Automatisation des workflows<br>• Organisation pilotable<br>• Centralisation des données');
+                addCTAs([
+                    { label: 'Comprendre Flow', url: 'flow.html' },
+                    { label: 'Réserver un diagnostic', url: CAL }
+                ]);
+                addBack();
+            }, 300);
+        }
+
+        function showVisibilite() {
+            clear();
+            addBubble('Activation des leviers de visibilité et d\'image.');
+            setTimeout(function() {
+                addBubble('• Stratégie digitale<br>• SEO<br>• Identité de marque<br>• Prises de vue aériennes drone');
+                addCTAs([
+                    { label: 'Voir les leviers de visibilité', url: 'drones.html' }
+                ]);
+                addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
+                addBack();
+            }, 300);
+        }
+
+        function showProduitCoeur() {
+            clear();
+            addBubble('Le produit central de BNF est le diagnostic stratégique.');
+            setTimeout(function() {
+                addBubble('Il révèle :<br>• Pertes invisibles<br>• Incohérences internes<br>• Leviers non activés');
+                addCTAs([
+                    { label: 'Réserver un diagnostic', url: CAL }
+                ]);
+                addBack();
+            }, 300);
+        }
+
+        // --- SCÉNARIO 2 : Comment se profile notre accompagnement ---
+        function showAccompagnement() {
+            clear();
+            addBubble('Chaque entreprise suit un parcours structuré.');
+            setTimeout(function() {
+                addBubble('1. Diagnostic stratégique<br>2. Identification des leviers à travailler<br>3. Structuration opérationnelle<br>4. Activation des leviers<br>5. Pilotage par la donnée');
+                addCTAs([
+                    { label: 'Réserver un diagnostic', url: CAL }
+                ]);
+                addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
+                addBack();
             }, 400);
-        }
-
-        function showDiagnostic() {
-            clear();
-            addBubble('Le diagnostic stratégique est un échange de 30 minutes pour identifier vos leviers inexploités, vos pertes invisibles et vos priorités réelles.<br><br>Il se suit d\'un audit digital qui se résulte en un rapport de développement stratégique.');
-            addCTAs([
-                { label: 'Notre modèle', url: 'home.html#modele' },
-                { label: 'Réserver un diagnostic', url: CAL }
-            ]);
-            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
-            addBack();
-        }
-
-        function showStructuration() {
-            clear();
-            addBubble('La structuration transforme vos priorités en plan d\'action concret : process, outils, organisation, indicateurs de pilotage.');
-            addCTAs([
-                { label: 'Notre modèle', url: 'home.html#modele' },
-                { label: 'Réserver un diagnostic', url: CAL }
-            ]);
-            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
-            addBack();
-        }
-
-        function showActivation() {
-            clear();
-            addBubble('L\'activation met en mouvement ce qui a été structuré : déploiement, automatisation, visibilité, croissance mesurable.');
-            addCTAs([
-                { label: 'Notre modèle', url: 'home.html#modele' },
-                { label: 'Réserver un diagnostic', url: CAL }
-            ]);
-            addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
-            addBack();
         }
 
         // --- SCÉNARIO 3 : J'ai un besoin précis ---
@@ -694,33 +663,88 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Quel est votre principal enjeu actuellement ?');
             addButtons([
-                { label: 'Manque de visibilité', action: function() { showBesoinDetail('Votre entreprise a du potentiel mais reste invisible. Nous structurons votre positionnement, votre image et vos canaux pour générer une visibilité cohérente et durable.', 'index.html#modele'); } },
-                { label: 'Organisation interne floue', action: function() { showBesoinDetail('Quand les process sont flous, l\'énergie se disperse. Nous clarifions les rôles, les flux et les outils pour créer un système pilotable.', 'index.html#modele'); } },
-                { label: 'Croissance instable', action: function() { showBesoinDetail('Une croissance sans structure finit par s\'essouffler. Nous identifions les freins cachés et installons les fondations d\'une croissance maîtrisée.', 'index.html#modele'); } },
-                { label: 'Besoin d\'automatisation', action: function() { showBesoinDetail('Les tâches répétitives freinent votre développement. Nous automatisons ce qui peut l\'être pour libérer du temps stratégique.', 'index.html#modele'); } }
+                { label: 'Manque de visibilité', action: showBesoinVisibilite },
+                { label: 'Organisation interne floue', action: showBesoinOrga },
+                { label: 'Croissance instable', action: showBesoinCroissance },
+                { label: 'Besoin d\'automatisation', action: showBesoinAuto },
+                { label: 'Drone et prise de vue aérienne', action: showBesoinDrone }
             ]);
         }
 
-        function showBesoinDetail(text, prestaUrl) {
+        function showBesoinVisibilite() {
             clear();
-            addBubble(text);
+            addBubble('Stratégie digitale, SEO, identité de marque : nous structurons votre visibilité pour qu\'elle devienne un levier de croissance.');
             addCTAs([
-                { label: 'Notre modèle', url: prestaUrl },
+                { label: 'Voir le pilier visibilité', url: 'drones.html' },
                 { label: 'Réserver un diagnostic', url: CAL }
+            ]);
+            addBack();
+        }
+
+        function showBesoinOrga() {
+            clear();
+            addBubble('Structuration des opérations, clarification des process, vision pilotable : nous transformons le flou en système.');
+            addCTAs([
+                { label: 'Comprendre Flow', url: 'flow.html' },
+                { label: 'Réserver un diagnostic', url: CAL }
+            ]);
+            addBack();
+        }
+
+        function showBesoinCroissance() {
+            clear();
+            addBubble('Manque de structure stratégique, priorités mal définies : nous identifions les freins et installons les fondations.');
+            addCTAs([
+                { label: 'Comprendre l\'architecture BNF', url: 'home.html' },
+                { label: 'Réserver un diagnostic', url: CAL }
+            ]);
+            addBack();
+        }
+
+        function showBesoinAuto() {
+            clear();
+            addBubble('Automatisation des workflows, structuration CRM, optimisation des opérations : nous libérons du temps stratégique.');
+            addCTAs([
+                { label: 'Voir Optimisation (Flow)', url: 'flow.html' },
+                { label: 'Réserver un diagnostic', url: CAL }
+            ]);
+            addBack();
+        }
+
+        function showBesoinDrone() {
+            clear();
+            addBubble('Captation aérienne, contenu visuel stratégique, différenciation marketing : la vue d\'en haut change la perspective.');
+            addCTAs([
+                { label: 'Voir DRONE PRO MOTION', url: 'drones.html' }
             ]);
             addButtons([{ label: 'Être rappelé', action: showRecallForm }]);
             addBack();
         }
 
+        // --- SCÉNARIO 4 : Découvrir l'écosystème BNF ---
+        function showEcosysteme() {
+            clear();
+            addBubble('Une entreprise n\'achète pas une prestation isolée.<br>Elle entre dans un système.');
+            setTimeout(function() {
+                addBubble('BNF Consulting → Stratégie<br>Flow → Optimisation<br>DRONE PRO MOTION → Visibilité');
+                addCTAs([
+                    { label: 'Découvrir l\'écosystème', url: 'home.html#modele' },
+                    { label: 'Réserver un diagnostic', url: CAL }
+                ]);
+                addBack();
+            }, 400);
+        }
+
         // --- MESSAGE D'ACCUEIL ---
         function showWelcome() {
             clear();
-            addBubble('Bonjour.<br>Souhaitez-vous comprendre ce que fait BnFConsulting ou comment fonctionne notre système ?');
+            addBubble('Bonjour.<br>Comment pouvons-nous vous orienter ?');
             setTimeout(function() {
                 addButtons([
-                    { label: 'Que fait BnF ?', action: showQueFait },
-                    { label: 'Comment ça marche ?', action: showComment },
+                    { label: 'Comprendre l\'architecture BNF', action: showArchitecture },
+                    { label: 'Comment se profile notre accompagnement', action: showAccompagnement },
                     { label: 'J\'ai un besoin précis', action: showBesoin },
+                    { label: 'Découvrir l\'écosystème BNF', action: showEcosysteme },
                     { label: 'Être rappelé', action: showRecallForm }
                 ]);
             }, 300);
