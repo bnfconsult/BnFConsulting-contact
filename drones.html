@@ -652,8 +652,16 @@
             <div id="immo-detail" style="display:none; text-align:left; background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-top:none; border-radius:0 0 20px 20px; margin-top:-1px; overflow:hidden;">
 
                 <!-- Bandeau ticker photos -->
+                <style>
+                @keyframes immoScroll {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                #immo-ticker-track { animation: immoScroll 30s linear infinite; animation-play-state: paused; }
+                #immo-ticker-track:hover { animation-play-state: paused; }
+                </style>
                 <div id="immo-ticker" style="overflow:hidden; width:100%; padding:20px 0; position:relative;">
-                    <div id="immo-ticker-track" style="display:flex; gap:12px; width:max-content;">
+                    <div id="immo-ticker-track" style="display:flex; gap:0; width:max-content;">
                         <img src="PHOTOS/Drones/Immo/IMG_4126.JPG" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
                         <img src="PHOTOS/Drones/Immo/IMG_4377.JPG" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
                         <img src="PHOTOS/Drones/Immo/IMG_4398.jpg" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
@@ -742,23 +750,14 @@
 
     <script>
     /* --- Toggle carte immobilier --- */
-    // Ticker bandeau continu
-    var immoTickerAnim = null;
+    // Ticker bandeau continu (CSS animation)
     function startImmoTicker() {
         var track = document.getElementById('immo-ticker-track');
-        if (!track || immoTickerAnim) return;
-        var pos = 0;
-        var half = track.scrollWidth / 2;
-        function tick() {
-            pos -= 0.5;
-            if (Math.abs(pos) >= half) pos = 0;
-            track.style.transform = 'translateX(' + pos + 'px)';
-            immoTickerAnim = requestAnimationFrame(tick);
-        }
-        immoTickerAnim = requestAnimationFrame(tick);
+        if (track) track.style.animationPlayState = 'running';
     }
     function stopImmoTicker() {
-        if (immoTickerAnim) { cancelAnimationFrame(immoTickerAnim); immoTickerAnim = null; }
+        var track = document.getElementById('immo-ticker-track');
+        if (track) { track.style.animationPlayState = 'paused'; track.style.transform = 'translateX(0)'; }
     }
 
     function toggleImmoCard() {
