@@ -725,97 +725,19 @@
             <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Galerie</p>
             <h2 style="font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; font-weight:400; margin-bottom:40px; line-height:1.2;">Nos <span style="color:#549ba2;">réalisations</span></h2>
             <div class="gallery-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:4px; max-width:1000px; margin:0 auto;">
-                <img src="PHOTOS/Drones/IMG_4564.jpeg" alt="Réalisation drone 1" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(0)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-                <img src="PHOTOS/Drones/IMG_6607.jpeg" alt="Réalisation drone 2" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(1)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-                <img src="PHOTOS/Drones/IMG_6610.jpeg" alt="Réalisation drone 3" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(2)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-                <img src="PHOTOS/Drones/IMG_3558.jpeg" alt="Réalisation drone 4" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(3)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-                <img src="PHOTOS/Drones/IMG_2199.jpeg" alt="Réalisation drone 5" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(4)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-                <img src="PHOTOS/IMG_4125.jpeg" alt="Réalisation drone 6" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(5)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-                <img src="PHOTOS/IMG_4059.jpeg" alt="Réalisation drone 7" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(6)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-                <img src="PHOTOS/Décembre 2022.31.jpeg" alt="Réalisation drone 8" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(7)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
+                <img src="PHOTOS/Drones/IMG_4564.jpeg" alt="Réalisation drone 1" style="width:100%; aspect-ratio:1; object-fit:cover;" loading="lazy">
+                <img src="PHOTOS/Drones/IMG_6607.jpeg" alt="Réalisation drone 2" style="width:100%; aspect-ratio:1; object-fit:cover;" loading="lazy">
+                <img src="PHOTOS/Drones/IMG_6610.jpeg" alt="Réalisation drone 3" style="width:100%; aspect-ratio:1; object-fit:cover;" loading="lazy">
+                <img src="PHOTOS/Drones/IMG_3558.jpeg" alt="Réalisation drone 4" style="width:100%; aspect-ratio:1; object-fit:cover;" loading="lazy">
+                <img src="PHOTOS/Drones/IMG_2199.jpeg" alt="Réalisation drone 5" style="width:100%; aspect-ratio:1; object-fit:cover;" loading="lazy">
+                <img src="PHOTOS/IMG_4125.jpeg" alt="Réalisation drone 6" style="width:100%; aspect-ratio:1; object-fit:cover;" loading="lazy">
+                <img src="PHOTOS/IMG_4059.jpeg" alt="Réalisation drone 7" style="width:100%; aspect-ratio:1; object-fit:cover;" loading="lazy">
+                <img src="PHOTOS/Décembre 2022.31.jpeg" alt="Réalisation drone 8" style="width:100%; aspect-ratio:1; object-fit:cover;" loading="lazy">
             </div>
-            <img src="PHOTOS/Design sans titre.png" alt="Montage drone" style="width:100%; max-width:1000px; margin:20px auto 0; display:block;">
         </div>
     </section>
 
-    <!-- LIGHTBOX -->
-    <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.96); z-index:99999; align-items:center; justify-content:center;" onclick="if(event.target===this)closeLightbox()">
-        <button onclick="closeLightbox()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:rgba(255,255,255,0.5); font-size:1.1rem; cursor:pointer; z-index:100000; width:40px; height:40px; display:flex; align-items:center; justify-content:center; transition:color 0.3s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(255,255,255,0.5)'">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-        <button onclick="prevPhoto()" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:rgba(255,255,255,0.4); cursor:pointer; padding:16px; z-index:100000; transition:color 0.3s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(255,255,255,0.4)'">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <img id="lightbox-img" src="" alt="" style="max-width:90vw; max-height:85vh; object-fit:contain;">
-        <button onclick="nextPhoto()" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:rgba(255,255,255,0.4); cursor:pointer; padding:16px; z-index:100000; transition:color 0.3s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(255,255,255,0.4)'">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <div id="lightbox-counter" style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.4); font-family:Montserrat,sans-serif; font-size:0.75rem; letter-spacing:0.1em;"></div>
-    </div>
-
     <script>
-    const galleryPhotos = [
-        "PHOTOS/Drones/IMG_4564.jpeg",
-        "PHOTOS/Drones/IMG_6607.jpeg",
-        "PHOTOS/Drones/IMG_6610.jpeg",
-        "PHOTOS/Drones/IMG_3558.jpeg",
-        "PHOTOS/Drones/IMG_2199.jpeg",
-        "PHOTOS/IMG_4125.jpeg",
-        "PHOTOS/IMG_4059.jpeg",
-        "PHOTOS/Décembre 2022.31.jpeg"
-    ];
-    let currentPhoto = 0;
-    function updateCounter() {
-        document.getElementById('lightbox-counter').textContent = (currentPhoto + 1) + ' / ' + galleryPhotos.length;
-    }
-    function openLightbox(i) {
-        currentPhoto = i;
-        document.getElementById('lightbox-img').src = galleryPhotos[i];
-        document.getElementById('lightbox').style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        updateCounter();
-    }
-    function closeLightbox() {
-        document.getElementById('lightbox').style.display = 'none';
-        document.body.style.overflow = '';
-    }
-    function nextPhoto() {
-        currentPhoto = (currentPhoto + 1) % galleryPhotos.length;
-        document.getElementById('lightbox-img').src = galleryPhotos[currentPhoto];
-        updateCounter();
-    }
-    function prevPhoto() {
-        currentPhoto = (currentPhoto - 1 + galleryPhotos.length) % galleryPhotos.length;
-        document.getElementById('lightbox-img').src = galleryPhotos[currentPhoto];
-        updateCounter();
-    }
-    document.addEventListener('keydown', function(e) {
-        if (document.getElementById('lightbox').style.display === 'flex') {
-            if (e.key === 'ArrowRight') nextPhoto();
-            if (e.key === 'ArrowLeft') prevPhoto();
-            if (e.key === 'Escape') closeLightbox();
-        }
-    });
-    /* Swipe tactile */
-    (function() {
-        var lb = document.getElementById('lightbox');
-        var startX = 0, startY = 0, distX = 0;
-        lb.addEventListener('touchstart', function(e) {
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
-        }, {passive: true});
-        lb.addEventListener('touchmove', function(e) {
-            distX = e.touches[0].clientX - startX;
-            var distY = e.touches[0].clientY - startY;
-            if (Math.abs(distX) > Math.abs(distY)) e.preventDefault();
-        }, {passive: false});
-        lb.addEventListener('touchend', function() {
-            if (distX > 50) prevPhoto();
-            else if (distX < -50) nextPhoto();
-            distX = 0;
-        }, {passive: true});
-    })();
-
     /* --- Toggle carte immobilier --- */
     // Ticker bandeau continu
     var immoTickerAnim = null;
