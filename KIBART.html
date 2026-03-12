@@ -610,6 +610,10 @@
 
     <a href="en/KIBART.html" class="lang-fab" aria-label="English version">EN</a>
 
+    <script>
+    /* Lazy video play/pause */
+    (function(){var v=document.querySelectorAll('video[autoplay]');if(!v.length||!('IntersectionObserver' in window))return;v.forEach(function(e){e.removeAttribute('autoplay');e.pause()});var o=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.play().catch(function(){});else e.target.pause()})},{threshold:0.25});v.forEach(function(e){o.observe(e)})})();
+    </script>
     <script src="main.js"></script>
     <script>
         // --- Carousel KIBART ---
