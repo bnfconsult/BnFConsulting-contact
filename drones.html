@@ -623,6 +623,39 @@
         </div>
     </section>
 
+    <!-- VIDÉO SCROLL-DRIVEN (style Apple) -->
+    <section id="scroll-video-section" style="position:relative; height:300vh; background:#0a0a0a;">
+        <div style="position:sticky; top:0; width:100%; height:100vh; overflow:hidden;">
+            <video id="scroll-video" muted playsinline preload="auto" style="width:100%; height:100%; object-fit:cover;">
+                <source src="VIDEOS/Video de scroll.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+    <script>
+    (function() {
+        var vid = document.getElementById('scroll-video');
+        var section = document.getElementById('scroll-video-section');
+        if (!vid || !section) return;
+        vid.pause();
+        // Wait for video metadata to get duration
+        function onReady() {
+            window.addEventListener('scroll', function() {
+                var rect = section.getBoundingClientRect();
+                var sectionH = section.offsetHeight - window.innerHeight;
+                var scrolled = -rect.top;
+                if (scrolled < 0) scrolled = 0;
+                if (scrolled > sectionH) scrolled = sectionH;
+                var progress = scrolled / sectionH;
+                if (vid.duration) {
+                    vid.currentTime = progress * vid.duration;
+                }
+            });
+        }
+        if (vid.readyState >= 1) { onReady(); }
+        else { vid.addEventListener('loadedmetadata', onReady); }
+    })();
+    </script>
+
     <!-- SECTION IMMOBILIER -->
     <section id="immo-section" style="background:#0a0a0a; padding:clamp(60px, 8vw, 100px) 0; transition:padding 0.5s ease;">
         <!-- Titre au-dessus -->
