@@ -948,6 +948,42 @@
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1.03 1.03 0 011.05-.24c1.12.37 2.33.57 3.54.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.21.2 2.42.57 3.54.11.35.03.74-.24 1.05l-2.21 2.2z"/></svg>
     </a>
 
+    <!-- Bouton Son -->
+    <audio id="drone-audio" loop preload="auto">
+        <source src="Son/ambiance.mp3" type="audio/mpeg">
+    </audio>
+    <button id="sound-fab" onclick="toggleSound()" aria-label="Activer le son" style="position:fixed; top:140px; left:24px; z-index:1001; width:48px; height:48px; border-radius:50%; background:var(--accent); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(84,155,162,0.4); transition:all 0.3s ease;">
+        <svg id="sound-icon" viewBox="0 0 24 24" fill="#fff" width="22" height="22" xmlns="http://www.w3.org/2000/svg"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+    </button>
+    <script>
+    var droneAudio = document.getElementById('drone-audio');
+    var soundFab = document.getElementById('sound-fab');
+    var soundPlaying = false;
+    function toggleSound() {
+        if (soundPlaying) {
+            droneAudio.pause();
+            soundPlaying = false;
+        } else {
+            droneAudio.play();
+            soundPlaying = true;
+        }
+    }
+    var leverSection = document.getElementById('drone-services');
+    window.addEventListener('scroll', function() {
+        if (leverSection) {
+            var rect = leverSection.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                soundFab.style.opacity = '0';
+                soundFab.style.pointerEvents = 'none';
+                if (soundPlaying) { droneAudio.pause(); soundPlaying = false; }
+            } else {
+                soundFab.style.opacity = '1';
+                soundFab.style.pointerEvents = 'auto';
+            }
+        }
+    });
+    </script>
+
     <script src="main.js"></script>
 </body>
 </html>
