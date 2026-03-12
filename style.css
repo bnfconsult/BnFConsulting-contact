@@ -3358,6 +3358,9 @@ h1, h2, h3 {
         background: #000;
         padding-top: clamp(2rem, 4vw, 3rem);
     }
+    .stacking-subtitle-desktop {
+        display: none;
+    }
 }
 
 /* ---- SCROLL INDICATOR (Prestations) ---- */
