@@ -786,6 +786,20 @@
     </section>
 
     <script>
+    /* --- Lazy video play/pause (mobile-friendly) --- */
+    (function() {
+        var videos = document.querySelectorAll('video[autoplay]');
+        if (!videos.length || !('IntersectionObserver' in window)) return;
+        videos.forEach(function(v) { v.removeAttribute('autoplay'); v.pause(); });
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) { e.target.play().catch(function(){}); }
+                else { e.target.pause(); }
+            });
+        }, { threshold: 0.25 });
+        videos.forEach(function(v) { obs.observe(v); });
+    })();
+
     /* --- Toggle carte immobilier --- */
     // Ticker bandeau continu (CSS animation)
     function startImmoTicker() {
