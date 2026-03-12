@@ -35,7 +35,7 @@
             padding: clamp(80px, 10vw, 120px) 0;
             scroll-margin-top: 100px;
         }
-        .drone-showcase--dark { background: #0f1a1b; }
+        .drone-showcase--dark { background: #0a0a0a; }
         .drone-showcase--darker { background: #000; }
 
         .drone-showcase__header {
@@ -151,7 +151,7 @@
 
         /* Drone services intro banner */
         .drone-services-intro {
-            background: #0f1a1b;
+            background: #0a0a0a;
             padding: 80px 0 30px;
             text-align: center;
             scroll-margin-top: 80px;
@@ -489,6 +489,7 @@
         }
         @media (max-width: 768px) {
             .gallery-grid { grid-template-columns: repeat(3, 1fr) !important; }
+            .immo-text { text-align: left !important; }
         }
     </style>
 </head>
@@ -505,21 +506,21 @@
     <!-- NAVIGATION -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="index.html" class="nav-logo"><img src="../PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting"></a>
+            <a href="home.html" class="nav-logo"><img src="../PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting"></a>
             <button class="nav-toggle" id="navToggle" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li class="nav-home"><a href="index.html">Home</a></li>
+                <li class="nav-home"><a href="home.html">Home</a></li>
                 <li class="nav-axes-group">
                     <a href="drones.html">Visibility</a>
                     <span class="nav-axe-sep"></span>
                     <span class="nav-axe-sep"></span>
                     <a href="flow.html">Optimisation</a>
                 </li>
-                <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Strategic diagnosis</a></li>
+                <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Strategic assessment</a></li>
                 <li class="lang-toggle"><a href="../drones.html" class="lang-link">FR</a><span class="lang-sep">|</span><a href="drones.html" class="lang-link active">EN</a></li>
             </ul>
         </div>
@@ -528,7 +529,9 @@
     <!-- HERO -->
     <section class="hero" id="hero">
         <div class="hero-bg">
-            <img src="../PHOTOS/Drones/Foret blanche (1).JPG" alt="Drone view forest">
+            <video autoplay muted loop playsinline style="width:100%; height:100%; object-fit:cover;">
+                <source src="../VIDEOS/fond-hero.mp4" type="video/mp4">
+            </video>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -540,20 +543,19 @@
                 <p class="drone-byline" style="margin-bottom:20px;">Visibility Axis — BnF Architecture</p>
                 <h1 class="hero-title">Change your<br><span class="accent">perspective</span></h1>
                 <p class="hero-sub" style="max-width:620px; margin:0 auto;">
-                    The aerial view reveals what ground-level sight cannot see.
+                    The aerial view reveals what the ground-level eye cannot see.
                 </p>
                 <p class="hero-sub" style="max-width:620px; margin:12px auto 0;">
-                    It is a strategic lever of perception and differentiation.
+                    It is a strategic lever for perception and differentiation.
                 </p>
                 <p style="color:#549ba2; font-size:clamp(0.8rem,1.2vw,0.95rem); font-weight:500; letter-spacing:0.08em; margin:28px auto 0; text-align:center;">
-                    See differently &rarr; Decide better &rarr; Stand out
+                    See differently → Decide better → Stand out
                 </p>
                 <div class="hero-ctas" style="margin-top:32px;">
                     <a href="#drone-services" class="btn btn-primary btn-large">Activate this lever</a>
                 </div>
                 <div class="quick-nav" style="margin-top: 40px;">
                     <a href="#drone-services" class="quick-nav-item">The lever</a>
-                    <a href="#service-photo" class="quick-nav-item">Applications</a>
                     <a href="#drone-portfolio" class="quick-nav-item">Portfolio</a>
                     <a href="#drone-clients" class="quick-nav-item">Use cases</a>
                 </div>
@@ -565,174 +567,253 @@
     <section class="drone-services-intro" id="drone-services">
         <div class="container" style="text-align:center;">
             <p class="section-label">The lever</p>
-            <h2 class="section-title" style="margin-bottom:1.5rem;">Not content. <span class="accent">A competitive advantage.</span></h2>
+            <h2 class="section-title" style="margin-bottom:1.5rem;">Not just content. <span class="accent">A competitive advantage.</span></h2>
             <p class="section-intro" style="max-width:620px; margin:0 auto; line-height:1.8;">
-                Aerial imagery does not decorate. It repositions, differentiates and sells. Every shot is designed as a strategic lever serving your business.
+                Aerial imagery does not decorate.<br>It repositions, differentiates, and sells.<br><span style="white-space:nowrap;">Every shot is designed as a strategic lever to serve your business.</span>
             </p>
         </div>
     </section>
 
-    <!-- APPLICATIONS — 3-column compact grid -->
-    <section class="drone-showcase drone-showcase--dark" id="service-photo" style="padding:clamp(30px, 4vw, 50px) 0 clamp(60px, 8vw, 100px);">
-        <div class="container">
-            <div class="drone-apps-grid">
+    <!-- APPLICATIONS APPLE-STYLE — Full-screen sections with 45° diagonal cuts -->
+    <section style="background:#0a0a0a; position:relative; overflow:hidden;">
 
-                <!-- APPLICATION 01 -->
-                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; overflow:hidden; transition:transform 0.3s ease, border-color 0.3s ease;" onmouseenter="this.style.borderColor='rgba(84,155,162,0.5)';this.style.transform='translateY(-4px)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)'">
-                    <div style="aspect-ratio:16/10; overflow:hidden;">
-                        <img src="../PHOTOS/Drones/Best_3.JPG" alt="4K drone photo" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
-                    </div>
-                    <div style="padding:clamp(16px, 2.5vw, 24px);">
-                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Application 01</p>
-                        <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.8vw, 1.3rem); margin-bottom:10px;"><span style="color:#549ba2;">5.1K</span> Drone Photo</h3>
-                        <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.75rem, 1.1vw, 0.875rem); line-height:1.65;">Capture your spaces in ultra-high definition to showcase every angle, every light.</p>
+        <!-- APP 01 — Drone Photography -->
+        <div style="position:relative; height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:flex-end;">
+            <div style="position:absolute; inset:0; z-index:0;">
+                <img src="../PHOTOS/Drones/Best_3.JPG" alt="Drone photography" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
+                <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);"></div>
+            </div>
+            <div style="position:relative; z-index:1; padding:clamp(40px,6vw,80px); max-width:800px; text-align:right;">
+                <p style="font-family:Montserrat,sans-serif; font-size:clamp(0.7rem,1vw,0.9rem); font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:16px;">Application 01</p>
+                <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(3rem,8vw,7rem); margin-bottom:24px; line-height:1;">Drone Photo <span style="color:#549ba2;">5.1K</span></h3>
+                <p style="color:rgba(255,255,255,0.7); font-size:clamp(1rem,1.5vw,1.3rem); line-height:1.7;">Capture your spaces in ultra-high definition to showcase every angle, every light.</p>
+            </div>
+            <!-- Bottom diagonal cut -->
+            <div style="position:absolute; bottom:-1px; left:0; right:0; height:40px; background:#0a0a0a; clip-path:polygon(0 100%, 100% 0, 100% 100%); z-index:2;"></div>
+        </div>
+
+        <!-- APP 02 — Cinematic Video -->
+        <div style="position:relative; height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:flex-start;">
+            <div style="position:absolute; inset:0; z-index:0;">
+                <video autoplay muted loop playsinline preload="auto" style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <source src="../VIDEOS/boat.mp4" type="video/mp4">
+                </video>
+                <div style="position:absolute; inset:0; background:linear-gradient(225deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);"></div>
+            </div>
+            <!-- Top diagonal cut -->
+            <div style="position:absolute; top:-1px; left:0; right:0; height:40px; background:#0a0a0a; clip-path:polygon(0 0, 100% 0, 0 100%); z-index:2;"></div>
+            <div style="position:relative; z-index:1; padding:clamp(40px,6vw,80px); max-width:800px; text-align:left;">
+                <p style="font-family:Montserrat,sans-serif; font-size:clamp(0.7rem,1vw,0.9rem); font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:16px;">Application 02</p>
+                <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(3rem,8vw,7rem); margin-bottom:24px; line-height:1;"><span style="color:#549ba2;">Cinematic</span> Video</h3>
+                <p style="color:rgba(255,255,255,0.7); font-size:clamp(1rem,1.5vw,1.3rem); line-height:1.7;">Flyovers, tracking shots and dive angles — an immersive result that transforms the perception of your spaces.</p>
+            </div>
+            <!-- Bottom diagonal cut -->
+            <div style="position:absolute; bottom:-1px; left:0; right:0; height:40px; background:#0a0a0a; clip-path:polygon(0 100%, 100% 0, 100% 100%); z-index:2;"></div>
+        </div>
+
+        <!-- APP 03 — Indoor Shooting -->
+        <div style="position:relative; height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:flex-end;">
+            <div style="position:absolute; inset:0; z-index:0;">
+                <video autoplay muted loop playsinline preload="auto" style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <source src="../VIDEOS/Design sans titre (2).mp4" type="video/mp4">
+                </video>
+                <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);"></div>
+            </div>
+            <!-- Top diagonal cut -->
+            <div style="position:absolute; top:-1px; left:0; right:0; height:40px; background:#0a0a0a; clip-path:polygon(0 0, 100% 0, 0 100%); z-index:2;"></div>
+            <div style="position:relative; z-index:1; padding:clamp(40px,6vw,80px); max-width:800px; text-align:right;">
+                <p style="font-family:Montserrat,sans-serif; font-size:clamp(0.7rem,1vw,0.9rem); font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:16px;">Application 03</p>
+                <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(3rem,8vw,7rem); margin-bottom:24px; line-height:1;"><span style="color:#549ba2;">Indoor</span> Shooting</h3>
+                <p style="color:rgba(255,255,255,0.7); font-size:clamp(1rem,1.5vw,1.3rem); line-height:1.7;">Compact drones in enclosed spaces for angles and fluidity that are impossible otherwise.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- REAL ESTATE SECTION -->
+    <section id="immo-section" style="background:#0a0a0a; padding:clamp(60px, 8vw, 100px) 0; transition:padding 0.5s ease;">
+        <!-- Title above -->
+        <div style="text-align:center; margin-bottom:32px;">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Sector</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; font-weight:400; line-height:1.2;">Fly over your <span style="color:#549ba2;">use case</span></h2>
+        </div>
+
+        <!-- Card container (centered when closed, full width when open) -->
+        <div id="immo-wrapper" style="max-width:700px; margin:0 auto; text-align:center; transition:max-width 0.5s ease;">
+            <!-- Closed card -->
+            <div id="immo-card" onclick="toggleImmoCard()" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-radius:20px; overflow:hidden; cursor:pointer; transition:border-color 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease;" onmouseenter="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.5)';this.style.boxShadow='0 0 30px rgba(84,155,162,0.1), 0 16px 48px rgba(0,0,0,0.3)'}" onmouseleave="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.25)';this.style.boxShadow='none'}">
+                <!-- Fixed image (closed card) -->
+                <div id="immo-img-wrap" style="aspect-ratio:16/9; overflow:hidden; position:relative;">
+                    <img src="../PHOTOS/Drones/Immo/IMG_4126.JPG" alt="Aerial view real estate" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <!-- Title shown when closed -->
+                <div id="immo-preview" style="padding:clamp(20px, 3vw, 32px);">
+                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1.1rem, 2vw, 1.5rem); margin-bottom:10px;">Real Estate</h3>
+                    <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.8rem, 1.1vw, 0.9rem); line-height:1.7;">Enhance your listings and attract more viewings</p>
+                    <span style="display:inline-block; margin-top:16px; color:#549ba2; font-family:'Montserrat',sans-serif; font-size:0.8rem; font-weight:600; letter-spacing:0.05em; border:1px solid rgba(84,155,162,0.35); padding:8px 20px; border-radius:8px; transition:all 0.3s ease;">Learn more</span>
+                </div>
+            </div>
+
+            <!-- Detailed content (hidden by default) — full width -->
+            <div id="immo-detail" style="display:none; text-align:left; background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-top:none; border-radius:0 0 20px 20px; margin-top:-1px; overflow:hidden;">
+
+                <!-- Photo ticker banner -->
+                <style>
+                @keyframes immoScroll {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                #immo-ticker-track { animation: immoScroll 30s linear infinite; animation-play-state: paused; }
+                #immo-ticker-track:hover { animation-play-state: paused; }
+                </style>
+                <div id="immo-ticker" style="overflow:hidden; width:100%; padding:20px 0; position:relative;">
+                    <div id="immo-ticker-track" style="display:flex; gap:0; width:max-content;">
+                        <img src="../PHOTOS/Drones/Immo/IMG_4126.JPG" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="../PHOTOS/Drones/Immo/IMG_4377.JPG" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="../PHOTOS/Drones/Immo/IMG_4398.jpg" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="../PHOTOS/Drones/Immo/IMG_6556.JPG" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="../PHOTOS/Drones/Immo/IMG_6569.jpeg" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="../PHOTOS/un.jpg" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="../PHOTOS/deuux.jpg" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="../PHOTOS/trois.jpg" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <!-- Duplicate for infinite loop -->
+                        <img src="../PHOTOS/Drones/Immo/IMG_4126.JPG" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="../PHOTOS/Drones/Immo/IMG_4377.JPG" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="../PHOTOS/Drones/Immo/IMG_4398.jpg" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="../PHOTOS/Drones/Immo/IMG_6556.JPG" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="../PHOTOS/Drones/Immo/IMG_6569.jpeg" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="../PHOTOS/un.jpg" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="../PHOTOS/deuux.jpg" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="../PHOTOS/trois.jpg" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
                     </div>
                 </div>
 
-                <!-- APPLICATION 02 -->
-                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; overflow:hidden; transition:transform 0.3s ease, border-color 0.3s ease;" onmouseenter="this.style.borderColor='rgba(84,155,162,0.5)';this.style.transform='translateY(-4px)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)'">
-                    <div style="aspect-ratio:16/10; overflow:hidden;">
-                        <video autoplay muted loop playsinline preload="none" style="width:100%; height:100%; object-fit:cover; display:block;">
-                            <source src="../VIDEOS/arche.mp4" type="video/mp4">
-                        </video>
+                <div style="padding:clamp(32px, 5vw, 56px) clamp(20px, 4vw, 48px);">
+                <p class="immo-text" style="color:rgba(255,255,255,0.7); font-size:clamp(0.85rem, 1.2vw, 0.95rem); line-height:1.8; margin-bottom:32px; text-align:center; max-width:700px; margin-left:auto; margin-right:auto;">
+                    Listings all look the same.<br>The aerial view reveals what ground-level photos do not show:<br>the surroundings, the land, the neighbourhood.<br>In seconds, the buyer understands the property.
+                </p>
+
+                <!-- 2x2 grid: what it changes -->
+                <h4 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.6vw, 1.2rem); margin-bottom:16px; text-align:center;">What the aerial view <span style="color:#549ba2;">changes</span></h4>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:32px; max-width:800px; margin-left:auto; margin-right:auto;">
+                    <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.15); border-radius:12px; padding:16px 18px; text-align:center;">
+                        <p style="color:#549ba2; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Context</p>
+                        <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin:0;">Surroundings and actual location of the property</p>
                     </div>
-                    <div style="padding:clamp(16px, 2.5vw, 24px);">
-                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Application 02</p>
-                        <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.8vw, 1.3rem); margin-bottom:10px;"><span style="color:#549ba2;">Cinematic</span> Video</h3>
-                        <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.75rem, 1.1vw, 0.875rem); line-height:1.65;">Flyovers, tracking shots and dives — an immersive rendering that transforms the perception of your spaces.</p>
+                    <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.15); border-radius:12px; padding:16px 18px; text-align:center;">
+                        <p style="color:#549ba2; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Land</p>
+                        <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin:0;">Actual land size and neighbourhood quality</p>
+                    </div>
+                    <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.15); border-radius:12px; padding:16px 18px; text-align:center;">
+                        <p style="color:#549ba2; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Visibility</p>
+                        <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin:0;">Attention captured on real estate platforms</p>
+                    </div>
+                    <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.15); border-radius:12px; padding:16px 18px; text-align:center;">
+                        <p style="color:#549ba2; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Image</p>
+                        <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin:0;">Enhanced professional image for the agency</p>
                     </div>
                 </div>
 
-                <!-- APPLICATION 03 -->
-                <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; overflow:hidden; transition:transform 0.3s ease, border-color 0.3s ease;" onmouseenter="this.style.borderColor='rgba(84,155,162,0.5)';this.style.transform='translateY(-4px)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)'">
-                    <div style="aspect-ratio:16/10; overflow:hidden;">
-                        <video autoplay muted loop playsinline preload="none" style="width:100%; height:100%; object-fit:cover; display:block;">
-                            <source src="../VIDEOS/Design sans titre (2).mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div style="padding:clamp(16px, 2.5vw, 24px);">
-                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Application 03</p>
-                        <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.8vw, 1.3rem); margin-bottom:10px;"><span style="color:#549ba2;">Indoor</span> Photography</h3>
-                        <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.75rem, 1.1vw, 0.875rem); line-height:1.65;">Compact drones in enclosed spaces for angles and fluidity impossible otherwise.</p>
-                    </div>
+                <!-- Ideal for — tag line -->
+                <h4 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.6vw, 1.2rem); margin-bottom:14px; text-align:center;">Ideal <span style="color:#549ba2;">for</span></h4>
+                <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:32px;">
+                    <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Villas</span>
+                    <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">New developments</span>
+                    <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Houses with land</span>
+                    <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Luxury properties</span>
+                    <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Remarkable settings</span>
                 </div>
 
+                <!-- CTA + Close -->
+                <div style="text-align:center; padding:24px 0 8px; border-top:1px solid rgba(84,155,162,0.15);">
+                    <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.8rem, 1.1vw, 0.9rem); line-height:1.7; margin-bottom:20px;">Enhance your listings and generate more viewings.</p>
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary" style="margin-bottom:24px;">Book an appointment</a>
+                    <br>
+                    <button onclick="event.stopPropagation(); toggleImmoCard();" style="background:none; border:none; color:rgba(255,255,255,0.4); font-size:0.8rem; cursor:pointer; padding:12px; font-family:Montserrat,sans-serif; letter-spacing:0.05em; transition:color 0.3s;" onmouseenter="this.style.color='#549ba2'" onmouseleave="this.style.color='rgba(255,255,255,0.4)'">Close</button>
+                </div>
+                </div><!-- end padding wrapper -->
             </div>
         </div>
     </section>
-
-    <!-- PHOTO GALLERY -->
-    <section id="drone-portfolio" style="background:#0a1a1c; padding:clamp(60px, 8vw, 100px) 0; scroll-margin-top:100px;">
-        <div class="container" style="text-align:center;">
-            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Gallery</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; font-weight:400; margin-bottom:40px; line-height:1.2;">Our <span style="color:#549ba2;">work</span></h2>
-            <div class="gallery-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:4px; max-width:1000px; margin:0 auto;">
-                <img src="../PHOTOS/Drones/IMG_4564.jpeg" alt="Drone work 1" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(0)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-                <img src="../PHOTOS/Drones/IMG_6607.jpeg" alt="Drone work 2" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(1)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-                <img src="../PHOTOS/Drones/IMG_6610.jpeg" alt="Drone work 3" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(2)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-                <img src="../PHOTOS/Drones/IMG_3558.jpeg" alt="Drone work 4" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(3)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-                <img src="../PHOTOS/Drones/IMG_2199.jpeg" alt="Drone work 5" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(4)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-                <img src="../PHOTOS/IMG_4125.jpeg" alt="Drone work 6" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(5)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-                <img src="../PHOTOS/IMG_4059.jpeg" alt="Drone work 7" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(6)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-                <img src="../PHOTOS/Décembre 2022.31.jpeg" alt="Drone work 8" style="width:100%; aspect-ratio:1; object-fit:cover; cursor:pointer; transition:opacity 0.3s;" onclick="openLightbox(7)" onmouseenter="this.style.opacity='0.8'" onmouseleave="this.style.opacity='1'">
-            </div>
-        </div>
-    </section>
-
-    <!-- LIGHTBOX -->
-    <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.96); z-index:99999; align-items:center; justify-content:center;" onclick="if(event.target===this)closeLightbox()">
-        <button onclick="closeLightbox()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:rgba(255,255,255,0.5); font-size:1.1rem; cursor:pointer; z-index:100000; width:40px; height:40px; display:flex; align-items:center; justify-content:center; transition:color 0.3s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(255,255,255,0.5)'">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-        <button onclick="prevPhoto()" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:rgba(255,255,255,0.4); cursor:pointer; padding:16px; z-index:100000; transition:color 0.3s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(255,255,255,0.4)'">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <img id="lightbox-img" src="" alt="" style="max-width:90vw; max-height:85vh; object-fit:contain;">
-        <button onclick="nextPhoto()" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:rgba(255,255,255,0.4); cursor:pointer; padding:16px; z-index:100000; transition:color 0.3s;" onmouseenter="this.style.color='#fff'" onmouseleave="this.style.color='rgba(255,255,255,0.4)'">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <div id="lightbox-counter" style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.4); font-family:Montserrat,sans-serif; font-size:0.75rem; letter-spacing:0.1em;"></div>
-    </div>
 
     <script>
-    const galleryPhotos = [
-        "../PHOTOS/Drones/IMG_4564.jpeg",
-        "../PHOTOS/Drones/IMG_6607.jpeg",
-        "../PHOTOS/Drones/IMG_6610.jpeg",
-        "../PHOTOS/Drones/IMG_3558.jpeg",
-        "../PHOTOS/Drones/IMG_2199.jpeg",
-        "../PHOTOS/IMG_4125.jpeg",
-        "../PHOTOS/IMG_4059.jpeg",
-        "../PHOTOS/Décembre 2022.31.jpeg"
-    ];
-    let currentPhoto = 0;
-    function updateCounter() {
-        document.getElementById('lightbox-counter').textContent = (currentPhoto + 1) + ' / ' + galleryPhotos.length;
-    }
-    function openLightbox(i) {
-        currentPhoto = i;
-        document.getElementById('lightbox-img').src = galleryPhotos[i];
-        document.getElementById('lightbox').style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        updateCounter();
-    }
-    function closeLightbox() {
-        document.getElementById('lightbox').style.display = 'none';
-        document.body.style.overflow = '';
-    }
-    function nextPhoto() {
-        currentPhoto = (currentPhoto + 1) % galleryPhotos.length;
-        document.getElementById('lightbox-img').src = galleryPhotos[currentPhoto];
-        updateCounter();
-    }
-    function prevPhoto() {
-        currentPhoto = (currentPhoto - 1 + galleryPhotos.length) % galleryPhotos.length;
-        document.getElementById('lightbox-img').src = galleryPhotos[currentPhoto];
-        updateCounter();
-    }
-    document.addEventListener('keydown', function(e) {
-        if (document.getElementById('lightbox').style.display === 'flex') {
-            if (e.key === 'ArrowRight') nextPhoto();
-            if (e.key === 'ArrowLeft') prevPhoto();
-            if (e.key === 'Escape') closeLightbox();
-        }
-    });
-    /* Swipe tactile */
+    /* --- Lazy video play/pause (mobile-friendly) --- */
     (function() {
-        var lb = document.getElementById('lightbox');
-        var startX = 0, startY = 0, distX = 0;
-        lb.addEventListener('touchstart', function(e) {
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
-        }, {passive: true});
-        lb.addEventListener('touchmove', function(e) {
-            distX = e.touches[0].clientX - startX;
-            var distY = e.touches[0].clientY - startY;
-            if (Math.abs(distX) > Math.abs(distY)) e.preventDefault();
-        }, {passive: false});
-        lb.addEventListener('touchend', function() {
-            if (distX > 50) prevPhoto();
-            else if (distX < -50) nextPhoto();
-            distX = 0;
-        }, {passive: true});
+        var videos = document.querySelectorAll('video[autoplay]');
+        if (!videos.length || !('IntersectionObserver' in window)) return;
+        videos.forEach(function(v) { v.removeAttribute('autoplay'); v.pause(); });
+        var obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) { e.target.play().catch(function(){}); }
+                else { e.target.pause(); }
+            });
+        }, { threshold: 0.25 });
+        videos.forEach(function(v) { obs.observe(v); });
     })();
+
+    /* --- Toggle real estate card --- */
+    // Continuous ticker banner (CSS animation)
+    function startImmoTicker() {
+        var track = document.getElementById('immo-ticker-track');
+        if (track) track.style.animationPlayState = 'running';
+    }
+    function stopImmoTicker() {
+        var track = document.getElementById('immo-ticker-track');
+        if (track) { track.style.animationPlayState = 'paused'; track.style.transform = 'translateX(0)'; }
+    }
+
+    function toggleImmoCard() {
+        var card = document.getElementById('immo-card');
+        var detail = document.getElementById('immo-detail');
+        var preview = document.getElementById('immo-preview');
+        var wrapper = document.getElementById('immo-wrapper');
+        var imgWrap = document.getElementById('immo-img-wrap');
+        var section = document.getElementById('immo-section');
+        if (detail.style.display === 'none') {
+            detail.style.display = 'block';
+            preview.style.display = 'none';
+            imgWrap.style.display = 'none';
+            card.classList.add('open');
+            card.style.borderRadius = '0';
+            card.style.borderColor = 'rgba(84,155,162,0.25)';
+            card.style.borderLeft = 'none';
+            card.style.borderRight = 'none';
+            wrapper.style.maxWidth = '100%';
+            section.style.padding = 'clamp(60px, 8vw, 100px) 0 0';
+            setTimeout(startImmoTicker, 100);
+            card.scrollIntoView({behavior:'smooth', block:'start'});
+        } else {
+            stopImmoTicker();
+            detail.style.display = 'none';
+            preview.style.display = 'block';
+            imgWrap.style.display = 'block';
+            card.classList.remove('open');
+            card.style.borderRadius = '20px';
+            card.style.borderColor = 'rgba(84,155,162,0.25)';
+            card.style.borderLeft = '1px solid rgba(84,155,162,0.25)';
+            card.style.borderRight = '1px solid rgba(84,155,162,0.25)';
+            card.style.boxShadow = 'none';
+            wrapper.style.maxWidth = '700px';
+            section.style.padding = 'clamp(60px, 8vw, 100px) 0';
+        }
+    }
     </script>
 
     <!-- BNF ARCHITECTURE — The 4 axes -->
     <section style="background:#000; padding:clamp(60px, 8vw, 100px) 0;">
         <div class="container" style="text-align:center;">
             <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">BnF Architecture</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; font-weight:400; margin-bottom:12px; line-height:1.2;">DPM is one of the levers of the <span style="color:#549ba2;">BNF architecture</span></h2>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; font-weight:400; margin-bottom:12px; line-height:1.2;">DPM is one of the levers of <span style="color:#549ba2;">BNF architecture</span></h2>
             <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:600px; margin:0 auto 48px;">
                 Each axis can be activated individually or combined to transform a project.
             </p>
             <div class="drone-archi-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; max-width:800px; margin:0 auto;">
-                <a href="index.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                <a href="../home.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
                     <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Strategy</h4>
                     <p style="color:#549ba2; font-size:0.75rem; margin:0;">BnFConsulting</p>
                     <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Combines with Optimisation and Visibility</p>
                 </a>
-                <a href="flow.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                <a href="../flow.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
                     <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Optimisation</h4>
                     <p style="color:#549ba2; font-size:0.75rem; margin:0;">Flow</p>
                     <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Combines with Strategy and Visibility</p>
@@ -740,11 +821,11 @@
                 <a href="drones.html" style="background:rgba(84,155,162,0.08); border:1px solid #549ba2; border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='none'">
                     <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Visibility</h4>
                     <p style="color:#549ba2; font-size:0.75rem; margin:0;">DPM</p>
-                    <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Combines with Optimisation and Visibility</p>
+                    <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Combines with Optimisation and Strategy</p>
                 </a>
             </div>
             <div style="margin-top:48px;">
-                <a href="index.html" class="btn btn-primary btn-outline btn-large">Back to BnFConsulting website</a>
+                <a href="home.html" class="btn btn-primary btn-outline btn-large">Back to BnFConsulting website</a>
             </div>
         </div>
     </section>
@@ -755,7 +836,7 @@
             <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Who is it for?</p>
             <h2 style="font-family:Georgia,serif; font-size:clamp(2rem,4vw,3rem); color:#fff; margin-bottom:12px;">Our <span style="color:#549ba2;">clients</span></h2>
             <p style="max-width:600px; margin:0 auto 48px; color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7;">
-                We support everyone who wants to change their perspective.
+                We work with everyone who wants to change their perspective.
             </p>
             <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; text-align:left;">
                 <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
@@ -764,19 +845,19 @@
                 </div>
                 <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
                     <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Businesses</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Unique visual content for your premises, events and communication materials.</p>
+                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Unique visual content for your premises, events and marketing materials.</p>
                 </div>
                 <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
                     <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Retail</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Showcase your space from a unique angle to attract and captivate your customers.</p>
+                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Showcase your space from a unique angle to attract and win over your customers.</p>
                 </div>
                 <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
-                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Individuals</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Sell or rent your property with professional images that make all the difference.</p>
+                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Private owners</h3>
+                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Sell or rent your property with professional images that make the difference.</p>
                 </div>
                 <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
                     <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Developers</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Present your new developments with aerial shots that showcase the site's full potential.</p>
+                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Present your new developments with aerial shots that reveal the full potential of the site.</p>
                 </div>
             </div>
         </div>
@@ -791,7 +872,7 @@
         <div class="container" style="text-align: center; position:relative; z-index:2;">
             <p class="section-label">Ready to take off?</p>
             <h2 class="section-title">Give a new <span class="accent">dimension</span> to your projects</h2>
-            <p class="cta-text" style="max-width: 600px; margin: 0 auto 40px; color: #ffffff;">Contact us to discuss your project and get a personalised quote.</p>
+            <p class="cta-text" style="max-width: 600px; margin: 0 auto 40px; color: #ffffff;">Let us discover together how this elevated perspective can guide your decisions.</p>
             <div class="cta-buttons">
                 <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0lSWiR3YvCYrRK1n6PhTA2Dg9KJm5psH786OHg5agcrpp6GE6qjBsjjPwZGrTkF7lB0n6G66n-" target="_blank" rel="noopener" class="btn btn-primary btn-large">Book an appointment</a>
                 <a href="mailto:bnfconsulting.contact@gmail.com" class="btn btn-primary btn-outline btn-large">Contact us</a>
@@ -801,7 +882,7 @@
 
     <!-- BACK TO SITE BUTTON -->
     <section style="background:#0f1a1b; padding:40px 0; text-align:center;">
-        <a href="index.html" class="btn btn-primary btn-outline btn-large">Back to BnFConsulting website</a>
+        <a href="home.html" class="btn btn-primary btn-outline btn-large">Back to BnFConsulting website</a>
     </section>
 
     <!-- FOOTER -->
@@ -815,15 +896,15 @@
                 <a href="mailto:bnfconsulting.contact@gmail.com">Contact</a>
             </div>
             <div class="footer-copy">
-                <p>&copy; 2026 DPM by BnFConsulting. · <a href="legal.html" style="color:rgba(255,255,255,0.4); text-decoration:none;">Legal Notice</a></p>
+                <p>&copy; 2026 DPM by BnFConsulting. · <a href="../mentions-legales.html" style="color:rgba(255,255,255,0.4); text-decoration:none;">Legal notice</a></p>
             </div>
         </div>
     </footer>
 
     <!-- BACK TO TOP BUTTON -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
-    <!-- BOTTOM-LEFT BURGER -->
+    <!-- BOTTOM LEFT BURGER -->
     <div class="fab-menu" id="fabMenu">
         <button class="fab-trigger" id="fabTrigger" aria-label="Quick menu">
             <span class="fab-bar"></span>
@@ -833,7 +914,7 @@
         <div class="fab-panel" id="fabPanel">
             <div class="fab-section">
                 <p class="fab-label">Navigation</p>
-                <a href="index.html" class="fab-link fab-home">Home</a>
+                <a href="home.html" class="fab-link fab-home">Home</a>
                 <div class="fab-axes-group">
                     <a href="drones.html" class="fab-link">Visibility</a>
                     <div class="fab-axe-sep"></div>
@@ -865,13 +946,15 @@
         </div>
     </div>
 
-    <!-- PHONE / BOOKING BUTTON -->
+    <!-- PHONE / APPOINTMENT BUTTON -->
     <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" class="phone-fab" aria-label="Book an appointment">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1.03 1.03 0 011.05-.24c1.12.37 2.33.57 3.54.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.21.2 2.42.57 3.54.11.35.03.74-.24 1.05l-2.21 2.2z"/></svg>
     </a>
 
+    <!-- Sound removed — conflicts with videos on mobile -->
+
     <a href="../drones.html" class="lang-fab" aria-label="Version française">FR</a>
 
-    <script src="../main-en.js"></script>
+    <script src="../main.js"></script>
 </body>
 </html>
