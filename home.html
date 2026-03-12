@@ -144,8 +144,7 @@
         </div>
 
         <div class="stacking-footer">
-            <p class="stacking-closing">Le problème n'est pas le manque d'effort : c'est l'écart entre la complexité de l'entreprise et « l'architecture » qui la soutient.</p>
-            <div style="display:flex; gap:16px; justify-content:center; margin-top:24px; flex-wrap:wrap;">
+            <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
                 <div style="border:1px solid rgba(220,60,60,0.5); border-radius:12px; padding:14px 24px; text-align:center; background:rgba(220,60,60,0.06);">
                     <span style="color:rgba(220,60,60,0.9); font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600;">Structure = correctif.</span>
                 </div>
@@ -154,6 +153,30 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- PHRASE RÉVÉLÉE AU SCROLL -->
+    <section id="scroll-reveal-section" style="background:#fff; padding:clamp(80px,12vw,160px) clamp(20px,5vw,60px); overflow:hidden;">
+        <p id="scroll-reveal-text" style="
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(1.4rem, 3.5vw, 2.6rem);
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            color: #111;
+        ">
+            <span class="sr-group">Le problème</span>
+            <span class="sr-group">n'est pas</span>
+            <span class="sr-group">le manque d'effort :</span>
+            <span class="sr-group">c'est l'écart</span>
+            <span class="sr-group">entre la complexité</span>
+            <span class="sr-group">de l'entreprise</span>
+            <span class="sr-group">et</span>
+            <span class="sr-group" style="color:#549ba2; font-weight:500;">« l'architecture »</span>
+            <span class="sr-group">qui la soutient.</span>
+        </p>
     </section>
 
     <div class="section-divider"></div>
@@ -543,6 +566,45 @@
 
     <!-- BOUTON LANGUE -->
     <a href="en/index.html" class="lang-fab" aria-label="English version">EN</a>
+
+    <script>
+    /* Scroll reveal text animation */
+    (function(){
+        var groups = document.querySelectorAll('.sr-group');
+        if(!groups.length) return;
+        var section = document.getElementById('scroll-reveal-section');
+        if(!section) return;
+
+        function update(){
+            var rect = section.getBoundingClientRect();
+            var vh = window.innerHeight;
+            // Progress 0→1 as section scrolls through viewport
+            var start = vh * 0.85;
+            var end = vh * 0.15;
+            var progress = (start - rect.top) / (start - end);
+            progress = Math.max(0, Math.min(1, progress));
+
+            var total = groups.length;
+            for(var i = 0; i < total; i++){
+                var threshold = i / total;
+                if(progress > threshold){
+                    groups[i].classList.add('sr-visible');
+                } else {
+                    groups[i].classList.remove('sr-visible');
+                }
+            }
+        }
+
+        var ticking = false;
+        window.addEventListener('scroll', function(){
+            if(!ticking){
+                requestAnimationFrame(function(){ update(); ticking = false; });
+                ticking = true;
+            }
+        }, {passive:true});
+        update();
+    })();
+    </script>
 
     <script>
     /* Lazy video play/pause */

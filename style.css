@@ -3363,6 +3363,16 @@ h1, h2, h3 {
     }
 }
 
+/* ---- SCROLL REVEAL TEXT ---- */
+.sr-group {
+    opacity: 0.08;
+    transition: opacity 0.5s ease;
+    display: inline;
+}
+.sr-group.sr-visible {
+    opacity: 1;
+}
+
 /* ---- SCROLL INDICATOR (Prestations) ---- */
 .scroll-indicator {
     position: fixed;
