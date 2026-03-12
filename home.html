@@ -143,40 +143,50 @@
             </div>
         </div>
 
-        <div class="stacking-footer">
-            <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-                <div style="border:1px solid rgba(220,60,60,0.5); border-radius:12px; padding:14px 24px; text-align:center; background:rgba(220,60,60,0.06);">
-                    <span style="color:rgba(220,60,60,0.9); font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600;">Structure = correctif.</span>
-                </div>
-                <div style="border:1px solid rgba(84,155,162,0.5); border-radius:12px; padding:14px 24px; text-align:center; background:rgba(84,155,162,0.06);">
-                    <span style="color:#549ba2; font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600;">Architecture = réponse systémique à la complexité.</span>
+        <div class="stacking-footer"></div>
+    </section>
+
+    <!-- PHRASE RÉVÉLÉE AU SCROLL — fullscreen sticky -->
+    <section id="scroll-reveal-section" style="background:#fff; position:relative;">
+        <!-- Hauteur longue pour scroll lent -->
+        <div style="height:300vh; position:relative;">
+            <!-- Sticky centré -->
+            <div id="scroll-reveal-sticky" style="
+                position:sticky; top:0; height:100vh;
+                display:flex; flex-direction:column; align-items:center; justify-content:center;
+                padding:clamp(20px,5vw,60px);
+            ">
+                <p id="scroll-reveal-text" style="
+                    font-family: Georgia, 'Times New Roman', serif;
+                    font-size: clamp(1.4rem, 3.5vw, 2.6rem);
+                    font-weight: 400;
+                    line-height: 1.6;
+                    max-width: 900px;
+                    text-align: center;
+                    color: #111;
+                    margin: 0 auto 40px;
+                ">
+                    <span class="sr-group">Le problème</span>
+                    <span class="sr-group">n'est pas</span>
+                    <span class="sr-group">le manque d'effort :</span>
+                    <span class="sr-group">c'est l'écart</span>
+                    <span class="sr-group">entre la complexité</span>
+                    <span class="sr-group">de l'entreprise</span>
+                    <span class="sr-group">et</span>
+                    <span class="sr-group" style="color:#549ba2; font-weight:500;">« l'architecture »</span>
+                    <span class="sr-group">qui la soutient.</span>
+                </p>
+                <!-- Boîtes rouge/bleue -->
+                <div id="sr-boxes" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; opacity:0; transition:opacity 0.6s ease;">
+                    <div style="border:1px solid rgba(220,60,60,0.6); border-radius:12px; padding:14px 24px; text-align:center; background:rgba(220,60,60,0.06);">
+                        <span style="color:rgba(220,60,60,0.9); font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600;">Structure = correctif.</span>
+                    </div>
+                    <div style="border:1px solid rgba(84,155,162,0.6); border-radius:12px; padding:14px 24px; text-align:center; background:rgba(84,155,162,0.06);">
+                        <span style="color:#549ba2; font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600;">Architecture = réponse systémique à la complexité.</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- PHRASE RÉVÉLÉE AU SCROLL -->
-    <section id="scroll-reveal-section" style="background:#fff; padding:clamp(80px,12vw,160px) clamp(20px,5vw,60px); overflow:hidden;">
-        <p id="scroll-reveal-text" style="
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: clamp(1.4rem, 3.5vw, 2.6rem);
-            font-weight: 400;
-            line-height: 1.6;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            color: #111;
-        ">
-            <span class="sr-group">Le problème</span>
-            <span class="sr-group">n'est pas</span>
-            <span class="sr-group">le manque d'effort :</span>
-            <span class="sr-group">c'est l'écart</span>
-            <span class="sr-group">entre la complexité</span>
-            <span class="sr-group">de l'entreprise</span>
-            <span class="sr-group">et</span>
-            <span class="sr-group" style="color:#549ba2; font-weight:500;">« l'architecture »</span>
-            <span class="sr-group">qui la soutient.</span>
-        </p>
     </section>
 
     <div class="section-divider"></div>
@@ -568,30 +578,41 @@
     <a href="en/index.html" class="lang-fab" aria-label="English version">EN</a>
 
     <script>
-    /* Scroll reveal text animation */
+    /* Scroll reveal text — sticky fullscreen */
     (function(){
         var groups = document.querySelectorAll('.sr-group');
-        if(!groups.length) return;
+        var boxes = document.getElementById('sr-boxes');
         var section = document.getElementById('scroll-reveal-section');
-        if(!section) return;
+        if(!groups.length || !section) return;
 
         function update(){
             var rect = section.getBoundingClientRect();
+            var sectionH = section.offsetHeight;
             var vh = window.innerHeight;
-            // Progress 0→1 as section scrolls through viewport
-            var start = vh * 0.85;
-            var end = vh * 0.15;
-            var progress = (start - rect.top) / (start - end);
+
+            // How far we've scrolled into the section (0 = top just entered, 1 = bottom leaving)
+            var scrolled = -rect.top;
+            var scrollableDistance = sectionH - vh;
+            if(scrollableDistance <= 0) return;
+
+            var progress = scrolled / scrollableDistance;
             progress = Math.max(0, Math.min(1, progress));
 
+            // Words appear in first 80% of scroll, boxes appear in last 20%
+            var textProgress = Math.min(1, progress / 0.7);
             var total = groups.length;
             for(var i = 0; i < total; i++){
                 var threshold = i / total;
-                if(progress > threshold){
+                if(textProgress > threshold){
                     groups[i].classList.add('sr-visible');
                 } else {
                     groups[i].classList.remove('sr-visible');
                 }
+            }
+
+            // Boxes appear after text is complete
+            if(boxes){
+                boxes.style.opacity = progress > 0.75 ? '1' : '0';
             }
         }
 
