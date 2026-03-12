@@ -415,6 +415,7 @@ h1, h2, h3 {
 .quick-nav-item:nth-child(2) { animation-delay: 0.5s; }
 .quick-nav-item:nth-child(3) { animation-delay: 0.7s; }
 .quick-nav-item:nth-child(4) { animation-delay: 0.9s; }
+.quick-nav-item:nth-child(5) { animation-delay: 1.1s; }
 
 .quick-nav-item:hover {
     background: var(--accent);
