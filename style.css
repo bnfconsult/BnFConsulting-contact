@@ -10,10 +10,6 @@
     box-sizing: border-box;
 }
 
-html {
-    overflow-x: clip;
-}
-
 :root {
     --black: #000000;
     --white: #ffffff;
