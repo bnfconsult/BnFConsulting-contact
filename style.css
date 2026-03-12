@@ -10,6 +10,10 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 :root {
     --black: #000000;
     --white: #ffffff;
