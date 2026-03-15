@@ -625,7 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(function() {
                 addBubble('• Structuration des opérations<br>• Automatisation des workflows<br>• Organisation pilotable<br>• Centralisation des données');
                 addCTAs([
-                    { label: 'Comprendre Flow', url: 'flow.html' },
+                    { label: 'Comprendre FLOW', url: 'flow.html' },
                     { label: 'Réserver un diagnostic', url: CAL }
                 ]);
                 addBack();
@@ -698,7 +698,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Structuration des opérations, clarification des process, vision pilotable : nous transformons le flou en système.');
             addCTAs([
-                { label: 'Comprendre Flow', url: 'flow.html' },
+                { label: 'Comprendre FLOW', url: 'flow.html' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addBack();
@@ -718,7 +718,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Automatisation des workflows, structuration CRM, optimisation des opérations : nous libérons du temps stratégique.');
             addCTAs([
-                { label: 'Voir Optimisation (Flow)', url: 'flow.html' },
+                { label: 'Voir Optimisation (FLOW)', url: 'flow.html' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addBack();

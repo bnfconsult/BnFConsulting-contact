@@ -490,6 +490,7 @@
         @media (max-width: 768px) {
             .gallery-grid { grid-template-columns: repeat(3, 1fr) !important; }
             .immo-text { text-align: left !important; }
+            #secteur-grid { grid-template-columns: 1fr !important; }
         }
     </style>
 </head>
@@ -638,10 +639,12 @@
             <h2 style="font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; font-weight:400; line-height:1.2;">Survolez votre <span style="color:#549ba2;">cas</span></h2>
         </div>
 
-        <!-- Conteneur carte (centré quand fermé, pleine largeur quand ouvert) -->
-        <div id="immo-wrapper" style="max-width:700px; margin:0 auto; text-align:center; transition:max-width 0.5s ease;">
-            <!-- Carte fermée -->
-            <div id="immo-card" onclick="toggleImmoCard()" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-radius:20px; overflow:hidden; cursor:pointer; transition:border-color 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease;" onmouseenter="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.5)';this.style.boxShadow='0 0 30px rgba(84,155,162,0.1), 0 16px 48px rgba(0,0,0,0.3)'}" onmouseleave="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.25)';this.style.boxShadow='none'}">
+        <!-- Grille des deux cartes secteur -->
+        <div id="secteur-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:1100px; margin:0 auto; padding:0 clamp(16px,3vw,40px); transition:all 0.5s ease;">
+
+            <!-- ===== CARTE IMMOBILIER ===== -->
+            <div id="immo-wrapper" style="text-align:center; transition:all 0.5s ease;">
+            <div id="immo-card" onclick="toggleSectorCard('immo')" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-radius:20px; overflow:hidden; cursor:pointer; transition:border-color 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease;" onmouseenter="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.5)';this.style.boxShadow='0 0 30px rgba(84,155,162,0.1), 0 16px 48px rgba(0,0,0,0.3)'}" onmouseleave="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.25)';this.style.boxShadow='none'}">
                 <!-- Image fixe (carte fermée) -->
                 <div id="immo-img-wrap" style="aspect-ratio:16/9; overflow:hidden; position:relative;">
                     <img src="PHOTOS/Drones/Immo/IMG_4126.JPG" alt="Vue aérienne immobilier" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
@@ -729,11 +732,99 @@
                     <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.8rem, 1.1vw, 0.9rem); line-height:1.7; margin-bottom:20px;">Valorisez vos mandats et générez plus de visites.</p>
                     <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary" style="margin-bottom:24px;">Prendre rendez-vous</a>
                     <br>
-                    <button onclick="event.stopPropagation(); toggleImmoCard();" style="background:none; border:none; color:rgba(255,255,255,0.4); font-size:0.8rem; cursor:pointer; padding:12px; font-family:Montserrat,sans-serif; letter-spacing:0.05em; transition:color 0.3s;" onmouseenter="this.style.color='#549ba2'" onmouseleave="this.style.color='rgba(255,255,255,0.4)'">Fermer</button>
+                    <button onclick="event.stopPropagation(); toggleSectorCard('immo');" style="background:none; border:none; color:rgba(255,255,255,0.4); font-size:0.8rem; cursor:pointer; padding:12px; font-family:Montserrat,sans-serif; letter-spacing:0.05em; transition:color 0.3s;" onmouseenter="this.style.color='#549ba2'" onmouseleave="this.style.color='rgba(255,255,255,0.4)'">Fermer</button>
                 </div>
                 </div><!-- fin padding wrapper -->
             </div>
-        </div>
+            </div><!-- fin immo-wrapper -->
+
+            <!-- ===== CARTE AUTOMOBILE ===== -->
+            <div id="auto-wrapper" style="text-align:center; transition:all 0.5s ease;">
+            <div id="auto-card" onclick="toggleSectorCard('auto')" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-radius:20px; overflow:hidden; cursor:pointer; transition:border-color 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease;" onmouseenter="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.5)';this.style.boxShadow='0 0 30px rgba(84,155,162,0.1), 0 16px 48px rgba(0,0,0,0.3)'}" onmouseleave="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.25)';this.style.boxShadow='none'}">
+                <!-- Image fixe (carte fermée) -->
+                <div id="auto-img-wrap" style="aspect-ratio:16/9; overflow:hidden; position:relative;">
+                    <img src="PHOTOS/Drones/Immo/IMG_4126.JPG" alt="Vue aérienne automobile" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <!-- Titre affiché quand fermé -->
+                <div id="auto-preview" style="padding:clamp(20px, 3vw, 32px);">
+                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1.1rem, 2vw, 1.5rem); margin-bottom:10px;">Automobile</h3>
+                    <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.8rem, 1.1vw, 0.9rem); line-height:1.7;">Sublimez vos véhicules et captez l'attention</p>
+                    <span style="display:inline-block; margin-top:16px; color:#549ba2; font-family:'Montserrat',sans-serif; font-size:0.8rem; font-weight:600; letter-spacing:0.05em; border:1px solid rgba(84,155,162,0.35); padding:8px 20px; border-radius:8px; transition:all 0.3s ease;">En découvrir plus</span>
+                </div>
+            </div>
+
+            <!-- Contenu détaillé (caché par défaut) -->
+            <div id="auto-detail" style="display:none; text-align:left; background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-top:none; border-radius:0 0 20px 20px; margin-top:-1px; overflow:hidden;">
+
+                <!-- Bandeau ticker photos -->
+                <style>
+                @keyframes autoScroll {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                #auto-ticker-track { animation: autoScroll 30s linear infinite; animation-play-state: paused; }
+                #auto-ticker-track:hover { animation-play-state: paused; }
+                </style>
+                <div id="auto-ticker" style="overflow:hidden; width:100%; padding:20px 0; position:relative;">
+                    <div id="auto-ticker-track" style="display:flex; gap:0; width:max-content;">
+                        <img src="PHOTOS/Drones/Immo/IMG_4126.JPG" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="PHOTOS/Drones/Immo/IMG_4377.JPG" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="PHOTOS/Drones/Immo/IMG_4398.jpg" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <!-- Duplicata pour boucle infinie -->
+                        <img src="PHOTOS/Drones/Immo/IMG_4126.JPG" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="PHOTOS/Drones/Immo/IMG_4377.JPG" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                        <img src="PHOTOS/Drones/Immo/IMG_4398.jpg" alt="" style="height:160px; border-radius:0; object-fit:cover; flex-shrink:0;" loading="lazy">
+                    </div>
+                </div>
+
+                <div style="padding:clamp(32px, 5vw, 56px) clamp(20px, 4vw, 48px);">
+                <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.85rem, 1.2vw, 0.95rem); line-height:1.8; margin-bottom:32px; text-align:center; max-width:700px; margin-left:auto; margin-right:auto;">
+                    Les annonces automobiles se ressemblent.<br>La prise de vue aérienne et cinématique révèle le caractère du véhicule,<br>son environnement et son standing.<br>En quelques secondes, l'acheteur est captivé.
+                </p>
+
+                <!-- Grille 2x2 : ce que ça change -->
+                <h4 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.6vw, 1.2rem); margin-bottom:16px; text-align:center;">Ce que la vue aérienne <span style="color:#549ba2;">change</span></h4>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:32px; max-width:800px; margin-left:auto; margin-right:auto;">
+                    <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.15); border-radius:12px; padding:16px 18px; text-align:center;">
+                        <p style="color:#549ba2; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Impact</p>
+                        <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin:0;">Vidéo dynamique qui met en valeur le véhicule</p>
+                    </div>
+                    <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.15); border-radius:12px; padding:16px 18px; text-align:center;">
+                        <p style="color:#549ba2; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Standing</p>
+                        <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin:0;">Perception premium renforcée pour le vendeur</p>
+                    </div>
+                    <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.15); border-radius:12px; padding:16px 18px; text-align:center;">
+                        <p style="color:#549ba2; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Visibilité</p>
+                        <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin:0;">Annonces qui captent l'attention en ligne</p>
+                    </div>
+                    <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.15); border-radius:12px; padding:16px 18px; text-align:center;">
+                        <p style="color:#549ba2; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:4px;">Émotion</p>
+                        <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin:0;">Le véhicule prend vie avant même l'essai</p>
+                    </div>
+                </div>
+
+                <!-- Idéal pour — ligne de tags -->
+                <h4 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.6vw, 1.2rem); margin-bottom:14px; text-align:center;">Idéal <span style="color:#549ba2;">pour</span></h4>
+                <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:32px;">
+                    <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Concessionnaires</span>
+                    <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Véhicules de prestige</span>
+                    <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Vente entre particuliers</span>
+                    <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Événements auto</span>
+                    <span style="background:rgba(84,155,162,0.1); border:1px solid rgba(84,155,162,0.25); border-radius:20px; padding:6px 16px; color:rgba(255,255,255,0.7); font-size:0.8rem;">Collections</span>
+                </div>
+
+                <!-- CTA + Fermer -->
+                <div style="text-align:center; padding:24px 0 8px; border-top:1px solid rgba(84,155,162,0.15);">
+                    <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.8rem, 1.1vw, 0.9rem); line-height:1.7; margin-bottom:20px;">Sublimez vos véhicules et démarquez-vous.</p>
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary" style="margin-bottom:24px;">Prendre rendez-vous</a>
+                    <br>
+                    <button onclick="event.stopPropagation(); toggleSectorCard('auto');" style="background:none; border:none; color:rgba(255,255,255,0.4); font-size:0.8rem; cursor:pointer; padding:12px; font-family:Montserrat,sans-serif; letter-spacing:0.05em; transition:color 0.3s;" onmouseenter="this.style.color='#549ba2'" onmouseleave="this.style.color='rgba(255,255,255,0.4)'">Fermer</button>
+                </div>
+                </div><!-- fin padding wrapper -->
+            </div>
+            </div><!-- fin auto-wrapper -->
+
+        </div><!-- fin secteur-grid -->
     </section>
 
     <script>
@@ -751,25 +842,27 @@
         videos.forEach(function(v) { obs.observe(v); });
     })();
 
-    /* --- Toggle carte immobilier --- */
-    // Ticker bandeau continu (CSS animation)
-    function startImmoTicker() {
-        var track = document.getElementById('immo-ticker-track');
+    /* --- Toggle cartes secteur (immo / auto) --- */
+    function startTicker(id) {
+        var track = document.getElementById(id + '-ticker-track');
         if (track) track.style.animationPlayState = 'running';
     }
-    function stopImmoTicker() {
-        var track = document.getElementById('immo-ticker-track');
+    function stopTicker(id) {
+        var track = document.getElementById(id + '-ticker-track');
         if (track) { track.style.animationPlayState = 'paused'; track.style.transform = 'translateX(0)'; }
     }
 
-    function toggleImmoCard() {
-        var card = document.getElementById('immo-card');
-        var detail = document.getElementById('immo-detail');
-        var preview = document.getElementById('immo-preview');
-        var wrapper = document.getElementById('immo-wrapper');
-        var imgWrap = document.getElementById('immo-img-wrap');
-        var section = document.getElementById('immo-section');
+    function toggleSectorCard(id) {
+        var card = document.getElementById(id + '-card');
+        var detail = document.getElementById(id + '-detail');
+        var preview = document.getElementById(id + '-preview');
+        var wrapper = document.getElementById(id + '-wrapper');
+        var imgWrap = document.getElementById(id + '-img-wrap');
+        var grid = document.getElementById('secteur-grid');
+        var otherIds = ['immo','auto'].filter(function(x){ return x !== id; });
+
         if (detail.style.display === 'none') {
+            // Ouvrir : pleine largeur, cacher l'autre carte
             detail.style.display = 'block';
             preview.style.display = 'none';
             imgWrap.style.display = 'none';
@@ -778,12 +871,18 @@
             card.style.borderColor = 'rgba(84,155,162,0.25)';
             card.style.borderLeft = 'none';
             card.style.borderRight = 'none';
-            wrapper.style.maxWidth = '100%';
-            section.style.padding = 'clamp(60px, 8vw, 100px) 0 0';
-            setTimeout(startImmoTicker, 100);
+            grid.style.gridTemplateColumns = '1fr';
+            grid.style.maxWidth = '100%';
+            grid.style.padding = '0';
+            otherIds.forEach(function(oid) {
+                var ow = document.getElementById(oid + '-wrapper');
+                if (ow) ow.style.display = 'none';
+            });
+            setTimeout(function(){ startTicker(id); }, 100);
             card.scrollIntoView({behavior:'smooth', block:'start'});
         } else {
-            stopImmoTicker();
+            // Fermer : retour grille 2 colonnes
+            stopTicker(id);
             detail.style.display = 'none';
             preview.style.display = 'block';
             imgWrap.style.display = 'block';
@@ -793,8 +892,13 @@
             card.style.borderLeft = '1px solid rgba(84,155,162,0.25)';
             card.style.borderRight = '1px solid rgba(84,155,162,0.25)';
             card.style.boxShadow = 'none';
-            wrapper.style.maxWidth = '700px';
-            section.style.padding = 'clamp(60px, 8vw, 100px) 0';
+            grid.style.gridTemplateColumns = '1fr 1fr';
+            grid.style.maxWidth = '1100px';
+            grid.style.padding = '0 clamp(16px,3vw,40px)';
+            otherIds.forEach(function(oid) {
+                var ow = document.getElementById(oid + '-wrapper');
+                if (ow) ow.style.display = 'block';
+            });
         }
     }
     </script>
@@ -815,7 +919,7 @@
                 </a>
                 <a href="flow.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
                     <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Optimisation</h4>
-                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">Flow</p>
+                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">FLOW</p>
                     <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Se combine avec Stratégie et Visibilité</p>
                 </a>
                 <a href="drones.html" style="background:rgba(84,155,162,0.08); border:1px solid #549ba2; border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='none'">
