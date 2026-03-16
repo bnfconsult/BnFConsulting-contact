@@ -231,29 +231,24 @@
         #archi-lines { display: none; }
         #archi-triangle > div:first-child {
             grid-template-columns: 1fr !important;
+            gap: 0 !important;
         }
         #archi-triangle > div:last-child a {
             width: 100% !important;
         }
-        /* Lignes verticales entre cartes sur mobile */
-        #archi-triangle > div:first-child > a:first-child::after,
-        #archi-triangle > div:first-child > a:last-child::after {
-            content: '';
+        /* Cartes : espacement + ligne verticale entre chaque */
+        #archi-triangle > div:first-child > a {
             display: block;
-            width: 1.5px;
-            height: 24px;
-            background: rgba(84,155,162,0.4);
-            margin: 0 auto;
-            position: relative;
-            top: 12px;
+            margin-bottom: 0;
         }
+        #archi-triangle > div:first-child > a + a::before,
         #archi-triangle > div:nth-child(2)::before {
             content: '';
             display: block;
-            width: 1.5px;
-            height: 24px;
-            background: rgba(84,155,162,0.4);
-            margin: 0 auto -12px;
+            width: 2px;
+            height: 32px;
+            background: linear-gradient(to bottom, rgba(84,155,162,0.15), rgba(84,155,162,0.5), rgba(84,155,162,0.15));
+            margin: 0 auto;
         }
     }
     </style>
