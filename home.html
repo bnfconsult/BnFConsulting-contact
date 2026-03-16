@@ -229,20 +229,23 @@
     /* Triangle mobile : empilé verticalement avec lignes verticales */
     @media (max-width: 768px) {
         #archi-lines { display: none; }
-        #archi-triangle > div:first-child {
+        /* La grille 2 colonnes → 1 colonne */
+        #archi-triangle > div:nth-child(2) {
             grid-template-columns: 1fr !important;
             gap: 0 !important;
         }
-        #archi-triangle > div:last-child a {
+        /* Axe 3 wrapper : pleine largeur */
+        #archi-triangle > div:nth-child(3) a {
             width: 100% !important;
         }
-        /* Cartes : espacement + ligne verticale entre chaque */
-        #archi-triangle > div:first-child > a {
+        /* Les liens dans la grille */
+        #archi-triangle > div:nth-child(2) > a {
             display: block;
             margin-bottom: 0;
         }
-        #archi-triangle > div:first-child > a + a::before,
-        #archi-triangle > div:nth-child(2)::before {
+        /* Ligne verticale entre carte 1→2 et 2→3 */
+        #archi-triangle > div:nth-child(2) > a + a::before,
+        #archi-triangle > div:nth-child(3)::before {
             content: '';
             display: block;
             width: 2px;
