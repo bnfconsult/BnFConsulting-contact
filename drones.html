@@ -636,11 +636,11 @@
     </section>
 
     <!-- SECTION IMMOBILIER -->
-    <section id="immo-section" style="background:#0a0a0a; padding:clamp(60px, 8vw, 100px) 0; transition:padding 0.5s ease;">
+    <section id="immo-section" style="background:#fff; padding:clamp(60px, 8vw, 100px) 0; transition:padding 0.5s ease;">
         <!-- Titre au-dessus -->
         <div style="text-align:center; margin-bottom:32px;">
             <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Secteur</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; font-weight:400; line-height:1.2;">Survolez votre <span style="color:#549ba2;">cas</span></h2>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#111; font-weight:400; line-height:1.2;">Survolez votre <span style="color:#549ba2;">cas</span></h2>
         </div>
 
         <!-- Grille des deux cartes secteur -->
@@ -648,21 +648,21 @@
 
             <!-- ===== CARTE IMMOBILIER ===== -->
             <div id="immo-wrapper" style="text-align:center; transition:all 0.5s ease;">
-            <div id="immo-card" onclick="toggleSectorCard('immo')" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-radius:20px; overflow:hidden; cursor:pointer; transition:border-color 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease;" onmouseenter="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.5)';this.style.boxShadow='0 0 30px rgba(84,155,162,0.1), 0 16px 48px rgba(0,0,0,0.3)'}" onmouseleave="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.25)';this.style.boxShadow='none'}">
+            <div id="immo-card" onclick="toggleSectorCard('immo')" style="background:#fff; border:1px solid rgba(0,0,0,0.1); border-radius:20px; overflow:hidden; cursor:pointer; transition:border-color 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease;" onmouseenter="if(!this.classList.contains('open')){this.style.borderColor='#549ba2';this.style.boxShadow='0 8px 30px rgba(84,155,162,0.12)'}" onmouseleave="if(!this.classList.contains('open')){this.style.borderColor='rgba(0,0,0,0.1)';this.style.boxShadow='none'}">
                 <!-- Image fixe (carte fermée) -->
                 <div id="immo-img-wrap" style="aspect-ratio:16/9; overflow:hidden; position:relative;">
                     <img src="PHOTOS/Drones/Immo/IMG_4126.JPG" alt="Vue aérienne immobilier" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <!-- Titre affiché quand fermé -->
                 <div id="immo-preview" style="padding:clamp(20px, 3vw, 32px);">
-                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1.1rem, 2vw, 1.5rem); margin-bottom:10px;">Immobilier</h3>
-                    <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.8rem, 1.1vw, 0.9rem); line-height:1.7;">Valorisez vos mandats et attirez plus de visites</p>
+                    <h3 style="font-family:Georgia,serif; color:#111; font-size:clamp(1.1rem, 2vw, 1.5rem); margin-bottom:10px;">Immobilier</h3>
+                    <p style="color:rgba(0,0,0,0.5); font-size:clamp(0.8rem, 1.1vw, 0.9rem); line-height:1.7;">Valorisez vos mandats et attirez plus de visites</p>
                     <span style="display:inline-block; margin-top:16px; color:#549ba2; font-family:'Montserrat',sans-serif; font-size:0.8rem; font-weight:600; letter-spacing:0.05em; border:1px solid rgba(84,155,162,0.35); padding:8px 20px; border-radius:8px; transition:all 0.3s ease;">En découvrir plus</span>
                 </div>
             </div>
 
             <!-- Contenu détaillé (caché par défaut) — pleine largeur -->
-            <div id="immo-detail" style="display:none; text-align:left; background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-top:none; border-radius:0 0 20px 20px; margin-top:-1px; overflow:hidden;">
+            <div id="immo-detail" style="display:none; text-align:left; background:#0a0a0a; border:1px solid rgba(0,0,0,0.1); border-top:none; border-radius:0 0 20px 20px; margin-top:-1px; overflow:hidden;">
 
                 <!-- Bandeau ticker photos -->
                 <style>
@@ -744,21 +744,21 @@
 
             <!-- ===== CARTE AUTOMOBILE ===== -->
             <div id="auto-wrapper" style="text-align:center; transition:all 0.5s ease;">
-            <div id="auto-card" onclick="toggleSectorCard('auto')" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-radius:20px; overflow:hidden; cursor:pointer; transition:border-color 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease;" onmouseenter="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.5)';this.style.boxShadow='0 0 30px rgba(84,155,162,0.1), 0 16px 48px rgba(0,0,0,0.3)'}" onmouseleave="if(!this.classList.contains('open')){this.style.borderColor='rgba(84,155,162,0.25)';this.style.boxShadow='none'}">
+            <div id="auto-card" onclick="toggleSectorCard('auto')" style="background:#fff; border:1px solid rgba(0,0,0,0.1); border-radius:20px; overflow:hidden; cursor:pointer; transition:border-color 0.4s ease, box-shadow 0.4s ease, border-radius 0.4s ease;" onmouseenter="if(!this.classList.contains('open')){this.style.borderColor='#549ba2';this.style.boxShadow='0 8px 30px rgba(84,155,162,0.12)'}" onmouseleave="if(!this.classList.contains('open')){this.style.borderColor='rgba(0,0,0,0.1)';this.style.boxShadow='none'}">
                 <!-- Image fixe (carte fermée) -->
                 <div id="auto-img-wrap" style="aspect-ratio:16/9; overflow:hidden; position:relative;">
                     <img src="PHOTOS/automobile 1.jpg" alt="Automobile drone" loading="lazy" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <!-- Titre affiché quand fermé -->
                 <div id="auto-preview" style="padding:clamp(20px, 3vw, 32px);">
-                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1.1rem, 2vw, 1.5rem); margin-bottom:10px;">Automobile</h3>
-                    <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.8rem, 1.1vw, 0.9rem); line-height:1.7;">Sublimez vos véhicules et captez l'attention</p>
+                    <h3 style="font-family:Georgia,serif; color:#111; font-size:clamp(1.1rem, 2vw, 1.5rem); margin-bottom:10px;">Automobile</h3>
+                    <p style="color:rgba(0,0,0,0.5); font-size:clamp(0.8rem, 1.1vw, 0.9rem); line-height:1.7;">Sublimez vos véhicules et captez l'attention</p>
                     <span style="display:inline-block; margin-top:16px; color:#549ba2; font-family:'Montserrat',sans-serif; font-size:0.8rem; font-weight:600; letter-spacing:0.05em; border:1px solid rgba(84,155,162,0.35); padding:8px 20px; border-radius:8px; transition:all 0.3s ease;">En découvrir plus</span>
                 </div>
             </div>
 
             <!-- Contenu détaillé (caché par défaut) -->
-            <div id="auto-detail" style="display:none; text-align:center; background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-top:none; border-radius:0 0 20px 20px; margin-top:-1px; overflow:hidden;">
+            <div id="auto-detail" style="display:none; text-align:center; background:#0a0a0a; border:1px solid rgba(0,0,0,0.1); border-top:none; border-radius:0 0 20px 20px; margin-top:-1px; overflow:hidden;">
 
                 <!-- Bandeau ticker photos -->
                 <style>
@@ -906,16 +906,16 @@
             // Fermer : retour grille 2 colonnes
             stopTicker(id);
             detail.style.display = 'none';
-            detail.style.borderLeft = '1px solid rgba(84,155,162,0.25)';
-            detail.style.borderRight = '1px solid rgba(84,155,162,0.25)';
+            detail.style.borderLeft = '1px solid rgba(0,0,0,0.1)';
+            detail.style.borderRight = '1px solid rgba(0,0,0,0.1)';
             detail.style.borderRadius = '0 0 20px 20px';
             preview.style.display = 'block';
             imgWrap.style.display = 'block';
             card.classList.remove('open');
             card.style.borderRadius = '20px';
-            card.style.borderColor = 'rgba(84,155,162,0.25)';
-            card.style.borderLeft = '1px solid rgba(84,155,162,0.25)';
-            card.style.borderRight = '1px solid rgba(84,155,162,0.25)';
+            card.style.borderColor = 'rgba(0,0,0,0.1)';
+            card.style.borderLeft = '1px solid rgba(0,0,0,0.1)';
+            card.style.borderRight = '1px solid rgba(0,0,0,0.1)';
             card.style.boxShadow = 'none';
             wrapper.style.maxWidth = '';
             wrapper.style.margin = '';
