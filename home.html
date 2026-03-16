@@ -151,64 +151,112 @@
         </div>
     </section>
 
-    <!-- LES 4 AXES -->
-    <section class="section section-black" id="axes" style="padding-bottom:clamp(60px, 8vw, 100px);">
-        <div class="container">
-            <p class="section-label">L'architecture BnF</p>
-            <h2 class="section-title">Trois axes.<br><span class="accent">Un seul objectif : votre montée en puissance</span></h2>
+    <!-- LES 3 AXES — Schéma relié triangle -->
+    <section id="axes" style="background:#fff; padding:clamp(60px, 8vw, 100px) 0;">
+        <div style="max-width:1100px; margin:0 auto; padding:0 clamp(16px,3vw,40px);">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px; text-align:center;">L'architecture BnF</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#111; font-weight:400; line-height:1.3; text-align:center; margin-bottom:8px;">Trois axes connectés.</h2>
+            <p style="font-family:Georgia,serif; font-size:clamp(1rem,2vw,1.3rem); color:rgba(0,0,0,0.5); text-align:center; margin-bottom:clamp(40px,6vw,70px);">Voilà comment on structure votre croissance.</p>
 
-            <div class="axes-wrapper">
-            <div class="axes-grid">
+            <!-- Triangle desktop -->
+            <div id="archi-triangle" style="position:relative; max-width:900px; margin:0 auto;">
+                <!-- SVG lignes de connexion (desktop) -->
+                <svg id="archi-lines" viewBox="0 0 900 420" fill="none" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0;">
+                    <!-- Ligne haut-gauche → haut-droite -->
+                    <line x1="260" y1="100" x2="640" y2="100" stroke="#549ba2" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.4"/>
+                    <!-- Ligne haut-gauche → bas-centre -->
+                    <line x1="200" y1="140" x2="420" y2="340" stroke="#549ba2" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.4"/>
+                    <!-- Ligne haut-droite → bas-centre -->
+                    <line x1="700" y1="140" x2="480" y2="340" stroke="#549ba2" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.4"/>
+                    <!-- Points de connexion -->
+                    <circle cx="230" cy="100" r="4" fill="#549ba2" opacity="0.6"/>
+                    <circle cx="670" cy="100" r="4" fill="#549ba2" opacity="0.6"/>
+                    <circle cx="450" cy="360" r="4" fill="#549ba2" opacity="0.6"/>
+                </svg>
 
-                <!-- AXE 1 -->
-                <div class="axe-card" onclick="this.classList.toggle('axe-open')">
-                    <div class="axe-num">01</div>
-                    <h3 class="axe-label">Stratégie</h3>
-                    <p class="axe-brand">BnF Consulting</p>
-                    <div class="axe-content">
-                        <p class="axe-desc">Identifier les freins invisibles au développement et structurer une trajectoire claire de croissance.</p>
+                <!-- Grille triangle : 2 en haut, 1 centré en bas -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; position:relative; z-index:1;">
+
+                    <!-- AXE 1 — Stratégie -->
+                    <a href="home.html#solution" style="text-decoration:none; color:inherit;">
+                    <div style="background:#fff; border:1px solid rgba(0,0,0,0.1); border-radius:16px; padding:clamp(24px,3vw,36px); text-align:center; transition:border-color 0.3s, box-shadow 0.3s;" onmouseenter="this.style.borderColor='#549ba2';this.style.boxShadow='0 8px 30px rgba(84,155,162,0.12)'" onmouseleave="this.style.borderColor='rgba(0,0,0,0.1)';this.style.boxShadow='none'">
+                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Axe 01</p>
+                        <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.6rem); color:#111; font-weight:400; margin-bottom:12px;">Stratégie</h3>
+                        <p style="color:#111; font-size:clamp(0.85rem,1.1vw,0.95rem); font-weight:500; margin-bottom:8px;">Clarifier où vous allez</p>
+                        <p style="color:rgba(0,0,0,0.5); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin-bottom:16px;">De la confusion → à la clarté stratégique</p>
+                        <span style="color:#549ba2; font-size:0.8rem; font-weight:500;">En savoir plus →</span>
                     </div>
+                    </a>
+
+                    <!-- AXE 2 — Optimisation -->
+                    <a href="flow.html" style="text-decoration:none; color:inherit;">
+                    <div style="background:#fff; border:1px solid rgba(0,0,0,0.1); border-radius:16px; padding:clamp(24px,3vw,36px); text-align:center; transition:border-color 0.3s, box-shadow 0.3s;" onmouseenter="this.style.borderColor='#549ba2';this.style.boxShadow='0 8px 30px rgba(84,155,162,0.12)'" onmouseleave="this.style.borderColor='rgba(0,0,0,0.1)';this.style.boxShadow='none'">
+                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Axe 02</p>
+                        <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.6rem); color:#111; font-weight:400; margin-bottom:12px;">Optimisation</h3>
+                        <p style="color:#111; font-size:clamp(0.85rem,1.1vw,0.95rem); font-weight:500; margin-bottom:8px;">Structurer comment vous y allez</p>
+                        <p style="color:rgba(0,0,0,0.5); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin-bottom:16px;">Du bricolage → à un système qui tourne</p>
+                        <span style="color:#549ba2; font-size:0.8rem; font-weight:500;">En savoir plus →</span>
+                    </div>
+                    </a>
                 </div>
 
-                <!-- AXE 2 -->
-                <a href="flow.html" class="axe-card" style="text-decoration:none; color:inherit; cursor:pointer;">
-                    <div class="axe-num">02</div>
-                    <h3 class="axe-label">Optimisation</h3>
-                    <p class="axe-brand">FLOW</p>
-                    <div class="axe-content">
-                        <p class="axe-desc">Simplifier les opérations et automatiser les systèmes pour libérer du temps et améliorer la performance.</p>
-                        <p style="color:#549ba2; font-size:0.8rem; margin-top:10px; font-weight:500;">Découvrir FLOW →</p>
+                <!-- AXE 3 — Visibilité (centré en bas du triangle) -->
+                <div style="display:flex; justify-content:center; margin-top:24px; position:relative; z-index:1;">
+                    <a href="drones.html" style="text-decoration:none; color:inherit; width:calc(50% - 12px);">
+                    <div style="background:#fff; border:1px solid rgba(0,0,0,0.1); border-radius:16px; padding:clamp(24px,3vw,36px); text-align:center; transition:border-color 0.3s, box-shadow 0.3s;" onmouseenter="this.style.borderColor='#549ba2';this.style.boxShadow='0 8px 30px rgba(84,155,162,0.12)'" onmouseleave="this.style.borderColor='rgba(0,0,0,0.1)';this.style.boxShadow='none'">
+                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Axe 03</p>
+                        <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.6rem); color:#111; font-weight:400; margin-bottom:12px;">Visibilité</h3>
+                        <p style="color:#111; font-size:clamp(0.85rem,1.1vw,0.95rem); font-weight:500; margin-bottom:8px;">Montrer qui vous êtes</p>
+                        <p style="color:rgba(0,0,0,0.5); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin-bottom:16px;">De l'invisibilité → à une image qui travaille pour vous</p>
+                        <span style="color:#549ba2; font-size:0.8rem; font-weight:500;">En savoir plus →</span>
                     </div>
-                </a>
-
-                <!-- AXE 3 -->
-                <a href="drones.html" class="axe-card" style="text-decoration:none; color:inherit; cursor:pointer;">
-                    <div class="axe-num">03</div>
-                    <h3 class="axe-label">Visibilité</h3>
-                    <p class="axe-brand">DRONE PRO MOTION</p>
-                    <div class="axe-content">
-                        <p class="axe-desc">Renforcer l'impact et la perception d'une entreprise grâce à une lecture visuelle stratégique.</p>
-                        <p style="color:#549ba2; font-size:0.8rem; margin-top:10px; font-weight:500;">Découvrir DRONE PRO MOTION →</p>
-                    </div>
-                </a>
-
-
-                <!-- PRODUIT CŒUR -->
-                <a href="https://www.flow-hub.fr/diagnostic" target="_blank" rel="noopener" class="axe-card" style="text-decoration:none; color:inherit; cursor:pointer; border-color:rgba(84,155,162,0.4);">
-                    <div class="axe-num" style="visibility:hidden;">04</div>
-                    <h3 class="axe-label">Produit cœur</h3>
-                    <p class="axe-brand">Rapport stratégique</p>
-                    <div class="axe-content">
-                        <p class="axe-desc">Révélez des pertes invisibles, incohérences internes et freins à la croissance. La porte d'entrée dans l'architecture BNF.</p>
-                        <p style="color:#549ba2; font-size:0.8rem; margin-top:10px; font-weight:500;">Découvrir →</p>
-                    </div>
-                </a>
-
+                    </a>
+                </div>
             </div>
+
+            <!-- PRODUIT CŒUR — séparé -->
+            <div style="max-width:700px; margin:clamp(40px,6vw,60px) auto 0; text-align:center; border:1.5px solid #549ba2; border-radius:16px; padding:clamp(28px,4vw,44px); background:rgba(84,155,162,0.03);">
+                <p style="font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:10px;">Par où commencer ?</p>
+                <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2.2vw,1.7rem); color:#111; font-weight:400; margin-bottom:14px;">Le rapport stratégique</h3>
+                <p style="color:rgba(0,0,0,0.6); font-size:clamp(0.85rem,1.1vw,0.95rem); line-height:1.7; margin-bottom:20px;">Révélez vos pertes invisibles, incohérences internes et freins à la croissance.<br>C'est la porte d'entrée dans l'architecture BNF.</p>
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" style="display:inline-block; background:#549ba2; color:#fff; font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600; padding:12px 28px; border-radius:8px; text-decoration:none; transition:background 0.3s;" onmouseenter="this.style.background='#3d7a80'" onmouseleave="this.style.background='#549ba2'">Réserver un diagnostic →</a>
             </div>
 
         </div>
     </section>
+
+    <style>
+    /* Triangle mobile : empilé verticalement avec lignes verticales */
+    @media (max-width: 768px) {
+        #archi-lines { display: none; }
+        #archi-triangle > div:first-child {
+            grid-template-columns: 1fr !important;
+        }
+        #archi-triangle > div:last-child a {
+            width: 100% !important;
+        }
+        /* Lignes verticales entre cartes sur mobile */
+        #archi-triangle > div:first-child > a:first-child::after,
+        #archi-triangle > div:first-child > a:last-child::after {
+            content: '';
+            display: block;
+            width: 1.5px;
+            height: 24px;
+            background: rgba(84,155,162,0.4);
+            margin: 0 auto;
+            position: relative;
+            top: 12px;
+        }
+        #archi-triangle > div:nth-child(2)::before {
+            content: '';
+            display: block;
+            width: 1.5px;
+            height: 24px;
+            background: rgba(84,155,162,0.4);
+            margin: 0 auto -12px;
+        }
+    }
+    </style>
 
     <!-- SECTION : Intervention adaptée (photo fond) -->
     <section class="section intervention-photo-section" id="intervention">
