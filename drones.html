@@ -878,6 +878,9 @@
         if (detail.style.display === 'none') {
             // Ouvrir : pleine largeur centrée
             detail.style.display = 'block';
+            detail.style.borderLeft = 'none';
+            detail.style.borderRight = 'none';
+            detail.style.borderRadius = '0';
             preview.style.display = 'none';
             imgWrap.style.display = 'none';
             card.classList.add('open');
@@ -901,6 +904,9 @@
             // Fermer : retour grille 2 colonnes
             stopTicker(id);
             detail.style.display = 'none';
+            detail.style.borderLeft = '1px solid rgba(84,155,162,0.25)';
+            detail.style.borderRight = '1px solid rgba(84,155,162,0.25)';
+            detail.style.borderRadius = '0 0 20px 20px';
             preview.style.display = 'block';
             imgWrap.style.display = 'block';
             card.classList.remove('open');
