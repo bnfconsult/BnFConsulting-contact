@@ -754,7 +754,7 @@
             </div>
 
             <!-- Contenu détaillé (caché par défaut) -->
-            <div id="auto-detail" style="display:none; text-align:left; background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-top:none; border-radius:0 0 20px 20px; margin-top:-1px; overflow:hidden;">
+            <div id="auto-detail" style="display:none; text-align:center; background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.25); border-top:none; border-radius:0 0 20px 20px; margin-top:-1px; overflow:hidden;">
 
                 <!-- Bandeau ticker photos -->
                 <style>
@@ -886,6 +886,8 @@
             grid.style.gridTemplateColumns = '1fr';
             grid.style.maxWidth = '100%';
             grid.style.padding = '0';
+            wrapper.style.maxWidth = '100%';
+            wrapper.style.margin = '0 auto';
             otherIds.forEach(function(oid) {
                 var ow = document.getElementById(oid + '-wrapper');
                 if (ow) ow.style.display = 'none';
