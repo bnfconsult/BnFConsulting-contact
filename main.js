@@ -625,7 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(function() {
                 addBubble('• Structuration des opérations<br>• Automatisation des workflows<br>• Organisation pilotable<br>• Centralisation des données');
                 addCTAs([
-                    { label: 'Comprendre FLOW', url: 'flow.html' },
+                    { label: 'Comprendre FLOW', url: 'optimisation-digitale/' },
                     { label: 'Réserver un diagnostic', url: CAL }
                 ]);
                 addBack();
@@ -638,7 +638,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(function() {
                 addBubble('Stratégie digitale — Identité de marque — Contenu premium');
                 addCTAs([
-                    { label: 'Voir les leviers de visibilité', url: 'drones.html' }
+                    { label: 'Voir les leviers de visibilité', url: 'visibilite/' }
                 ]);
                 addActionBtn('Être rappelé', showRecallForm);
                 addBack();
@@ -688,7 +688,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Stratégie digitale, SEO, identité de marque : nous structurons votre visibilité pour qu\'elle devienne un levier de croissance.');
             addCTAs([
-                { label: 'Voir le pilier visibilité', url: 'drones.html' },
+                { label: 'Voir le pilier visibilité', url: 'visibilite/' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addBack();
@@ -698,7 +698,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Structuration des opérations, clarification des process, vision pilotable : nous transformons le flou en système.');
             addCTAs([
-                { label: 'Comprendre FLOW', url: 'flow.html' },
+                { label: 'Comprendre FLOW', url: 'optimisation-digitale/' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addBack();
@@ -718,7 +718,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Automatisation des workflows, structuration CRM, optimisation des opérations : nous libérons du temps stratégique.');
             addCTAs([
-                { label: 'Voir Optimisation (FLOW)', url: 'flow.html' },
+                { label: 'Voir Optimisation (FLOW)', url: 'optimisation-digitale/' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addBack();
@@ -728,7 +728,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Captation aérienne, contenu visuel stratégique, différenciation marketing : la vue d\'en haut change la perspective.');
             addCTAs([
-                { label: 'Voir DRONE PRO MOTION', url: 'drones.html' }
+                { label: 'Voir DRONE PRO MOTION', url: 'visibilite/' }
             ]);
             addActionBtn('Être rappelé', showRecallForm);
             addBack();
