@@ -286,7 +286,7 @@
     </section>
 
     <!-- VIDÉO + CTA côte à côte -->
-    <section class="section section-black" id="cta-final" style="padding:clamp(60px,8vw,120px) 0;" onmouseenter="document.getElementById('cta-video').muted=false" onmouseleave="document.getElementById('cta-video').muted=true">
+    <section class="section section-black" id="cta-final" style="padding:clamp(60px,8vw,120px) 0;" onmouseenter="if(!('ontouchstart' in window)){document.getElementById('cta-video').muted=false}" onmouseleave="if(!('ontouchstart' in window)){document.getElementById('cta-video').muted=true}">
         <div class="container" style="max-width:1100px;">
             <div style="display:flex; align-items:center; gap:clamp(24px,4vw,60px); flex-wrap:wrap; justify-content:center;">
                 <!-- Vidéo à gauche -->
