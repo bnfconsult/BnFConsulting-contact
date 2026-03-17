@@ -243,6 +243,10 @@
             background: linear-gradient(to bottom, rgba(84,155,162,0.15), rgba(84,155,162,0.5), rgba(84,155,162,0.15));
             margin: 0 auto;
         }
+        #archi-triangle > div:nth-child(3) {
+            flex-direction: column;
+            align-items: center;
+        }
     }
     </style>
 
@@ -272,24 +276,27 @@
         </div>
     </section>
 
-    <!-- VIDÉO TIKTOK -->
-    <section class="section section-black" style="padding:clamp(40px,6vw,80px) 0; text-align:center;">
-        <div class="container" style="max-width:500px;">
-            <video autoplay muted loop playsinline style="width:100%; border-radius:16px; box-shadow:0 10px 40px rgba(0,0,0,0.5);">
-                <source src="VIDEOS/1.mp4" type="video/mp4">
-            </video>
-        </div>
-    </section>
-
-    <!-- CTA FINAL -->
-    <section class="section section-black" id="cta-final" style="padding:0;">
-        <div class="container" style="max-width:800px; padding:clamp(2rem,4vw,3rem) 24px;">
-            <div class="cta-bubble">
-                <h2 class="cta-title">Prêt à structurer<br><span class="accent">votre croissance ?</span></h2>
-                <p class="cta-text">Identifiez si nos prestations vous correspondent.</p>
-                <div class="cta-buttons">
-                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary btn-large">Diagnostic stratégique — 30 min</a>
-                    <a href="mailto:bnfconsulting.contact@gmail.com" class="btn btn-primary btn-large" style="background:transparent; border:1px solid #549ba2; margin-left:12px;">Envoyez un mail</a>
+    <!-- VIDÉO + CTA côte à côte -->
+    <section class="section section-black" id="cta-final" style="padding:clamp(60px,8vw,120px) 0;">
+        <div class="container" style="max-width:1100px;">
+            <div style="display:flex; align-items:center; gap:clamp(24px,4vw,60px); flex-wrap:wrap; justify-content:center;">
+                <!-- Vidéo à gauche -->
+                <div style="flex:0 1 360px; max-width:400px; position:relative;">
+                    <video id="cta-video" autoplay muted loop playsinline style="width:100%; border-radius:16px; box-shadow:0 10px 40px rgba(0,0,0,0.5);">
+                        <source src="VIDEOS/1.mp4" type="video/mp4">
+                    </video>
+                    <button onclick="var v=document.getElementById('cta-video');v.muted=!v.muted;this.innerHTML=v.muted?'<svg width=\'20\' height=\'20\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#fff\' stroke-width=\'2\' stroke-linecap=\'round\'><polygon points=\'11 5 6 9 2 9 2 15 6 15 11 19\'></polygon><line x1=\'23\' y1=\'9\' x2=\'17\' y2=\'15\'></line><line x1=\'17\' y1=\'9\' x2=\'23\' y2=\'15\'></line></svg>':'<svg width=\'20\' height=\'20\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#fff\' stroke-width=\'2\' stroke-linecap=\'round\'><polygon points=\'11 5 6 9 2 9 2 15 6 15 11 19\'></polygon><path d=\'M19.07 4.93a10 10 0 0 1 0 14.14\'></path><path d=\'M15.54 8.46a5 5 0 0 1 0 7.07\'></path></svg>'" style="position:absolute; bottom:16px; right:16px; background:rgba(0,0,0,0.5); border:none; border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; cursor:pointer; backdrop-filter:blur(4px); transition:background 0.3s;" onmouseenter="this.style.background='rgba(84,155,162,0.7)'" onmouseleave="this.style.background='rgba(0,0,0,0.5)'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></button>
+                </div>
+                <!-- CTA à droite -->
+                <div style="flex:1 1 400px; max-width:550px;">
+                    <div class="cta-bubble">
+                        <h2 class="cta-title">Prêt à structurer<br><span class="accent">votre croissance ?</span></h2>
+                        <p class="cta-text">Identifiez si nos prestations vous correspondent.</p>
+                        <div class="cta-buttons">
+                            <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary btn-large">Diagnostic stratégique — 30 min</a>
+                            <a href="mailto:bnfconsulting.contact@gmail.com" class="btn btn-primary btn-large" style="background:transparent; border:1px solid #549ba2; margin-left:12px;">Envoyez un mail</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
