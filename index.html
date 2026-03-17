@@ -709,27 +709,15 @@
     (function(){var v=document.querySelectorAll('video[autoplay]');if(!v.length||!('IntersectionObserver' in window))return;v.forEach(function(e){e.removeAttribute('autoplay');e.pause()});var o=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.play().catch(function(){});} else {e.target.pause();}})},{threshold:0.0, rootMargin:'200px 0px'});v.forEach(function(e){o.observe(e)})})();
     </script>
     <script>
-    /* Auto unmute video on mobile when section visible */
+    /* Auto unmute video on mobile — only after first user tap on video/section */
     (function(){
-        if(!('IntersectionObserver' in window)) return;
         var isMobile = window.matchMedia('(max-width: 768px)').matches;
         if(!isMobile) return;
-        var section = document.getElementById('cta-final');
         var video = document.getElementById('cta-video');
         var btn = document.getElementById('cta-sound-btn');
-        if(!section || !video) return;
-        var obs = new IntersectionObserver(function(entries){
-            entries.forEach(function(e){
-                if(e.isIntersecting){
-                    video.muted = false;
-                    if(btn) btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
-                } else {
-                    video.muted = true;
-                    if(btn) btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
-                }
-            });
-        }, {threshold: 0.5});
-        obs.observe(section);
+        if(!video) return;
+        /* On mobile, auto-unmute crashes playback (iOS policy).
+           Video stays muted, user taps sound button to enable. */
     })();
     </script>
     <script src="main.js"></script>
