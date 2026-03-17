@@ -2448,6 +2448,13 @@ h1, h2, h3 {
 }
 
 @media (max-width: 768px) {
+    #cta-sound-btn {
+        bottom: auto !important;
+        right: auto !important;
+        top: 12px !important;
+        left: 12px !important;
+    }
+
     .section {
         padding: 80px 0;
     }
