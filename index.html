@@ -1,547 +1,728 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS92XFM5CQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SS92XFM5CQ');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BnF — Portail</title>
+    <title>BnFConsulting — Orchestration Stratégique & Opérationnelle</title>
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background: #000;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Montserrat', -apple-system, sans-serif;
-            overflow: hidden;
-            position: relative;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: url('PHOTOS/Drones/Best_teinture_vert (4).JPG') center/cover no-repeat;
-            opacity: 0.12;
-            z-index: 0;
-        }
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,0.8) 100%);
-            z-index: 0;
-        }
-        body > * { position: relative; z-index: 1; }
-
-        /* ---- INTRO ---- */
-        .intro-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            background: #000;
-            z-index: 8000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.6s ease;
-        }
-        .intro-words-stack {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.3em;
-        }
-        .intro-sub-words {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.3em;
-        }
-        .intro-word {
-            color: #fff;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 300;
-            font-size: clamp(2rem, 9vw, 8rem);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            opacity: 0;
-        }
-        .intro-word.visible { opacity: 1; }
-
-        .intro-overlay.to-final {
-            background: transparent;
-            transition: background 0.8s ease;
-        }
-        .intro-words-stack.to-final {
-            gap: 4px;
-            transition: transform 0.8s ease, gap 0.8s ease;
-        }
-        .intro-words-stack.to-final .intro-word {
-            transition: font-size 0.8s ease, letter-spacing 0.8s ease, opacity 0.8s ease;
-        }
-        .intro-words-stack.to-final .intro-word[data-word="Bienvenue"] {
-            font-size: clamp(1.8rem, 4vw, 3.2rem);
-            letter-spacing: 0.25em;
-        }
-        .intro-sub-words.to-final {
-            flex-direction: row;
-            gap: 0.25em;
-        }
-        .intro-sub-words.to-final .intro-word {
-            font-size: clamp(1.8rem, 4vw, 3.2rem);
-            letter-spacing: 0.25em;
-            opacity: 0.7;
-        }
-        .intro-overlay.intro-hidden {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        /* ---- TITRE ---- */
-        .portal-title {
-            color: #fff;
-            font-weight: 300;
-            letter-spacing: 0.25em;
-            margin-bottom: clamp(30px, 5vh, 60px);
-            text-align: center;
-            opacity: 0;
-        }
-        .portal-title-main {
-            display: block;
-            font-size: clamp(1.8rem, 4vw, 3.2rem);
-            text-transform: uppercase;
-        }
-        .portal-title-sub {
-            display: block;
-            font-size: clamp(1.8rem, 4vw, 3.2rem);
-            letter-spacing: 0.25em;
-            margin-top: 8px;
-            font-weight: 300;
-            opacity: 0.7;
-        }
-
-        /* ---- ORBITAL ---- */
-        .orbital-wrapper {
-            opacity: 0;
-            transform: scale(0.6);
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        .orbital-wrapper.visible {
-            animation: orbitalIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        @keyframes orbitalIn {
-            0% { opacity: 0; transform: scale(0.6); }
-            60% { opacity: 1; transform: scale(1.03); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        .orbital-container {
-            position: relative;
-            width: clamp(320px, 50vw, 520px);
-            height: clamp(320px, 50vw, 520px);
-        }
-
-        /* Rings */
-        .orbital-ring {
-            position: absolute;
-            border: 1px solid rgba(84, 155, 162, 0.12);
-            border-radius: 50%;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .orbital-ring-1 { width: 55%; height: 55%; }
-        .orbital-ring-2 { width: 85%; height: 85%; border-color: rgba(84, 155, 162, 0.08); }
-        .orbital-ring-3 { width: 100%; height: 100%; border-color: rgba(84, 155, 162, 0.04); }
-
-        /* Dotted orbit path */
-        .orbital-ring-dots {
-            position: absolute;
-            width: 70%; height: 70%;
-            border: 1px dashed rgba(84, 155, 162, 0.1);
-            border-radius: 50%;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            animation: orbitSpin 120s linear infinite;
-        }
-
-        @keyframes orbitSpin {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
-        }
-
-        /* Center */
-        .orbital-center {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 3;
-        }
-        .orbital-center-logo {
-            width: clamp(70px, 10vw, 110px);
-            height: auto;
-            border-radius: 8px;
-            opacity: 0.9;
-            margin-bottom: 10px;
-        }
-        .orbital-center-tagline {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: clamp(0.5rem, 0.9vw, 0.7rem);
-            font-weight: 300;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-
-        /* Satellite nodes */
-        .orbital-node {
-            position: absolute;
-            width: clamp(90px, 12vw, 130px);
-            text-align: center;
-            z-index: 2;
-            transition: transform 0.4s ease;
-        }
-        .orbital-wrapper:hover .orbital-node {
-            transform: scale(1.08);
-        }
-
-        /* Positioning: 3 nodes at 120° intervals (top, bottom-right, bottom-left) */
-        .orbital-node-1 {
-            top: 0%; left: 50%;
-            transform: translateX(-50%);
-        }
-        .orbital-node-2 {
-            bottom: 12%; right: 2%;
-            transform: translate(0, 0);
-        }
-        .orbital-node-3 {
-            bottom: 12%; left: 2%;
-            transform: translate(0, 0);
-        }
-
-        .orbital-wrapper:hover .orbital-node-1 { transform: translateX(-50%) scale(1.08); }
-        .orbital-wrapper:hover .orbital-node-2 { transform: translate(0, 0) scale(1.08); }
-        .orbital-wrapper:hover .orbital-node-3 { transform: translate(0, 0) scale(1.08); }
-
-        .node-num {
-            color: #549BA2;
-            font-size: clamp(1.2rem, 2vw, 1.6rem);
-            font-weight: 700;
-            font-family: Georgia, 'Times New Roman', serif;
-            line-height: 1;
-            margin-bottom: 4px;
-        }
-        .node-label {
-            color: #fff;
-            font-size: clamp(0.55rem, 1vw, 0.75rem);
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            margin-bottom: 2px;
-        }
-        .node-brand {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: clamp(0.4rem, 0.75vw, 0.55rem);
-            font-weight: 300;
-            letter-spacing: 0.08em;
-        }
-
-        /* Connector dots */
-        .orbital-dot {
-            position: absolute;
-            width: 5px; height: 5px;
-            background: #549BA2;
-            border-radius: 50%;
-            opacity: 0.4;
-            z-index: 1;
-        }
-        .orbital-dot-1 { top: 18%; left: 18%; }
-        .orbital-dot-2 { top: 18%; right: 18%; }
-        .orbital-dot-3 { bottom: 30%; left: 50%; transform: translateX(-50%); }
-
-        /* CTA */
-        .orbital-cta {
-            text-align: center;
-            margin-top: clamp(20px, 4vh, 40px);
-            opacity: 0;
-            animation: fadeIn 1.5s ease 3.8s forwards;
-        }
-        .orbital-cta-text {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: clamp(0.6rem, 1vw, 0.8rem);
-            font-weight: 300;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-        .orbital-cta-btn {
-            display: inline-block;
-            color: #fff;
-            font-size: clamp(0.65rem, 1.1vw, 0.85rem);
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            padding: 12px 32px;
-            border: 1px solid rgba(84, 155, 162, 0.35);
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(8px);
-            background: rgba(84, 155, 162, 0.06);
-        }
-        .orbital-cta-btn:hover {
-            border-color: rgba(84, 155, 162, 0.7);
-            background: rgba(84, 155, 162, 0.12);
-            box-shadow: 0 0 30px rgba(84, 155, 162, 0.15);
-            transform: translateY(-2px);
-        }
-
-        /* Hover glow on whole orbital */
-        .orbital-wrapper:hover .orbital-ring-1 {
-            border-color: rgba(84, 155, 162, 0.25);
-            box-shadow: 0 0 40px rgba(84, 155, 162, 0.06);
-            transition: all 0.5s ease;
-        }
-        .orbital-wrapper:hover .orbital-ring-2 {
-            border-color: rgba(84, 155, 162, 0.15);
-            transition: all 0.5s ease;
-        }
-        .orbital-wrapper:hover .orbital-dot {
-            opacity: 0.7;
-            transition: opacity 0.4s ease;
-        }
-
-        /* Footer */
-        .portal-credit {
-            color: rgba(255, 255, 255, 0.85);
-            font-size: clamp(0.65rem, 1.2vw, 0.85rem);
-            font-weight: 300;
-            letter-spacing: 0.15em;
-            margin-top: clamp(25px, 4vh, 50px);
-            opacity: 0;
-            animation: fadeIn 1.5s ease 4.2s forwards;
-        }
-        .portal-copyright {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: clamp(0.5rem, 0.9vw, 0.65rem);
-            font-weight: 300;
-            letter-spacing: 0.08em;
-            margin-top: 8px;
-            opacity: 0;
-            animation: fadeIn 1.5s ease 4.5s forwards;
-        }
-
-        @keyframes fadeIn { to { opacity: 1; } }
-
-        /* Rotating orbit container */
-        .orbital-orbit {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            animation: orbitRotate 120s linear infinite;
-        }
-
-        @keyframes orbitRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Counter-rotate node content so text stays upright */
-        .node-inner {
-            animation: orbitRotateReverse 120s linear infinite;
-        }
-
-        @keyframes orbitRotateReverse {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(-360deg); }
-        }
-
-        /* No floating — orbital stays fixed after entry */
-
-        /* ---- RESPONSIVE ---- */
-        @media (max-width: 768px) {
-            body { overflow-y: auto; padding: 30px 0; }
-
-            .portal-title {
-                letter-spacing: 0.15em;
-                margin-bottom: 20px;
-            }
-            .portal-title-main { font-size: 1.8rem; }
-            .portal-title-sub { font-size: 1.8rem; letter-spacing: 0.15em; margin-top: 4px; }
-
-            .intro-word { font-size: clamp(1.8rem, 8vw, 4rem); letter-spacing: 0.1em; }
-            .intro-words-stack.to-final .intro-word[data-word="Bienvenue"] { font-size: 1.8rem; }
-            .intro-sub-words.to-final .intro-word { font-size: 1.8rem; }
-
-            .orbital-container {
-                width: 85vw;
-                height: 85vw;
-            }
-
-            .node-num { font-size: 1.3rem; }
-            .node-label { font-size: 0.55rem; }
-            .node-brand { font-size: 0.42rem; }
-
-            .orbital-cta { margin-top: 15px; }
-            .portal-credit { font-size: 0.6rem; margin-top: 15px; }
-            .portal-copyright { font-size: 0.4rem; margin-top: 6px; }
-        }
-
-        @media (max-width: 420px) {
-            .portal-title-main { font-size: 1.5rem; }
-            .portal-title-sub { font-size: 1.5rem; }
-            .intro-word { font-size: clamp(1.5rem, 7vw, 3rem); letter-spacing: 0.08em; }
-            .intro-words-stack.to-final .intro-word[data-word="Bienvenue"] { font-size: 1.5rem; }
-            .intro-sub-words.to-final .intro-word { font-size: 1.5rem; }
-
-            .orbital-container { width: 92vw; height: 92vw; }
-            .node-num { font-size: 1.1rem; }
-            .node-label { font-size: 0.48rem; }
-            .node-brand { font-size: 0.38rem; }
-        }
-    </style>
+    <meta name="description" content="On orchestre stratégie, opérations et croissance pour transformer des structures dispersées en systèmes simplifiés.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="has-top-bar">
 
-    <!-- Intro plein écran -->
-    <div class="intro-overlay" id="introOverlay">
-        <div class="intro-words-stack" id="introStack">
-            <span class="intro-word" data-word="Bienvenue">Bienvenue</span>
-            <div class="intro-sub-words" id="introSubWords">
-                <span class="intro-word" data-word="dans">dans</span>
-                <span class="intro-word" data-word="l'architecture">l'architecture</span>
-                <span class="intro-word" data-word="BnF">BnF</span>
+    <!-- TOP AXES BAR (mobile only) -->
+    <div class="top-axes-bar">
+        <a href="drones.html" class="mobile-axe-link">Visibilité</a>
+        <span class="mobile-axe-sep"></span>
+        <a href="flow.html" class="mobile-axe-link">Optimisation</a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo"><img src="PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting"></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li class="nav-home"><a href="index.html">Accueil</a></li>
+                <li class="nav-axes-group">
+                    <a href="drones.html">Visibilité</a>
+                    <span class="nav-axe-sep"></span>
+                    <a href="flow.html">Optimisation</a>
+                </li>
+                <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Diagnostic stratégique</a></li>
+                <li class="lang-toggle"><a href="index.html" class="lang-link active">FR</a><span class="lang-sep">|</span><a href="en/index.html" class="lang-link">EN</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="PHOTOS/Best_teinture_vert (4).JPG" alt="BnFConsulting">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <!-- MINI NAV MOBILE (visible uniquement sur mobile, au-dessus du logo) -->
+            <div class="mobile-axes-nav">
+                <a href="drones.html" class="mobile-axe-link">Visibilité</a>
+                <span class="mobile-axe-sep"></span>
+                <a href="flow.html" class="mobile-axe-link">Optimisation</a>
+            </div>
+            <div class="drone-hero-mobile-logo" style="display:none; text-align:left; margin-bottom:12px; padding-left:16px;">
+                <img src="PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting" style="height:32px; width:auto; opacity:0.8; border-radius:3px;">
+            </div>
+            <h1 class="hero-title">
+                Une architecture<br><span class="accent">pour développer votre entreprise</span>
+            </h1>
+            <p class="hero-sub">
+                BNF identifie les freins à votre croissance et active les expertises nécessaires pour les lever et développer votre entreprise.
+            </p>
+            <div class="hero-ctas">
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary">Diagnostic stratégique — 30 min</a>
+            </div>
+
+            <!-- NAVIGATION RAPIDE (desktop uniquement) -->
+            <div class="quick-nav">
+                <a href="#axes" class="quick-nav-item quick-nav-desktop-only">L'architecture BnF</a>
+                <a href="drones.html" class="quick-nav-item quick-nav-axe">Visibilité</a>
+                <a href="flow.html" class="quick-nav-item quick-nav-axe">Optimisation</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PHRASE RÉVÉLÉE AU SCROLL — fullscreen sticky -->
+    <section id="scroll-reveal-section" style="background:#fff; position:relative;">
+        <!-- Hauteur longue pour scroll lent -->
+        <div style="height:300vh; position:relative;">
+            <!-- Sticky centré -->
+            <div id="scroll-reveal-sticky" style="
+                position:sticky; top:0; height:100vh;
+                display:flex; flex-direction:column; align-items:center; justify-content:center;
+                padding:clamp(20px,5vw,60px);
+            ">
+                <p id="scroll-reveal-text" style="
+                    font-family: Georgia, 'Times New Roman', serif;
+                    font-size: clamp(1.4rem, 3.5vw, 2.6rem);
+                    font-weight: 400;
+                    line-height: 1.6;
+                    max-width: 900px;
+                    text-align: center;
+                    color: #111;
+                    margin: 0 auto 40px;
+                ">
+                    <span class="sr-group">Votre souci</span>
+                    <span class="sr-group">dans votre développement</span>
+                    <span class="sr-group">n'est pas</span>
+                    <span class="sr-group">le manque d'efforts :</span>
+                    <br><br>
+                    <span class="sr-group">c'est l'écart</span>
+                    <span class="sr-group">entre les paramètres</span>
+                    <span class="sr-group">que vous avez à gérer</span>
+                    <span class="sr-group">et la</span>
+                    <span class="sr-group" style="color:#549ba2; font-weight:500;">structure</span>
+                    <span class="sr-group">de votre organisation.</span>
+                </p>
+                <!-- Boîtes rouge/bleue -->
+                <div id="sr-boxes" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; opacity:0; transition:opacity 0.6s ease;">
+                    <div style="border:1px solid rgba(220,60,60,0.6); border-radius:12px; padding:14px 24px; text-align:center; background:rgba(220,60,60,0.06);">
+                        <span style="color:rgba(220,60,60,0.9); font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600;">Structure = correctif.</span>
+                    </div>
+                    <div style="border:1px solid rgba(84,155,162,0.6); border-radius:12px; padding:14px 24px; text-align:center; background:rgba(84,155,162,0.06);">
+                        <span style="color:#549ba2; font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600;">Architecture = réponse systémique à la complexité.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LA SOLUTION -->
+    <section class="section section-black" id="solution" style="padding:clamp(80px,12vw,160px) 0;">
+        <div class="container" style="max-width:1000px; text-align:center;">
+            <p class="section-label" style="font-size:clamp(0.75rem,1.2vw,0.9rem); margin-bottom:20px;">NOTRE SOLUTION À ÇA</p>
+            <h2 class="section-title" style="font-size:clamp(2rem,4.5vw,3.5rem); margin-bottom:24px;">L'architecture <span class="accent">BNF</span>,<br>une architecture de croissance structurée</h2>
+            <p style="color:rgba(255,255,255,0.6); font-size:clamp(1rem,1.8vw,1.2rem); line-height:1.8; max-width:650px; margin:0 auto;">BNF structure les entreprises autour de plusieurs leviers essentiels.</p>
+        </div>
+    </section>
+
+    <!-- LES 3 AXES — Schéma relié triangle -->
+    <section id="axes" style="background:#fff; padding:clamp(60px, 8vw, 100px) 0;">
+        <div style="max-width:1100px; margin:0 auto; padding:0 clamp(16px,3vw,40px);">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px; text-align:center;">L'architecture BnF</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#111; font-weight:400; line-height:1.3; text-align:center; margin-bottom:8px;">Trois axes connectés.</h2>
+            <p style="font-family:Georgia,serif; font-size:clamp(1rem,2vw,1.3rem); color:rgba(0,0,0,0.5); text-align:center; margin-bottom:clamp(40px,6vw,70px);">Voilà comment on structure votre croissance.</p>
+
+            <!-- Triangle desktop -->
+            <div id="archi-triangle" style="position:relative; max-width:900px; margin:0 auto;">
+                <!-- SVG lignes de connexion (desktop) -->
+                <svg id="archi-lines" viewBox="0 0 900 420" fill="none" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0;">
+                    <!-- Ligne haut-gauche → haut-droite -->
+                    <line x1="260" y1="100" x2="640" y2="100" stroke="#549ba2" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.4"/>
+                    <!-- Ligne haut-gauche → bas-centre -->
+                    <line x1="200" y1="140" x2="420" y2="340" stroke="#549ba2" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.4"/>
+                    <!-- Ligne haut-droite → bas-centre -->
+                    <line x1="700" y1="140" x2="480" y2="340" stroke="#549ba2" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.4"/>
+                    <!-- Points de connexion -->
+                    <circle cx="230" cy="100" r="4" fill="#549ba2" opacity="0.6"/>
+                    <circle cx="670" cy="100" r="4" fill="#549ba2" opacity="0.6"/>
+                    <circle cx="450" cy="360" r="4" fill="#549ba2" opacity="0.6"/>
+                </svg>
+
+                <!-- Grille triangle : 2 en haut, 1 centré en bas -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; position:relative; z-index:1;">
+
+                    <!-- AXE 1 — Stratégie -->
+                    <a href="index.html#solution" style="text-decoration:none; color:inherit;">
+                    <div style="background:#fff; border:1px solid rgba(0,0,0,0.1); border-radius:16px; padding:clamp(24px,3vw,36px); text-align:center; transition:border-color 0.3s, box-shadow 0.3s;" onmouseenter="this.style.borderColor='#549ba2';this.style.boxShadow='0 8px 30px rgba(84,155,162,0.12)'" onmouseleave="this.style.borderColor='rgba(0,0,0,0.1)';this.style.boxShadow='none'">
+                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Axe 01</p>
+                        <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.6rem); color:#111; font-weight:400; margin-bottom:12px;">Stratégie</h3>
+                        <p style="color:#111; font-size:clamp(0.85rem,1.1vw,0.95rem); font-weight:500; margin-bottom:8px;">Clarifier où vous allez</p>
+                        <p style="color:rgba(0,0,0,0.5); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin-bottom:16px;">De la confusion → à la clarté stratégique</p>
+                        <span style="color:#549ba2; font-size:0.8rem; font-weight:500;">En savoir plus →</span>
+                    </div>
+                    </a>
+
+                    <!-- AXE 2 — Optimisation -->
+                    <a href="flow.html" style="text-decoration:none; color:inherit;">
+                    <div style="background:#fff; border:1px solid rgba(0,0,0,0.1); border-radius:16px; padding:clamp(24px,3vw,36px); text-align:center; transition:border-color 0.3s, box-shadow 0.3s;" onmouseenter="this.style.borderColor='#549ba2';this.style.boxShadow='0 8px 30px rgba(84,155,162,0.12)'" onmouseleave="this.style.borderColor='rgba(0,0,0,0.1)';this.style.boxShadow='none'">
+                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Axe 02</p>
+                        <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.6rem); color:#111; font-weight:400; margin-bottom:12px;">Optimisation</h3>
+                        <p style="color:#111; font-size:clamp(0.85rem,1.1vw,0.95rem); font-weight:500; margin-bottom:8px;">Structurer comment vous y allez</p>
+                        <p style="color:rgba(0,0,0,0.5); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin-bottom:16px;">Du bricolage → à un système qui tourne</p>
+                        <span style="color:#549ba2; font-size:0.8rem; font-weight:500;">En savoir plus →</span>
+                    </div>
+                    </a>
+                </div>
+
+                <!-- AXE 3 — Visibilité (centré en bas du triangle) -->
+                <div style="display:flex; justify-content:center; margin-top:24px; position:relative; z-index:1;">
+                    <a href="drones.html" style="text-decoration:none; color:inherit; width:calc(50% - 12px);">
+                    <div style="background:#fff; border:1px solid rgba(0,0,0,0.1); border-radius:16px; padding:clamp(24px,3vw,36px); text-align:center; transition:border-color 0.3s, box-shadow 0.3s;" onmouseenter="this.style.borderColor='#549ba2';this.style.boxShadow='0 8px 30px rgba(84,155,162,0.12)'" onmouseleave="this.style.borderColor='rgba(0,0,0,0.1)';this.style.boxShadow='none'">
+                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Axe 03</p>
+                        <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.6rem); color:#111; font-weight:400; margin-bottom:12px;">Visibilité</h3>
+                        <p style="color:#111; font-size:clamp(0.85rem,1.1vw,0.95rem); font-weight:500; margin-bottom:8px;">Montrer qui vous êtes</p>
+                        <p style="color:rgba(0,0,0,0.5); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin-bottom:16px;">De l'invisibilité → à une image qui travaille pour vous</p>
+                        <span style="color:#549ba2; font-size:0.8rem; font-weight:500;">En savoir plus →</span>
+                    </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- PRODUIT CŒUR — séparé -->
+            <div style="max-width:700px; margin:clamp(40px,6vw,60px) auto 0; text-align:center; border:1.5px solid #549ba2; border-radius:16px; padding:clamp(28px,4vw,44px); background:rgba(84,155,162,0.03);">
+                <p style="font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:10px;">Par où commencer ?</p>
+                <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2.2vw,1.7rem); color:#111; font-weight:400; margin-bottom:14px;">Le rapport stratégique</h3>
+                <p style="color:rgba(0,0,0,0.6); font-size:clamp(0.85rem,1.1vw,0.95rem); line-height:1.7; margin-bottom:20px;">Révélez vos pertes invisibles, incohérences internes et freins à la croissance.<br>C'est la porte d'entrée dans l'architecture BNF.</p>
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" style="display:inline-block; background:#549ba2; color:#fff; font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600; padding:12px 28px; border-radius:8px; text-decoration:none; transition:background 0.3s;" onmouseenter="this.style.background='#3d7a80'" onmouseleave="this.style.background='#549ba2'">Réserver un diagnostic →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <style>
+    /* Triangle mobile : empilé verticalement avec lignes verticales */
+    @media (max-width: 768px) {
+        #archi-lines { display: none; }
+        /* La grille 2 colonnes → 1 colonne */
+        #archi-triangle > div:nth-child(2) {
+            grid-template-columns: 1fr !important;
+            gap: 0 !important;
+        }
+        /* Axe 3 wrapper : pleine largeur */
+        #archi-triangle > div:nth-child(3) a {
+            width: 100% !important;
+        }
+        /* Les liens dans la grille */
+        #archi-triangle > div:nth-child(2) > a {
+            display: block;
+            margin-bottom: 0;
+        }
+        /* Ligne verticale entre carte 1→2 et 2→3 */
+        #archi-triangle > div:nth-child(2) > a + a::before,
+        #archi-triangle > div:nth-child(3)::before {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 32px;
+            background: linear-gradient(to bottom, rgba(84,155,162,0.15), rgba(84,155,162,0.5), rgba(84,155,162,0.15));
+            margin: 0 auto;
+        }
+        #archi-triangle > div:nth-child(3) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    </style>
+
+    <!-- SECTION : Intervention adaptée (photo fond) -->
+    <section class="section intervention-photo-section" id="intervention">
+        <div class="intervention-photo-bg">
+            <img src="PHOTOS/Drones/Best_teinture_violette.JPG" alt="" loading="lazy">
+        </div>
+        <div class="intervention-photo-overlay"></div>
+        <div class="container container-relative" style="text-align:center;">
+            <h2 class="section-title" style="color:#fff;">Une intervention adaptée <span class="accent">à chaque entreprise</span></h2>
+            <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.9rem,1.5vw,1.05rem); line-height:1.7; max-width:600px; margin:0 auto 2.5rem;">Certaines entreprises ont besoin d'une transformation globale. D'autres ont simplement besoin d'activer un levier précis.</p>
+            <div class="axe-intervention-options">
+                <div class="axe-option">
+                    <span class="axe-option-icon">◎</span>
+                    <span>Un seul axe</span>
+                </div>
+                <div class="axe-option">
+                    <span class="axe-option-icon">◎◎</span>
+                    <span>Plusieurs axes</span>
+                </div>
+                <div class="axe-option">
+                    <span class="axe-option-icon">◎◎◎</span>
+                    <span>Architecture complète</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDÉO + CTA côte à côte -->
+    <section class="section section-black" id="cta-final" style="padding:clamp(60px,8vw,120px) 0;" onmouseenter="document.getElementById('cta-video').muted=false" onmouseleave="document.getElementById('cta-video').muted=true">
+        <div class="container" style="max-width:1100px;">
+            <div style="display:flex; align-items:center; gap:clamp(24px,4vw,60px); flex-wrap:wrap; justify-content:center;">
+                <!-- Vidéo à gauche -->
+                <div style="flex:0 1 360px; max-width:400px; position:relative;">
+                    <video id="cta-video" autoplay muted loop playsinline style="width:100%; border-radius:16px; box-shadow:0 10px 40px rgba(0,0,0,0.5);">
+                        <source src="VIDEOS/1.mp4" type="video/mp4">
+                    </video>
+                    <button id="cta-sound-btn" onclick="var v=document.getElementById('cta-video');v.muted=!v.muted;this.innerHTML=v.muted?'<svg width=\'20\' height=\'20\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#fff\' stroke-width=\'2\' stroke-linecap=\'round\'><polygon points=\'11 5 6 9 2 9 2 15 6 15 11 19\'></polygon><line x1=\'23\' y1=\'9\' x2=\'17\' y2=\'15\'></line><line x1=\'17\' y1=\'9\' x2=\'23\' y2=\'15\'></line></svg>':'<svg width=\'20\' height=\'20\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#fff\' stroke-width=\'2\' stroke-linecap=\'round\'><polygon points=\'11 5 6 9 2 9 2 15 6 15 11 19\'></polygon><path d=\'M19.07 4.93a10 10 0 0 1 0 14.14\'></path><path d=\'M15.54 8.46a5 5 0 0 1 0 7.07\'></path></svg>'" style="position:absolute; bottom:16px; right:16px; background:rgba(0,0,0,0.5); border:none; border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; cursor:pointer; backdrop-filter:blur(4px); transition:background 0.3s; z-index:2;" onmouseenter="this.style.background='rgba(84,155,162,0.7)'" onmouseleave="this.style.background='rgba(0,0,0,0.5)'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></button>
+                </div>
+                <!-- CTA à droite -->
+                <div style="flex:1 1 400px; max-width:550px;">
+                    <div class="cta-bubble">
+                        <h2 class="cta-title">Prêt à structurer<br><span class="accent">votre croissance ?</span></h2>
+                        <p class="cta-text">Identifiez si nos prestations vous correspondent.</p>
+                        <div class="cta-buttons">
+                            <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary btn-large">Diagnostic stratégique — 30 min</a>
+                            <a href="mailto:bnfconsulting.contact@gmail.com" class="btn btn-primary btn-large" style="background:transparent; border:1px solid #549ba2; margin-left:12px;">Envoyez un mail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAS D'USAGE (déplacé après CTA) -->
+    <section class="section section-black section-piliers" id="cibles">
+        <div class="piliers-bg">
+            <img src="PHOTOS/Best_3.JPG" alt="" loading="lazy">
+        </div>
+        <div class="piliers-overlay"></div>
+        <div class="container container-relative">
+            <p class="section-label">Cas d'usage</p>
+            <h2 class="section-title">Pour qui <span class="accent">est-ce fait ?</span></h2>
+            <div style="display:flex; gap:clamp(1rem,2vw,1.5rem); margin-top:3rem; justify-content:center; flex-wrap:wrap;">
+
+                <div class="glass-card">
+                    <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
+                    <h3 class="glass-card-title">Croissance</h3>
+                    <p class="glass-card-text">PME en croissance ayant dépassé leur première phase d'expansion</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line><circle cx="8" cy="10" r="1.5" fill="currentColor" stroke="none"></circle><circle cx="16" cy="10" r="1.5" fill="currentColor" stroke="none"></circle></svg></div>
+                    <h3 class="glass-card-title">Multi-sites</h3>
+                    <p class="glass-card-text">Entreprises multi-sites nécessitant harmonisation</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>
+                    <h3 class="glass-card-title">Chaos opérationnel</h3>
+                    <p class="glass-card-text">Dirigeants confrontés à un chaos opérationnel croissant</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Séparation visuelle -->
+    <div class="section-divider"></div>
+
+    <section class="stacking-section" id="structure-disparait">
+        <div class="stacking-header">
+            <h2 class="stacking-title">Quand la structure disparaît,<br><span class="accent">la complexité prend le contrôle.</span></h2>
+        </div>
+        <p class="stacking-subtitle-desktop" style="color:rgba(255,255,255,0.5); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:620px; margin:0 auto 2rem; text-align:center;">Lorsque la croissance crée plus de complexité qu'elle n'apporte de structure, la performance s'étouffe, car les processus et la visibilité ne suivent plus.</p>
+
+        <div class="stacking-cards-container">
+            <div class="stacking-card" style="--card-index:0;">
+                <div class="stacking-card-inner">
+                    <p class="stacking-card-num">01</p>
+                    <h3 class="stacking-card-mot">SILOS</h3>
+                    <p class="stacking-card-texte"><span style="color:#fff; font-weight:600;">Fragmentation</span> : à mesure que l'entreprise grandit, les équipes avancent selon leurs propres logiques. La coordination devient plus difficile.</p>
+                </div>
+            </div>
+            <div class="stacking-card" style="--card-index:1;">
+                <div class="stacking-card-inner">
+                    <p class="stacking-card-num">02</p>
+                    <h3 class="stacking-card-mot">IMPROVISATION</h3>
+                    <p class="stacking-card-texte"><span style="color:#fff; font-weight:600;">Réactivité permanente</span> : les décisions s'enchaînent rapidement sans toujours s'inscrire dans un cadre stable.</p>
+                </div>
+            </div>
+            <div class="stacking-card" style="--card-index:2;">
+                <div class="stacking-card-inner">
+                    <p class="stacking-card-num">03</p>
+                    <h3 class="stacking-card-mot">OPACITÉ</h3>
+                    <p class="stacking-card-texte"><span style="color:#fff; font-weight:600;">Manque de lisibilité</span> : les données, les priorités et les responsabilités existent, mais elles n'éclairent plus suffisamment la décision.</p>
+                </div>
+            </div>
+            <div class="stacking-card" style="--card-index:3;">
+                <div class="stacking-card-inner">
+                    <p class="stacking-card-num">04</p>
+                    <h3 class="stacking-card-mot">DÉSALIGNEMENT</h3>
+                    <p class="stacking-card-texte"><span style="color:#fff; font-weight:600;">Décalage des rythmes</span> : la stratégie, l'opérationnel et l'image de l'entreprise n'évoluent pas toujours à la même vitesse.</p>
+                </div>
+            </div>
+            <div class="stacking-card" style="--card-index:4;">
+                <div class="stacking-card-inner">
+                    <p class="stacking-card-num">05</p>
+                    <h3 class="stacking-card-mot">CROISSANCE SOUS TENSION</h3>
+                    <p class="stacking-card-texte">Le développement repose parfois sur une organisation trop dépendante des individus, trop peu stabilisée pour durer sereinement.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ARCHITECTURE BNF — Les 4 axes -->
+    <section style="background:#000; padding:clamp(60px, 8vw, 100px) 0;">
+        <div class="container" style="text-align:center;">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Architecture BnF</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; font-weight:400; margin-bottom:12px; line-height:1.2;">Trois leviers. <span style="color:#549ba2;">Une architecture.</span></h2>
+            <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:600px; margin:0 auto 48px;">
+                Chaque axe peut être activé individuellement ou combiné pour transformer un projet.
+            </p>
+            <div class="archi-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; max-width:800px; margin:0 auto;">
+                <a href="index.html" style="background:rgba(84,155,162,0.08); border:1px solid #549ba2; border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Stratégie</h4>
+                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">BnFConsulting</p>
+                </a>
+                <a href="flow.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Optimisation</h4>
+                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">FLOW</p>
+                </a>
+                <a href="drones.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Visibilité</h4>
+                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">DRONE PRO MOTION</p>
+                </a>
+            </div>
+            <p style="color:#fff; font-family:Georgia,serif; font-size:clamp(1rem,1.8vw,1.3rem); font-style:italic; line-height:1.6; max-width:700px; margin:48px auto 0; opacity:0.85;">
+                C'est à travers la complémentarité que des solutions créatives peuvent être trouvées.
+            </p>
+        </div>
+    </section>
+
+    <!-- SPÉCIALES BNF -->
+    <section class="section section-dark" id="speciales" style="position:relative; overflow:hidden;">
+        <video autoplay muted loop playsinline preload="none" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+            <source src="VIDEOS/City.mp4" type="video/mp4">
+        </video>
+        <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1;"></div>
+        <div class="container" style="position:relative; z-index:2;">
+            <p class="section-label">Dossiers thématiques</p>
+            <h2 class="section-title" style="color:#fff;">Nos dossiers <span class="accent">thématiques.</span></h2>
+
+            <div class="speciales-grid">
+
+                <!-- DOSSIER FÉV 2026 -->
+                <div class="dossier-wrapper" id="dossier-fev2026">
+                    <button class="speciale-card dossier-toggle" data-dossier="fev2026" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; cursor:pointer;">
+                        <span class="speciale-date">Dossier — Fév 2026</span>
+                        <h3 class="speciale-title" style="color:#fff;">Drones — Perspective stratégique</h3>
+                        <span class="speciale-arrow dossier-arrow">▼</span>
+                    </button>
+
+                    <div class="dossier-expand" id="dossier-expand-fev2026">
+                        <div class="dossier-tabs">
+                            <button class="dossier-tab active" data-tab="infographie" data-dossier="fev2026">Infographie</button>
+                            <button class="dossier-tab" data-tab="article" data-dossier="fev2026">Article</button>
+                        </div>
+                        <div class="dossier-flip-container">
+                            <div class="dossier-flip-card" id="dossier-flip-fev2026">
+                                <div class="dossier-flip-front">
+                                    <img src="PHOTOS/INFO_FEV (2).png" alt="Infographie Drones — Perspective stratégique" class="dossier-infographie" loading="lazy">
+                                    <span class="dossier-credit">by BnFConsulting</span>
+                                </div>
+                                <div class="dossier-flip-back">
+                                    <div class="dossier-article-content">
+                                        <h2>Voir son activité d'en haut</h2>
+                                        <h3>Image, vision et décision stratégique</h3>
+                                        <p>Vous n'avez pas besoin de produire plus. Vous avez besoin de voir autrement.</p>
+                                        <p>Le drone n'est pas un gadget. C'est une décision stratégique BnF qui révèle la clarté là où le marketing uniforme crée du bruit.</p>
+                                        <h3>Le piège de l'uniformité</h3>
+                                        <p>Même formats, mêmes vidéos, mêmes discours : saturation, indifférence, invisibilité. Produire plus dilue. La hauteur différencie.</p>
+                                        <h3>Ce que la vue drone révèle</h3>
+                                        <ul>
+                                            <li><strong>Extérieur :</strong> Accessibilité, environnement concurrentiel, positionnement réel.</li>
+                                            <li><strong>Intérieur :</strong> Expérience client, cohérence visuelle, opportunités cachées.</li>
+                                        </ul>
+                                        <p>Elle expose freins, attractivité et espaces sous-exploités. Pas pour épater, pour décider.</p>
+                                        <h3>Une stratégie, pas un effet</h3>
+                                        <p>Intégrez le drone à votre narration : série éditoriale, fil visuel, axe de marque. Pertinent pour restaurants, boutiques, lieux physiques où l'espace vend la valeur. Inutile sans vision : évitez le "comme tout le monde".</p>
+                                        <h3>Maîtrisez les règles</h3>
+                                        <p>Zones interdites, assurances, droit à l'image : BnF gère la conformité pour une image irréprochable.</p>
+                                        <p><strong>BnF transforme la hauteur en levier unique : clarté → décision → croissance différenciée.</strong></p>
+                                        <div style="margin-top:2rem; display:flex; gap:12px; flex-wrap:wrap;">
+                                            <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary">Diagnostic stratégique — 30 min</a>
+                                            <a href="#axes" class="btn btn-outline" style="border:1px solid rgba(84,155,162,0.5); color:var(--accent); padding:12px 24px; border-radius:10px; text-decoration:none; font-size:0.85rem; font-weight:600; transition:all 0.3s;">Découvrez l'écosystème BnF</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DOSSIER MARS 2026 -->
+                <div class="dossier-wrapper" id="dossier-mars2026" style="margin-top:1rem;">
+                    <button class="speciale-card dossier-toggle" data-dossier="mars2026" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; cursor:pointer;">
+                        <span class="speciale-date">Dossier — Mars 2026</span>
+                        <h3 class="speciale-title" style="color:#fff;">L'audit digital</h3>
+                        <span class="speciale-arrow dossier-arrow">▼</span>
+                    </button>
+
+                    <div class="dossier-expand" id="dossier-expand-mars2026">
+                        <div class="dossier-tabs">
+                            <button class="dossier-tab active" data-tab="infographie" data-dossier="mars2026">Infographie</button>
+                            <button class="dossier-tab" data-tab="article" data-dossier="mars2026">Article</button>
+                        </div>
+                        <div class="dossier-flip-container">
+                            <div class="dossier-flip-card" id="dossier-flip-mars2026">
+                                <div class="dossier-flip-front">
+                                    <img src="PHOTOS/INFO_MARS.png" alt="Infographie L'audit digital" class="dossier-infographie" loading="lazy">
+                                    <span class="dossier-credit">by BnFConsulting</span>
+                                </div>
+                                <div class="dossier-flip-back">
+                                    <div class="dossier-article-content">
+                                        <h2>L'audit digital, levier stratégique</h2>
+                                        <h3>Pas un contrôle. Une décision.</h3>
+                                        <p>Vous optimisez à l'aveugle ? L'audit BnF n'est pas une critique : c'est la lecture stratégique qui révèle freins et opportunités avant d'agir.</p>
+                                        <p><strong>On n'optimise pas ce qu'on ne comprend pas.</strong></p>
+                                        <h3>Ce que l'audit BnF révèle</h3>
+                                        <p>Incohérences cachées, pertes d'attention, freins conversion, décalages image/réalité, leviers sous-utilisés. Pilier BnF Stratégie : Diagnostic global obligatoire.</p>
+                                        <h3>Les 4 dimensions clés BnF</h3>
+                                        <ul>
+                                            <li><strong>A. Lisibilité :</strong> Promesse claire ? Offre structurée ?</li>
+                                            <li><strong>B. Cohérence :</strong> Alignement site/Google/réseaux/terrain ?</li>
+                                            <li><strong>C. Performance :</strong> Parcours fluide ou friction ?</li>
+                                            <li><strong>D. Données :</strong> KPIs pilotent-ils vraiment ? (Pilier Data & Pilotage BnF)</li>
+                                        </ul>
+                                        <h3>Risque sans audit</h3>
+                                        <p>Ajouter outils sur instable = amplifier erreurs. Investir sans structure = gaspillage. Logique systémique BnF : Fondations d'abord.</p>
+                                        <h3>Ce que BnF active concrètement</h3>
+                                        <ul>
+                                            <li>Clarifier trajectoire.</li>
+                                            <li>Prioriser ROI max.</li>
+                                            <li>Éviter dépenses inutiles.</li>
+                                            <li>Structurer avant automatiser.</li>
+                                        </ul>
+                                        <p><strong>L'audit BnF = entrée dans l'écosystème : Clarté → Cohérence → Croissance durable.</strong></p>
+                                        <div style="margin-top:2rem; display:flex; gap:12px; flex-wrap:wrap;">
+                                            <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary">Diagnostic stratégique — 30 min</a>
+                                            <a href="#axes" class="btn btn-outline" style="border:1px solid rgba(84,155,162,0.5); color:var(--accent); padding:12px 24px; border-radius:10px; text-decoration:none; font-size:0.85rem; font-weight:600; transition:all 0.3s;">Écosystème BnF</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULAIRE RAPPEL -->
+    <section class="section section-dark" id="rappel">
+        <div class="container" style="max-width:600px;">
+            <p class="section-label">Contact</p>
+            <h2 class="section-title">Être <span class="accent">rappelé.</span></h2>
+            <p class="section-intro">Laissez vos coordonnées, nous vous recontactons sous 24h.</p>
+            <form action="https://formspree.io/f/mbdaboon" method="POST" class="recall-form" id="recallForm">
+                <div class="form-group">
+                    <label for="recall-name">Nom complet</label>
+                    <input type="text" id="recall-name" name="name" required placeholder="Jean Dupont">
+                </div>
+                <div class="form-group">
+                    <label for="recall-email">Email</label>
+                    <input type="email" id="recall-email" name="email" required placeholder="jean@entreprise.com">
+                </div>
+                <div class="form-group">
+                    <label for="recall-phone">Téléphone</label>
+                    <input type="tel" id="recall-phone" name="phone" placeholder="06 12 34 56 78">
+                </div>
+                <div class="form-group">
+                    <label for="recall-message">Votre besoin en quelques mots</label>
+                    <textarea id="recall-message" name="message" rows="3" placeholder="Ex : Je cherche à structurer ma croissance…"></textarea>
+                </div>
+                <input type="hidden" name="_subject" value="Nouvelle demande de rappel — BnFConsulting">
+                <button type="submit" class="btn btn-primary btn-large" style="width:100%;">Envoyer ma demande</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div style="max-width:1200px; margin:0 auto; padding:0 24px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px;">
+            <!-- Logo + tagline -->
+            <div>
+                <span class="footer-logo"><img src="PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting" loading="lazy"></span>
+                <p style="font-size:0.8125rem; color:rgba(255,255,255,0.35); margin-top:6px;">Orchestration stratégique & opérationnelle.</p>
+            </div>
+            <!-- Icônes sociales -->
+            <div style="display:flex; gap:16px; align-items:center;">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/bnfconsulting-contact" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <!-- Mail -->
+                <a href="mailto:bnfconsulting.contact@gmail.com" aria-label="Email" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+                </a>
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@bnf_consulting_contact" target="_blank" rel="noopener" aria-label="TikTok" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.17a8.16 8.16 0 004.76 1.53v-3.5a4.82 4.82 0 01-1-.51z"/></svg>
+                </a>
+                <!-- Calendrier -->
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" aria-label="Prendre rendez-vous" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </a>
+            </div>
+            <!-- Copyright -->
+            <p style="font-size:0.75rem; color:rgba(255,255,255,0.25);">&copy; 2026 BnFConsulting. · <a href="mentions-legales.html" style="color:rgba(255,255,255,0.25); text-decoration:none;">Mentions légales</a></p>
+        </div>
+    </footer>
+
+    <!-- BOUTON RETOUR EN HAUT -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
+
+    <!-- BURGER BAS GAUCHE -->
+    <div class="fab-menu" id="fabMenu">
+        <button class="fab-trigger" id="fabTrigger" aria-label="Menu rapide">
+            <span class="fab-bar"></span>
+            <span class="fab-bar"></span>
+            <span class="fab-bar"></span>
+        </button>
+        <div class="fab-panel" id="fabPanel">
+            <div class="fab-section">
+                <p class="fab-label">Navigation</p>
+                <a href="index.html" class="fab-link fab-home">Accueil</a>
+                <div class="fab-axes-group">
+                    <a href="drones.html" class="fab-link">Visibilité</a>
+                    <div class="fab-axe-sep"></div>
+                    <a href="flow.html" class="fab-link">Optimisation</a>
+                </div>
+            </div>
+            <div class="fab-divider"></div>
+            <div class="fab-section">
+                <p class="fab-label">Contact</p>
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="fab-link">📅 Prendre rendez-vous</a>
+                <a href="mailto:bnfconsulting.contact@gmail.com" class="fab-link">✉️ Email</a>
             </div>
         </div>
     </div>
 
-    <h1 class="portal-title" id="portalTitle">
-        <span class="portal-title-main">Bienvenue</span>
-        <span class="portal-title-sub">dans l'architecture BnF</span>
-    </h1>
-
-    <!-- Orbital architecture -->
-    <a href="home.html" class="orbital-wrapper" id="orbitalWrapper">
-        <div class="orbital-container">
-
-            <!-- Rings -->
-            <div class="orbital-ring orbital-ring-3"></div>
-            <div class="orbital-ring orbital-ring-2"></div>
-            <div class="orbital-ring orbital-ring-dots"></div>
-            <div class="orbital-ring orbital-ring-1"></div>
-
-            <!-- Center (fixed) -->
-            <div class="orbital-center">
-                <img src="PHOTOS/Logo_paysage (2).jpg" alt="BnF" class="orbital-center-logo">
-                <div class="orbital-center-tagline">Architecture</div>
+    <!-- CHATBOT -->
+    <div class="chatbot" id="chatbot">
+        <button class="chatbot-trigger" id="chatbotTrigger" aria-label="Chat">
+            <span class="chatbot-tooltip" id="chatbotTooltip">Poser une question</span>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/></svg>
+        </button>
+        <div class="chatbot-panel" id="chatbotPanel">
+            <div class="chatbot-header">
+                <span>BnFConsulting</span>
+                <button class="chatbot-close" id="chatbotClose">&#10005;</button>
             </div>
-
-            <!-- Rotating orbit with nodes + dots -->
-            <div class="orbital-orbit">
-                <div class="orbital-dot orbital-dot-1"></div>
-                <div class="orbital-dot orbital-dot-2"></div>
-                <div class="orbital-dot orbital-dot-3"></div>
-
-                <div class="orbital-node orbital-node-1">
-                    <div class="node-inner">
-                        <div class="node-num">01</div>
-                        <div class="node-label">Stratégie</div>
-                        <div class="node-brand">BnF Consulting</div>
-                    </div>
-                </div>
-
-                <div class="orbital-node orbital-node-2">
-                    <div class="node-inner">
-                        <div class="node-num">02</div>
-                        <div class="node-label">Optimisation</div>
-                        <div class="node-brand">FLOW</div>
-                    </div>
-                </div>
-
-                <div class="orbital-node orbital-node-3">
-                    <div class="node-inner">
-                        <div class="node-num">03</div>
-                        <div class="node-label">Visibilité</div>
-                        <div class="node-brand">DRONE PRO MOTION</div>
-                    </div>
-                </div>
-
-            </div>
-
+            <div class="chatbot-messages" id="chatbotMessages"></div>
         </div>
+    </div>
+
+    <!-- BOUTON TÉLÉPHONE / RDV -->
+    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" class="phone-fab" aria-label="Prendre rendez-vous">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1.03 1.03 0 011.05-.24c1.12.37 2.33.57 3.54.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.21.2 2.42.57 3.54.11.35.03.74-.24 1.05l-2.21 2.2z"/></svg>
     </a>
 
-    <div class="orbital-cta">
-        <p class="orbital-cta-text">UNE ARCHITECTURE. TROIS EXPERTISES COMPLÉMENTAIRES.</p>
-        <a href="home.html" class="orbital-cta-btn">Découvrir &rarr;</a>
-    </div>
-
-    <p class="portal-credit">By BnF</p>
-    <p class="portal-copyright">BnFConsulting&bull;2019-2026</p>
+    <!-- BOUTON LANGUE -->
+    <a href="en/index.html" class="lang-fab" aria-label="English version">EN</a>
 
     <script>
-    (function() {
-        // ---- INTRO ANIMATION ----
-        var introOverlay = document.getElementById('introOverlay');
-        var introStack = document.getElementById('introStack');
-        var introSubWords = document.getElementById('introSubWords');
-        var introWords = introStack.querySelectorAll('.intro-word');
-        var portalTitle = document.getElementById('portalTitle');
-        var orbitalWrapper = document.getElementById('orbitalWrapper');
-        var wordDelay = 300;
-        var wordIndex = 0;
+    /* Scroll reveal text — sticky fullscreen */
+    (function(){
+        var groups = document.querySelectorAll('.sr-group');
+        var boxes = document.getElementById('sr-boxes');
+        var section = document.getElementById('scroll-reveal-section');
+        if(!groups.length || !section) return;
 
-        function startFinalTransition() {
-            portalTitle.style.opacity = '0.001';
-            portalTitle.style.visibility = 'visible';
-            var titleRect = portalTitle.getBoundingClientRect();
-            var titleCenterY = titleRect.top + titleRect.height / 2;
-            portalTitle.style.opacity = '0';
-            portalTitle.style.visibility = '';
+        function update(){
+            var rect = section.getBoundingClientRect();
+            var sectionH = section.offsetHeight;
+            var vh = window.innerHeight;
 
-            var stackRect = introStack.getBoundingClientRect();
-            var stackCenterY = stackRect.top + stackRect.height / 2;
-            var offsetY = titleCenterY - stackCenterY;
+            // How far we've scrolled into the section (0 = top just entered, 1 = bottom leaving)
+            var scrolled = -rect.top;
+            var scrollableDistance = sectionH - vh;
+            if(scrollableDistance <= 0) return;
 
-            introStack.style.transform = 'translateY(' + offsetY + 'px)';
+            var progress = scrolled / scrollableDistance;
+            progress = Math.max(0, Math.min(1, progress));
 
-            introOverlay.classList.add('to-final');
-            introStack.classList.add('to-final');
-            introSubWords.classList.add('to-final');
-
-            setTimeout(function() {
-                introOverlay.classList.add('intro-hidden');
-                portalTitle.style.opacity = '1';
-                // Show orbital
-                orbitalWrapper.classList.add('visible');
-            }, 850);
-        }
-
-        function showNextWord() {
-            if (wordIndex >= introWords.length) {
-                setTimeout(startFinalTransition, 400);
-                return;
+            // Words appear in first 80% of scroll, boxes appear in last 20%
+            var textProgress = Math.min(1, progress / 0.7);
+            var total = groups.length;
+            for(var i = 0; i < total; i++){
+                var threshold = i / total;
+                if(textProgress > threshold){
+                    groups[i].classList.add('sr-visible');
+                } else {
+                    groups[i].classList.remove('sr-visible');
+                }
             }
-            introWords[wordIndex].classList.add('visible');
-            wordIndex++;
-            setTimeout(showNextWord, wordDelay);
+
+            // Boxes appear after text is complete
+            if(boxes){
+                boxes.style.opacity = progress > 0.75 ? '1' : '0';
+            }
         }
 
-        setTimeout(showNextWord, 400);
+        var ticking = false;
+        window.addEventListener('scroll', function(){
+            if(!ticking){
+                requestAnimationFrame(function(){ update(); ticking = false; });
+                ticking = true;
+            }
+        }, {passive:true});
+        update();
     })();
     </script>
 
+    <script>
+    /* Lazy video play/pause */
+    (function(){var v=document.querySelectorAll('video[autoplay]');if(!v.length||!('IntersectionObserver' in window))return;v.forEach(function(e){e.removeAttribute('autoplay');e.pause()});var o=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.play().catch(function(){});else e.target.pause()})},{threshold:0.25});v.forEach(function(e){o.observe(e)})})();
+    </script>
+    <script>
+    /* Auto unmute video on mobile when section visible */
+    (function(){
+        if(!('IntersectionObserver' in window)) return;
+        var isMobile = window.matchMedia('(max-width: 768px)').matches;
+        if(!isMobile) return;
+        var section = document.getElementById('cta-final');
+        var video = document.getElementById('cta-video');
+        var btn = document.getElementById('cta-sound-btn');
+        if(!section || !video) return;
+        var obs = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if(e.isIntersecting){
+                    video.muted = false;
+                    if(btn) btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
+                } else {
+                    video.muted = true;
+                    if(btn) btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
+                }
+            });
+        }, {threshold: 0.5});
+        obs.observe(section);
+    })();
+    </script>
+    <script src="main.js"></script>
 </body>
 </html>

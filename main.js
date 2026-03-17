@@ -612,7 +612,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(function() {
                 addBubble('• Analyse du positionnement<br>• Analyse concurrentielle<br>• Identification des leviers pouvant être optimisés');
                 addCTAs([
-                    { label: 'Voir BNF Consulting', url: 'home.html' },
+                    { label: 'Voir BNF Consulting', url: 'index.html' },
                     { label: 'Réserver un diagnostic', url: CAL }
                 ]);
                 addBack();
@@ -708,7 +708,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clear();
             addBubble('Manque de structure stratégique, priorités mal définies : nous identifions les freins et installons les fondations.');
             addCTAs([
-                { label: 'Comprendre l\'architecture BNF', url: 'home.html' },
+                { label: 'Comprendre l\'architecture BNF', url: 'index.html' },
                 { label: 'Réserver un diagnostic', url: CAL }
             ]);
             addBack();
