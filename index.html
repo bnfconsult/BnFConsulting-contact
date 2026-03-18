@@ -104,18 +104,20 @@
         border-radius:16px;
         padding: clamp(28px,3vw,40px);
         text-align: center;
-        transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s;
+        transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s ease, border-color 0.3s, opacity 0.4s ease;
         transform-style: preserve-3d;
-        perspective: 800px;
         cursor: pointer;
         position: relative;
         opacity: 0;
-        transform: translateY(40px);
+        transform: scale(0.6) translate(var(--assemble-x, 0), var(--assemble-y, 0));
     }
+    /* Starting positions: all cards stacked at center */
+    #archi-grid > a:first-child .axe-card { --assemble-x: 120px; --assemble-y: 80px; }
+    #archi-grid > a:last-child .axe-card { --assemble-x: -120px; --assemble-y: 80px; }
+    #archi-axe3-wrap .axe-card { --assemble-x: 0px; --assemble-y: -80px; }
     .axe-card.visible {
         opacity: 1;
-        transform: translateY(0);
-        transition: opacity 0.6s ease, transform 0.6s ease;
+        transform: scale(1) translate(0, 0);
     }
     .axe-card:hover {
         border-color: #549ba2;
@@ -252,27 +254,28 @@
     </section>
 
     <script>
-    /* Animation cartes au scroll */
+    /* Animation cartes — assemblage depuis le centre */
     (function(){
         var cards = document.querySelectorAll('.axe-card');
         var lines = document.getElementById('archi-lines-anim');
-        if(!cards.length) return;
+        var section = document.getElementById('axes');
+        if(!cards.length || !section) return;
+        var triggered = false;
         var o = new IntersectionObserver(function(entries){
-            entries.forEach(function(e){
-                if(e.isIntersecting){
-                    var delay = parseInt(e.target.getAttribute('data-delay')) || 0;
-                    setTimeout(function(){ e.target.classList.add('visible'); }, delay);
-                    o.unobserve(e.target);
+            if(entries[0].isIntersecting && !triggered){
+                triggered = true;
+                /* Toutes les cartes s'assemblent en même temps avec léger décalage */
+                cards.forEach(function(c, i){
+                    setTimeout(function(){ c.classList.add('visible'); }, i * 150);
+                });
+                /* Les lignes se dessinent APRÈS que les cartes sont en place */
+                if(lines){
+                    setTimeout(function(){ lines.classList.add('visible'); }, cards.length * 150 + 400);
                 }
-            });
-        }, {threshold: 0.15});
-        cards.forEach(function(c){ o.observe(c); });
-        if(lines){
-            var lo = new IntersectionObserver(function(entries){
-                if(entries[0].isIntersecting){ setTimeout(function(){ lines.classList.add('visible'); }, 600); lo.unobserve(lines); }
-            }, {threshold: 0.3});
-            lo.observe(lines);
-        }
+                o.unobserve(section);
+            }
+        }, {threshold: 0.2});
+        o.observe(section);
         /* 3D tilt effect on hover (desktop only) */
         if(!('ontouchstart' in window)){
             cards.forEach(function(card){
@@ -280,10 +283,10 @@
                     var rect = card.getBoundingClientRect();
                     var x = (e.clientX - rect.left) / rect.width - 0.5;
                     var y = (e.clientY - rect.top) / rect.height - 0.5;
-                    card.style.transform = 'translateY(-6px) rotateY(' + (x*12) + 'deg) rotateX(' + (-y*12) + 'deg)';
+                    card.style.transform = 'scale(1) translate(0,0) rotateY(' + (x*12) + 'deg) rotateX(' + (-y*12) + 'deg)';
                 });
                 card.addEventListener('mouseleave', function(){
-                    card.style.transform = 'translateY(0) rotateY(0) rotateX(0)';
+                    card.style.transform = 'scale(1) translate(0,0) rotateY(0) rotateX(0)';
                 });
             });
         }
