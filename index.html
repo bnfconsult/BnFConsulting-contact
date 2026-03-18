@@ -141,101 +141,71 @@
         </div>
     </section>
 
-    <!-- LES 3 AXES — Schéma relié triangle -->
-    <section id="axes" style="background:#fff; padding:clamp(60px, 8vw, 100px) 0;">
-        <div style="max-width:1100px; margin:0 auto; padding:0 clamp(16px,3vw,40px);">
-            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px; text-align:center;">L'architecture BnF</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#111; font-weight:400; line-height:1.3; text-align:center; margin-bottom:8px;">Trois axes connectés.</h2>
-            <p style="font-family:Georgia,serif; font-size:clamp(1rem,2vw,1.3rem); color:rgba(0,0,0,0.5); text-align:center; margin-bottom:clamp(40px,6vw,70px);">Voilà comment on structure votre croissance.</p>
-
-            <!-- Triangle desktop -->
-            <div id="archi-triangle" style="position:relative; max-width:900px; margin:0 auto;">
-                <!-- SVG lignes de connexion (desktop) -->
-                <svg id="archi-lines" viewBox="0 0 900 420" fill="none" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0;">
-                    <!-- Ligne haut-gauche → haut-droite -->
-                    <line x1="260" y1="100" x2="640" y2="100" stroke="#549ba2" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.4"/>
-                    <!-- Ligne haut-gauche → bas-centre -->
-                    <line x1="200" y1="140" x2="420" y2="340" stroke="#549ba2" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.4"/>
-                    <!-- Ligne haut-droite → bas-centre -->
-                    <line x1="700" y1="140" x2="480" y2="340" stroke="#549ba2" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.4"/>
-                    <!-- Points de connexion -->
-                    <circle cx="230" cy="100" r="4" fill="#549ba2" opacity="0.6"/>
-                    <circle cx="670" cy="100" r="4" fill="#549ba2" opacity="0.6"/>
-                    <circle cx="450" cy="360" r="4" fill="#549ba2" opacity="0.6"/>
-                </svg>
-
-                <!-- Grille triangle : 2 en haut, 1 centré en bas -->
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; position:relative; z-index:1;">
-
-                    <!-- AXE 1 — Stratégie -->
-                    <a href="index.html#solution" style="text-decoration:none; color:inherit;">
-                    <div style="background:#fff; border:1px solid rgba(0,0,0,0.1); border-radius:16px; padding:clamp(24px,3vw,36px); text-align:center; transition:border-color 0.3s, box-shadow 0.3s;" onmouseenter="this.style.borderColor='#549ba2';this.style.boxShadow='0 8px 30px rgba(84,155,162,0.12)'" onmouseleave="this.style.borderColor='rgba(0,0,0,0.1)';this.style.boxShadow='none'">
-                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Axe 01</p>
-                        <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.6rem); color:#111; font-weight:400; margin-bottom:12px;">Stratégie</h3>
-                        <p style="color:#111; font-size:clamp(0.85rem,1.1vw,0.95rem); font-weight:500; margin-bottom:8px;">Clarifier où vous allez</p>
-                        <p style="color:rgba(0,0,0,0.5); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin-bottom:16px;">De la confusion → à la clarté stratégique</p>
-                        <span style="color:#549ba2; font-size:0.8rem; font-weight:500;">En savoir plus →</span>
-                    </div>
-                    </a>
-
-                    <!-- AXE 2 — Optimisation -->
-                    <a href="optimisation-digitale/" style="text-decoration:none; color:inherit;">
-                    <div style="background:#fff; border:1px solid rgba(0,0,0,0.1); border-radius:16px; padding:clamp(24px,3vw,36px); text-align:center; transition:border-color 0.3s, box-shadow 0.3s;" onmouseenter="this.style.borderColor='#549ba2';this.style.boxShadow='0 8px 30px rgba(84,155,162,0.12)'" onmouseleave="this.style.borderColor='rgba(0,0,0,0.1)';this.style.boxShadow='none'">
-                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Axe 02</p>
-                        <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.6rem); color:#111; font-weight:400; margin-bottom:12px;">Optimisation</h3>
-                        <p style="color:#111; font-size:clamp(0.85rem,1.1vw,0.95rem); font-weight:500; margin-bottom:8px;">Structurer comment vous y allez</p>
-                        <p style="color:rgba(0,0,0,0.5); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin-bottom:16px;">Du bricolage → à un système qui tourne</p>
-                        <span style="color:#549ba2; font-size:0.8rem; font-weight:500;">En savoir plus →</span>
-                    </div>
-                    </a>
-                </div>
-
-                <!-- AXE 3 — Visibilité (centré en bas du triangle) -->
-                <div style="display:flex; justify-content:center; margin-top:24px; position:relative; z-index:1;">
-                    <a href="visibilite/" style="text-decoration:none; color:inherit; width:calc(50% - 12px);">
-                    <div style="background:#fff; border:1px solid rgba(0,0,0,0.1); border-radius:16px; padding:clamp(24px,3vw,36px); text-align:center; transition:border-color 0.3s, box-shadow 0.3s;" onmouseenter="this.style.borderColor='#549ba2';this.style.boxShadow='0 8px 30px rgba(84,155,162,0.12)'" onmouseleave="this.style.borderColor='rgba(0,0,0,0.1)';this.style.boxShadow='none'">
-                        <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Axe 03</p>
-                        <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.6rem); color:#111; font-weight:400; margin-bottom:12px;">Visibilité</h3>
-                        <p style="color:#111; font-size:clamp(0.85rem,1.1vw,0.95rem); font-weight:500; margin-bottom:8px;">Montrer qui vous êtes</p>
-                        <p style="color:rgba(0,0,0,0.5); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin-bottom:16px;">De l'invisibilité → à une image qui travaille pour vous</p>
-                        <span style="color:#549ba2; font-size:0.8rem; font-weight:500;">En savoir plus →</span>
-                    </div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- PRODUIT CŒUR — séparé -->
-            <div style="max-width:700px; margin:clamp(40px,6vw,60px) auto 0; text-align:center; border:1.5px solid #549ba2; border-radius:16px; padding:clamp(28px,4vw,44px); background:rgba(84,155,162,0.03);">
-                <p style="font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:10px;">Par où commencer ?</p>
-                <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2.2vw,1.7rem); color:#111; font-weight:400; margin-bottom:14px;">Le rapport stratégique</h3>
-                <p style="color:rgba(0,0,0,0.6); font-size:clamp(0.85rem,1.1vw,0.95rem); line-height:1.7; margin-bottom:20px;">Révélez vos pertes invisibles, incohérences internes et freins à la croissance.<br>C'est la porte d'entrée dans l'architecture BNF.</p>
-                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" style="display:inline-block; background:#549ba2; color:#fff; font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600; padding:12px 28px; border-radius:8px; text-decoration:none; transition:background 0.3s;" onmouseenter="this.style.background='#3d7a80'" onmouseleave="this.style.background='#549ba2'">Réserver un diagnostic →</a>
-            </div>
-
-        </div>
-    </section>
-
+    <!-- LES 3 AXES — Architecture améliorée -->
     <style>
-    /* Triangle mobile : empilé verticalement avec lignes verticales */
+    .axe-card {
+        background: #fff;
+        border: 1.5px solid rgba(84,155,162,0.3);
+        border-radius:16px;
+        padding: clamp(28px,3vw,40px);
+        text-align: center;
+        transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s;
+        transform-style: preserve-3d;
+        perspective: 800px;
+        cursor: pointer;
+        position: relative;
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    .axe-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .axe-card:hover {
+        border-color: #549ba2;
+        box-shadow: 0 12px 40px rgba(84,155,162,0.2);
+        transform: translateY(-6px);
+    }
+    .axe-card .axe-icon {
+        width: 52px; height: 52px;
+        margin: 0 auto 16px;
+        background: rgba(84,155,162,0.1);
+        border-radius: 12px;
+        display: flex; align-items: center; justify-content: center;
+    }
+    .axe-card .axe-icon svg { width: 26px; height: 26px; stroke: #549ba2; fill: none; stroke-width: 1.8; }
+    .axe-line-anim {
+        position: absolute;
+        pointer-events: none;
+        z-index: 0;
+    }
+    .axe-line-anim line {
+        stroke: #549ba2;
+        stroke-width: 1.5;
+        stroke-dasharray: 200;
+        stroke-dashoffset: 200;
+        opacity: 0.4;
+    }
+    .axe-line-anim.visible line {
+        animation: drawLine 1.2s ease forwards;
+    }
+    @keyframes drawLine {
+        to { stroke-dashoffset: 0; }
+    }
+    @keyframes pulseGlow {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(84,155,162,0); }
+        50% { box-shadow: 0 0 20px 4px rgba(84,155,162,0.15); }
+    }
+    .axe-card:hover .axe-icon {
+        animation: pulseGlow 1.5s ease infinite;
+        background: rgba(84,155,162,0.18);
+    }
     @media (max-width: 768px) {
-        #archi-lines { display: none; }
-        /* La grille 2 colonnes → 1 colonne */
-        #archi-triangle > div:nth-child(2) {
-            grid-template-columns: 1fr !important;
-            gap: 0 !important;
-        }
-        /* Axe 3 wrapper : pleine largeur */
-        #archi-triangle > div:nth-child(3) a {
-            width: 100% !important;
-        }
-        /* Les liens dans la grille */
-        #archi-triangle > div:nth-child(2) > a {
-            display: block;
-            margin-bottom: 0;
-        }
-        /* Ligne verticale entre carte 1→2 et 2→3 */
-        #archi-triangle > div:nth-child(2) > a + a::before,
-        #archi-triangle > div:nth-child(3)::before {
+        #archi-lines-anim { display: none; }
+        #archi-grid { grid-template-columns: 1fr !important; }
+        #archi-axe3-wrap { width: 100% !important; }
+        #archi-axe3-wrap::before {
             content: '';
             display: block;
             width: 2px;
@@ -243,12 +213,13 @@
             background: linear-gradient(to bottom, rgba(84,155,162,0.15), rgba(84,155,162,0.5), rgba(84,155,162,0.15));
             margin: 0 auto;
         }
-        #archi-triangle > div:nth-child(3) {
-            flex-direction: column;
-            align-items: center;
-        }
-        #archi-triangle > div:nth-child(3)::before {
-            align-self: center;
+        #archi-grid > a + a::before {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 32px;
+            background: linear-gradient(to bottom, rgba(84,155,162,0.15), rgba(84,155,162,0.5), rgba(84,155,162,0.15));
+            margin: 0 auto;
         }
         #cta-sound-btn {
             bottom: auto !important;
@@ -258,6 +229,111 @@
         }
     }
     </style>
+
+    <section id="axes" style="background:#fff; padding:clamp(60px, 8vw, 100px) 0;">
+        <div style="max-width:1100px; margin:0 auto; padding:0 clamp(16px,3vw,40px);">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px; text-align:center;">L'architecture BnF</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#111; font-weight:400; line-height:1.3; text-align:center; margin-bottom:8px;">Une architecture, trois leviers.</h2>
+            <p style="font-family:Georgia,serif; font-size:clamp(1rem,2vw,1.3rem); color:rgba(0,0,0,0.5); text-align:center; margin-bottom:clamp(40px,6vw,70px);">Voilà comment on structure votre croissance.</p>
+
+            <div id="archi-triangle" style="position:relative; max-width:900px; margin:0 auto;">
+                <!-- SVG lignes animées (desktop) -->
+                <svg id="archi-lines-anim" viewBox="0 0 900 420" fill="none" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0;" class="axe-line-anim">
+                    <line x1="260" y1="110" x2="640" y2="110"/>
+                    <line x1="200" y1="150" x2="420" y2="340"/>
+                    <line x1="700" y1="150" x2="480" y2="340"/>
+                    <circle cx="230" cy="110" r="4" fill="#549ba2" opacity="0.6"/>
+                    <circle cx="670" cy="110" r="4" fill="#549ba2" opacity="0.6"/>
+                    <circle cx="450" cy="360" r="4" fill="#549ba2" opacity="0.6"/>
+                </svg>
+
+                <!-- 2 cartes en haut -->
+                <div id="archi-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:24px; position:relative; z-index:1;">
+                    <a href="index.html#solution" style="text-decoration:none; color:inherit;">
+                        <div class="axe-card" data-delay="0">
+                            <div class="axe-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div>
+                            <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Axe 01</p>
+                            <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.6rem); color:#111; font-weight:400; margin-bottom:12px;">Stratégie</h3>
+                            <p style="color:#111; font-size:clamp(0.85rem,1.1vw,0.95rem); font-weight:500; margin-bottom:8px;">Clarifier où vous allez</p>
+                            <p style="color:rgba(0,0,0,0.5); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin-bottom:16px;">De la confusion → à la clarté stratégique</p>
+                            <span style="color:#549ba2; font-size:0.8rem; font-weight:500;">En savoir plus →</span>
+                        </div>
+                    </a>
+                    <a href="optimisation-digitale/" style="text-decoration:none; color:inherit;">
+                        <div class="axe-card" data-delay="200">
+                            <div class="axe-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                            <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Axe 02</p>
+                            <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.6rem); color:#111; font-weight:400; margin-bottom:12px;">Optimisation</h3>
+                            <p style="color:#111; font-size:clamp(0.85rem,1.1vw,0.95rem); font-weight:500; margin-bottom:8px;">Structurer comment vous y allez</p>
+                            <p style="color:rgba(0,0,0,0.5); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin-bottom:16px;">Du bricolage → à un système qui tourne</p>
+                            <span style="color:#549ba2; font-size:0.8rem; font-weight:500;">En savoir plus →</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Axe 3 centré en bas -->
+                <div id="archi-axe3-wrap" style="display:flex; justify-content:center; margin-top:24px; position:relative; z-index:1;">
+                    <a href="visibilite/" style="text-decoration:none; color:inherit; width:calc(50% - 12px);">
+                        <div class="axe-card" data-delay="400">
+                            <div class="axe-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+                            <p style="font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:8px;">Axe 03</p>
+                            <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.6rem); color:#111; font-weight:400; margin-bottom:12px;">Visibilité</h3>
+                            <p style="color:#111; font-size:clamp(0.85rem,1.1vw,0.95rem); font-weight:500; margin-bottom:8px;">Montrer qui vous êtes</p>
+                            <p style="color:rgba(0,0,0,0.5); font-size:clamp(0.8rem,1vw,0.875rem); line-height:1.6; margin-bottom:16px;">De l'invisibilité → à une image qui travaille pour vous</p>
+                            <span style="color:#549ba2; font-size:0.8rem; font-weight:500;">En savoir plus →</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- PRODUIT CŒUR -->
+            <div style="max-width:700px; margin:clamp(40px,6vw,60px) auto 0; text-align:center; border:1.5px solid #549ba2; border-radius:16px; padding:clamp(28px,4vw,44px); background:rgba(84,155,162,0.03);">
+                <p style="font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:10px;">Par où commencer ?</p>
+                <h3 style="font-family:Georgia,serif; font-size:clamp(1.2rem,2.2vw,1.7rem); color:#111; font-weight:400; margin-bottom:14px;">Le rapport stratégique</h3>
+                <p style="color:rgba(0,0,0,0.6); font-size:clamp(0.85rem,1.1vw,0.95rem); line-height:1.7; margin-bottom:20px;">Révélez vos pertes invisibles, incohérences internes et freins à la croissance.<br>C'est la porte d'entrée dans l'architecture BNF.</p>
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" style="display:inline-block; background:#549ba2; color:#fff; font-family:Montserrat,sans-serif; font-size:0.85rem; font-weight:600; padding:12px 28px; border-radius:8px; text-decoration:none; transition:background 0.3s;" onmouseenter="this.style.background='#3d7a80'" onmouseleave="this.style.background='#549ba2'">Réserver un diagnostic →</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    /* Animation cartes au scroll */
+    (function(){
+        var cards = document.querySelectorAll('.axe-card');
+        var lines = document.getElementById('archi-lines-anim');
+        if(!cards.length) return;
+        var o = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if(e.isIntersecting){
+                    var delay = parseInt(e.target.getAttribute('data-delay')) || 0;
+                    setTimeout(function(){ e.target.classList.add('visible'); }, delay);
+                    o.unobserve(e.target);
+                }
+            });
+        }, {threshold: 0.15});
+        cards.forEach(function(c){ o.observe(c); });
+        if(lines){
+            var lo = new IntersectionObserver(function(entries){
+                if(entries[0].isIntersecting){ setTimeout(function(){ lines.classList.add('visible'); }, 600); lo.unobserve(lines); }
+            }, {threshold: 0.3});
+            lo.observe(lines);
+        }
+        /* 3D tilt effect on hover (desktop only) */
+        if(!('ontouchstart' in window)){
+            cards.forEach(function(card){
+                card.addEventListener('mousemove', function(e){
+                    var rect = card.getBoundingClientRect();
+                    var x = (e.clientX - rect.left) / rect.width - 0.5;
+                    var y = (e.clientY - rect.top) / rect.height - 0.5;
+                    card.style.transform = 'translateY(-6px) rotateY(' + (x*12) + 'deg) rotateX(' + (-y*12) + 'deg)';
+                });
+                card.addEventListener('mouseleave', function(){
+                    card.style.transform = 'translateY(0) rotateY(0) rotateX(0)';
+                });
+            });
+        }
+    })();
+    </script>
 
     <!-- SECTION : Intervention adaptée (photo fond) -->
     <section class="section intervention-photo-section" id="intervention">
