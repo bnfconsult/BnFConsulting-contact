@@ -161,6 +161,16 @@
         #archi-lines-anim { display: none; }
         #archi-grid { grid-template-columns: 1fr !important; }
         #archi-axe3-wrap { width: 100% !important; }
+        #archi-axe3-wrap a { width: 100% !important; }
+        /* Désactiver l'animation d'assemblage sur mobile — simple fade in */
+        .axe-card {
+            --assemble-x: 0px !important;
+            --assemble-y: 30px !important;
+            transform: scale(0.95) translateY(30px) !important;
+        }
+        .axe-card.visible {
+            transform: scale(1) translateY(0) !important;
+        }
         #archi-axe3-wrap::before {
             content: '';
             display: block;
