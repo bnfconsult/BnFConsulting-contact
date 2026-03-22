@@ -695,7 +695,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(function() {
                 addBubble('Nous intervenons dans l\'immobilier, l\'automobile, et bien d\'autres secteurs.');
                 addCTAs([
-                    { label: 'Voir DRONE PRO MOTION', url: '/visibilite/' }
+                    { label: 'Voir DPM', url: '/visibilite/' }
                 ]);
                 addActionBtn('Être rappelé', showRecallForm);
                 addBack();
