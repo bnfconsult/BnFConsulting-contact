@@ -35,9 +35,10 @@
             backdrop-filter: blur(6px);
             -webkit-backdrop-filter: blur(6px);
             border-radius: 20px;
-            padding: 48px 56px;
-            max-width: 800px;
+            padding: clamp(32px, 5vw, 56px) clamp(24px, 4vw, 56px);
+            max-width: 860px;
             margin: 0 auto;
+            width: 90%;
         }
         .hero-bg img {
             animation: heroPan 25s ease-in-out infinite alternate;
@@ -147,9 +148,12 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        border-color 0.4s ease,
+                        box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(30px) perspective(800px);
+            transform-style: preserve-3d;
         }
         .flow-service-card::before {
             content: '';
@@ -159,15 +163,20 @@
             background: linear-gradient(90deg, transparent, rgba(84,155,162,0.35), transparent);
         }
         .flow-service-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(84,155,162,0.5);
-            box-shadow: 0 0 20px rgba(84,155,162,0.1), 0 12px 32px rgba(0,0,0,0.3);
+            transform: translateY(-8px) perspective(800px) rotateX(2deg) scale(1.03);
+            border-color: rgba(84,155,162,0.6);
+            box-shadow: 0 0 30px rgba(84,155,162,0.15), 0 20px 50px rgba(0,0,0,0.4), 0 8px 16px rgba(0,0,0,0.3);
         }
         .flow-service-card.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) perspective(800px);
             transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-                        transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+                        transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        border-color 0.4s ease,
+                        box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .flow-service-card.visible:hover {
+            transform: translateY(-8px) perspective(800px) rotateX(2deg) scale(1.03);
         }
         .flow-service-card:nth-child(2) { transition-delay: 0.15s; }
         .flow-service-card:nth-child(3) { transition-delay: 0.3s; }
@@ -298,17 +307,27 @@
         /* --- Responsive --- */
         @media (max-width: 768px) {
             .hero-content-backdrop {
-                padding: 32px 20px;
+                padding: 28px 20px;
                 border-radius: 16px;
+                width: 92%;
             }
             .flow-pain-card {
                 min-width: 260px;
             }
             .flow-services-grid {
                 grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .flow-service-card:hover {
+                transform: none;
+                box-shadow: 0 0 20px rgba(84,155,162,0.1), 0 8px 24px rgba(0,0,0,0.3);
+            }
+            .flow-service-card.visible:hover {
+                transform: none;
             }
             .flow-method-grid {
                 grid-template-columns: 1fr;
+                gap: 16px;
             }
             .flow-axes-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -429,7 +448,7 @@
     </section>
 
     <!-- 3 — CE QU'ON FAIT -->
-    <section style="background:#0f1a1b; padding:clamp(60px, 8vw, 100px) 0; scroll-margin-top:100px;" id="flow-services">
+    <section style="background:#000; padding:clamp(60px, 8vw, 100px) 0; scroll-margin-top:100px;" id="flow-services">
         <div class="container" style="text-align:center; margin-bottom:0;">
             <p class="section-label">Ce qu'on fait</p>
             <h2 class="section-title">On installe. On forme. <span class="accent">Vous &ecirc;tes autonome.</span></h2>
@@ -465,24 +484,21 @@
         <div class="container" style="text-align:center;">
             <p class="section-label">La m&eacute;thode</p>
             <h2 class="section-title">On ne casse pas ce qui marche.<br><span class="accent">On ajoute ce qui manque.</span></h2>
-            <p class="section-intro" style="max-width:650px; margin:0 auto; line-height:1.8;">
-                Pas besoin de tout changer. On int&egrave;gre les bons outils dans votre syst&egrave;me existant.
-            </p>
             <div class="flow-method-grid">
                 <div class="flow-method-card">
                     <span class="flow-method-step">&Eacute;tape 01</span>
                     <h3>Comprendre</h3>
-                    <p>On comprend votre fonctionnement actuel &mdash; vos outils, vos process, votre mani&egrave;re de travailler. Rien n'est impos&eacute;.</p>
+                    <p>Votre fonctionnement, vos outils, vos objectifs.</p>
                 </div>
                 <div class="flow-method-card">
                     <span class="flow-method-step">&Eacute;tape 02</span>
                     <h3>Identifier &amp; int&eacute;grer</h3>
-                    <p>On identifie les outils coh&eacute;rents pour que vous atteigniez vos objectifs dans votre syst&egrave;me existant. On les installe et on vous forme.</p>
+                    <p>Les bons outils, dans votre syst&egrave;me existant.</p>
                 </div>
                 <div class="flow-method-card">
                     <span class="flow-method-step">&Eacute;tape 03</span>
                     <h3>Autonomie</h3>
-                    <p>Vous &ecirc;tes autonome, sans avoir tout chang&eacute;. Vos outils fonctionnent ensemble et vous savez les utiliser.</p>
+                    <p>Vous g&eacute;rez, sans avoir tout chang&eacute;.</p>
                 </div>
             </div>
         </div>
