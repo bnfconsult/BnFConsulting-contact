@@ -30,6 +30,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
     <style>
+        /* --- Hero backdrop --- */
         .hero-content-backdrop {
             background: rgba(0, 0, 0, 0.45);
             backdrop-filter: blur(6px);
@@ -63,211 +64,186 @@
             letter-spacing: 0.05em;
         }
 
-        /* --- Problemes cards scrolling --- */
-        .flow-pain-marquee {
-            overflow: hidden;
-            margin: 48px 0 0;
-            padding: 20px 0;
-            position: relative;
+        /* --- Apple-style scroll reveal --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        .flow-pain-marquee::before,
-        .flow-pain-marquee::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 80px;
-            z-index: 2;
-            pointer-events: none;
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .flow-pain-marquee::before {
-            left: 0;
-            background: linear-gradient(90deg, #0a0a0a, transparent);
-        }
-        .flow-pain-marquee::after {
-            right: 0;
-            background: linear-gradient(-90deg, #0a0a0a, transparent);
-        }
-        .flow-pain-track {
+        .reveal-delay-1 { transition-delay: 0.2s; }
+        .reveal-delay-2 { transition-delay: 0.4s; }
+        .reveal-delay-3 { transition-delay: 0.6s; }
+
+        /* --- Constat section --- */
+        .constat-item {
             display: flex;
-            gap: 24px;
-            animation: painScroll 28s linear infinite;
-            width: max-content;
+            align-items: center;
+            gap: clamp(20px, 3vw, 40px);
+            padding: clamp(24px, 3vw, 40px) clamp(24px, 4vw, 48px);
+            background: rgba(255,255,255,0.02);
+            border-left: 3px solid rgba(84,155,162,0.3);
+            border-radius: 0 16px 16px 0;
+            margin-bottom: 16px;
+            transition: border-color 0.4s ease, background 0.4s ease, transform 0.4s ease;
         }
-        .flow-pain-track:hover {
-            animation-play-state: paused;
+        .constat-item:hover {
+            border-left-color: #549ba2;
+            background: rgba(84,155,162,0.05);
+            transform: translateX(8px);
         }
-        @keyframes painScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .flow-pain-card {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(84,155,162,0.2);
-            border-radius: 16px;
-            padding: clamp(24px, 3vw, 32px) clamp(28px, 3vw, 36px);
-            min-width: 320px;
-            max-width: 400px;
-            flex-shrink: 0;
-            transition: border-color 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .flow-pain-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(84,155,162,0.35), transparent);
-        }
-        .flow-pain-card:hover {
-            border-color: rgba(84,155,162,0.5);
-        }
-        .flow-pain-card p {
-            color: rgba(255,255,255,0.75);
+        .constat-item p {
             font-family: Georgia, serif;
-            font-size: clamp(0.9rem, 1.3vw, 1.05rem);
-            line-height: 1.65;
-            font-style: italic;
+            color: rgba(255,255,255,0.8);
+            font-size: clamp(1rem, 1.6vw, 1.2rem);
+            line-height: 1.6;
             margin: 0;
         }
-        .flow-pain-card .pain-icon {
-            color: #549ba2;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            display: block;
-        }
 
-        /* --- Ce qu'on fait grid --- */
-        .flow-services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: clamp(16px, 2vw, 24px);
-            max-width: 1100px;
-            margin: 48px auto 0;
+        /* --- Service stacked blocks --- */
+        .service-block {
+            display: flex;
+            align-items: center;
+            gap: clamp(40px, 6vw, 80px);
+            padding: clamp(60px, 8vw, 100px) 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
-        .flow-service-card {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(84,155,162,0.2);
-            border-radius: 16px;
-            padding: clamp(28px, 3vw, 40px) clamp(20px, 2.5vw, 32px);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                        border-color 0.4s ease,
-                        box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            opacity: 0;
-            transform: translateY(30px) perspective(800px);
-            transform-style: preserve-3d;
+        .service-block:last-child { border-bottom: none; }
+        .service-block.reverse { flex-direction: row-reverse; }
+        .service-num {
+            font-family: Georgia, serif;
+            font-size: clamp(5rem, 10vw, 8rem);
+            font-weight: 700;
+            color: rgba(84,155,162,0.08);
+            line-height: 1;
+            flex-shrink: 0;
+            transition: color 0.6s ease;
         }
-        .flow-service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(84,155,162,0.35), transparent);
+        .service-block:hover .service-num {
+            color: rgba(84,155,162,0.18);
         }
-        .flow-service-card:hover {
-            transform: translateY(-12px) perspective(600px) rotateX(4deg) scale(1.05);
-            border-color: rgba(84,155,162,0.7);
-            box-shadow: 0 0 40px rgba(84,155,162,0.25), 0 25px 60px rgba(0,0,0,0.5), 0 10px 20px rgba(0,0,0,0.35);
+        .service-content { flex: 1; }
+        .service-tag {
+            display: inline-block;
+            background: rgba(84,155,162,0.12);
+            color: #549ba2;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid rgba(84,155,162,0.25);
+            margin-bottom: 20px;
         }
-        .flow-service-card.visible {
-            opacity: 1;
-            transform: translateY(0) perspective(800px);
-            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-                        transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                        border-color 0.4s ease,
-                        box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .flow-service-card.visible:hover {
-            transform: translateY(-12px) perspective(600px) rotateX(4deg) scale(1.05);
-        }
-        .flow-service-card:nth-child(2) { transition-delay: 0.15s; }
-        .flow-service-card:nth-child(3) { transition-delay: 0.3s; }
-        .flow-service-icon {
-            font-size: 2rem;
-            margin-bottom: 16px;
-            display: block;
-        }
-        .flow-service-card h3 {
+        .service-content h3 {
             font-family: Georgia, serif;
             color: #fff;
-            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-            margin-bottom: 12px;
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
             font-weight: 400;
+            margin-bottom: 16px;
+            line-height: 1.3;
         }
-        .flow-service-card p {
-            color: rgba(255,255,255,0.65);
-            font-size: clamp(0.8rem, 1.1vw, 0.9rem);
-            line-height: 1.7;
+        .service-content p {
+            color: rgba(255,255,255,0.6);
+            font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+            line-height: 1.8;
+            max-width: 540px;
         }
 
-        /* --- Methode timeline --- */
-        .flow-method-grid {
+        /* --- Method timeline --- */
+        .method-timeline {
+            display: flex;
+            align-items: flex-start;
+            gap: 0;
+            max-width: 900px;
+            margin: 60px auto 0;
+            position: relative;
+        }
+        .method-timeline::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(84,155,162,0.35), rgba(84,155,162,0.35), transparent);
+            z-index: 0;
+        }
+        .method-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 0 12px;
+        }
+        .method-dot {
+            width: 16px;
+            height: 16px;
+            background: #549ba2;
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            box-shadow: 0 0 20px rgba(84,155,162,0.4);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .method-step:hover .method-dot {
+            transform: scale(1.5);
+            box-shadow: 0 0 35px rgba(84,155,162,0.7);
+        }
+        .method-step h3 {
+            font-family: Georgia, serif;
+            color: #fff;
+            font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+        .method-step p {
+            color: rgba(255,255,255,0.5);
+            font-size: clamp(0.78rem, 1vw, 0.88rem);
+            line-height: 1.6;
+        }
+
+        /* --- Pour qui --- */
+        .pourqui-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
             max-width: 1000px;
             margin: 48px auto 0;
         }
-        .flow-method-card {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(84,155,162,0.2);
-            border-radius: 16px;
-            padding: clamp(28px, 3vw, 36px);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.4s ease, border-color 0.4s ease;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        .flow-method-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(84,155,162,0.35), transparent);
-        }
-        .flow-method-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(84,155,162,0.5);
-        }
-        .flow-method-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-                        transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .flow-method-step {
-            display: inline-block;
-            background: rgba(84,155,162,0.15);
-            color: #549ba2;
-            padding: 6px 16px;
+        .pourqui-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(84,155,162,0.12);
             border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            border: 1px solid rgba(84,155,162,0.3);
-            margin-bottom: 16px;
+            padding: clamp(28px, 3vw, 40px);
+            text-align: center;
+            transition: transform 0.5s ease, border-color 0.4s ease, box-shadow 0.5s ease;
         }
-        .flow-method-card h3 {
+        .pourqui-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(84,155,162,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 30px rgba(84,155,162,0.1);
+        }
+        .pourqui-card h3 {
             font-family: Georgia, serif;
             color: #fff;
-            font-size: clamp(1.1rem, 1.8vw, 1.3rem);
-            margin-bottom: 12px;
-            font-weight: 400;
+            font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+            margin-bottom: 10px;
         }
-        .flow-method-card p {
-            color: rgba(255,255,255,0.65);
-            font-size: clamp(0.8rem, 1.1vw, 0.9rem);
+        .pourqui-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: clamp(0.82rem, 1.1vw, 0.92rem);
             line-height: 1.7;
         }
-        .flow-method-card:nth-child(2) { transition-delay: 0.15s; }
-        .flow-method-card:nth-child(3) { transition-delay: 0.3s; }
+        .pourqui-icon {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            display: block;
+        }
 
         /* --- Axes architecture grid --- */
         .flow-axes-grid {
@@ -317,21 +293,28 @@
                 border-radius: 16px;
                 width: 92%;
             }
-            .flow-pain-card {
-                min-width: 260px;
-            }
-            .flow-services-grid {
-                grid-template-columns: 1fr;
+            .service-block,
+            .service-block.reverse {
+                flex-direction: column;
+                text-align: center;
                 gap: 16px;
+                padding: 48px 0;
             }
-            .flow-service-card:hover {
-                transform: none;
-                box-shadow: 0 0 20px rgba(84,155,162,0.1), 0 8px 24px rgba(0,0,0,0.3);
+            .service-num {
+                font-size: 4rem;
             }
-            .flow-service-card.visible:hover {
-                transform: none;
+            .service-content p {
+                max-width: 100%;
             }
-            .flow-method-grid {
+            .method-timeline {
+                flex-direction: column;
+                gap: 32px;
+                align-items: center;
+            }
+            .method-timeline::before {
+                display: none;
+            }
+            .pourqui-grid {
                 grid-template-columns: 1fr;
                 gap: 16px;
             }
@@ -348,6 +331,12 @@
             .hero-ctas {
                 flex-direction: column;
                 align-items: center;
+            }
+            .constat-item {
+                padding: 20px 16px;
+            }
+            .constat-item p {
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -383,10 +372,10 @@
         </div>
     </nav>
 
-    <!-- 1 — HERO -->
+    <!-- 1 &mdash; HERO -->
     <section class="hero" id="hero">
         <div class="hero-bg">
-            <img src="../PHOTOS/Mountain.jpg" alt="FLOW — Optimisation digitale" style="width:100%; height:100%; object-fit:cover;">
+            <img src="../PHOTOS/Mountain.jpg" alt="FLOW &mdash; Optimisation digitale" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -405,137 +394,122 @@
         </div>
     </section>
 
-    <!-- 2 — LE PROBLÈME -->
-    <section style="background:#0a0a0a; padding:clamp(80px,10vw,120px) 0;" id="flow-probleme">
-        <div class="container" style="text-align:center; max-width:700px;">
-            <p class="section-label">Le constat</p>
-            <h2 class="section-title" style="margin-bottom:1.5rem;">La technologie avance.<br><span class="accent">Vous avez le droit de ne pas suivre seul.</span></h2>
-            <p class="section-intro" style="max-width:620px; margin:0 auto 20px; line-height:1.8;">
-                Vous savez que le digital peut vous aider. Mais entre l'IA, les outils, les strat&eacute;gies&hellip; difficile de savoir par o&ugrave; commencer.
-            </p>
+    <!-- 2 &mdash; LE CONSTAT -->
+    <section style="background:#000; padding:clamp(80px,10vw,140px) 0; scroll-margin-top:100px;" id="flow-constat">
+        <div class="container" style="max-width:800px;">
+            <div class="reveal" style="text-align:center; margin-bottom:56px;">
+                <p class="section-label">Le constat</p>
+                <h2 class="section-title" style="margin-bottom:0;">Vous le savez d&eacute;j&agrave;.</h2>
+            </div>
+            <div class="constat-item reveal reveal-delay-1">
+                <p>Vous entendez parler d'IA, mais vous ne savez pas comment l'appliquer &agrave; votre m&eacute;tier.</p>
+            </div>
+            <div class="constat-item reveal reveal-delay-1">
+                <p>Vous utilisez 10 outils qui ne communiquent pas entre eux.</p>
+            </div>
+            <div class="constat-item reveal reveal-delay-2">
+                <p>Vous perdez du temps sur des t&acirc;ches que la technologie pourrait faire &agrave; votre place.</p>
+            </div>
+            <div class="constat-item reveal reveal-delay-3">
+                <p>Vous savez que le digital peut vous aider &mdash; mais vous ne savez pas par o&ugrave; commencer.</p>
+            </div>
         </div>
-        <div class="flow-pain-marquee">
-            <div class="flow-pain-track">
-                <div class="flow-pain-card">
-                    <span class="pain-icon">&laquo;</span>
-                    <p>J'entends parler d'IA partout mais je sais pas comment l'appliquer &agrave; mon m&eacute;tier.</p>
+    </section>
+
+    <!-- 3 &mdash; CE QU'ON FAIT -->
+    <section style="background:#0a0a0a; padding:0; scroll-margin-top:100px;" id="flow-services">
+        <div class="container" style="max-width:1000px;">
+            <div style="text-align:center; padding-top:clamp(80px,10vw,120px);">
+                <p class="section-label reveal">Ce qu'on fait</p>
+                <h2 class="section-title reveal reveal-delay-1">On installe. On forme.<br><span class="accent">Vous &ecirc;tes autonome.</span></h2>
+            </div>
+
+            <!-- Service 1 -->
+            <div class="service-block reveal">
+                <span class="service-num">01</span>
+                <div class="service-content">
+                    <span class="service-tag">Intelligence artificielle &amp; outils</span>
+                    <h3>Les bonnes technologies,<br><span style="color:#549ba2;">install&eacute;es et expliqu&eacute;es.</span></h3>
+                    <p>On vous installe les bons outils et on vous apprend &agrave; les utiliser. L'IA n'est pas r&eacute;serv&eacute;e aux grandes entreprises &mdash; elle peut simplifier votre quotidien d&egrave;s maintenant.</p>
                 </div>
-                <div class="flow-pain-card">
-                    <span class="pain-icon">&laquo;</span>
-                    <p>J'utilise 10 outils diff&eacute;rents qui ne communiquent pas entre eux.</p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-block reverse reveal">
+                <span class="service-num">02</span>
+                <div class="service-content">
+                    <span class="service-tag">Coh&eacute;rence digitale</span>
+                    <h3>Vos outils travaillent<br><span style="color:#549ba2;">enfin ensemble.</span></h3>
+                    <p>On connecte vos outils entre eux pour qu'ils communiquent. On &eacute;limine les doublons, les ressaisies et les pertes de temps pour que tout soit fluide.</p>
                 </div>
-                <div class="flow-pain-card">
-                    <span class="pain-icon">&laquo;</span>
-                    <p>Je perds du temps sur des t&acirc;ches que la technologie pourrait faire &agrave; ma place.</p>
-                </div>
-                <div class="flow-pain-card">
-                    <span class="pain-icon">&laquo;</span>
-                    <p>Je sais que le digital peut m'aider mais je sais pas par o&ugrave; commencer.</p>
-                </div>
-                <!-- Duplicate for seamless loop -->
-                <div class="flow-pain-card">
-                    <span class="pain-icon">&laquo;</span>
-                    <p>J'entends parler d'IA partout mais je sais pas comment l'appliquer &agrave; mon m&eacute;tier.</p>
-                </div>
-                <div class="flow-pain-card">
-                    <span class="pain-icon">&laquo;</span>
-                    <p>J'utilise 10 outils diff&eacute;rents qui ne communiquent pas entre eux.</p>
-                </div>
-                <div class="flow-pain-card">
-                    <span class="pain-icon">&laquo;</span>
-                    <p>Je perds du temps sur des t&acirc;ches que la technologie pourrait faire &agrave; ma place.</p>
-                </div>
-                <div class="flow-pain-card">
-                    <span class="pain-icon">&laquo;</span>
-                    <p>Je sais que le digital peut m'aider mais je sais pas par o&ugrave; commencer.</p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-block reveal">
+                <span class="service-num">03</span>
+                <div class="service-content">
+                    <span class="service-tag">Strat&eacute;gie digitale sur mesure</span>
+                    <h3>Un plan adapt&eacute; &agrave; vous,<br><span style="color:#549ba2;">pas un template.</span></h3>
+                    <p>On construit avec vous un plan adapt&eacute; &agrave; votre activit&eacute; &mdash; pour que vous puissiez arriver le plus rapidement et efficacement &agrave; vos objectifs.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3 — CE QU'ON FAIT -->
-    <section style="background:#000; padding:clamp(60px, 8vw, 100px) 0; scroll-margin-top:100px;" id="flow-services">
-        <div class="container" style="text-align:center; margin-bottom:0;">
-            <p class="section-label">Ce qu'on fait</p>
-            <h2 class="section-title">On installe. On forme. <span class="accent">Vous &ecirc;tes autonome.</span></h2>
-            <p class="section-intro" style="max-width:650px; margin:0 auto; line-height:1.8;">
-                Trois domaines d'intervention concrets pour simplifier votre quotidien.
-            </p>
-            <div class="flow-services-grid">
-
-                <div class="flow-service-card">
-                    <span class="flow-service-icon">&#x1F916;</span>
-                    <h3>Intelligence artificielle <span style="color:#549ba2;">&amp; outils</span></h3>
-                    <p>On vous installe les bonnes technologies et on vous apprend &agrave; les utiliser. L'IA n'est pas r&eacute;serv&eacute;e aux grandes entreprises &mdash; elle peut simplifier votre quotidien d&egrave;s maintenant.</p>
-                </div>
-
-                <div class="flow-service-card">
-                    <span class="flow-service-icon">&#x1F517;</span>
-                    <h3>Coh&eacute;rence <span style="color:#549ba2;">digitale</span></h3>
-                    <p>On connecte vos outils entre eux pour qu'ils travaillent ensemble. On &eacute;limine les doublons, les ressaisies et les pertes de temps pour que tout soit fluide.</p>
-                </div>
-
-                <div class="flow-service-card">
-                    <span class="flow-service-icon">&#x1F3AF;</span>
-                    <h3>Strat&eacute;gie digitale <span style="color:#549ba2;">sur mesure</span></h3>
-                    <p>On construit avec vous un plan adapt&eacute; &agrave; votre activit&eacute;, pas un template g&eacute;n&eacute;rique &mdash; pour que vous puissiez arriver le plus rapidement et efficacement &agrave; vos objectifs.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- 4 — LA MÉTHODE -->
-    <section style="background:#000; padding:clamp(60px, 8vw, 100px) 0; scroll-margin-top:100px;" id="flow-methode">
+    <!-- 4 &mdash; LA M&Eacute;THODE -->
+    <section style="background:#000; padding:clamp(80px,10vw,120px) 0; scroll-margin-top:100px;" id="flow-methode">
         <div class="container" style="text-align:center;">
-            <p class="section-label">La m&eacute;thode</p>
-            <h2 class="section-title">On ne casse pas ce qui marche.<br><span class="accent">On ajoute ce qui manque.</span></h2>
-            <div class="flow-method-grid">
-                <div class="flow-method-card">
-                    <span class="flow-method-step">&Eacute;tape 01</span>
+            <p class="section-label reveal">La m&eacute;thode</p>
+            <h2 class="section-title reveal reveal-delay-1">On ne casse pas ce qui marche.<br><span class="accent">On ajoute ce qui manque.</span></h2>
+            <div class="method-timeline reveal reveal-delay-2">
+                <div class="method-step">
+                    <div class="method-dot"></div>
                     <h3>Comprendre</h3>
-                    <p>Votre fonctionnement, vos outils, vos objectifs.</p>
+                    <p>Votre fonctionnement actuel, vos outils, votre mani&egrave;re de travailler.</p>
                 </div>
-                <div class="flow-method-card">
-                    <span class="flow-method-step">&Eacute;tape 02</span>
+                <div class="method-step">
+                    <div class="method-dot"></div>
                     <h3>Identifier &amp; int&eacute;grer</h3>
-                    <p>Les bons outils, dans votre syst&egrave;me existant.</p>
+                    <p>Les outils coh&eacute;rents pour atteindre vos objectifs dans votre syst&egrave;me existant.</p>
                 </div>
-                <div class="flow-method-card">
-                    <span class="flow-method-step">&Eacute;tape 03</span>
+                <div class="method-step">
+                    <div class="method-dot"></div>
                     <h3>Autonomie</h3>
-                    <p>Vous g&eacute;rez, sans avoir tout chang&eacute;.</p>
+                    <p>Vous &ecirc;tes autonome, sans avoir tout chang&eacute;.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5 — POUR QUI -->
-    <section id="flow-pour-qui" style="background:#0a0a0a; padding:clamp(60px, 8vw, 100px) 0; scroll-margin-top:100px;">
-        <div style="max-width:1000px; margin:0 auto; padding:0 24px; text-align:center;">
-            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Pour qui ?</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(2rem,4vw,3rem); color:#fff; margin-bottom:12px;">Pour ceux qui veulent <span style="color:#549ba2;">avancer</span></h2>
-            <p style="max-width:600px; margin:0 auto 48px; color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7;">
+    <!-- 5 &mdash; POUR QUI -->
+    <section id="flow-pour-qui" style="background:#0a0a0a; padding:clamp(80px,10vw,120px) 0; scroll-margin-top:100px;">
+        <div class="container" style="text-align:center;">
+            <p class="section-label reveal">Pour qui ?</p>
+            <h2 class="section-title reveal reveal-delay-1">Pour ceux qui veulent <span class="accent">avancer.</span></h2>
+            <p class="reveal reveal-delay-1" style="max-width:600px; margin:0 auto 8px; color:rgba(255,255,255,0.7); font-size:clamp(0.9rem,1.2vw,1rem); line-height:1.7;">
                 Vous n'avez pas besoin d'&ecirc;tre un expert du digital. Vous avez juste besoin de quelqu'un qui vous montre.
             </p>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; text-align:left;">
-                <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
-                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Dirigeants</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Vous voulez utiliser le digital pour gagner du temps et prendre de meilleures d&eacute;cisions.</p>
+            <div class="pourqui-grid">
+                <div class="pourqui-card reveal reveal-delay-1">
+                    <span class="pourqui-icon">&#x1F4BC;</span>
+                    <h3>Dirigeants</h3>
+                    <p>Vous voulez utiliser le digital pour gagner du temps et prendre de meilleures d&eacute;cisions.</p>
                 </div>
-                <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
-                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Ind&eacute;pendants</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Vous g&eacute;rez tout seul et vous avez besoin d'outils simples pour vous organiser et vous d&eacute;velopper.</p>
+                <div class="pourqui-card reveal reveal-delay-2">
+                    <span class="pourqui-icon">&#x1F9D1;&#x200D;&#x1F4BB;</span>
+                    <h3>Ind&eacute;pendants</h3>
+                    <p>Vous g&eacute;rez tout seul et vous avez besoin d'outils simples pour vous organiser.</p>
                 </div>
-                <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
-                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Petites entreprises</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Vous voulez utiliser le digital sans d&eacute;pendre d'une agence &mdash; et &ecirc;tre capable de g&eacute;rer vous-m&ecirc;me.</p>
+                <div class="pourqui-card reveal reveal-delay-3">
+                    <span class="pourqui-icon">&#x1F3E2;</span>
+                    <h3>Petites entreprises</h3>
+                    <p>Vous voulez utiliser le digital sans d&eacute;pendre d'une agence &mdash; et g&eacute;rer vous-m&ecirc;me.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6 — CTA -->
+    <!-- 6 &mdash; CTA -->
     <section class="section" id="flow-contact" style="position:relative; overflow:hidden; scroll-margin-top:100px; padding:clamp(80px,10vw,120px) 0;">
         <img src="../PHOTOS/Archi.jpg" alt="" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;" loading="lazy">
         <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:1;"></div>
@@ -554,7 +528,7 @@
         </div>
     </section>
 
-    <!-- 7 — RETOUR À L'ARCHITECTURE BNF -->
+    <!-- 7 &mdash; RETOUR &Agrave; L'ARCHITECTURE BNF -->
     <section style="background:#000; padding:clamp(60px, 8vw, 100px) 0;">
         <div class="container" style="text-align:center;">
             <p class="section-label">Architecture BnF</p>
@@ -646,7 +620,7 @@
         </div>
     </div>
 
-    <!-- BOUTON TÉLÉPHONE / RDV -->
+    <!-- BOUTON T&Eacute;L&Eacute;PHONE / RDV -->
     <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" class="phone-fab" aria-label="Prendre rendez-vous">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1.03 1.03 0 011.05-.24c1.12.37 2.33.57 3.54.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.21.2 2.42.57 3.54.11.35.03.74-.24 1.05l-2.21 2.2z"/></svg>
     </a>
@@ -655,17 +629,17 @@
 
     <script src="../main.js"></script>
     <script>
-        // --- Scroll reveal for FLOW cards ---
-        const flowRevealEls = document.querySelectorAll('.flow-pain-card, .flow-service-card, .flow-method-card');
-        const flowObserver = new IntersectionObserver((entries) => {
+        // --- Apple-style scroll reveal ---
+        const revealEls = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    flowObserver.unobserve(entry.target);
+                    revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.15 });
-        flowRevealEls.forEach(el => flowObserver.observe(el));
+        }, { threshold: 0.12 });
+        revealEls.forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>
