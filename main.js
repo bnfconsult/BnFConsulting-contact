@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Scroll reveal animations ---
     const revealElements = document.querySelectorAll(
-        '.problem-card, .pillar-card, .target-card, .journey-step, .service-item, .data-bar, .section-label, .section-title, .section-intro, .speciale-card'
+        '.problem-card, .pillar-card, .target-card, .journey-step, .service-item, .data-bar, .section-label, .section-title, .section-intro, .speciale-card, .methode-step, .pilier-card'
     );
 
     revealElements.forEach(el => el.classList.add('reveal'));
