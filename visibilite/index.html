@@ -13,18 +13,33 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DRONE PRO MOTION — Changez de point de vue</title>
+    <title>Drone Pro Motion by BNF — Visibilité par drone | BNF Consulting</title>
     <link rel="icon" href="../PHOTOS/Favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="../PHOTOS/Favicon.png">
     <link rel="canonical" href="https://www.bnf-consulting.fr/visibilite/">
-    <meta name="description" content="DRONE PRO MOTION by BnFConsulting — Prise de vue par drone, photo 4K et vidéo cinématique pour l'immobilier, les entreprises et les commerces en Île-de-France.">
+    <meta name="description" content="Drone Pro Motion by BNF — Le levier Visibilité de l'architecture BNF. Photos drone 5.1K, vidéo cinématique et stratégie visuelle pour PME en Île-de-France.">
     <meta name="keywords" content="drone, prise de vue aérienne, vidéo drone, immobilier, commerce, Île-de-France, Yvelines, BNF Consulting">
-    <meta property="og:title" content="DRONE PRO MOTION — Visibilité par drone | BNF Consulting">
-    <meta property="og:description" content="Prise de vue par drone pour l'immobilier, les entreprises et les commerces. Île-de-France.">
+    <meta property="og:title" content="Drone Pro Motion by BNF — Visibilité par drone">
+    <meta property="og:description" content="Le levier Visibilité de l'architecture BNF. Photos drone, vidéo cinématique et stratégie visuelle pour PME en Île-de-France.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.bnf-consulting.fr/visibilite/">
     <meta property="og:image" content="https://www.bnf-consulting.fr/PHOTOS/Logo_paysage%20(2).jpg">
     <meta property="og:locale" content="fr_FR">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Drone Pro Motion by BNF",
+        "description": "Prise de vue par drone, photo 5.1K et vidéo cinématique. Le levier Visibilité de l'architecture BNF Consulting.",
+        "provider": {
+            "@type": "ConsultingBusiness",
+            "name": "BNF Consulting",
+            "url": "https://www.bnf-consulting.fr"
+        },
+        "areaServed": "Île-de-France",
+        "priceRange": "€€"
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -325,9 +340,9 @@
         }
         .drone-pricing-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            max-width: 1000px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1100px;
             margin: 60px auto 0;
         }
         .drone-includes-grid {
@@ -459,6 +474,211 @@
             margin-bottom: 24px;
         }
 
+        /* Clients — Apple list style */
+        .clients-list-apple {
+            display: flex;
+            flex-direction: column;
+        }
+        .client-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: clamp(20px, 3vw, 28px) 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            gap: 16px;
+        }
+        .client-row:last-child {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .client-row:hover {
+            padding-left: 12px;
+            border-color: rgba(84,155,162,0.3);
+        }
+        .client-name {
+            font-family: Georgia, serif;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: #fff;
+            font-weight: 400;
+            flex-shrink: 0;
+        }
+        .client-desc {
+            color: rgba(255,255,255,0.35);
+            font-size: clamp(0.78rem, 1.1vw, 0.88rem);
+            text-align: right;
+            flex: 1;
+        }
+        .client-arrow {
+            color: #549ba2;
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        .client-row:hover .client-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .client-row:hover .client-name {
+            color: #549ba2;
+        }
+        .client-row:hover .client-desc {
+            color: rgba(255,255,255,0.85);
+        }
+        @media (max-width: 768px) {
+            .client-row {
+                flex-wrap: wrap;
+            }
+            .client-desc {
+                text-align: left;
+                flex-basis: 100%;
+                order: 3;
+                margin-top: 4px;
+            }
+        }
+
+        /* Pricing v2 — glassmorphism + glow */
+        .pricing-v2 {
+            background: rgba(255,255,255,0.03) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(84,155,162,0.15) !important;
+            border-radius: 20px !important;
+            padding: clamp(28px,3vw,40px) clamp(20px,2vw,28px) !important;
+            position: relative;
+            overflow: visible;
+        }
+        .pricing-v2:hover {
+            border-color: rgba(84,155,162,0.5) !important;
+            box-shadow: 0 16px 48px rgba(84,155,162,0.12), 0 0 24px rgba(84,155,162,0.06) !important;
+            transform: translateY(-6px) !important;
+        }
+        .pricing-featured {
+            border-color: #549ba2 !important;
+            background: rgba(84,155,162,0.06) !important;
+            box-shadow: 0 8px 32px rgba(84,155,162,0.1);
+        }
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #549ba2;
+            color: #fff;
+            font-family: Montserrat, sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 5px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .pricing-icon {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 16px;
+            background: rgba(84,155,162,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .pricing-icon svg {
+            width: 22px;
+            height: 22px;
+        }
+        .pricing-v2-title {
+            font-family: Georgia, serif !important;
+            font-size: 1.15rem !important;
+            color: #fff !important;
+            font-weight: 400 !important;
+            margin-bottom: 4px !important;
+        }
+        .pricing-v2-sub {
+            color: rgba(255,255,255,0.4) !important;
+            font-size: 0.78rem !important;
+            margin-bottom: 20px !important;
+        }
+        .pricing-v2-price {
+            font-family: Georgia, serif;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 24px;
+        }
+        .pricing-v2-price strong {
+            font-size: 2rem;
+            font-weight: 400;
+            color: #549ba2;
+        }
+        .pricing-v2-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+            text-align: left;
+        }
+        .pricing-v2-features li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 10px;
+            color: rgba(255,255,255,0.65);
+            font-size: 0.82rem;
+            line-height: 1.5;
+        }
+        .pricing-v2-features li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 6px;
+            height: 6px;
+            background: #549ba2;
+            border-radius: 50%;
+        }
+
+        /* CTA hover sur pricing cards */
+        .pricing-cta-hover {
+            display: block;
+            color: #549ba2;
+            font-family: Montserrat, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: auto;
+            padding-top: 20px;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .pricing-v2:hover .pricing-cta-hover {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .pricing-v2 {
+            display: flex !important;
+            flex-direction: column;
+        }
+        .pricing-v2-features {
+            flex: 1;
+        }
+        .drone-pricing-grid {
+            align-items: stretch !important;
+        }
+
+        /* Pricing card scroll reveal */
+        .drone-pricing-card.pricing-hidden {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        .drone-pricing-card {
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .drone-pricing-card:nth-child(2) { transition-delay: 0.1s; }
+        .drone-pricing-card:nth-child(3) { transition-delay: 0.2s; }
+        .drone-pricing-card:nth-child(4) { transition-delay: 0.3s; }
+
         /* Responsive drone */
         @media (max-width: 1024px) {
             .drone-pricing-grid {
@@ -512,31 +732,31 @@
 
     <!-- TOP AXES BAR (mobile only) -->
     <div class="top-axes-bar">
-        <a href="../drones.html" class="mobile-axe-link">Visibilité</a>
+        <a href="/visibilite/" class="mobile-axe-link">Visibilité</a>
         <span class="mobile-axe-sep"></span>
         <span class="mobile-axe-sep"></span>
-        <a href="../flow.html" class="mobile-axe-link">Optimisation</a>
+        <a href="/optimisation-digitale/" class="mobile-axe-link">Optimisation</a>
     </div>
 
     <!-- NAVIGATION -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="../index.html" class="nav-logo"><img src="../PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting"></a>
+            <a href="/" class="nav-logo"><img src="../PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting"></a>
             <button class="nav-toggle" id="navToggle" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li class="nav-home"><a href="../index.html">Accueil</a></li>
+                <li class="nav-home"><a href="/">Accueil</a></li>
                 <li class="nav-axes-group">
-                    <a href="../drones.html">Visibilité</a>
+                    <a href="/visibilite/">Visibilité</a>
                     <span class="nav-axe-sep"></span>
                     <span class="nav-axe-sep"></span>
-                    <a href="../flow.html">Optimisation</a>
+                    <a href="/optimisation-digitale/">Optimisation</a>
                 </li>
                 <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Diagnostic stratégique</a></li>
-                <li class="lang-toggle"><a href="../drones.html" class="lang-link active">FR</a><span class="lang-sep">|</span><a href="../en/drones.html" class="lang-link">EN</a></li>
+                <li class="lang-toggle"><a href="/visibilite/" class="lang-link active">FR</a><span class="lang-sep">|</span><a href="../en/drones.html" class="lang-link">EN</a></li>
             </ul>
         </div>
     </nav>
@@ -554,8 +774,8 @@
                 <img src="../PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting" style="height:32px; width:auto; opacity:0.8; border-radius:3px;">
             </div>
             <div class="hero-content-backdrop">
-                <p class="section-label" style="margin-bottom:4px;">DRONE PRO MOTION <span style="color:rgba(255,255,255,0.4); font-weight:400;">by BnF</span></p>
-                <p class="drone-byline" style="margin-bottom:20px;">Axe Visibilité — Architecture BnF</p>
+                <p class="section-label" style="margin-bottom:4px;">DRONE PRO MOTION <span style="color:rgba(255,255,255,0.4); font-weight:400;">by BNF</span></p>
+                <p class="drone-byline" style="margin-bottom:20px;">Le levier Visibilité de l'architecture BNF</p>
                 <h1 class="hero-title">Changez de<br><span class="accent">point de vue</span></h1>
                 <p class="hero-sub" style="max-width:620px; margin:0 auto;">
                     La vue aérienne révèle ce que le regard au sol ne voit pas.
@@ -571,8 +791,8 @@
                 </div>
                 <div class="quick-nav" style="margin-top: 40px;">
                     <a href="#drone-services" class="quick-nav-item">Le levier</a>
-                    <a href="#immo-section" class="quick-nav-item">Votre secteur d'activité</a>
-                    <a href="#drone-clients" class="quick-nav-item">Cas d'usage</a>
+                    <a href="#immo-section" class="quick-nav-item">Votre secteur</a>
+                    <a href="#tarifs" class="quick-nav-item">Nos formules</a>
                 </div>
             </div>
         </div>
@@ -890,6 +1110,22 @@
         videos.forEach(function(v) { obs.observe(v); });
     })();
 
+    /* --- Pricing cards scroll reveal --- */
+    (function(){
+        var cards = document.querySelectorAll('.drone-pricing-card');
+        if(!cards.length) return;
+        cards.forEach(function(c){ c.classList.add('pricing-hidden'); });
+        var o = new IntersectionObserver(function(entries){
+            if(entries[0].isIntersecting){
+                cards.forEach(function(c, i){
+                    setTimeout(function(){ c.classList.remove('pricing-hidden'); }, i * 150);
+                });
+                o.disconnect();
+            }
+        }, {threshold: 0.1});
+        o.observe(document.getElementById('tarifs'));
+    })();
+
     /* --- Toggle cartes secteur (immo / auto) --- */
     function startTicker(id) {
         var track = document.getElementById(id + '-ticker-track');
@@ -986,66 +1222,150 @@
     })();
     </script>
 
-    <!-- ARCHITECTURE BNF — Les 4 axes -->
+    <!-- TARIFS -->
+    <section id="tarifs" style="background:#0a0a0a; padding:clamp(80px,10vw,120px) 0;">
+        <div class="container" style="text-align:center;">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Nos formules</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3; margin-bottom:12px;">Investissez dans votre <span style="color:#549ba2;">visibilité</span></h2>
+            <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:550px; margin:0 auto clamp(40px,6vw,60px);">Des formules adaptées à votre ambition. Chaque projet est unique.</p>
+
+            <div class="drone-pricing-grid" style="grid-template-columns:repeat(4, 1fr);">
+                <!-- Pack 1 — Captation -->
+                <div class="drone-pricing-card pricing-v2">
+                    <div class="pricing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#549ba2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+                    <h3 class="pricing-v2-title">Captation</h3>
+                    <p class="pricing-v2-sub">Photos + vidéo de votre activité</p>
+                    <p class="pricing-v2-price">à partir de <strong>300</strong>€</p>
+                    <ul class="pricing-v2-features">
+                        <li>Prises de vue aériennes HD</li>
+                        <li>Vidéo cinématique courte</li>
+                        <li>Retouche et étalonnage</li>
+                        <li>Formats adaptés web et réseaux</li>
+                        <li>Livraison sous 48h</li>
+                    </ul>
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="pricing-cta-hover">En savoir plus →</a>
+                </div>
+
+                <!-- Pack 2 — Valorisation -->
+                <div class="drone-pricing-card pricing-v2 pricing-featured">
+                    <div class="pricing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#549ba2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                    <h3 class="pricing-v2-title">Valorisation</h3>
+                    <p class="pricing-v2-sub">Contenu pensé pour convertir</p>
+                    <p class="pricing-v2-price">à partir de <strong>700</strong>€</p>
+                    <ul class="pricing-v2-features">
+                        <li>Photos + vidéo professionnelle</li>
+                        <li>Angles pensés conversion</li>
+                        <li>Montage cinématique avancé</li>
+                        <li>Conseil stratégique inclus</li>
+                        <li>Livraison multi-formats</li>
+                    </ul>
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="pricing-cta-hover">En savoir plus →</a>
+                </div>
+
+                <!-- Pack 3 — Stratégie visuelle -->
+                <div class="drone-pricing-card pricing-v2">
+                    <div class="pricing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#549ba2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+                    <h3 class="pricing-v2-title">Stratégie visuelle</h3>
+                    <p class="pricing-v2-sub">Contenu + positionnement</p>
+                    <p class="pricing-v2-price">à partir de <strong>1 500</strong>€</p>
+                    <ul class="pricing-v2-features">
+                        <li>Captation aérienne complète</li>
+                        <li>Analyse de votre image actuelle</li>
+                        <li>Réflexion positionnement</li>
+                        <li>Recommandations site & Google</li>
+                        <li>Plan d'action visuel concret</li>
+                    </ul>
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="pricing-cta-hover">En savoir plus →</a>
+                </div>
+
+                <!-- Pack 4 — Accompagnement -->
+                <div class="drone-pricing-card pricing-v2">
+                    <div class="pricing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#549ba2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+                    <h3 class="pricing-v2-title">Accompagnement</h3>
+                    <p class="pricing-v2-sub">Contenu régulier + suivi</p>
+                    <p class="pricing-v2-price">à partir de <strong>1 000</strong>€<span style="font-size:0.55em; opacity:0.5;">/mois</span></p>
+                    <ul class="pricing-v2-features">
+                        <li>Contenu visuel mensuel</li>
+                        <li>Captations régulières</li>
+                        <li>Suivi et ajustements</li>
+                        <li>Optimisation continue</li>
+                        <li>Interlocuteur dédié</li>
+                    </ul>
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="pricing-cta-hover">En savoir plus →</a>
+                </div>
+            </div>
+
+            <p style="color:rgba(255,255,255,0.3); font-size:0.78rem; margin-top:28px; font-style:italic;">Ces fourchettes indicatives seront ajustées lors de notre premier échange.</p>
+        </div>
+    </section>
+
+    <!-- ARCHITECTURE BNF -->
     <section style="background:#000; padding:clamp(60px, 8vw, 100px) 0;">
         <div class="container" style="text-align:center;">
             <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Architecture BnF</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; font-weight:400; margin-bottom:12px; line-height:1.2;">DPM est l'un des leviers de <span style="color:#549ba2;">l'architecture BNF</span></h2>
-            <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:600px; margin:0 auto 48px;">
-                Chaque axe peut être activé individuellement ou combiné pour transformer un projet.
-            </p>
-            <div class="drone-archi-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; max-width:800px; margin:0 auto;">
-                <a href="../index.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Stratégie</h4>
-                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">BnFConsulting</p>
-                    <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Se combine avec Optimisation et Visibilité</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3; margin-bottom:12px;">Combinez les leviers pour<br><span style="color:#549ba2;">maximiser l'impact</span></h2>
+            <p style="color:rgba(255,255,255,0.4); font-size:clamp(0.85rem,1.2vw,0.95rem); max-width:500px; margin:0 auto clamp(36px,5vw,56px);">Chaque axe peut être activé séparément ou combiné.</p>
+            <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; max-width:900px; margin:0 auto;">
+                <a href="/" class="diff-card" style="text-decoration:none; display:block;">
+                    <div style="width:44px; height:44px; margin:0 auto 14px; background:rgba(84,155,162,0.12); border-radius:12px; display:flex; align-items:center; justify-content:center;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#549ba2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+                    </div>
+                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1.1rem; margin-bottom:8px;">Stratégie</h4>
+                    <p style="color:rgba(255,255,255,0.4); font-size:0.8rem; line-height:1.5; margin:0;">Clarifier votre cap</p>
                 </a>
-                <a href="../flow.html" style="background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.borderColor='#549ba2';this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.borderColor='rgba(84,155,162,0.2)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Optimisation</h4>
-                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">FLOW</p>
-                    <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Se combine avec Stratégie et Visibilité</p>
+                <a href="/optimisation-digitale/" class="diff-card" style="text-decoration:none; display:block;">
+                    <div style="width:44px; height:44px; margin:0 auto 14px; background:rgba(84,155,162,0.12); border-radius:12px; display:flex; align-items:center; justify-content:center;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#549ba2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1.1rem; margin-bottom:8px;">Optimisation</h4>
+                    <p style="color:rgba(255,255,255,0.4); font-size:0.8rem; line-height:1.5; margin:0;">Structurer votre organisation</p>
                 </a>
-                <a href="../drones.html" style="background:rgba(84,155,162,0.08); border:1px solid #549ba2; border-radius:16px; padding:28px 20px; text-align:center; text-decoration:none; transition:all 0.3s ease; display:block;" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 32px rgba(0,0,0,0.3)'" onmouseleave="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                    <h4 style="font-family:Georgia,serif; color:#fff; font-size:1rem; margin-bottom:8px;">Visibilité</h4>
-                    <p style="color:#549ba2; font-size:0.75rem; margin:0;">DPM</p>
-                    <p style="color:rgba(255,255,255,0.4); font-size:0.7rem; font-style:italic; line-height:1.4; margin-top:8px;">Se combine avec Optimisation et Visibilité</p>
-                </a>
+                <div class="diff-card" style="border-color:#549ba2 !important; background:rgba(84,155,162,0.06) !important;">
+                    <div style="width:44px; height:44px; margin:0 auto 14px; background:rgba(84,155,162,0.2); border-radius:12px; display:flex; align-items:center; justify-content:center;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#549ba2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <h4 style="font-family:Georgia,serif; color:#549ba2; font-size:1.1rem; margin-bottom:8px;">Visibilité</h4>
+                    <p style="color:rgba(255,255,255,0.5); font-size:0.8rem; line-height:1.5; margin:0;">Vous êtes ici</p>
+                </div>
             </div>
-            <div style="margin-top:48px;">
-                <a href="../index.html" class="btn btn-primary btn-outline btn-large">Retour au site BnFConsulting</a>
+            <div style="margin-top:40px;">
+                <a href="/#axes" style="color:rgba(255,255,255,0.35); font-size:0.85rem; text-decoration:none; transition:color 0.3s;" onmouseenter="this.style.color='#549ba2'" onmouseleave="this.style.color='rgba(255,255,255,0.35)'">Découvrir l'architecture BnF →</a>
             </div>
         </div>
     </section>
 
     <!-- NOS CLIENTS -->
-    <section id="drone-clients" style="background:#0f1a1b; padding:80px 0; scroll-margin-top:100px;">
-        <div style="max-width:1200px; margin:0 auto; padding:0 24px; text-align:center;">
-            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Pour qui ?</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(2rem,4vw,3rem); color:#fff; margin-bottom:12px;">Nos <span style="color:#549ba2;">clients</span></h2>
-            <p style="max-width:600px; margin:0 auto 48px; color:rgba(255,255,255,0.8); font-size:0.95rem; line-height:1.7;">
-                Nous accompagnons tous ceux qui veulent changer de point de vue.
-            </p>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; text-align:left;">
-                <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
-                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Agences immobilières</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Valorisez vos mandats avec des visuels premium qui accélèrent les ventes et les locations.</p>
-                </div>
-                <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
-                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Entreprises</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Du contenu visuel unique pour vos locaux, événements et supports de communication.</p>
-                </div>
-                <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
-                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Commerces</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Montrez votre espace sous un angle inédit pour attirer et séduire vos clients.</p>
-                </div>
-                <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
-                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Indépendants</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Vendez ou louez votre bien avec des images professionnelles qui font la différence.</p>
-                </div>
-                <div style="background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.2); border-radius:16px; padding:32px;">
-                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:1.15rem; margin-bottom:10px;">Promoteurs</h3>
-                    <p style="color:rgba(255,255,255,0.7); font-size:0.875rem; line-height:1.7;">Présentez vos programmes neufs avec des prises de vue aériennes qui montrent le potentiel du site.</p>
-                </div>
+    <section id="drone-clients" style="background:#000; padding:clamp(80px,12vw,140px) 0; scroll-margin-top:100px;">
+        <div style="max-width:900px; margin:0 auto; padding:0 24px;">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:16px;">Pour qui</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(2.2rem,5vw,3.5rem); color:#fff; font-weight:400; line-height:1.2; margin-bottom:clamp(48px,8vw,80px);">Nous accompagnons ceux<br>qui veulent <span style="color:#549ba2;">se différencier.</span></h2>
+
+            <div class="clients-list-apple">
+                <a href="#tarifs" class="client-row">
+                    <span class="client-name">Agences immobilières</span>
+                    <span class="client-desc">Visuels premium qui accélèrent vos ventes</span>
+                    <span class="client-arrow">→</span>
+                </a>
+                <a href="#tarifs" class="client-row">
+                    <span class="client-name">Entreprises</span>
+                    <span class="client-desc">Contenu visuel unique pour vos locaux et événements</span>
+                    <span class="client-arrow">→</span>
+                </a>
+                <a href="#tarifs" class="client-row">
+                    <span class="client-name">Commerces</span>
+                    <span class="client-desc">Montrez votre espace sous un angle inédit</span>
+                    <span class="client-arrow">→</span>
+                </a>
+                <a href="#tarifs" class="client-row">
+                    <span class="client-name">Indépendants</span>
+                    <span class="client-desc">Images professionnelles qui font la différence</span>
+                    <span class="client-arrow">→</span>
+                </a>
+                <a href="#tarifs" class="client-row">
+                    <span class="client-name">Promoteurs</span>
+                    <span class="client-desc">Prises de vue aériennes du potentiel de vos sites</span>
+                    <span class="client-arrow">→</span>
+                </a>
             </div>
         </div>
     </section>
@@ -1069,7 +1389,7 @@
 
     <!-- BOUTON RETOUR SITE -->
     <section style="background:#0f1a1b; padding:40px 0; text-align:center;">
-        <a href="../index.html" class="btn btn-primary btn-outline btn-large">Revenir sur le site BnFConsulting</a>
+        <a href="/#axes" style="color:rgba(255,255,255,0.4); font-size:0.9rem; text-decoration:none; transition:color 0.3s;" onmouseenter="this.style.color='#549ba2'" onmouseleave="this.style.color='rgba(255,255,255,0.4)'">Découvrir l'architecture BnF →</a>
     </section>
 
     <!-- FOOTER -->
@@ -1083,7 +1403,7 @@
                 <a href="mailto:bnfconsulting.contact@gmail.com">Contact</a>
             </div>
             <div class="footer-copy">
-                <p>&copy; 2026 DRONE PRO MOTION by BnFConsulting. · <a href="../mentions-legales.html" style="color:rgba(255,255,255,0.4); text-decoration:none;">Mentions légales</a></p>
+                <p>&copy; 2026 Drone Pro Motion by BNF Consulting. · <a href="/mentions-legales.html" style="color:rgba(255,255,255,0.4); text-decoration:none;">Mentions légales</a></p>
             </div>
         </div>
     </footer>
@@ -1101,12 +1421,11 @@
         <div class="fab-panel" id="fabPanel">
             <div class="fab-section">
                 <p class="fab-label">Navigation</p>
-                <a href="../index.html" class="fab-link fab-home">Accueil</a>
+                <a href="/#axes" class="fab-link fab-home">L'architecture</a>
                 <div class="fab-axes-group">
-                    <a href="../drones.html" class="fab-link">Visibilité</a>
+                    <a href="/visibilite/" class="fab-link">Visibilité</a>
                     <div class="fab-axe-sep"></div>
-                    <div class="fab-axe-sep"></div>
-                    <a href="../flow.html" class="fab-link">Optimisation</a>
+                    <a href="/optimisation-digitale/" class="fab-link">Optimisation</a>
                 </div>
             </div>
             <div class="fab-divider"></div>
