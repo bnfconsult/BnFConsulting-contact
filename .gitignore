@@ -1,0 +1,11 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE / tools
+.claude/
+
+# Fichiers non publics
+*.pdf
+Son/
+Capture d'écran*
