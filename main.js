@@ -595,12 +595,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- SCÉNARIO 1 : Qui est BNF ? ---
         function showQuiEstBNF() {
             clear();
-            addBubble('BNF Consulting structure et développe les entreprises autour de 3 axes :');
+            addBubble('BNF Consulting structure et développe les entreprises autour de 2 leviers :');
             setTimeout(function() {
-                addBubble('<b>1. Stratégie</b><br>Lecture globale de votre entreprise, positionnement, leviers de croissance.<br><br><b>2. Optimisation</b><br>Structuration des opérations, automatisation, outils digitaux alignés.<br><br><b>3. Visibilité</b><br>Image de marque, contenu visuel, présence digitale impactante.');
+                addBubble('<b>1. Stratégie</b><br>Lecture globale de votre entreprise, positionnement, leviers de croissance.<br><br><b>2. Visibilité</b><br>Image de marque, contenu visuel premium, présence digitale impactante.');
                 addButtons([
                     { label: 'En savoir plus sur la stratégie', action: showStrategie },
-                    { label: 'Découvrir l\'optimisation (FLOW)', action: showOptimisation },
                     { label: 'Explorer la visibilité', action: showVisibilite }
                 ]);
                 addBack();
@@ -620,24 +619,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 300);
         }
 
-        function showOptimisation() {
-            clear();
-            addBubble('FLOW transforme votre stratégie en système opérationnel.');
-            setTimeout(function() {
-                addBubble('• Structuration des opérations<br>• Automatisation des workflows<br>• Organisation pilotable<br>• Centralisation des données<br><br>Votre business tourne — FLOW s\'assure qu\'il tourne bien.');
-                addCTAs([
-                    { label: 'Découvrir FLOW', url: '/optimisation-digitale/' },
-                    { label: 'Réserver un diagnostic', url: CAL }
-                ]);
-                addBack();
-            }, 300);
-        }
-
         function showVisibilite() {
             clear();
             addBubble('La manière dont le monde vous voit.');
             setTimeout(function() {
-                addBubble('Stratégie digitale — Identité de marque — Contenu premium — Captation drone<br><br>Nous rendons votre entreprise visible et crédible.');
+                addBubble('Captation aérienne — Identité de marque — Contenu premium — Stratégie digitale<br><br>Nous rendons votre entreprise visible et crédible.');
                 addCTAs([
                     { label: 'Voir les leviers de visibilité', url: '/visibilite/' }
                 ]);
@@ -653,7 +639,6 @@ document.addEventListener('DOMContentLoaded', () => {
             addButtons([
                 { label: 'Je manque de visibilité', action: showEnjeuVisibilite },
                 { label: 'Mon organisation freine ma croissance', action: showEnjeuOrga },
-                { label: 'Je veux automatiser mes process', action: showEnjeuAuto },
                 { label: 'Je veux du contenu visuel / drone', action: showEnjeuDrone },
                 { label: 'Je ne sais pas par où commencer', action: showEnjeuPerdu }
             ]);
@@ -671,22 +656,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function showEnjeuOrga() {
             clear();
-            addBubble('Structuration des opérations, clarification des process, vision pilotable : nous transformons le flou en système.');
-            addCTAs([
-                { label: 'Découvrir FLOW', url: '/optimisation-digitale/' },
-                { label: 'Réserver un diagnostic', url: CAL }
-            ]);
-            addBack();
-        }
-
-        function showEnjeuAuto() {
-            clear();
-            addBubble('Automatisation des workflows, structuration CRM, optimisation des opérations : nous libérons du temps stratégique.');
-            addCTAs([
-                { label: 'Découvrir FLOW', url: '/optimisation-digitale/' },
-                { label: 'Réserver un diagnostic', url: CAL }
-            ]);
-            addBack();
+            addBubble('Structuration, clarification des process, vision pilotable : nous transformons le flou en système.');
+            setTimeout(function() {
+                addBubble('Le diagnostic stratégique est le meilleur point de départ pour identifier vos freins et prioriser les actions.');
+                addCTAs([
+                    { label: 'Réserver un diagnostic — 30 min', url: CAL }
+                ]);
+                addActionBtn('Être rappelé', showRecallForm);
+                addBack();
+            }, 300);
         }
 
         function showEnjeuDrone() {
@@ -695,7 +673,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(function() {
                 addBubble('Nous intervenons dans l\'immobilier, l\'automobile, et bien d\'autres secteurs.');
                 addCTAs([
-                    { label: 'Voir DPM', url: '/visibilite/' }
+                    { label: 'Découvrir nos offres', url: '/visibilite/' }
                 ]);
                 addActionBtn('Être rappelé', showRecallForm);
                 addBack();
