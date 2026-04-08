@@ -253,6 +253,58 @@ h1, h2, h3 {
     background: var(--title) !important;
 }
 
+/* Nav dropdown */
+.nav-dropdown {
+    position: relative;
+}
+.nav-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 180px;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    transform: translateX(-50%) translateY(8px);
+    list-style: none;
+    z-index: 1000;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.open .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+.nav-dropdown-menu li {
+    margin: 0;
+}
+.nav-dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: rgba(255,255,255,0.7) !important;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+.nav-dropdown-menu a:hover {
+    background: rgba(84,155,162,0.12);
+    color: #549ba2 !important;
+}
+
 /* Language toggle FR/EN */
 .lang-toggle {
     display: flex;

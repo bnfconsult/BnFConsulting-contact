@@ -111,7 +111,14 @@
             </button>
             <ul class="nav-links" id="navLinks">
                 <li class="nav-home"><a href="index.html">Accueil</a></li>
-                <li><a href="#visibilite">Production visuelle</a></li>
+                <li class="nav-dropdown">
+                    <a href="#secteurs" class="nav-dropdown-toggle">Secteurs <svg width="10" height="6" viewBox="0 0 10 6" style="margin-left:4px;vertical-align:middle;"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="/immobilier/">Immobilier</a></li>
+                        <li><a href="/automobile/">Automobile</a></li>
+                        <li><a href="/domaines/">Domaines</a></li>
+                    </ul>
+                </li>
                 <li><a href="#tarifs">Nos formules</a></li>
                 <li><a href="/articles/">Articles</a></li>
                 <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Diagnostic stratégique</a></li>
@@ -119,6 +126,21 @@
             </ul>
         </div>
     </nav>
+    <script>
+    /* Nav dropdown toggle (touch + click) */
+    (function(){
+        var dd = document.querySelector('.nav-dropdown');
+        if(!dd) return;
+        var toggle = dd.querySelector('.nav-dropdown-toggle');
+        toggle.addEventListener('click', function(e){
+            e.preventDefault();
+            dd.classList.toggle('open');
+        });
+        document.addEventListener('click', function(e){
+            if(!dd.contains(e.target)) dd.classList.remove('open');
+        });
+    })();
+    </script>
 
     <!-- HERO -->
     <section class="hero" id="hero">
@@ -1148,6 +1170,12 @@
                 <div class="fab-axes-group">
                     <a href="#visibilite" class="fab-link">Production visuelle</a>
                     <a href="#tarifs" class="fab-link">Nos formules</a>
+                </div>
+                <p class="fab-label" style="margin-top:10px;">Secteurs</p>
+                <div class="fab-axes-group">
+                    <a href="/immobilier/" class="fab-link">Immobilier</a>
+                    <a href="/automobile/" class="fab-link">Automobile</a>
+                    <a href="/domaines/" class="fab-link">Domaines</a>
                 </div>
                 <a href="/articles/" class="fab-link">Articles</a>
             </div>
