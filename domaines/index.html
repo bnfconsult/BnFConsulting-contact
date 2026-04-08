@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS92XFM5CQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SS92XFM5CQ');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Nos domaines d'expertise — BNF Consulting</title>
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <meta name="description" content="Découvrez les domaines d'expertise de BNF Consulting : immobilier, automobile et autres secteurs. Stratégie et production visuelle pour PME.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .domaines-hero {
+            padding-top: clamp(120px, 15vw, 160px);
+            padding-bottom: clamp(60px, 8vw, 100px);
+            background: #0a0a0a;
+            text-align: center;
+        }
+        .domaines-hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: #fff;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        .domaines-hero h1 .accent { color: #549ba2; }
+        .domaines-hero p {
+            color: rgba(255,255,255,0.5);
+            font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .domaines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 3vw, 40px);
+        }
+        .domaine-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(84,155,162,0.2);
+            border-radius: 12px;
+            padding: clamp(32px, 4vw, 48px);
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .domaine-card:hover {
+            border-color: #549ba2;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(84,155,162,0.12);
+        }
+        .domaine-card h3 {
+            font-family: Georgia, serif;
+            font-size: 1.25rem;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .domaine-card p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .domaine-card.disabled {
+            opacity: 0.45;
+            pointer-events: none;
+        }
+        .domaine-card .badge {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #549ba2;
+            background: rgba(84,155,162,0.12);
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-top: 16px;
+        }
+        .cta-section {
+            background: #000;
+            padding: clamp(60px, 8vw, 100px) 0;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            color: #fff;
+            margin-bottom: 24px;
+        }
+        .cta-section h2 .accent { color: #549ba2; }
+        .cta-section .btn {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            padding: 14px 28px;
+            background: #549ba2;
+            color: #fff;
+            border: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .cta-section .btn:hover {
+            background: #235357;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><img src="../PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting"></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li class="nav-home"><a href="../index.html">Accueil</a></li>
+                <li><a href="../#visibilite">Production visuelle</a></li>
+                <li><a href="../#tarifs">Nos formules</a></li>
+                <li><a href="/articles/">Articles</a></li>
+                <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Diagnostic stratégique</a></li>
+                <li class="lang-toggle"><a href="/domaines/" class="lang-link active">FR</a><span class="lang-sep">|</span><a href="/en/index.html" class="lang-link">EN</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="domaines-hero">
+        <div style="max-width:1200px; margin:0 auto; padding:0 clamp(16px,3vw,40px);">
+            <p style="font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Nos expertises</p>
+            <h1>Nos domaines <span class="accent">d'expertise</span></h1>
+            <p>Découvrez comment nous accompagnons chaque secteur.</p>
+        </div>
+    </section>
+
+    <!-- DOMAINES -->
+    <section style="background:#0a0a0a; padding:0 0 clamp(80px,10vw,120px);">
+        <div class="domaines-grid">
+            <a href="/immobilier/" class="domaine-card">
+                <h3>Immobilier</h3>
+                <p>Photos drone, vidéos cinématiques et stratégie de mise en valeur pour agences et promoteurs.</p>
+            </a>
+            <a href="/automobile/" class="domaine-card">
+                <h3>Automobile</h3>
+                <p>Production visuelle haut de gamme et accompagnement marketing pour concessions et marques auto.</p>
+            </a>
+            <div class="domaine-card disabled">
+                <h3>Autres secteurs</h3>
+                <p>Restauration, hôtellerie, artisanat... Nous adaptons notre méthode à chaque métier.</p>
+                <span class="badge">Bientôt disponible</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Parlons de <span class="accent">votre projet</span></h2>
+        <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn">Diagnostic stratégique — 30 min</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-logo"><img src="../PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting" loading="lazy"></span>
+                <p>Stratégie et production visuelle pour PME.</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener">Diagnostic stratégique — 30 min</a>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 BnFConsulting. · <a href="/mentions-legales.html" style="color:rgba(255,255,255,0.4); text-decoration:none;">Mentions légales</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="/en/index.html" class="lang-fab" aria-label="English version">EN</a>
+
+    <script src="../main.js"></script>
+</body>
+</html>

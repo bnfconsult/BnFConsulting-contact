@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS92XFM5CQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SS92XFM5CQ');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Production visuelle automobile — BNF Consulting</title>
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="canonical" href="https://www.bnf-consulting.fr/automobile/">
+    <meta name="description" content="Sublimez vos véhicules avec des prises de vue drone et cinématiques. Photos aériennes et vidéo pour concessionnaires, garages et vente automobile en Île-de-France.">
+    <meta name="keywords" content="photo automobile, vidéo voiture, drone automobile, concessionnaire, vidéo cinématique, BNF Consulting, Île-de-France">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Production visuelle automobile — BNF Consulting">
+    <meta property="og:description" content="Sublimez vos véhicules avec des prises de vue drone et cinématiques. Concessionnaires, garages, vente automobile.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.bnf-consulting.fr/automobile/">
+    <meta property="og:image" content="https://www.bnf-consulting.fr/PHOTOS/section%20Auto/automobile%201.jpg">
+    <meta property="og:locale" content="fr_FR">
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Production visuelle automobile — BNF Consulting",
+        "description": "Prise de vue drone et cinématique pour le secteur automobile. Photos aériennes, vidéo dynamique pour concessionnaires, garages et vente de véhicules.",
+        "provider": {
+            "@type": "ConsultingBusiness",
+            "name": "BNF Consulting",
+            "url": "https://www.bnf-consulting.fr"
+        },
+        "areaServed": "Île-de-France",
+        "priceRange": "€€"
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* --- Hero automobile --- */
+        .auto-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .auto-hero__bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .auto-hero__bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .auto-hero__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
+        }
+        .auto-hero__content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 24px;
+        }
+
+        /* --- Ticker carousel --- */
+        @keyframes autoTickerScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .auto-ticker {
+            overflow: hidden;
+            width: 100%;
+            padding: 0;
+            position: relative;
+        }
+        .auto-ticker__track {
+            display: flex;
+            gap: 0;
+            width: max-content;
+            animation: autoTickerScroll 30s linear infinite;
+        }
+        .auto-ticker__track:hover {
+            animation-play-state: paused;
+        }
+        .auto-ticker__track img {
+            height: 280px;
+            border-radius: 0;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        /* --- Benefits grid --- */
+        .auto-benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            max-width: 800px;
+            margin: 0 auto 32px;
+        }
+        .auto-benefit {
+            background: rgba(84,155,162,0.06);
+            border: 1px solid rgba(84,155,162,0.15);
+            border-radius: 12px;
+            padding: 20px 18px;
+            text-align: center;
+            cursor: default;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+        .auto-benefit:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(84,155,162,0.15);
+            border-color: rgba(84,155,162,0.4);
+        }
+        .auto-benefit:hover .auto-benefit__hover {
+            max-height: 60px;
+            opacity: 1;
+        }
+        .auto-benefit__icon {
+            font-size: 1.6rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .auto-benefit__label {
+            color: #549ba2;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
+        .auto-benefit__text {
+            color: rgba(255,255,255,0.7);
+            font-size: clamp(0.8rem,1vw,0.875rem);
+            line-height: 1.6;
+            margin: 0;
+        }
+        .auto-benefit__hover {
+            color: rgba(84,155,162,0.8);
+            font-size: 0.75rem;
+            line-height: 1.5;
+            margin: 0;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            margin-top: 8px;
+        }
+
+        /* --- Tags --- */
+        .auto-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+        .auto-tag {
+            background: rgba(84,155,162,0.1);
+            border: 1px solid rgba(84,155,162,0.25);
+            border-radius: 20px;
+            padding: 6px 16px;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+        }
+
+        /* --- Pricing cards --- */
+        .auto-pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 700px;
+            margin: 60px auto 0;
+            align-items: stretch;
+        }
+        .auto-pricing-card {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(84,155,162,0.15);
+            border-radius: 20px;
+            padding: clamp(28px,3vw,40px) clamp(20px,2vw,28px);
+            text-align: center;
+            position: relative;
+            overflow: visible;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.35s ease;
+        }
+        .auto-pricing-card:hover {
+            border-color: rgba(84,155,162,0.5);
+            box-shadow: 0 16px 48px rgba(84,155,162,0.12), 0 0 24px rgba(84,155,162,0.06);
+            transform: translateY(-6px);
+        }
+        .auto-pricing-card.featured {
+            border-color: #549ba2;
+            background: rgba(84,155,162,0.06);
+            box-shadow: 0 8px 32px rgba(84,155,162,0.1);
+        }
+        .auto-pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #549ba2;
+            color: #fff;
+            font-family: Montserrat, sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 5px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        /* --- CTA Banner --- */
+        .auto-cta-banner {
+            position: relative;
+            background: #0a0a0a;
+            overflow: hidden;
+            padding: clamp(80px,12vw,140px) 0;
+        }
+
+        @media (max-width: 768px) {
+            .auto-benefits { grid-template-columns: 1fr; }
+            .auto-pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 40px auto 0;
+            }
+            .auto-ticker__track img { height: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="../index.html" class="nav-logo"><img src="../PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting"></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li class="nav-home"><a href="../index.html">Accueil</a></li>
+                <li><a href="../index.html#visibilite">Production visuelle</a></li>
+                <li><a href="../index.html#tarifs">Nos formules</a></li>
+                <li><a href="/articles/">Articles</a></li>
+                <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Diagnostic stratégique</a></li>
+                <li class="lang-toggle"><a href="/automobile/" class="lang-link active">FR</a><span class="lang-sep">|</span><a href="../en/" class="lang-link">EN</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="auto-hero" id="hero">
+        <div class="auto-hero__bg">
+            <img src="../PHOTOS/section Auto/automobile 1.jpg" alt="Production visuelle automobile">
+        </div>
+        <div class="auto-hero__overlay"></div>
+        <div class="auto-hero__content">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Production visuelle</p>
+            <h1 style="font-family:Georgia,serif; font-size:clamp(2.5rem,6vw,4.5rem); color:#fff; font-weight:400; line-height:1.15; margin-bottom:20px;"><span style="color:#549ba2;">Automobile</span></h1>
+            <p style="color:rgba(255,255,255,0.7); font-size:clamp(1rem,1.8vw,1.25rem); line-height:1.7; max-width:620px; margin:0 auto 36px;">Sublimez vos véhicules avec des prises de vue cinématiques.</p>
+            <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary btn-large">Prendre rendez-vous</a>
+        </div>
+    </section>
+
+    <!-- TICKER PHOTO CAROUSEL -->
+    <section style="background:#0a0a0a; padding:0;">
+        <div class="auto-ticker">
+            <div class="auto-ticker__track">
+                <img src="../PHOTOS/section Auto/automobile 1.jpg" alt="Automobile drone" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-dpranka-12644290.jpg" alt="Automobile cinématique" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-hyundaimotorgroup-11245902.jpg" alt="Véhicule prestige" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-idz95-3273786.jpg" alt="Photo voiture" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-introspectivedsgn-4065796.jpg" alt="Automobile vue aérienne" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-pixabay-210019.jpg" alt="Véhicule drone" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-rilkerainer-1103598.jpg" alt="Photo automobile" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-tengiz-nichbeli-357823024-19281437.jpg" alt="Véhicule cinématique" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-thelazyartist-1555195.jpg" alt="Automobile prestige" loading="lazy">
+                <!-- Duplicata pour boucle infinie -->
+                <img src="../PHOTOS/section Auto/automobile 1.jpg" alt="" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-dpranka-12644290.jpg" alt="" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-hyundaimotorgroup-11245902.jpg" alt="" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-idz95-3273786.jpg" alt="" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-introspectivedsgn-4065796.jpg" alt="" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-pixabay-210019.jpg" alt="" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-rilkerainer-1103598.jpg" alt="" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-tengiz-nichbeli-357823024-19281437.jpg" alt="" loading="lazy">
+                <img src="../PHOTOS/section Auto/pexels-thelazyartist-1555195.jpg" alt="" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENT: Benefits -->
+    <section style="background:#0a0a0a; padding:clamp(80px,10vw,120px) 0;">
+        <div class="container" style="max-width:900px;">
+            <div style="text-align:center; margin-bottom:clamp(40px,6vw,60px);">
+                <p style="color:rgba(255,255,255,0.7); font-size:clamp(0.85rem, 1.2vw, 0.95rem); line-height:1.8; max-width:700px; margin:0 auto;">
+                    Les annonces automobiles se ressemblent.<br>La prise de vue aérienne et cinématique révèle le caractère du véhicule,<br>son environnement et son standing.<br>En quelques secondes, l'acheteur est captivé.
+                </p>
+            </div>
+
+            <!-- Ce que la vue aerienne change -->
+            <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.6vw, 1.2rem); margin-bottom:16px; text-align:center;">Ce que la vue aérienne <span style="color:#549ba2;">change</span></h3>
+            <div class="auto-benefits">
+                <div class="auto-benefit">
+                    <span class="auto-benefit__icon">🎬</span>
+                    <p class="auto-benefit__label">Impact</p>
+                    <p class="auto-benefit__text">Vidéo dynamique qui met en valeur le véhicule</p>
+                    <p class="auto-benefit__hover">Le mouvement crée l'émotion que les photos ne captent pas.</p>
+                </div>
+                <div class="auto-benefit">
+                    <span class="auto-benefit__icon">💎</span>
+                    <p class="auto-benefit__label">Standing</p>
+                    <p class="auto-benefit__text">Perception premium renforcée pour le vendeur</p>
+                    <p class="auto-benefit__hover">Le véhicule est présenté comme un objet de désir.</p>
+                </div>
+                <div class="auto-benefit">
+                    <span class="auto-benefit__icon">👁️</span>
+                    <p class="auto-benefit__label">Visibilité</p>
+                    <p class="auto-benefit__text">Annonces qui captent l'attention en ligne</p>
+                    <p class="auto-benefit__hover">Plus de clics, plus d'appels, plus de ventes.</p>
+                </div>
+                <div class="auto-benefit">
+                    <span class="auto-benefit__icon">🔥</span>
+                    <p class="auto-benefit__label">Émotion</p>
+                    <p class="auto-benefit__text">Le véhicule prend vie avant même l'essai</p>
+                    <p class="auto-benefit__hover">L'acheteur ressent le véhicule avant de le toucher.</p>
+                </div>
+            </div>
+
+            <!-- Ideal pour -->
+            <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(1rem, 1.6vw, 1.2rem); margin-bottom:14px; text-align:center;">Idéal <span style="color:#549ba2;">pour</span></h3>
+            <div class="auto-tags">
+                <span class="auto-tag">Concessionnaires</span>
+                <span class="auto-tag">Véhicules de prestige</span>
+                <span class="auto-tag">Vente entre particuliers</span>
+                <span class="auto-tag">Événements auto</span>
+                <span class="auto-tag">Collections</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="tarifs" style="background:#000; padding:clamp(80px,10vw,120px) 0; scroll-margin-top:100px;">
+        <div class="container" style="text-align:center;">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Nos formules</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3; margin-bottom:12px;">Investissez dans votre <span style="color:#549ba2;">visibilité</span></h2>
+            <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:550px; margin:0 auto;">Des formules adaptées à votre ambition automobile.</p>
+
+            <div class="auto-pricing-grid">
+                <!-- Pack 1 — Captation -->
+                <div class="auto-pricing-card">
+                    <div style="width:44px; height:44px; margin:0 auto 16px; background:rgba(84,155,162,0.1); border-radius:12px; display:flex; align-items:center; justify-content:center;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#549ba2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                    </div>
+                    <h3 style="font-family:Georgia,serif; font-size:1.15rem; color:#fff; font-weight:400; margin-bottom:4px;">Captation</h3>
+                    <p style="color:rgba(255,255,255,0.4); font-size:0.78rem; margin-bottom:20px;">Photos + vidéo de votre véhicule</p>
+                    <p style="font-family:Georgia,serif; font-size:0.95rem; color:rgba(255,255,255,0.5); margin-bottom:24px;">à partir de <strong style="font-size:2rem; font-weight:400; color:#549ba2;">300</strong>€</p>
+                    <ul style="list-style:none; padding:0; margin:0 0 24px; text-align:left; flex:1;">
+                        <li style="position:relative; padding-left:18px; margin-bottom:10px; color:rgba(255,255,255,0.65); font-size:0.82rem; line-height:1.5;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:inline-block;"></span>Prises de vue aériennes HD</li>
+                        <li style="position:relative; padding-left:18px; margin-bottom:10px; color:rgba(255,255,255,0.65); font-size:0.82rem; line-height:1.5;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:inline-block;"></span>Vidéo cinématique courte</li>
+                        <li style="position:relative; padding-left:18px; margin-bottom:10px; color:rgba(255,255,255,0.65); font-size:0.82rem; line-height:1.5;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:inline-block;"></span>Retouche et étalonnage</li>
+                        <li style="position:relative; padding-left:18px; margin-bottom:10px; color:rgba(255,255,255,0.65); font-size:0.82rem; line-height:1.5;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:inline-block;"></span>Formats adaptés web et réseaux</li>
+                        <li style="position:relative; padding-left:18px; margin-bottom:10px; color:rgba(255,255,255,0.65); font-size:0.82rem; line-height:1.5;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:inline-block;"></span>Livraison sous 48h</li>
+                    </ul>
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" style="display:block; color:#549ba2; font-family:Montserrat,sans-serif; font-size:0.82rem; font-weight:600; text-decoration:none; padding-top:20px; transition:opacity 0.3s;">En savoir plus →</a>
+                </div>
+
+                <!-- Pack 2 — Valorisation -->
+                <div class="auto-pricing-card featured">
+                    <div class="auto-pricing-badge">Recommandé</div>
+                    <div style="width:44px; height:44px; margin:0 auto 16px; background:rgba(84,155,162,0.1); border-radius:12px; display:flex; align-items:center; justify-content:center;">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#549ba2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h3 style="font-family:Georgia,serif; font-size:1.15rem; color:#fff; font-weight:400; margin-bottom:4px;">Valorisation</h3>
+                    <p style="color:rgba(255,255,255,0.4); font-size:0.78rem; margin-bottom:20px;">Contenu pensé pour convertir</p>
+                    <p style="font-family:Georgia,serif; font-size:0.95rem; color:rgba(255,255,255,0.5); margin-bottom:24px;">à partir de <strong style="font-size:2rem; font-weight:400; color:#549ba2;">700</strong>€</p>
+                    <ul style="list-style:none; padding:0; margin:0 0 24px; text-align:left; flex:1;">
+                        <li style="position:relative; padding-left:18px; margin-bottom:10px; color:rgba(255,255,255,0.65); font-size:0.82rem; line-height:1.5;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:inline-block;"></span>Photos + vidéo professionnelle</li>
+                        <li style="position:relative; padding-left:18px; margin-bottom:10px; color:rgba(255,255,255,0.65); font-size:0.82rem; line-height:1.5;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:inline-block;"></span>Angles pensés conversion</li>
+                        <li style="position:relative; padding-left:18px; margin-bottom:10px; color:rgba(255,255,255,0.65); font-size:0.82rem; line-height:1.5;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:inline-block;"></span>Montage cinématique avancé</li>
+                        <li style="position:relative; padding-left:18px; margin-bottom:10px; color:rgba(255,255,255,0.65); font-size:0.82rem; line-height:1.5;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:inline-block;"></span>Conseil stratégique inclus</li>
+                        <li style="position:relative; padding-left:18px; margin-bottom:10px; color:rgba(255,255,255,0.65); font-size:0.82rem; line-height:1.5;"><span style="position:absolute; left:0; top:7px; width:6px; height:6px; background:#549ba2; border-radius:50%; display:inline-block;"></span>Formats réseaux sociaux inclus</li>
+                    </ul>
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" style="display:block; color:#549ba2; font-family:Montserrat,sans-serif; font-size:0.82rem; font-weight:600; text-decoration:none; padding-top:20px; transition:opacity 0.3s;">En savoir plus →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="auto-cta-banner">
+        <div class="container" style="text-align:center; position:relative; z-index:2;">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Passez à l'action</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3; margin-bottom:20px;">Démarquez-vous dans un<br><span style="color:#549ba2;">marché concurrentiel</span></h2>
+            <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:550px; margin:0 auto clamp(32px,5vw,48px);">Sublimez vos véhicules et captez l'attention de vos acheteurs.</p>
+            <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary btn-large">Prendre rendez-vous</a>
+                <a href="mailto:bnfconsulting.contact@gmail.com" class="btn btn-primary btn-outline btn-large">Contactez-nous par mail</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div style="max-width:1200px; margin:0 auto; padding:0 24px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px;">
+            <!-- Logo + tagline -->
+            <div>
+                <span class="footer-logo"><img src="../PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting" loading="lazy"></span>
+                <p style="font-size:0.8125rem; color:rgba(255,255,255,0.35); margin-top:6px;">Stratégie et production visuelle pour PME.</p>
+            </div>
+            <!-- Icônes sociales -->
+            <div style="display:flex; gap:16px; align-items:center;">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/bnfconsulting-contact" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <!-- Mail -->
+                <a href="mailto:bnfconsulting.contact@gmail.com" aria-label="Email" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+                </a>
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@bnf_consulting_contact" target="_blank" rel="noopener" aria-label="TikTok" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.17a8.16 8.16 0 004.76 1.53v-3.5a4.82 4.82 0 01-1-.51z"/></svg>
+                </a>
+                <!-- Calendrier -->
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" aria-label="Prendre rendez-vous" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </a>
+            </div>
+            <!-- Copyright -->
+            <p style="font-size:0.75rem; color:rgba(255,255,255,0.25);">&copy; 2026 BnFConsulting. · <a href="../mentions-legales.html" style="color:rgba(255,255,255,0.25); text-decoration:none;">Mentions légales</a></p>
+        </div>
+    </footer>
+
+    <!-- BOUTON RETOUR EN HAUT -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
+
+    <!-- LANGUAGE FAB -->
+    <a href="../en/" class="lang-fab" aria-label="English version">EN</a>
+
+    <script src="../main.js"></script>
+</body>
+</html>
