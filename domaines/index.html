@@ -13,120 +13,270 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <title>Nos domaines d'expertise — BNF Consulting</title>
+    <title>Production visuelle pour châteaux et domaines — BNF Consulting</title>
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
     <link rel="apple-touch-icon" sizes="192x192" href="/apple-touch-icon.png">
-    <meta name="description" content="Découvrez les domaines d'expertise de BNF Consulting : immobilier, automobile et autres secteurs. Stratégie et production visuelle pour PME.">
+    <meta name="description" content="Production visuelle drone pour châteaux, domaines et propriétés d'exception. Photos aériennes, vidéos cinématiques et stratégie de mise en valeur en Île-de-France.">
+    <meta name="keywords" content="drone château, vidéo domaine, photo aérienne propriété, production visuelle château, drone domaine viticole, Île-de-France">
+    <meta property="og:title" content="Production visuelle pour châteaux et domaines — BNF Consulting">
+    <meta property="og:description" content="Sublimez vos châteaux et domaines avec des prises de vue aériennes cinématiques.">
+    <meta property="og:image" content="https://www.bnf-consulting.fr/PHOTOS/Drones/Immo/IMG_4377.JPG">
+    <meta property="og:url" content="https://www.bnf-consulting.fr/domaines/">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://www.bnf-consulting.fr/domaines/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Production visuelle pour châteaux et domaines",
+        "provider": {
+            "@type": "ProfessionalService",
+            "name": "BNF Consulting",
+            "url": "https://www.bnf-consulting.fr"
+        },
+        "description": "Photos drone, vidéos cinématiques et stratégie de mise en valeur pour châteaux, domaines et propriétés d'exception.",
+        "areaServed": "Île-de-France"
+    }
+    </script>
     <style>
         .domaines-hero {
-            padding-top: clamp(120px, 15vw, 160px);
-            padding-bottom: clamp(60px, 8vw, 100px);
-            background: #0a0a0a;
-            text-align: center;
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+        .domaines-hero__bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .domaines-hero__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.15) 100%);
+        }
+        .domaines-hero__content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(16px,3vw,40px) clamp(60px,8vw,100px);
+            width: 100%;
         }
         .domaines-hero h1 {
             font-family: Georgia, serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             color: #fff;
             font-weight: 400;
-            line-height: 1.2;
+            line-height: 1.1;
             margin-bottom: 16px;
         }
         .domaines-hero h1 .accent { color: #549ba2; }
-        .domaines-hero p {
-            color: rgba(255,255,255,0.5);
-            font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+        .domaines-hero .hero-sub {
+            color: rgba(255,255,255,0.7);
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
             line-height: 1.7;
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 550px;
+            margin-bottom: 28px;
         }
-        .domaines-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 clamp(16px, 3vw, 40px);
+
+        /* Contenu */
+        .domaines-intro {
+            background: #0a0a0a;
+            padding: clamp(80px,10vw,120px) 0;
         }
-        .domaine-card {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(84,155,162,0.2);
-            border-radius: 12px;
-            padding: clamp(32px, 4vw, 48px);
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .domaines-intro__inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 clamp(16px,3vw,40px);
             text-align: center;
         }
-        .domaine-card:hover {
-            border-color: #549ba2;
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(84,155,162,0.12);
-        }
-        .domaine-card h3 {
+        .domaines-intro h2 {
             font-family: Georgia, serif;
-            font-size: 1.25rem;
+            font-size: clamp(1.5rem, 3vw, 2.4rem);
             color: #fff;
-            margin-bottom: 12px;
-        }
-        .domaine-card p {
-            color: rgba(255,255,255,0.5);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-        .domaine-card.disabled {
-            opacity: 0.45;
-            pointer-events: none;
-        }
-        .domaine-card .badge {
-            display: inline-block;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #549ba2;
-            background: rgba(84,155,162,0.12);
-            padding: 4px 12px;
-            border-radius: 4px;
-            margin-top: 16px;
-        }
-        .cta-section {
-            background: #000;
-            padding: clamp(60px, 8vw, 100px) 0;
-            text-align: center;
-        }
-        .cta-section h2 {
-            font-family: Georgia, serif;
-            font-size: clamp(1.4rem, 3vw, 2rem);
-            color: #fff;
+            font-weight: 400;
             margin-bottom: 24px;
         }
-        .cta-section h2 .accent { color: #549ba2; }
-        .cta-section .btn {
+        .domaines-intro h2 .accent { color: #549ba2; }
+        .domaines-intro p {
+            color: rgba(255,255,255,0.6);
+            font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        /* Avantages */
+        .domaines-benefits {
+            background: #000;
+            padding: clamp(60px,8vw,100px) 0;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: clamp(16px,2vw,24px);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 clamp(16px,3vw,40px);
+        }
+        .benefit-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: clamp(28px,3vw,40px);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .benefit-card:hover {
+            border-color: rgba(84,155,162,0.3);
+            transform: translateY(-4px);
+        }
+        .benefit-card h3 {
+            font-family: Georgia, serif;
+            color: #fff;
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+        .benefit-card p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.88rem;
+            line-height: 1.7;
+        }
+
+        /* Idéal pour */
+        .ideal-section {
+            background: #0a0a0a;
+            padding: clamp(60px,8vw,100px) 0;
+            text-align: center;
+        }
+        .ideal-section h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(1.4rem,3vw,2rem);
+            color: #fff;
+            margin-bottom: 32px;
+        }
+        .ideal-section h2 .accent { color: #549ba2; }
+        .ideal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        .ideal-tag {
+            background: rgba(84,155,162,0.08);
+            border: 1px solid rgba(84,155,162,0.2);
+            color: rgba(255,255,255,0.7);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Pricing */
+        .domaines-pricing {
+            background: #000;
+            padding: clamp(80px,10vw,120px) 0;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 clamp(16px,3vw,40px);
+        }
+        .pricing-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: clamp(32px,4vw,44px);
+            text-align: left;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .pricing-card:hover {
+            border-color: rgba(84,155,162,0.3);
+            transform: translateY(-4px);
+        }
+        .pricing-card.featured {
+            border-color: rgba(84,155,162,0.4);
+            background: rgba(84,155,162,0.06);
+        }
+        .pricing-card h3 {
+            font-family: Georgia, serif;
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+        .pricing-card .price {
+            font-family: Montserrat, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #549ba2;
+            margin-bottom: 16px;
+        }
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .pricing-card li {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.85rem;
+            line-height: 1.7;
+            padding-left: 18px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+        .pricing-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #549ba2;
+            font-weight: 600;
+        }
+
+        /* CTA */
+        .cta-banner {
+            background: #0a0a0a;
+            padding: clamp(60px,8vw,100px) 0;
+            text-align: center;
+        }
+        .cta-banner h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
+            color: #fff;
+            margin-bottom: 28px;
+        }
+        .cta-banner h2 .accent { color: #549ba2; }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-buttons .btn {
             display: inline-block;
-            font-family: 'Montserrat', sans-serif;
+            font-family: Montserrat, sans-serif;
             font-size: 0.875rem;
             font-weight: 600;
             text-decoration: none;
             border-radius: 8px;
             padding: 14px 28px;
-            background: #549ba2;
-            color: #fff;
-            border: none;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .cta-section .btn:hover {
-            background: #235357;
-            transform: translateY(-2px);
-        }
+        .btn-primary { background: #549ba2; color: #fff; border: none; }
+        .btn-primary:hover { background: #235357; transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+        .btn-outline:hover { border-color: #549ba2; color: #549ba2; transform: translateY(-2px); }
     </style>
 </head>
 <body>
@@ -142,47 +292,127 @@
             </button>
             <ul class="nav-links" id="navLinks">
                 <li class="nav-home"><a href="../index.html">Accueil</a></li>
-                <li><a href="../#visibilite">Production visuelle</a></li>
-                <li><a href="../#tarifs">Nos formules</a></li>
+                <li class="nav-dropdown">
+                    <a href="../index.html#secteurs" class="nav-dropdown-toggle">Secteurs <svg width="10" height="6" viewBox="0 0 10 6" style="margin-left:4px;vertical-align:middle;"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="/immobilier/">Immobilier</a></li>
+                        <li><a href="/automobile/">Automobile</a></li>
+                        <li><a href="/domaines/">Domaines</a></li>
+                    </ul>
+                </li>
+                <li><a href="../index.html#tarifs">Nos formules</a></li>
                 <li><a href="/articles/">Articles</a></li>
                 <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Diagnostic stratégique</a></li>
                 <li class="lang-toggle"><a href="/domaines/" class="lang-link active">FR</a><span class="lang-sep">|</span><a href="/en/index.html" class="lang-link">EN</a></li>
             </ul>
         </div>
     </nav>
+    <script>
+    (function(){
+        var dd = document.querySelector('.nav-dropdown');
+        if(!dd) return;
+        var toggle = dd.querySelector('.nav-dropdown-toggle');
+        toggle.addEventListener('click', function(e){ e.preventDefault(); dd.classList.toggle('open'); });
+        document.addEventListener('click', function(e){ if(!dd.contains(e.target)) dd.classList.remove('open'); });
+    })();
+    </script>
 
     <!-- HERO -->
     <section class="domaines-hero">
-        <div style="max-width:1200px; margin:0 auto; padding:0 clamp(16px,3vw,40px);">
-            <p style="font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Nos expertises</p>
-            <h1>Nos domaines <span class="accent">d'expertise</span></h1>
-            <p>Découvrez comment nous accompagnons chaque secteur.</p>
+        <img src="../PHOTOS/Drones/Immo/IMG_4377.JPG" alt="Vue aérienne d'un domaine" class="domaines-hero__bg" loading="eager">
+        <div class="domaines-hero__overlay"></div>
+        <div class="domaines-hero__content">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:16px;">Production visuelle</p>
+            <h1>Châteaux <span class="accent">&amp; Domaines</span></h1>
+            <p class="hero-sub">Sublimez vos propriétés d'exception avec des prises de vue aériennes cinématiques.</p>
+            <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn-primary" style="display:inline-block; font-family:Montserrat,sans-serif; font-size:0.875rem; font-weight:600; text-decoration:none; border-radius:8px; padding:14px 28px;">Prendre rendez-vous</a>
         </div>
     </section>
 
-    <!-- DOMAINES -->
-    <section style="background:#0a0a0a; padding:0 0 clamp(80px,10vw,120px);">
-        <div class="domaines-grid">
-            <a href="/immobilier/" class="domaine-card">
-                <h3>Immobilier</h3>
-                <p>Photos drone, vidéos cinématiques et stratégie de mise en valeur pour agences et promoteurs.</p>
-            </a>
-            <a href="/automobile/" class="domaine-card">
-                <h3>Automobile</h3>
-                <p>Production visuelle haut de gamme et accompagnement marketing pour concessions et marques auto.</p>
-            </a>
-            <div class="domaine-card disabled">
-                <h3>Autres secteurs</h3>
-                <p>Restauration, hôtellerie, artisanat... Nous adaptons notre méthode à chaque métier.</p>
-                <span class="badge">Bientôt disponible</span>
+    <!-- INTRO -->
+    <section class="domaines-intro">
+        <div class="domaines-intro__inner">
+            <h2>Votre propriété mérite <span class="accent">une image à sa hauteur</span></h2>
+            <p>Un château, un domaine viticole, une propriété de caractère — ce sont des lieux qui racontent une histoire. Mais une photo classique au sol ne suffit pas à rendre leur envergure.</p>
+            <p>La prise de vue aérienne par drone révèle ce qui fait la singularité de votre bien : l'architecture, le parc, les dépendances, l'intégration dans le paysage. Elle transforme une annonce en une expérience visuelle.</p>
+        </div>
+    </section>
+
+    <!-- AVANTAGES -->
+    <section class="domaines-benefits">
+        <div style="text-align:center; max-width:800px; margin:0 auto clamp(32px,4vw,48px); padding:0 16px;">
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.4rem,3vw,2.2rem); color:#fff; font-weight:400;">Ce que la vue aérienne <span style="color:#549ba2;">change</span></h2>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h3>Envergure</h3>
+                <p>Montrez l'ensemble du domaine d'un seul regard — bâtiments, parc, terres, environnement.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Prestige</h3>
+                <p>Une image aérienne cinématique positionne immédiatement le bien dans le haut de gamme.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Contexte</h3>
+                <p>Révélez l'intégration dans le paysage — forêt, vignoble, rivière, village — ce qu'aucune photo au sol ne montre.</p>
+            </div>
+            <div class="benefit-card">
+                <h3>Émotion</h3>
+                <p>Un survol cinématique crée un effet "waouh" qui marque les acheteurs et déclenche les visites.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- IDÉAL POUR -->
+    <section class="ideal-section">
+        <h2>Idéal <span class="accent">pour</span></h2>
+        <div class="ideal-tags">
+            <span class="ideal-tag">Châteaux</span>
+            <span class="ideal-tag">Domaines viticoles</span>
+            <span class="ideal-tag">Manoirs</span>
+            <span class="ideal-tag">Propriétés de prestige</span>
+            <span class="ideal-tag">Domaines événementiels</span>
+            <span class="ideal-tag">Gîtes de caractère</span>
+            <span class="ideal-tag">Propriétés équestres</span>
+        </div>
+    </section>
+
+    <!-- TARIFS -->
+    <section class="domaines-pricing">
+        <div style="text-align:center; max-width:800px; margin:0 auto clamp(32px,4vw,48px); padding:0 16px;">
+            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Nos formules</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.4rem,3vw,2.2rem); color:#fff; font-weight:400;">Investissez dans la <span style="color:#549ba2;">mise en valeur</span> de votre bien</h2>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Captation</h3>
+                <p class="price">À partir de 300 €</p>
+                <ul>
+                    <li>Captation drone photo ou vidéo</li>
+                    <li>Fichiers livrés sous 48h</li>
+                    <li>Cadrage professionnel</li>
+                </ul>
+            </div>
+            <div class="pricing-card featured">
+                <h3>Valorisation</h3>
+                <p class="price">À partir de 700 €</p>
+                <ul>
+                    <li>Captation drone complète</li>
+                    <li>Montage cinématique</li>
+                    <li>Photos retouchées HD</li>
+                    <li>Vidéo promotionnelle</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <!-- CTA -->
-    <section class="cta-section">
-        <h2>Parlons de <span class="accent">votre projet</span></h2>
-        <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn">Diagnostic stratégique — 30 min</a>
+    <section class="cta-banner">
+        <h2>Donnez à votre domaine <span class="accent">la visibilité qu'il mérite</span></h2>
+        <div class="cta-buttons">
+            <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary">Prendre rendez-vous</a>
+            <a href="mailto:bnfconsulting.contact@gmail.com" class="btn btn-outline">Nous contacter</a>
+        </div>
     </section>
 
     <!-- FOOTER -->
@@ -192,8 +422,19 @@
                 <span class="footer-logo"><img src="../PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting" loading="lazy"></span>
                 <p>Stratégie et production visuelle pour PME.</p>
             </div>
-            <div class="footer-links">
-                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener">Diagnostic stratégique — 30 min</a>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/bnfconsulting-contact" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 110-4.13 2.07 2.07 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                </a>
+                <a href="mailto:bnfconsulting.contact@gmail.com" aria-label="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@bnf_consulting_contact" target="_blank" rel="noopener" aria-label="TikTok">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.3 0 .59.04.86.12V9.01a6.27 6.27 0 00-.86-.06A6.34 6.34 0 003.15 15.3a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.05a8.27 8.27 0 004.76 1.5V7.12a4.83 4.83 0 01-1-.43z"/></svg>
+                </a>
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" aria-label="Rendez-vous">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+                </a>
             </div>
             <div class="footer-copy">
                 <p>&copy; 2026 BnFConsulting. · <a href="/mentions-legales.html" style="color:rgba(255,255,255,0.4); text-decoration:none;">Mentions légales</a></p>
