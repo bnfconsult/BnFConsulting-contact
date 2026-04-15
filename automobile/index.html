@@ -249,7 +249,23 @@
                 max-width: 400px;
                 margin: 40px auto 0;
             }
-            .auto-ticker__track img { height: 180px; }
+            .auto-ticker {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+            }
+            .auto-ticker::-webkit-scrollbar { display: none; }
+            .auto-ticker__track {
+                animation: none !important;
+                -webkit-animation: none !important;
+                will-change: auto;
+            }
+            .auto-ticker__track img {
+                height: 220px;
+                min-width: 280px;
+                scroll-snap-align: start;
+            }
         }
     </style>
 </head>

@@ -329,7 +329,23 @@
             .immo-hero { min-height: 75vh; }
             .immo-benefits-grid { grid-template-columns: 1fr; }
             .immo-pricing-grid { grid-template-columns: 1fr; }
-            .immo-ticker__track img { height: 180px; }
+            .immo-ticker {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+            }
+            .immo-ticker::-webkit-scrollbar { display: none; }
+            .immo-ticker__track {
+                animation: none !important;
+                -webkit-animation: none !important;
+                will-change: auto;
+            }
+            .immo-ticker__track img {
+                height: 220px;
+                min-width: 280px;
+                scroll-snap-align: start;
+            }
         }
     </style>
 </head>
