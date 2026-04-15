@@ -252,7 +252,6 @@
             .auto-ticker {
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
-                scroll-snap-type: x mandatory;
                 scrollbar-width: none;
             }
             .auto-ticker::-webkit-scrollbar { display: none; }
@@ -264,7 +263,6 @@
             .auto-ticker__track img {
                 height: 220px;
                 min-width: 280px;
-                scroll-snap-align: start;
             }
         }
     </style>
@@ -330,25 +328,25 @@
     <section style="background:#0a0a0a; padding:0;">
         <div class="auto-ticker">
             <div class="auto-ticker__track">
-                <img src="../PHOTOS/section Auto/automobile 1.jpg" alt="Automobile drone" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-dpranka-12644290.jpg" alt="Automobile cinématique" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-hyundaimotorgroup-11245902.jpg" alt="Véhicule prestige" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-idz95-3273786.jpg" alt="Photo voiture" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-introspectivedsgn-4065796.jpg" alt="Automobile vue aérienne" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-pixabay-210019.jpg" alt="Véhicule drone" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-rilkerainer-1103598.jpg" alt="Photo automobile" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-tengiz-nichbeli-357823024-19281437.jpg" alt="Véhicule cinématique" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-thelazyartist-1555195.jpg" alt="Automobile prestige" loading="lazy">
+                <img src="../PHOTOS/section Auto/automobile 1.jpg" alt="Automobile drone" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-dpranka-12644290.jpg" alt="Automobile cinématique" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-hyundaimotorgroup-11245902.jpg" alt="Véhicule prestige" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-idz95-3273786.jpg" alt="Photo voiture" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-introspectivedsgn-4065796.jpg" alt="Automobile vue aérienne" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-pixabay-210019.jpg" alt="Véhicule drone" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-rilkerainer-1103598.jpg" alt="Photo automobile" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-tengiz-nichbeli-357823024-19281437.jpg" alt="Véhicule cinématique" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-thelazyartist-1555195.jpg" alt="Automobile prestige" loading="eager">
                 <!-- Duplicata pour boucle infinie -->
-                <img src="../PHOTOS/section Auto/automobile 1.jpg" alt="" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-dpranka-12644290.jpg" alt="" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-hyundaimotorgroup-11245902.jpg" alt="" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-idz95-3273786.jpg" alt="" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-introspectivedsgn-4065796.jpg" alt="" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-pixabay-210019.jpg" alt="" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-rilkerainer-1103598.jpg" alt="" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-tengiz-nichbeli-357823024-19281437.jpg" alt="" loading="lazy">
-                <img src="../PHOTOS/section Auto/pexels-thelazyartist-1555195.jpg" alt="" loading="lazy">
+                <img src="../PHOTOS/section Auto/automobile 1.jpg" alt="" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-dpranka-12644290.jpg" alt="" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-hyundaimotorgroup-11245902.jpg" alt="" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-idz95-3273786.jpg" alt="" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-introspectivedsgn-4065796.jpg" alt="" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-pixabay-210019.jpg" alt="" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-rilkerainer-1103598.jpg" alt="" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-tengiz-nichbeli-357823024-19281437.jpg" alt="" loading="eager">
+                <img src="../PHOTOS/section Auto/pexels-thelazyartist-1555195.jpg" alt="" loading="eager">
             </div>
         </div>
     </section>
@@ -517,7 +515,7 @@
         <div style="max-width:1200px; margin:0 auto; padding:0 24px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px;">
             <!-- Logo + tagline -->
             <div>
-                <span class="footer-logo"><img src="../PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting" loading="lazy"></span>
+                <span class="footer-logo"><img src="../PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting" loading="eager"></span>
                 <p style="font-size:0.8125rem; color:rgba(255,255,255,0.35); margin-top:6px;">Stratégie et production visuelle pour PME.</p>
             </div>
             <!-- Icônes sociales -->
