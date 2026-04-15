@@ -509,6 +509,62 @@
     <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
 
     <!-- LANGUAGE FAB -->
+    <!-- BOUTON RETOUR EN HAUT -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
+
+    <!-- BURGER BAS GAUCHE -->
+    <div class="fab-menu" id="fabMenu">
+        <button class="fab-trigger" id="fabTrigger" aria-label="Menu rapide">
+            <span class="fab-bar"></span>
+            <span class="fab-bar"></span>
+            <span class="fab-bar"></span>
+        </button>
+        <div class="fab-panel" id="fabPanel">
+            <div class="fab-section">
+                <p class="fab-label">Navigation</p>
+                <a href="../index.html" class="fab-link fab-home">Accueil</a>
+                <div class="fab-axes-group">
+                    <a href="../#visibilite" class="fab-link">Production visuelle</a>
+                    <a href="../#tarifs" class="fab-link">Nos formules</a>
+                </div>
+                <p class="fab-label" style="margin-top:10px;">Secteurs</p>
+                <div class="fab-axes-group">
+                    <a href="/immobilier/" class="fab-link">Immobilier</a>
+                    <a href="/automobile/" class="fab-link">Automobile</a>
+                    <a href="/domaines/" class="fab-link">Châteaux & Domaines</a>
+                </div>
+                <a href="/articles/" class="fab-link">Articles</a>
+            </div>
+            <div class="fab-divider"></div>
+            <div class="fab-section">
+                <p class="fab-label">Contact</p>
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="fab-link">📅 Prendre rendez-vous</a>
+                <a href="mailto:bnfconsulting.contact@gmail.com" class="fab-link">✉️ Email</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHATBOT -->
+    <div class="chatbot" id="chatbot">
+        <button class="chatbot-trigger" id="chatbotTrigger" aria-label="Chat">
+            <span class="chatbot-tooltip" id="chatbotTooltip">Poser une question</span>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/></svg>
+        </button>
+        <div class="chatbot-panel" id="chatbotPanel">
+            <div class="chatbot-header">
+                <span>BnFConsulting</span>
+                <button class="chatbot-close" id="chatbotClose">&#10005;</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages"></div>
+        </div>
+    </div>
+
+    <!-- BOUTON TÉLÉPHONE / RDV -->
+    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" class="phone-fab" aria-label="Prendre rendez-vous">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1.03 1.03 0 011.05-.24c1.12.37 2.33.57 3.54.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.21.2 2.42.57 3.54.11.35.03.74-.24 1.05l-2.21 2.2z"/></svg>
+    </a>
+
+    <!-- BOUTON LANGUE -->
     <a href="../en/" class="lang-fab" aria-label="English version">EN</a>
 
     <script src="../main.js"></script>
