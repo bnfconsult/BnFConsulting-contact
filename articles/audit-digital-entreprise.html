@@ -136,12 +136,28 @@
             font-weight: 600;
             text-decoration: none;
         }
-        .article-infographie {
+        .article-infographie-wrap {
+            position: relative;
             width: 100%;
             max-width: 600px;
             margin: 32px auto;
+        }
+        .article-infographie {
+            width: 100%;
             display: block;
             border-radius: 12px;
+        }
+        .article-infographie-credit {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            font-family: Montserrat, sans-serif;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: rgba(255,255,255,0.85);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+            pointer-events: none;
         }
     </style>
 </head>
@@ -169,7 +185,7 @@
                 <li><a href="../#tarifs">Nos formules</a></li>
                 <li><a href="/articles/">Articles</a></li>
                 <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Pré-diagnostic stratégique</a></li>
-                <li class="lang-toggle"><a href="/" class="lang-link active">FR</a><span class="lang-sep">|</span><a href="../en/" class="lang-link">EN</a></li>
+                <li class="lang-toggle"><a href="/articles/audit-digital-entreprise.html" class="lang-link active">FR</a><span class="lang-sep">|</span><a href="/en/articles/audit-digital-entreprise.html" class="lang-link">EN</a></li>
             </ul>
         </div>
     </nav>
@@ -197,7 +213,7 @@
         <div class="container">
             <p class="article-meta">Par BNF Consulting · Mars 2026 · 4 min de lecture</p>
 
-            <img src="../PHOTOS/INFO_MARS.png" alt="Infographie audit digital entreprise" class="article-infographie" loading="eager">
+            <div class="article-infographie-wrap"><img src="../PHOTOS/INFO_MARS.png" alt="Infographie audit digital entreprise" class="article-infographie" loading="eager"><span class="article-infographie-credit">BNFCONSULTING</span></div>
 
             <h2>L'audit digital, levier stratégique</h2>
 
@@ -266,7 +282,7 @@
         </div>
     </footer>
 
-    <a href="../en/" class="lang-fab" aria-label="English version">EN</a>
+    <a href="/en/articles/audit-digital-entreprise.html" class="lang-fab" aria-label="English version">EN</a>
     <script src="../main.js"></script>
 </body>
 </html>

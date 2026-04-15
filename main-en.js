@@ -1,5 +1,5 @@
 /* ============================================
-   BnFConsulting — Interactions (English)
+   BnFConsulting — Interactions
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Scroll reveal animations ---
     const revealElements = document.querySelectorAll(
-        '.problem-card, .pillar-card, .target-card, .journey-step, .service-item, .data-bar, .section-label, .section-title, .section-intro, .speciale-card'
+        '.problem-card, .pillar-card, .target-card, .journey-step, .service-item, .data-bar, .section-label, .section-title, .section-intro, .speciale-card, .methode-step, .pilier-card'
     );
 
     revealElements.forEach(el => el.classList.add('reveal'));
@@ -145,53 +145,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const diagQuestions = [
             {
-                text: 'What is your most visible problem today?',
+                text: 'Quel est votre problème le plus visible aujourd\'hui ?',
                 answers: [
-                    { text: 'I lack visibility', cat: 'A' },
-                    { text: 'My image doesn\'t reflect my level', cat: 'B' },
-                    { text: 'My internal organization is unclear', cat: 'C' },
-                    { text: 'I waste time on repetitive tasks', cat: 'D' },
-                    { text: 'I don\'t know where my real levers are', cat: 'E' }
+                    { text: 'Je manque de visibilité', cat: 'A' },
+                    { text: 'Mon image ne reflète pas mon niveau', cat: 'B' },
+                    { text: 'Mon organisation interne est floue', cat: 'C' },
+                    { text: 'Je perds du temps sur des tâches répétitives', cat: 'D' },
+                    { text: 'Je ne sais pas où sont mes vrais leviers', cat: 'E' }
                 ]
             },
             {
-                text: 'Your immediate priority would be:',
+                text: 'Votre priorité immédiate serait :',
                 answers: [
-                    { text: 'Attract more clients', cat: 'A' },
-                    { text: 'Improve my image and credibility', cat: 'B' },
-                    { text: 'Structure my business', cat: 'C' },
-                    { text: 'Save time through systems', cat: 'D' },
-                    { text: 'Clarify my strategy', cat: 'E' }
+                    { text: 'Attirer plus de clients', cat: 'A' },
+                    { text: 'Améliorer mon image et ma crédibilité', cat: 'B' },
+                    { text: 'Structurer mon entreprise', cat: 'C' },
+                    { text: 'Gagner du temps grâce à des systèmes', cat: 'D' },
+                    { text: 'Clarifier ma stratégie', cat: 'E' }
                 ]
             },
             {
-                text: 'Today, your digital presence is:',
+                text: 'Aujourd\'hui, votre présence digitale est :',
                 answers: [
-                    { text: 'Weak or non-existent', cat: 'A' },
-                    { text: 'Present but underperforming', cat: 'E' },
-                    { text: 'Visually average', cat: 'B' },
-                    { text: 'Scattered and inconsistent', cat: 'C' },
-                    { text: 'I don\'t know how it performs', cat: 'E' }
+                    { text: 'Faible ou inexistante', cat: 'A' },
+                    { text: 'Présente mais peu performante', cat: 'E' },
+                    { text: 'Visuellement moyenne', cat: 'B' },
+                    { text: 'Dispersée et incohérente', cat: 'C' },
+                    { text: 'Je ne sais pas comment elle performe', cat: 'E' }
                 ]
             },
             {
-                text: 'An expert would probably discover:',
+                text: 'Un expert découvrirait probablement :',
                 answers: [
-                    { text: 'A lack of SEO', cat: 'A' },
-                    { text: 'A lack of impactful visual content', cat: 'B' },
-                    { text: 'A lack of strategic structure', cat: 'C' },
-                    { text: 'A lack of automation', cat: 'D' },
-                    { text: 'A lack of reliable indicators', cat: 'E' }
+                    { text: 'Un manque de référencement', cat: 'A' },
+                    { text: 'Un manque de contenu visuel impactant', cat: 'B' },
+                    { text: 'Un manque de structure stratégique', cat: 'C' },
+                    { text: 'Un manque d\'automatisation', cat: 'D' },
+                    { text: 'Un manque d\'indicateurs fiables', cat: 'E' }
                 ]
             },
             {
-                text: 'What you truly want:',
+                text: 'Ce que vous voulez vraiment :',
                 answers: [
-                    { text: 'Be more visible online', cat: 'A' },
-                    { text: 'Have a strong, professional image', cat: 'B' },
-                    { text: 'Implement effective systems', cat: 'D' },
-                    { text: 'Know what to do and in what order', cat: 'C' },
-                    { text: 'Drive my growth through data', cat: 'E' }
+                    { text: 'Être plus visible en ligne', cat: 'A' },
+                    { text: 'Avoir une image forte et pro', cat: 'B' },
+                    { text: 'Mettre en place des systèmes efficaces', cat: 'D' },
+                    { text: 'Savoir quoi faire et dans quel ordre', cat: 'C' },
+                    { text: 'Piloter ma croissance par la donnée', cat: 'E' }
                 ]
             }
         ];
@@ -199,37 +199,37 @@ document.addEventListener('DOMContentLoaded', () => {
         const diagScenarios = {
             A: {
                 icon: '🔍',
-                title: 'Your priority: strengthen your visibility.',
-                text: 'A comprehensive digital audit will identify your SEO levers and optimization opportunities.',
-                ctaText: 'Book a strategic diagnosis',
+                title: 'Votre priorité : renforcer votre visibilité.',
+                text: 'Un audit digital complet permettra d\'identifier vos leviers SEO et vos axes d\'optimisation.',
+                ctaText: 'Réserver un diagnostic stratégique',
                 ctaUrl: 'https://calendar.app.google/owbWjVDz11BNwd2V6'
             },
             B: {
                 icon: '🎯',
-                title: 'Your priority: strengthen your image.',
-                text: 'Art direction, professional visuals and a drone plan can transform your perception.',
-                ctaText: 'Book an appointment',
+                title: 'Votre priorité : renforcer votre image.',
+                text: 'Direction artistique, visuels professionnels et plan drone peuvent transformer votre perception.',
+                ctaText: 'Prendre rendez-vous',
                 ctaUrl: 'https://calendar.app.google/owbWjVDz11BNwd2V6'
             },
             C: {
                 icon: '🧭',
-                title: 'Your priority: clarify your trajectory.',
-                text: 'A comprehensive strategic diagnosis will help structure your priorities and indicators.',
-                ctaText: 'Book a strategic diagnosis',
+                title: 'Votre priorité : clarifier votre trajectoire.',
+                text: 'Un diagnostic stratégique complet permettra de structurer vos priorités et indicateurs.',
+                ctaText: 'Réserver un diagnostic stratégique',
                 ctaUrl: 'https://calendar.app.google/owbWjVDz11BNwd2V6'
             },
             D: {
                 icon: '⚙️',
-                title: 'Your priority: structure your systems.',
-                text: 'Automation and AI can save you time and optimize your processes.',
-                ctaText: 'Book an appointment',
+                title: 'Votre priorité : structurer vos systèmes.',
+                text: 'L\'automatisation et l\'IA peuvent vous faire gagner du temps et optimiser vos processus.',
+                ctaText: 'Prendre rendez-vous',
                 ctaUrl: 'https://calendar.app.google/owbWjVDz11BNwd2V6'
             },
             E: {
                 icon: '📊',
-                title: 'Your priority: drive through data.',
-                text: 'Clear indicators and dashboards will allow you to regain control.',
-                ctaText: 'Book a strategic diagnosis',
+                title: 'Votre priorité : piloter par la donnée.',
+                text: 'Des indicateurs clairs et des dashboards vous permettront de reprendre le contrôle.',
+                ctaText: 'Réserver un diagnostic stratégique',
                 ctaUrl: 'https://calendar.app.google/owbWjVDz11BNwd2V6'
             }
         };
@@ -340,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3 class="diag-result-title">${s.title}</h3>
                     <p class="diag-result-text">${s.text}</p>
                     <a href="${s.ctaUrl}"${target} class="diag-result-cta">${s.ctaText}</a>
-                    <button class="diag-restart" id="diagRestart">↻ Start over</button>
+                    <button class="diag-restart" id="diagRestart">↻ Recommencer</button>
                 </div>
             `;
 
@@ -353,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- FAB Menu (bottom left burger) ---
+    // --- FAB Menu (burger bas gauche) ---
     const fabMenu = document.getElementById('fabMenu');
     const fabTrigger = document.getElementById('fabTrigger');
 
@@ -363,14 +363,14 @@ document.addEventListener('DOMContentLoaded', () => {
             fabMenu.classList.toggle('open');
         });
 
-        // Close when clicking elsewhere
+        // Fermer en cliquant ailleurs
         document.addEventListener('click', (e) => {
             if (!fabMenu.contains(e.target)) {
                 fabMenu.classList.remove('open');
             }
         });
 
-        // Close when clicking a menu link
+        // Fermer quand on clique sur un lien du menu
         fabMenu.querySelectorAll('.fab-link').forEach(link => {
             link.addEventListener('click', () => {
                 fabMenu.classList.remove('open');
@@ -378,7 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Back to top button ---
+    // --- Bouton retour en haut ---
     const backToTop = document.getElementById('backToTop');
     if (backToTop) {
         window.addEventListener('scroll', () => {
@@ -394,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Stack Viewer (Paginated card viewer) ---
+    // --- Stack Viewer (Dossier cartes paginées) ---
     const stackTrack = document.getElementById('stackTrack');
     const stackPrev = document.getElementById('stackPrev');
     const stackNext = document.getElementById('stackNext');
@@ -405,7 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const cards = stackTrack.querySelectorAll('.stack-card');
         const total = cards.length;
         let current = 0;
-        let direction = 'next';
+        let direction = 'next'; // track animation direction
 
         function updateStack() {
             cards.forEach((card, i) => {
@@ -415,13 +415,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
+            // Counter
             const num = String(current + 1).padStart(2, '0');
             const tot = String(total).padStart(2, '0');
             stackCounter.textContent = `${num} / ${tot}`;
 
+            // Disable arrows at edges
             stackPrev.disabled = current === 0;
             stackNext.disabled = current === total - 1;
 
+            // Hide hint after first interaction
             if (current > 0 && stackHint) {
                 stackHint.classList.add('hidden');
             }
@@ -439,12 +442,16 @@ document.addEventListener('DOMContentLoaded', () => {
             updateStack();
         }
 
+        // Init
         updateStack();
 
+        // Arrow navigation
         stackPrev.addEventListener('click', () => goTo(current - 1, 'prev'));
         stackNext.addEventListener('click', () => goTo(current + 1, 'next'));
 
+        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
+            // Only if stack is in viewport
             const rect = stackTrack.getBoundingClientRect();
             const inView = rect.top < window.innerHeight && rect.bottom > 0;
             if (!inView) return;
@@ -458,6 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // Swipe mobile
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -478,7 +486,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
-    // --- Scripted Chatbot ---
+    // --- Chatbot scénarisé ---
     const chatbotTrigger = document.getElementById('chatbotTrigger');
     const chatbotPanel = document.getElementById('chatbotPanel');
     const chatbotClose = document.getElementById('chatbotClose');
@@ -526,10 +534,23 @@ document.addEventListener('DOMContentLoaded', () => {
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
         }
 
+        function addActionBtn(label, action) {
+            var wrap = document.createElement('div');
+            wrap.style.cssText = 'text-align:center; animation:cbFadeIn 0.3s ease;';
+            var btn = document.createElement('button');
+            btn.className = 'cb-cta';
+            btn.textContent = label;
+            btn.style.cursor = 'pointer';
+            btn.addEventListener('click', function() { action(); });
+            wrap.appendChild(btn);
+            chatbotMessages.appendChild(wrap);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
         function addBack() {
             var btn = document.createElement('button');
             btn.className = 'cb-back';
-            btn.textContent = '← Back to menu';
+            btn.textContent = '← Revenir au menu';
             btn.addEventListener('click', function() { showWelcome(); });
             chatbotMessages.appendChild(btn);
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
@@ -537,18 +558,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function clear() { chatbotMessages.innerHTML = ''; }
 
-        // --- CALLBACK FORM IN CHATBOT ---
+        // --- FORMULAIRE RAPPEL DANS LE CHATBOT ---
         function showRecallForm() {
             clear();
-            addBubble('Leave your details, we\'ll get back to you within 24 hours.');
+            addBubble('Laissez vos coordonnées, nous vous recontactons sous 24h.');
             var form = document.createElement('form');
             form.className = 'cb-form';
-            form.innerHTML = '<input type="text" name="name" placeholder="Your name" required>' +
-                '<input type="email" name="email" placeholder="Your email" required>' +
-                '<input type="tel" name="phone" placeholder="Phone">' +
-                '<textarea name="message" rows="2" placeholder="Your need in a few words..."></textarea>' +
-                '<input type="hidden" name="_subject" value="Callback request — Chatbot BnFConsulting (EN)">' +
-                '<button type="submit" class="cb-cta" style="border:none;cursor:pointer;text-align:center;display:block;width:100%;padding:10px;">Send</button>';
+            form.innerHTML = '<input type="text" name="name" placeholder="Votre nom" required>' +
+                '<input type="email" name="email" placeholder="Votre email" required>' +
+                '<input type="tel" name="phone" placeholder="Téléphone">' +
+                '<textarea name="message" rows="2" placeholder="Votre besoin en quelques mots…"></textarea>' +
+                '<input type="hidden" name="_subject" value="Demande de rappel — Chatbot BNF CONSULTING">' +
+                '<button type="submit" class="cb-cta" style="border:none;cursor:pointer;text-align:center;display:block;width:100%;padding:10px;">Envoyer</button>';
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 var data = new FormData(form);
@@ -556,14 +577,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(function(r) {
                     if (r.ok) {
                         clear();
-                        addBubble('Thank you! We have received your request and will get back to you shortly.');
+                        addBubble('Merci ! Nous avons bien reçu votre demande et vous recontacterons très vite.');
                         addBack();
                     } else {
-                        addBubble('An error occurred. Please try again or contact us by email.');
+                        addBubble('Une erreur est survenue. Réessayez ou contactez-nous par email.');
                     }
                 })
                 .catch(function() {
-                    addBubble('An error occurred. Please try again or contact us by email.');
+                    addBubble('Une erreur est survenue. Réessayez ou contactez-nous par email.');
                 });
             });
             chatbotMessages.appendChild(form);
@@ -571,149 +592,146 @@ document.addEventListener('DOMContentLoaded', () => {
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
         }
 
-        // --- SCENARIO 1: What does BnF do? ---
-        function showQueFait() {
+        // --- SCÉNARIO 1 : Qui est BNF ? ---
+        function showQuiEstBNF() {
             clear();
-            addBubble('BnFConsulting orchestrates strategy, operations and growth to transform scattered structures into coherent, manageable systems.');
+            addBubble('BNF Consulting structure et développe les entreprises autour de 2 leviers :');
             setTimeout(function() {
-                addBubble('Which area would you like to know more about?');
+                addBubble('<b>1. Stratégie</b><br>Lecture globale de votre entreprise, positionnement, leviers de croissance.<br><br><b>2. Visibilité</b><br>Image de marque, contenu visuel premium, présence digitale impactante.');
                 addButtons([
-                    { label: 'Strategy', action: showStrategie },
-                    { label: 'Operations', action: showOperations },
-                    { label: 'Growth', action: showCroissance },
-                    { label: 'Strategic audit', action: showAudit }
+                    { label: 'En savoir plus sur la stratégie', action: showStrategie },
+                    { label: 'Explorer la visibilité', action: showVisibilite }
                 ]);
+                addBack();
             }, 400);
         }
 
         function showStrategie() {
             clear();
-            addBubble('We analyze your positioning, visibility and hidden levers to define a clear trajectory.');
-            addCTAs([
-                { label: 'Our model', url: 'index.html#modele' },
-                { label: 'Book a diagnosis', url: CAL }
-            ]);
-            addButtons([{ label: 'Get a callback', action: showRecallForm }]);
-            addBack();
-        }
-
-        function showOperations() {
-            clear();
-            addBubble('We turn strategy into concrete systems: automation, CRM, organization, data-driven management.');
-            addCTAs([
-                { label: 'Our model', url: 'index.html#modele' },
-                { label: 'Book a diagnosis', url: CAL }
-            ]);
-            addButtons([{ label: 'Get a callback', action: showRecallForm }]);
-            addBack();
-        }
-
-        function showCroissance() {
-            clear();
-            addBubble('We amplify what is structured: SEO, image, visibility, targeted lever activation.');
-            addCTAs([
-                { label: 'Our model', url: 'index.html#modele' },
-                { label: 'Book a diagnosis', url: CAL }
-            ]);
-            addButtons([{ label: 'Get a callback', action: showRecallForm }]);
-            addBack();
-        }
-
-        function showAudit() {
-            clear();
-            addBubble('The audit is our core product. It reveals invisible losses, internal inconsistencies and growth barriers.');
-            addCTAs([
-                { label: 'Our model', url: 'index.html#modele' },
-                { label: 'Book a diagnosis', url: CAL }
-            ]);
-            addButtons([{ label: 'Get a callback', action: showRecallForm }]);
-            addBack();
-        }
-
-        // --- SCENARIO 2: How does it work? ---
-        function showComment() {
-            clear();
-            addBubble('Each business follows a structured path:');
+            addBubble('Le diagnostic stratégique est le point de départ de tout accompagnement.');
             setTimeout(function() {
-                addBubble('1. Strategic diagnosis<br>2. Priority identification<br>3. Operational structuring<br>4. Lever activation<br>5. Data-driven management');
-                setTimeout(function() {
-                    addBubble('Would you like to understand a step in detail?');
-                    addButtons([
-                        { label: 'The diagnosis', action: showDiagnostic },
-                        { label: 'The structuring', action: showStructuration },
-                        { label: 'The activation', action: showActivation },
-                        { label: 'Book an appointment', action: function() { window.open(CAL, '_blank'); } }
-                    ]);
-                }, 300);
+                addBubble('Il révèle :<br>• Les pertes invisibles<br>• Les incohérences internes<br>• Les leviers non activés<br><br>C\'est la porte d\'entrée dans l\'architecture BNF.');
+                addCTAs([
+                    { label: 'Voir la page d\'accueil', url: '/' },
+                    { label: 'Réserver un diagnostic', url: CAL }
+                ]);
+                addBack();
+            }, 300);
+        }
+
+        function showVisibilite() {
+            clear();
+            addBubble('La manière dont le monde vous voit.');
+            setTimeout(function() {
+                addBubble('Captation aérienne — Identité de marque — Contenu premium — Stratégie digitale<br><br>Nous rendons votre entreprise visible et crédible.');
+                addCTAs([
+                    { label: 'Voir les leviers de visibilité', url: '/visibilite/' }
+                ]);
+                addActionBtn('Être rappelé', showRecallForm);
+                addBack();
+            }, 300);
+        }
+
+        // --- SCÉNARIO 2 : Quel est votre enjeu ? ---
+        function showEnjeu() {
+            clear();
+            addBubble('Quel est votre principal enjeu actuellement ?');
+            addButtons([
+                { label: 'Je manque de visibilité', action: showEnjeuVisibilite },
+                { label: 'Mon organisation freine ma croissance', action: showEnjeuOrga },
+                { label: 'Je veux du contenu visuel / drone', action: showEnjeuDrone },
+                { label: 'Je ne sais pas par où commencer', action: showEnjeuPerdu }
+            ]);
+        }
+
+        function showEnjeuVisibilite() {
+            clear();
+            addBubble('Identité de marque, stratégie digitale, contenu visuel : nous structurons votre visibilité pour qu\'elle devienne un vrai levier de croissance.');
+            addCTAs([
+                { label: 'Voir le pilier visibilité', url: '/visibilite/' },
+                { label: 'Réserver un diagnostic', url: CAL }
+            ]);
+            addBack();
+        }
+
+        function showEnjeuOrga() {
+            clear();
+            addBubble('Structuration, clarification des process, vision pilotable : nous transformons le flou en système.');
+            setTimeout(function() {
+                addBubble('Le diagnostic stratégique est le meilleur point de départ pour identifier vos freins et prioriser les actions.');
+                addCTAs([
+                    { label: 'Réserver un diagnostic — 30 min', url: CAL }
+                ]);
+                addActionBtn('Être rappelé', showRecallForm);
+                addBack();
+            }, 300);
+        }
+
+        function showEnjeuDrone() {
+            clear();
+            addBubble('Captation aérienne, contenu visuel professionnel, différenciation marketing : la vue d\'en haut change la perspective.');
+            setTimeout(function() {
+                addBubble('Nous intervenons dans l\'immobilier, l\'automobile, et bien d\'autres secteurs.');
+                addCTAs([
+                    { label: 'Découvrir nos offres', url: '/visibilite/' }
+                ]);
+                addActionBtn('Être rappelé', showRecallForm);
+                addBack();
+            }, 300);
+        }
+
+        function showEnjeuPerdu() {
+            clear();
+            addBubble('C\'est justement pour ça que le diagnostic stratégique existe.');
+            setTimeout(function() {
+                addBubble('En 30 minutes, on identifie ensemble :<br>• Où vous en êtes<br>• Ce qui freine votre croissance<br>• Par quoi commencer<br><br>C\'est gratuit et sans engagement.');
+                addCTAs([
+                    { label: 'Réserver un diagnostic — 30 min', url: CAL }
+                ]);
+                addActionBtn('Être rappelé', showRecallForm);
+                addBack();
+            }, 300);
+        }
+
+        // --- SCÉNARIO 3 : Comment ça se passe ? ---
+        function showParcours() {
+            clear();
+            addBubble('Chaque accompagnement suit un parcours structuré :');
+            setTimeout(function() {
+                addBubble('1. <b>Diagnostic stratégique</b><br><i style="color:#549ba2;">On comprend votre situation</i><br><br>2. <b>Identification des leviers</b><br><i style="color:#549ba2;">On repère ce qui peut être optimisé</i><br><br>3. <b>Structuration opérationnelle</b><br><i style="color:#549ba2;">On met en place les préconisations</i><br><br>4. <b>Activation</b><br><i style="color:#549ba2;">On lance les actions concrètes</i><br><br>5. <b>Pilotage</b><br><i style="color:#549ba2;">On mesure, on ajuste, on automatise</i>');
+                addCTAs([
+                    { label: 'Réserver un diagnostic', url: CAL }
+                ]);
+                addActionBtn('Être rappelé', showRecallForm);
+                addBack();
             }, 400);
         }
 
-        function showDiagnostic() {
+        // --- SCÉNARIO 4 : Combien ça coûte ? ---
+        function showTarifs() {
             clear();
-            addBubble('The strategic diagnosis is a 30-minute exchange to identify your untapped levers, invisible losses and real priorities.<br><br>It is followed by a digital audit resulting in a strategic development report.');
-            addCTAs([
-                { label: 'Our model', url: 'index.html#modele' },
-                { label: 'Book a diagnosis', url: CAL }
-            ]);
-            addButtons([{ label: 'Get a callback', action: showRecallForm }]);
-            addBack();
+            addBubble('Chaque entreprise est différente — nos interventions sont sur mesure.');
+            setTimeout(function() {
+                addBubble('Le diagnostic stratégique initial est <b>gratuit</b> (30 min).<br><br>Ensuite, nous vous proposons un accompagnement adapté à votre situation et à votre budget.<br><br>Pas d\'engagement longue durée. Pas de surprise.');
+                addCTAs([
+                    { label: 'Réserver un diagnostic gratuit', url: CAL }
+                ]);
+                addActionBtn('Être rappelé pour en discuter', showRecallForm);
+                addBack();
+            }, 300);
         }
 
-        function showStructuration() {
-            clear();
-            addBubble('Structuring turns your priorities into a concrete action plan: processes, tools, organization, management indicators.');
-            addCTAs([
-                { label: 'Our model', url: 'index.html#modele' },
-                { label: 'Book a diagnosis', url: CAL }
-            ]);
-            addButtons([{ label: 'Get a callback', action: showRecallForm }]);
-            addBack();
-        }
-
-        function showActivation() {
-            clear();
-            addBubble('Activation sets in motion what has been structured: deployment, automation, visibility, measurable growth.');
-            addCTAs([
-                { label: 'Our model', url: 'index.html#modele' },
-                { label: 'Book a diagnosis', url: CAL }
-            ]);
-            addButtons([{ label: 'Get a callback', action: showRecallForm }]);
-            addBack();
-        }
-
-        // --- SCENARIO 3: I have a specific need ---
-        function showBesoin() {
-            clear();
-            addBubble('What is your main challenge right now?');
-            addButtons([
-                { label: 'Lack of visibility', action: function() { showBesoinDetail('Your business has potential but remains invisible. We structure your positioning, image and channels to generate coherent, lasting visibility.', 'index.html#modele'); } },
-                { label: 'Unclear internal organization', action: function() { showBesoinDetail('When processes are unclear, energy is scattered. We clarify roles, workflows and tools to create a manageable system.', 'index.html#modele'); } },
-                { label: 'Unstable growth', action: function() { showBesoinDetail('Growth without structure eventually runs out of steam. We identify hidden barriers and build the foundations for controlled growth.', 'index.html#modele'); } },
-                { label: 'Need for automation', action: function() { showBesoinDetail('Repetitive tasks slow down your development. We automate what can be to free up strategic time.', 'index.html#modele'); } }
-            ]);
-        }
-
-        function showBesoinDetail(text, prestaUrl) {
-            clear();
-            addBubble(text);
-            addCTAs([
-                { label: 'Our model', url: prestaUrl },
-                { label: 'Book a diagnosis', url: CAL }
-            ]);
-            addButtons([{ label: 'Get a callback', action: showRecallForm }]);
-            addBack();
-        }
-
-        // --- WELCOME MESSAGE ---
+        // --- MESSAGE D'ACCUEIL ---
         function showWelcome() {
             clear();
-            addBubble('Hello.<br>Would you like to understand what BnFConsulting does or how our system works?');
+            addBubble('Bonjour.<br>Comment pouvons-nous vous aider ?');
             setTimeout(function() {
                 addButtons([
-                    { label: 'What does BnF do?', action: showQueFait },
-                    { label: 'How does it work?', action: showComment },
-                    { label: 'I have a specific need', action: showBesoin },
-                    { label: 'Get a callback', action: showRecallForm }
+                    { label: 'Qui est BNF ?', action: showQuiEstBNF },
+                    { label: 'Quel est votre enjeu ?', action: showEnjeu },
+                    { label: 'Comment ça se passe concrètement ?', action: showParcours },
+                    { label: 'Combien ça coûte ?', action: showTarifs },
+                    { label: 'Être rappelé / Prendre RDV', action: showRecallForm }
                 ]);
             }, 300);
         }
@@ -744,7 +762,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Tooltip chatbot on #cibles (Use cases — index.html only)
+        // Tooltip chatbot on #cibles (Cas d'usage — index.html only)
         var ciblesSection = document.getElementById('cibles');
         if (ciblesSection && chatbotTooltip) {
             var tooltipObserver = new IntersectionObserver(function(entries) {
@@ -761,13 +779,14 @@ document.addEventListener('DOMContentLoaded', () => {
             tooltipObserver.observe(ciblesSection);
         }
 
-        // Phone tooltip on #modele (Three pillars — index.html only)
+        // Tooltip téléphone on #modele (Trois piliers — index.html only)
         var phoneFab = document.querySelector('.phone-fab');
         var modeleSection = document.getElementById('modele');
         if (modeleSection && phoneFab) {
+            // Créer le tooltip
             var phoneTooltip = document.createElement('span');
             phoneTooltip.className = 'phone-tooltip';
-            phoneTooltip.textContent = 'Book an appointment';
+            phoneTooltip.textContent = 'Prendre rendez-vous';
             phoneFab.appendChild(phoneTooltip);
 
             var phoneObserver = new IntersectionObserver(function(entries) {
@@ -785,7 +804,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /* ── Dossiers BnF Specials ── */
+    /* ── Dossiers Spéciales BnF ── */
     document.querySelectorAll('.dossier-toggle').forEach(function(toggle) {
         toggle.addEventListener('click', function() {
             var dossierId = toggle.getAttribute('data-dossier');
@@ -813,12 +832,14 @@ document.addEventListener('DOMContentLoaded', () => {
         var back = flipCard.querySelector('.dossier-flip-back');
         var isFlipped = flipCard.classList.contains('flipped');
         if (isFlipped) {
+            // Article mode — measure back
             back.style.position = 'static';
             back.style.transform = 'none';
             var activeH = back.offsetHeight;
             back.style.position = '';
             back.style.transform = '';
         } else {
+            // Infographie mode — measure front
             var activeH = front.offsetHeight;
         }
         flipCard.style.minHeight = activeH + 'px';
@@ -832,17 +853,20 @@ document.addEventListener('DOMContentLoaded', () => {
             var expand = document.getElementById('dossier-expand-' + dossierId);
             if (!flipCard) return;
 
+            // Update active tab
             tab.closest('.dossier-tabs').querySelectorAll('.dossier-tab').forEach(function(t) {
                 t.classList.remove('active');
             });
             tab.classList.add('active');
 
+            // Flip the card
             if (tabType === 'article') {
                 flipCard.classList.add('flipped');
             } else {
                 flipCard.classList.remove('flipped');
             }
 
+            // Recalculate heights after flip transition
             setTimeout(function() {
                 updateFlipHeight(dossierId);
                 if (expand && expand.classList.contains('open')) {
@@ -861,29 +885,29 @@ document.addEventListener('DOMContentLoaded', () => {
         if (img.complete) updateFlipHeight(dossierId);
     });
 
-    /* ── Callback form page (AJAX, no redirect) ── */
+    /* ── Formulaire rappel page (AJAX, pas de redirection) ── */
     var recallForm = document.getElementById('recallForm');
     if (recallForm) {
         recallForm.addEventListener('submit', function(e) {
             e.preventDefault();
             var data = new FormData(recallForm);
             var btn = recallForm.querySelector('button[type="submit"]');
-            btn.textContent = 'Sending...';
+            btn.textContent = 'Envoi en cours…';
             btn.disabled = true;
             fetch(recallForm.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
             .then(function(r) {
                 if (r.ok) {
-                    recallForm.innerHTML = '<p style="text-align:center;color:var(--accent);font-size:1.1rem;padding:30px 0;">✓ Thank you! We have received your request and will get back to you within 24 hours.</p>';
+                    recallForm.innerHTML = '<p style="text-align:center;color:var(--accent);font-size:1.1rem;padding:30px 0;">✓ Merci ! Nous avons bien reçu votre demande et vous recontacterons sous 24h.</p>';
                 } else {
-                    btn.textContent = 'Send my request';
+                    btn.textContent = 'Envoyer ma demande';
                     btn.disabled = false;
-                    alert('An error occurred. Please try again.');
+                    alert('Une erreur est survenue. Veuillez réessayer.');
                 }
             })
             .catch(function() {
-                btn.textContent = 'Send my request';
+                btn.textContent = 'Envoyer ma demande';
                 btn.disabled = false;
-                alert('An error occurred. Please try again.');
+                alert('Une erreur est survenue. Veuillez réessayer.');
             });
         });
     }
