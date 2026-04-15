@@ -789,7 +789,7 @@ h1, h2, h3 {
    SECTIONS
    ============================================ */
 .section {
-    padding: 120px 0;
+    padding: clamp(80px, 10vw, 120px) 0;
 }
 
 .section-dark {
@@ -1623,7 +1623,7 @@ h1, h2, h3 {
     padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 4vw, 4rem);
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(84, 155, 162, 0.2);
-    border-radius: 20px;
+    border-radius: 16px;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
@@ -4122,6 +4122,7 @@ h1, h2, h3 {
     transition: transform 0.3s ease;
     text-align: left;
     border-bottom: 1px solid rgba(84,155,162,0.15);
+    border-radius: 16px;
 }
 .pilier-card:last-child {
     border-bottom: none;
@@ -4146,12 +4147,12 @@ h1, h2, h3 {
 .pilier-card h3 {
     font-family: Georgia, serif;
     font-size: clamp(1.15rem, 2vw, 1.4rem);
-    color: #111;
+    color: #fff;
     font-weight: 400;
     margin-bottom: 6px;
 }
 .pilier-card p {
-    color: rgba(0,0,0,0.5);
+    color: rgba(255,255,255,0.6);
     font-size: clamp(0.82rem, 1.1vw, 0.92rem);
     line-height: 1.6;
     margin: 0;

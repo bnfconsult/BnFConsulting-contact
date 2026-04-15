@@ -174,42 +174,12 @@
     </section>
 
     <!-- TRANSITION -->
-    <section class="section section-black" id="solution" style="padding:clamp(80px,12vw,160px) 0;">
+    <section class="section section-black" id="solution" style="padding:clamp(80px,10vw,120px) 0;">
         <div class="container" style="max-width:1000px; text-align:center;">
             <h2 class="section-title" style="font-size:clamp(2rem,4.5vw,3.5rem); margin-bottom:24px;">Vous avez construit quelque chose.<br><span class="accent">Mais ça coince.</span></h2>
             <p style="color:rgba(255,255,255,0.6); font-size:clamp(1rem,1.8vw,1.2rem); line-height:1.8; max-width:650px; margin:0 auto;">Votre activité tourne, vos clients sont là — mais vous sentez que quelque chose freine la suite.</p>
         </div>
     </section>
-
-    <!-- PROBLÈME (identification client) — style cinématique -->
-    <section class="section section-black" id="probleme" style="padding:clamp(80px,12vw,160px) 0;">
-        <div class="container" style="max-width:750px; text-align:left;">
-            <div class="probleme-cinema">
-                <p class="probleme-cinema-line" style="animation-delay:0s;">Tout repose sur vous — chaque décision, chaque urgence.</p>
-                <p class="probleme-cinema-line" style="animation-delay:0.15s;">Vos équipes avancent, mais sans cap commun.</p>
-                <p class="probleme-cinema-line" style="animation-delay:0.3s;">Votre image en ligne ne reflète pas la qualité de ce que vous faites.</p>
-                <p class="probleme-cinema-line" style="animation-delay:0.45s;">Vos visuels ressemblent à ceux de tout le monde.</p>
-                <p class="probleme-cinema-line" style="animation-delay:0.6s;">Vous savez qu'il faut structurer — mais par où commencer ?</p>
-                <p class="probleme-cinema-line probleme-cinema-accent" style="animation-delay:0.75s;">Plus vous grandissez, plus le flou s'installe.</p>
-            </div>
-        </div>
-    </section>
-    <script>
-    /* Cinematic stagger — probleme lines */
-    (function(){
-        var lines = document.querySelectorAll('.probleme-cinema-line');
-        if(!lines.length) return;
-        var o = new IntersectionObserver(function(entries){
-            if(entries[0].isIntersecting){
-                lines.forEach(function(el, i){
-                    setTimeout(function(){ el.classList.add('cinema-visible'); }, i * 250);
-                });
-                o.disconnect();
-            }
-        }, {threshold: 0.3});
-        o.observe(document.getElementById('probleme'));
-    })();
-    </script>
 
     <!-- CONSÉQUENCES -->
     <style>
@@ -227,7 +197,7 @@
     </style>
     <section class="section section-black section-piliers" id="consequences" style="padding:clamp(80px,10vw,120px) 0;">
         <div class="container" style="text-align:center;">
-            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Le constat</p>
+            <p class="section-label">Le constat</p>
             <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3; margin-bottom:12px;">Ce que ça coûte de <span style="color:#549ba2;">ne rien changer</span></h2>
             <div class="consequences-grid">
                 <div class="glass-card">
@@ -250,10 +220,10 @@
     </section>
 
     <!-- PROPOSITION DE VALEUR -->
-    <section id="proposition" style="background:#fff; padding:clamp(60px,8vw,100px) 0;">
+    <section id="proposition" style="background:#111; padding:clamp(80px,10vw,120px) 0;">
         <div style="max-width:960px; margin:0 auto; padding:0 clamp(16px,3vw,40px); text-align:center;">
-            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Notre approche</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#111; font-weight:400; line-height:1.3; margin-bottom:clamp(32px,5vw,56px);">Stratégie + Production visuelle.<br><span style="color:#549ba2;">Les deux leviers qui font la différence.</span></h2>
+            <p class="section-label">Notre approche</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3; margin-bottom:clamp(32px,5vw,56px);">Stratégie + Production visuelle.<br><span style="color:#549ba2;">Les deux leviers qui font la différence.</span></h2>
             <div class="pilier-cards">
                 <div class="pilier-card">
                     <span class="pilier-num">01</span>
@@ -297,7 +267,7 @@
             line-height: 1.2;
         }
         .drone-showcase__desc {
-            color: rgba(255, 255, 255, 0.65);
+            color: rgba(255, 255, 255, 0.6);
             font-size: clamp(0.9rem, 1.4vw, 1rem);
             line-height: 1.8;
             max-width: 600px;
@@ -365,7 +335,7 @@
             margin-bottom: 10px;
         }
         .drone-feature-card__text {
-            color: rgba(255, 255, 255, 0.75);
+            color: rgba(255, 255, 255, 0.6);
             font-size: clamp(0.825rem, 1.2vw, 0.9375rem);
             line-height: 1.65;
             font-weight: 400;
@@ -403,11 +373,11 @@
         }
     </style>
 
-    <section id="visibilite" style="background:#0a0a0a; padding:80px 0 30px; text-align:center; scroll-margin-top:80px;">
+    <section id="visibilite" style="background:#0a0a0a; padding:clamp(80px,10vw,120px) 0; text-align:center; scroll-margin-top:80px;">
         <div class="container" style="text-align:center;">
-            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Production visuelle</p>
+            <p class="section-label">Production visuelle</p>
             <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3; margin-bottom:12px;">Ce que nous <span style="color:#549ba2">produisons</span></h2>
-            <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:620px; margin:0 auto;">L'image aérienne ne décore pas. Elle repositionne, elle différencie, elle vend.<br>Chaque prise de vue est pensée comme un levier stratégique au service de votre activité.</p>
+            <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:620px; margin:0 auto;">L'image aérienne ne décore pas. Elle repositionne, elle différencie, elle vend.<br>Chaque prise de vue est pensée comme un levier stratégique au service de votre activité.</p>
         </div>
     </section>
 
@@ -425,7 +395,7 @@
                 <div style="background:rgba(0,0,0,0.45); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-radius:20px; padding:clamp(28px,4vw,48px) clamp(24px,4vw,56px); display:inline-block; text-align:right;">
                     <p style="font-family:Montserrat,sans-serif; font-size:clamp(0.7rem,1vw,0.9rem); font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:16px;">Application 01</p>
                     <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(2.5rem,6vw,5rem); margin-bottom:24px; line-height:1;">Photo Drone <span style="color:#549ba2;">5.1K</span></h3>
-                    <p style="color:rgba(255,255,255,0.85); font-size:clamp(1rem,1.5vw,1.3rem); line-height:1.7;">Capturer vos espaces en ultra haute d&eacute;finition pour valoriser chaque angle, chaque lumi&egrave;re.</p>
+                    <p style="color:rgba(255,255,255,0.9); font-size:clamp(1rem,1.5vw,1.3rem); line-height:1.7;">Capturer vos espaces en ultra haute d&eacute;finition pour valoriser chaque angle, chaque lumi&egrave;re.</p>
                 </div>
             </div>
             <div style="position:absolute; bottom:-1px; left:0; right:0; height:40px; background:#0a0a0a; clip-path:polygon(0 100%, 100% 0, 100% 100%); z-index:2;"></div>
@@ -444,7 +414,7 @@
                 <div style="background:rgba(0,0,0,0.45); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-radius:20px; padding:clamp(28px,4vw,48px) clamp(24px,4vw,56px); display:inline-block; text-align:left;">
                     <p style="font-family:Montserrat,sans-serif; font-size:clamp(0.7rem,1vw,0.9rem); font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:16px;">Application 02</p>
                     <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(2.5rem,6vw,5rem); margin-bottom:24px; line-height:1;">Vid&eacute;o <span style="color:#549ba2;">Cin&eacute;matique</span></h3>
-                    <p style="color:rgba(255,255,255,0.85); font-size:clamp(1rem,1.5vw,1.3rem); line-height:1.7;">Survols, travellings et plong&eacute;es &mdash; un rendu immersif qui transforme la perception de vos espaces.</p>
+                    <p style="color:rgba(255,255,255,0.9); font-size:clamp(1rem,1.5vw,1.3rem); line-height:1.7;">Survols, travellings et plong&eacute;es &mdash; un rendu immersif qui transforme la perception de vos espaces.</p>
                 </div>
             </div>
             <div style="position:absolute; bottom:-1px; left:0; right:0; height:40px; background:#0a0a0a; clip-path:polygon(0 100%, 100% 0, 100% 100%); z-index:2;"></div>
@@ -463,7 +433,7 @@
                 <div style="background:rgba(0,0,0,0.45); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-radius:20px; padding:clamp(28px,4vw,48px) clamp(24px,4vw,56px); display:inline-block; text-align:right;">
                     <p style="font-family:Montserrat,sans-serif; font-size:clamp(0.7rem,1vw,0.9rem); font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:16px;">Application 03</p>
                     <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(2.5rem,6vw,5rem); margin-bottom:24px; line-height:1;">Prise de vue <span style="color:#549ba2;">Int&eacute;rieure</span></h3>
-                    <p style="color:rgba(255,255,255,0.85); font-size:clamp(1rem,1.5vw,1.3rem); line-height:1.7;">Drones compacts en espaces clos pour des angles et une fluidit&eacute; impossibles autrement.</p>
+                    <p style="color:rgba(255,255,255,0.9); font-size:clamp(1rem,1.5vw,1.3rem); line-height:1.7;">Drones compacts en espaces clos pour des angles et une fluidit&eacute; impossibles autrement.</p>
                 </div>
             </div>
         </div>
@@ -477,7 +447,7 @@
         </div>
         <div class="intervention-photo-overlay"></div>
         <div class="container container-relative" style="text-align:center;">
-            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Notre méthode</p>
+            <p class="section-label">Notre méthode</p>
             <h2 class="section-title" style="color:#fff;">Comment nous <span class="accent">intervenons</span></h2>
             <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.9rem,1.5vw,1.05rem); line-height:1.7; max-width:600px; margin:0 auto 3rem;">Nous n'apportons pas des recommandations théoriques. Nous structurons, puis nous faisons fonctionner.</p>
             <div class="methode-steps">
@@ -587,7 +557,7 @@
 
     <section id="secteurs" style="background:#000; padding:clamp(80px,10vw,120px) 0;">
         <div class="container" style="text-align:center;">
-            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Secteurs</p>
+            <p class="section-label">Secteurs</p>
             <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3;">Nos domaines <span style="color:#549ba2">d'intervention</span></h2>
         </div>
         <div class="secteurs-grid">
@@ -622,7 +592,7 @@
     </section>
 
     <!-- CLIENTS / CIBLES -->
-    <section class="section section-black section-piliers" id="cibles">
+    <section class="section section-piliers" id="cibles" style="background:#0a0a0a;">
         <div class="piliers-bg">
             <img src="PHOTOS/Best_3.JPG" alt="" loading="lazy">
         </div>
@@ -630,7 +600,7 @@
         <div class="container container-relative">
             <p class="section-label">Cas d'usage</p>
             <h2 class="section-title">Pour qui <span class="accent">est-ce fait ?</span></h2>
-            <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:600px; margin:0 auto; text-align:center;">Agences immobilières, concessionnaires, commerces, indépendants...</p>
+            <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:600px; margin:0 auto; text-align:center;">Agences immobilières, concessionnaires, commerces, indépendants...</p>
             <div style="display:flex; gap:clamp(1rem,2vw,1.5rem); margin-top:3rem; justify-content:center; flex-wrap:wrap;">
 
                 <div class="glass-card">
@@ -663,7 +633,7 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(84,155,162,0.15) !important;
-            border-radius: 20px !important;
+            border-radius: 16px;
             padding: clamp(28px,3vw,40px) clamp(20px,2vw,28px) !important;
             position: relative;
             overflow: visible;
@@ -806,11 +776,11 @@
         }
     </style>
 
-    <section id="tarifs" style="background:#0a0a0a; padding:clamp(80px,10vw,120px) 0;">
+    <section id="tarifs" style="background:#000; padding:clamp(80px,10vw,120px) 0;">
         <div class="container" style="text-align:center;">
-            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Nos formules</p>
+            <p class="section-label">Nos formules</p>
             <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3; margin-bottom:12px;">Investissez dans votre <span style="color:#549ba2;">visibilité</span></h2>
-            <p style="color:rgba(255,255,255,0.5); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:550px; margin:0 auto clamp(40px,6vw,60px);">Des formules adaptées à votre ambition. Chaque projet est unique.</p>
+            <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:550px; margin:0 auto clamp(40px,6vw,60px);">Des formules adaptées à votre ambition. Chaque projet est unique.</p>
 
             <div class="drone-pricing-grid" style="grid-template-columns:repeat(4, 1fr);">
                 <!-- Pack 1 — Captation -->
@@ -912,7 +882,7 @@
         margin-bottom: 12px;
     }
     .diff-point p {
-        color: rgba(255,255,255,0.55);
+        color: rgba(255,255,255,0.6);
         font-size: clamp(0.82rem,1.1vw,0.9rem);
         line-height: 1.7;
     }
@@ -921,9 +891,9 @@
     }
     </style>
 
-    <section id="differenciation" style="background:#000; padding:clamp(80px,10vw,120px) 0;">
+    <section id="differenciation" style="background:#0a0a0a; padding:clamp(80px,10vw,120px) 0;">
         <div class="container" style="text-align:center;">
-            <p style="font-family:Montserrat,sans-serif; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:12px;">Pourquoi nous</p>
+            <p class="section-label">Pourquoi nous</p>
             <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3;">Ce qui nous <span style="color:#549ba2">différencie</span></h2>
         </div>
         <div class="diff-points">
@@ -943,7 +913,7 @@
     </section>
 
     <!-- VIDÉO + CTA FINAL -->
-    <section class="section section-black" id="cta-final" style="padding:clamp(60px,8vw,120px) 0;" onmouseenter="if(!('ontouchstart' in window)){document.getElementById('cta-video').muted=false}" onmouseleave="if(!('ontouchstart' in window)){document.getElementById('cta-video').muted=true}">
+    <section class="section section-black" id="cta-final" style="padding:clamp(60px,8vw,80px) 0;" onmouseenter="if(!('ontouchstart' in window)){document.getElementById('cta-video').muted=false}" onmouseleave="if(!('ontouchstart' in window)){document.getElementById('cta-video').muted=true}">
         <div class="container" style="max-width:1100px;">
             <div style="display:flex; align-items:center; gap:clamp(24px,4vw,60px); flex-wrap:wrap; justify-content:center;">
                 <!-- Vidéo à gauche -->
@@ -969,7 +939,7 @@
     </section>
 
     <!-- SPÉCIALES BNF -->
-    <section class="section section-dark" id="speciales" style="position:relative; overflow:hidden;">
+    <section class="section" id="speciales" style="background:#0a0a0a; position:relative; overflow:hidden;">
         <video autoplay muted loop playsinline preload="none" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
             <source src="VIDEOS/City.mp4" type="video/mp4">
         </video>
@@ -1093,7 +1063,7 @@
     </section>
 
     <!-- FORMULAIRE RAPPEL -->
-    <section class="section section-dark" id="contact">
+    <section class="section section-black" id="contact">
         <div class="container" style="max-width:600px;">
             <p class="section-label">Contact</p>
             <h2 class="section-title">Contactez-nous <span class="accent">par mail.</span></h2>
