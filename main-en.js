@@ -550,7 +550,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function addBack() {
             var btn = document.createElement('button');
             btn.className = 'cb-back';
-            btn.textContent = '← Revenir au menu';
+            btn.textContent = '← Back to menu';
             btn.addEventListener('click', function() { showWelcome(); });
             chatbotMessages.appendChild(btn);
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
@@ -558,18 +558,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function clear() { chatbotMessages.innerHTML = ''; }
 
-        // --- FORMULAIRE RAPPEL DANS LE CHATBOT ---
+        // --- CALLBACK FORM INSIDE CHATBOT ---
         function showRecallForm() {
             clear();
-            addBubble('Laissez vos coordonnées, nous vous recontactons sous 24h.');
+            addBubble('Leave your details and we\'ll get back to you within 24h.');
             var form = document.createElement('form');
             form.className = 'cb-form';
-            form.innerHTML = '<input type="text" name="name" placeholder="Votre nom" required>' +
-                '<input type="email" name="email" placeholder="Votre email" required>' +
-                '<input type="tel" name="phone" placeholder="Téléphone">' +
-                '<textarea name="message" rows="2" placeholder="Votre besoin en quelques mots…"></textarea>' +
-                '<input type="hidden" name="_subject" value="Demande de rappel — Chatbot BNF CONSULTING">' +
-                '<button type="submit" class="cb-cta" style="border:none;cursor:pointer;text-align:center;display:block;width:100%;padding:10px;">Envoyer</button>';
+            form.innerHTML = '<input type="text" name="name" placeholder="Your name" required>' +
+                '<input type="email" name="email" placeholder="Your email" required>' +
+                '<input type="tel" name="phone" placeholder="Phone">' +
+                '<textarea name="message" rows="2" placeholder="Your need in a few words…"></textarea>' +
+                '<input type="hidden" name="_subject" value="Callback request — BNF Consulting chatbot (EN)">' +
+                '<input type="hidden" name="_language" value="en">' +
+                '<button type="submit" class="cb-cta" style="border:none;cursor:pointer;text-align:center;display:block;width:100%;padding:10px;">Send</button>';
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 var data = new FormData(form);
@@ -577,14 +578,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(function(r) {
                     if (r.ok) {
                         clear();
-                        addBubble('Merci ! Nous avons bien reçu votre demande et vous recontacterons très vite.');
+                        addBubble('Thanks! We\'ve received your request and will get back to you shortly.');
                         addBack();
                     } else {
-                        addBubble('Une erreur est survenue. Réessayez ou contactez-nous par email.');
+                        addBubble('Something went wrong. Try again or reach us by email.');
                     }
                 })
                 .catch(function() {
-                    addBubble('Une erreur est survenue. Réessayez ou contactez-nous par email.');
+                    addBubble('Something went wrong. Try again or reach us by email.');
                 });
             });
             chatbotMessages.appendChild(form);
@@ -592,146 +593,94 @@ document.addEventListener('DOMContentLoaded', () => {
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
         }
 
-        // --- SCÉNARIO 1 : Qui est BNF ? ---
-        function showQuiEstBNF() {
-            clear();
-            addBubble('BNF Consulting structure et développe les entreprises autour de 2 leviers :');
-            setTimeout(function() {
-                addBubble('<b>1. Stratégie</b><br>Lecture globale de votre entreprise, positionnement, leviers de croissance.<br><br><b>2. Visibilité</b><br>Image de marque, contenu visuel premium, présence digitale impactante.');
-                addButtons([
-                    { label: 'En savoir plus sur la stratégie', action: showStrategie },
-                    { label: 'Explorer la visibilité', action: showVisibilite }
-                ]);
-                addBack();
-            }, 400);
-        }
-
+        // --- PATH 1: STRATEGY ---
         function showStrategie() {
             clear();
-            addBubble('Le diagnostic stratégique est le point de départ de tout accompagnement.');
+            addBubble('You probably have the right pieces. What\'s missing is a clear reading of the whole.');
             setTimeout(function() {
-                addBubble('Il révèle :<br>• Les pertes invisibles<br>• Les incohérences internes<br>• Les leviers non activés<br><br>C\'est la porte d\'entrée dans l\'architecture BNF.');
+                addBubble('We start with a <b>free 30-minute strategic pre-diagnostic</b>. Together we identify your top 3 priorities. You walk away with an action plan — not a quote.');
                 addCTAs([
-                    { label: 'Voir la page d\'accueil', url: '/' },
-                    { label: 'Réserver un diagnostic', url: CAL }
+                    { label: 'Book the pre-diagnostic — 30 min', url: CAL }
                 ]);
+                addActionBtn('I\'d rather be called back', showRecallForm);
                 addBack();
             }, 300);
         }
 
-        function showVisibilite() {
+        // --- PATH 2: DRONE / VISUAL CONTENT ---
+        function showDrone() {
             clear();
-            addBubble('La manière dont le monde vous voit.');
-            setTimeout(function() {
-                addBubble('Captation aérienne — Identité de marque — Contenu premium — Stratégie digitale<br><br>Nous rendons votre entreprise visible et crédible.');
-                addCTAs([
-                    { label: 'Voir les leviers de visibilité', url: '/visibilite/' }
-                ]);
-                addActionBtn('Être rappelé', showRecallForm);
-                addBack();
-            }, 300);
-        }
-
-        // --- SCÉNARIO 2 : Quel est votre enjeu ? ---
-        function showEnjeu() {
-            clear();
-            addBubble('Quel est votre principal enjeu actuellement ?');
+            addBubble('Which sector are you in?');
             addButtons([
-                { label: 'Je manque de visibilité', action: showEnjeuVisibilite },
-                { label: 'Mon organisation freine ma croissance', action: showEnjeuOrga },
-                { label: 'Je veux du contenu visuel / drone', action: showEnjeuDrone },
-                { label: 'Je ne sais pas par où commencer', action: showEnjeuPerdu }
-            ]);
-        }
-
-        function showEnjeuVisibilite() {
-            clear();
-            addBubble('Identité de marque, stratégie digitale, contenu visuel : nous structurons votre visibilité pour qu\'elle devienne un vrai levier de croissance.');
-            addCTAs([
-                { label: 'Voir le pilier visibilité', url: '/visibilite/' },
-                { label: 'Réserver un diagnostic', url: CAL }
+                { label: 'Real estate', action: function() { showSector('real estate', '/en/immobilier/', 'You\'re showcasing properties. 5.1K aerial footage, cinematic capture, pro retouching — the difference is made on the first image.'); } },
+                { label: 'Automotive', action: function() { showSector('automotive', '/en/automobile/', 'You\'re selling vehicles. Premium staging and contextual capture — every car becomes a signature piece.'); } },
+                { label: 'Estates & Châteaux', action: function() { showSector('estates', '/en/domaines/', 'You have an exceptional property. Capturing grandeur, delivering a sober and prestigious visual narrative.'); } },
+                { label: 'Another sector', action: showAutreSecteur }
             ]);
             addBack();
         }
 
-        function showEnjeuOrga() {
+        function showSector(slug, url, blurb) {
             clear();
-            addBubble('Structuration, clarification des process, vision pilotable : nous transformons le flou en système.');
+            addBubble(blurb);
             setTimeout(function() {
-                addBubble('Le diagnostic stratégique est le meilleur point de départ pour identifier vos freins et prioriser les actions.');
                 addCTAs([
-                    { label: 'Réserver un diagnostic — 30 min', url: CAL }
+                    { label: 'See our ' + slug + ' services', url: url },
+                    { label: 'Book a pre-diagnostic — 30 min', url: CAL }
                 ]);
-                addActionBtn('Être rappelé', showRecallForm);
+                addActionBtn('Be called back', showRecallForm);
                 addBack();
-            }, 300);
+            }, 250);
         }
 
-        function showEnjeuDrone() {
+        function showAutreSecteur() {
             clear();
-            addBubble('Captation aérienne, contenu visuel professionnel, différenciation marketing : la vue d\'en haut change la perspective.');
+            addBubble('We also work in other sectors: events, heritage, retail, hospitality.');
             setTimeout(function() {
-                addBubble('Nous intervenons dans l\'immobilier, l\'automobile, et bien d\'autres secteurs.');
-                addCTAs([
-                    { label: 'Découvrir nos offres', url: '/visibilite/' }
-                ]);
-                addActionBtn('Être rappelé', showRecallForm);
+                addBubble('Describe your project in one message and we\'ll get back to you within 24h.');
+                addActionBtn('Be called back', showRecallForm);
                 addBack();
-            }, 300);
+            }, 250);
         }
 
-        function showEnjeuPerdu() {
+        // --- PATH 3: UNDERSTAND THE APPROACH ---
+        function showApproche() {
             clear();
-            addBubble('C\'est justement pour ça que le diagnostic stratégique existe.');
+            addBubble('BNF Consulting combines <b>two aligned levers</b>:');
             setTimeout(function() {
-                addBubble('En 30 minutes, on identifie ensemble :<br>• Où vous en êtes<br>• Ce qui freine votre croissance<br>• Par quoi commencer<br><br>C\'est gratuit et sans engagement.');
+                addBubble('<b>1. Strategy</b> — diagnosis, structuring, steering.<br><br><b>2. Visual production</b> — drone, brand image, premium content.<br><br>Together, they make your business <i style="color:#549ba2;">legible and attractive</i>.');
                 addCTAs([
-                    { label: 'Réserver un diagnostic — 30 min', url: CAL }
+                    { label: 'Read our articles', url: '/en/articles/' },
+                    { label: 'Book a pre-diagnostic — 30 min', url: CAL }
                 ]);
-                addActionBtn('Être rappelé', showRecallForm);
-                addBack();
-            }, 300);
-        }
-
-        // --- SCÉNARIO 3 : Comment ça se passe ? ---
-        function showParcours() {
-            clear();
-            addBubble('Chaque accompagnement suit un parcours structuré :');
-            setTimeout(function() {
-                addBubble('1. <b>Diagnostic stratégique</b><br><i style="color:#549ba2;">On comprend votre situation</i><br><br>2. <b>Identification des leviers</b><br><i style="color:#549ba2;">On repère ce qui peut être optimisé</i><br><br>3. <b>Structuration opérationnelle</b><br><i style="color:#549ba2;">On met en place les préconisations</i><br><br>4. <b>Activation</b><br><i style="color:#549ba2;">On lance les actions concrètes</i><br><br>5. <b>Pilotage</b><br><i style="color:#549ba2;">On mesure, on ajuste, on automatise</i>');
-                addCTAs([
-                    { label: 'Réserver un diagnostic', url: CAL }
-                ]);
-                addActionBtn('Être rappelé', showRecallForm);
+                addActionBtn('Be called back', showRecallForm);
                 addBack();
             }, 400);
         }
 
-        // --- SCÉNARIO 4 : Combien ça coûte ? ---
-        function showTarifs() {
+        // --- PATH 4: DIRECT BOOKING ---
+        function showRDV() {
             clear();
-            addBubble('Chaque entreprise est différente — nos interventions sont sur mesure.');
+            addBubble('Two options depending on your preference:');
             setTimeout(function() {
-                addBubble('Le diagnostic stratégique initial est <b>gratuit</b> (30 min).<br><br>Ensuite, nous vous proposons un accompagnement adapté à votre situation et à votre budget.<br><br>Pas d\'engagement longue durée. Pas de surprise.');
                 addCTAs([
-                    { label: 'Réserver un diagnostic gratuit', url: CAL }
+                    { label: 'Open the calendar — 30 min', url: CAL }
                 ]);
-                addActionBtn('Être rappelé pour en discuter', showRecallForm);
+                addActionBtn('Call me back by phone', showRecallForm);
                 addBack();
-            }, 300);
+            }, 200);
         }
 
-        // --- MESSAGE D'ACCUEIL ---
+        // --- WELCOME ---
         function showWelcome() {
             clear();
-            addBubble('Bonjour.<br>Comment pouvons-nous vous aider ?');
+            addBubble('Hi there.<br>Tell us what brings you here:');
             setTimeout(function() {
                 addButtons([
-                    { label: 'Qui est BNF ?', action: showQuiEstBNF },
-                    { label: 'Quel est votre enjeu ?', action: showEnjeu },
-                    { label: 'Comment ça se passe concrètement ?', action: showParcours },
-                    { label: 'Combien ça coûte ?', action: showTarifs },
-                    { label: 'Être rappelé / Prendre RDV', action: showRecallForm }
+                    { label: 'A clear strategy for my business', action: showStrategie },
+                    { label: 'Visual content / drone', action: showDrone },
+                    { label: 'Understand your approach', action: showApproche },
+                    { label: 'Book a meeting right now', action: showRDV }
                 ]);
             }, 300);
         }
