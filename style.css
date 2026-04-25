@@ -282,11 +282,30 @@ h1, h2, h3 {
     z-index: 1000;
     box-shadow: 0 12px 40px rgba(0,0,0,0.5);
 }
-.nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown.open .nav-dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
+}
+/* Sur mobile (burger menu ouvert), on affiche les 3 secteurs en sous-items */
+@media (max-width: 768px) {
+    .nav-dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border: none;
+        box-shadow: none;
+        padding: 12px 0 0 16px;
+    }
+    .nav-dropdown-menu a {
+        font-size: 0.78rem !important;
+        padding: 6px 0 !important;
+        color: rgba(255,255,255,0.5) !important;
+    }
 }
 .nav-dropdown-menu li {
     margin: 0;
