@@ -236,29 +236,32 @@
         </div>
     </nav>
     <script>
-    /* Nav dropdown toggle (touch + click) — scrolle ET ouvre le menu */
+    /* Nav dropdown : clic sur Secteurs scrolle uniquement, pas de toggle. Dropdown via hover (desktop) ou via burger menu (mobile). */
     (function(){
         var dd = document.querySelector('.nav-dropdown');
         if(!dd) return;
         var toggle = dd.querySelector('.nav-dropdown-toggle');
         toggle.addEventListener('click', function(e){
             e.preventDefault();
-            // 1. Scroll vers la section #secteurs (si on est sur la home)
             var target = document.getElementById('secteurs');
             if (target) {
-                var navHeight = document.querySelector('.nav')?.offsetHeight || 80;
+                var navHeight = document.querySelector('.nav') ? document.querySelector('.nav').offsetHeight : 80;
                 var top = target.getBoundingClientRect().top + window.scrollY - navHeight - 20;
                 window.scrollTo({ top: top, behavior: 'smooth' });
+                dd.classList.remove('open');   // ferme le dropdown au clic
             } else {
-                // Sur les autres pages : redirige vers la home + ancre
                 window.location.href = '/#secteurs';
-                return;
             }
-            // 2. Toggle dropdown menu
-            dd.classList.toggle('open');
         });
+        // Toujours fermer le dropdown si on clique ailleurs
         document.addEventListener('click', function(e){
             if(!dd.contains(e.target)) dd.classList.remove('open');
+        });
+        // Fermer aussi quand on clique sur un autre lien de la nav
+        document.querySelectorAll('.nav-links a').forEach(function(a){
+            if (!dd.contains(a)) {
+                a.addEventListener('click', function(){ dd.classList.remove('open'); });
+            }
         });
     })();
     </script>
