@@ -128,13 +128,25 @@
         </div>
     </nav>
     <script>
-    /* Nav dropdown toggle (touch + click) */
+    /* Nav dropdown toggle (touch + click) — scrolle ET ouvre le menu */
     (function(){
         var dd = document.querySelector('.nav-dropdown');
         if(!dd) return;
         var toggle = dd.querySelector('.nav-dropdown-toggle');
         toggle.addEventListener('click', function(e){
             e.preventDefault();
+            // 1. Scroll vers la section #secteurs (si on est sur la home)
+            var target = document.getElementById('secteurs');
+            if (target) {
+                var navHeight = document.querySelector('.nav')?.offsetHeight || 80;
+                var top = target.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+                window.scrollTo({ top: top, behavior: 'smooth' });
+            } else {
+                // Sur les autres pages : redirige vers la home + ancre
+                window.location.href = '/#secteurs';
+                return;
+            }
+            // 2. Toggle dropdown menu
             dd.classList.toggle('open');
         });
         document.addEventListener('click', function(e){
@@ -144,6 +156,33 @@
     </script>
 
     <!-- HERO -->
+    <style>
+    /* Ken Burns sur le fond du hero */
+    .hero-bg img {
+        animation: hero-kb 9s ease-in-out infinite alternate;
+        will-change: transform;
+    }
+    @keyframes hero-kb {
+        0%   { transform: scale(1.05) translate(-1.5%, -0.8%); }
+        100% { transform: scale(1.2)  translate(2.5%, 2%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .hero-bg img { animation: none; }
+    }
+
+    /* Fade-up cascade sur les éléments du hero */
+    .hero-fade {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: hero-fade-in 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @keyframes hero-fade-in {
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-fade--1 { animation-delay: 0.15s; }
+    .hero-fade--2 { animation-delay: 0.45s; }
+    .hero-fade--3 { animation-delay: 0.75s; }
+    </style>
     <section class="hero" id="hero">
         <div class="hero-bg">
             <img src="PHOTOS/Best_teinture_vert (4).JPG" alt="BnFConsulting">
@@ -153,19 +192,20 @@
             <div class="drone-hero-mobile-logo" style="display:none; text-align:left; margin-bottom:12px; padding-left:16px;">
                 <img src="PHOTOS/Logo_paysage (2).jpg" alt="BnFConsulting" style="height:32px; width:auto; opacity:0.8; border-radius:3px;">
             </div>
-            <h1 class="hero-title">
-                Votre entreprise mérite une stratégie claire <span class="accent">et une image à la hauteur.</span>
+            <h1 class="hero-title hero-fade hero-fade--1">
+                Votre image, <span class="accent">à la hauteur de vos ambitions.</span>
             </h1>
-            <p class="hero-sub">
+            <p class="hero-sub hero-fade hero-fade--2">
                 Nous structurons votre croissance et produisons vos contenus visuels.
             </p>
-            <div class="hero-ctas">
+            <div class="hero-ctas hero-fade hero-fade--3">
                 <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary">Pré-diagnostic stratégique — 30 min</a>
             </div>
 
             <!-- NAVIGATION RAPIDE -->
             <div class="quick-nav">
                 <a href="#proposition" class="quick-nav-item quick-nav-desktop-only">Notre approche</a>
+                <a href="#secteurs" class="quick-nav-item">Secteurs</a>
                 <a href="#visibilite" class="quick-nav-item quick-nav-axe">Production visuelle</a>
                 <a href="#tarifs" class="quick-nav-item">Nos formules</a>
             </div>
@@ -173,16 +213,94 @@
         </div>
     </section>
 
-    <!-- TRANSITION -->
-    <section class="section section-black" id="solution" style="padding:clamp(80px,10vw,120px) 0;">
-        <div class="container" style="max-width:1000px; text-align:center;">
-            <h2 class="section-title" style="font-size:clamp(2rem,4.5vw,3.5rem); margin-bottom:24px;">Vous méritez mieux qu'une présence<br><span class="accent">en ligne par défaut.</span></h2>
-            <p style="color:rgba(255,255,255,0.6); font-size:clamp(1rem,1.8vw,1.2rem); line-height:1.8; max-width:650px; margin:0 auto;">Photos moyennes, communication floue, pas de stratégie visuelle — pendant ce temps, d'autres captent l'attention de vos clients.</p>
-        </div>
-    </section>
-
-    <!-- CONSÉQUENCES -->
+    <!-- TRANSITION + CONSTAT + APPROCHE — Dstudio-inspired animations (maxed out) -->
     <style>
+    /* === SHARED ANIMATION PRIMITIVES === */
+    .line-reveal {
+        display: block;
+        overflow: hidden;
+        line-height: 1.0;
+        padding-bottom: 0.08em;
+    }
+    .line-reveal > span {
+        display: inline-block;
+        transform: translateY(130%);
+        transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform;
+    }
+    .line-reveal.visible > span { transform: translateY(0); }
+
+    .word-reveal {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(50px) rotateX(25deg);
+        transform-origin: 50% 100%;
+        transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+        margin: 0 0.1em;
+        will-change: opacity, transform;
+    }
+    .word-reveal.visible { opacity: 1; transform: translateY(0) rotateX(0); }
+
+    .fade-up {
+        opacity: 0;
+        transform: translateY(70px);
+        transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .pop-in {
+        opacity: 0;
+        transform: scale(0.3) rotate(-8deg);
+        transition: opacity 0.6s ease-out,
+                    transform 1s cubic-bezier(0.34, 1.8, 0.4, 1);
+        display: inline-block;
+    }
+    .pop-in.visible { opacity: 1; transform: scale(1) rotate(0); }
+
+    /* === ACCENT BLOBS (bigger + more visible) === */
+    .accent-blob {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle at center, rgba(84,155,162,0.55) 0%, rgba(84,155,162,0.12) 40%, rgba(84,155,162,0) 72%);
+        filter: blur(80px);
+        pointer-events: none;
+        z-index: 0;
+        will-change: transform;
+        mix-blend-mode: screen;
+    }
+    .accent-blob--soft {
+        background: radial-gradient(circle at center, rgba(84,155,162,0.3) 0%, rgba(84,155,162,0.06) 40%, rgba(84,155,162,0) 72%);
+    }
+
+    /* === SECTION 1 — TRANSITION === */
+    #solution {
+        padding: clamp(140px, 18vw, 220px) 0 !important;
+    }
+    #solution .section-title {
+        font-size: clamp(2.8rem, 8vw, 6.8rem);
+        line-height: 0.96;
+        letter-spacing: -0.03em;
+        margin-bottom: 48px;
+        font-weight: 400;
+    }
+    #solution .section-title .accent {
+        background: linear-gradient(90deg, #549ba2 0%, #7fc4cb 50%, #549ba2 100%);
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        animation: shimmer 6s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+        0%,100% { background-position: 0% 50%; }
+        50%     { background-position: 100% 50%; }
+    }
+
+    /* === SECTION 2 — LE CONSTAT === */
     .consequences-grid {
         display: flex;
         gap: clamp(1rem,2vw,1.5rem);
@@ -193,89 +311,936 @@
     .consequences-grid .glass-card {
         flex: 1 1 280px;
         max-width: 340px;
+        transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                    box-shadow 0.5s ease,
+                    border-color 0.4s ease,
+                    background 0.4s ease;
     }
-    /* Parallax : vidéo accrochée au viewport, clippée par la section */
-    #consequences {
+    .consequences-grid .glass-card.fade-up.visible:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 24px 60px rgba(84,155,162,0.25),
+                    0 0 0 1px rgba(84,155,162,0.55);
+        border-color: rgba(84,155,162,0.6);
+    }
+    .consequences-grid .glass-card .glass-card-icon svg {
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .consequences-grid .glass-card.fade-up.visible:hover .glass-card-icon svg {
+        transform: scale(1.18) rotate(-3deg);
+    }
+    /* Staggered entry */
+    .consequences-grid .glass-card:nth-child(1).fade-up { transition-delay: 0ms; }
+    .consequences-grid .glass-card:nth-child(2).fade-up { transition-delay: 150ms; }
+    .consequences-grid .glass-card:nth-child(3).fade-up { transition-delay: 300ms; }
+
+    /* === SECTION 2 — SCROLL-JACK REVEAL (1 swipe = 1 state) === */
+    #consequences.consequences-sj {
         position: relative;
+        height: 100vh;
+        padding: 0 !important;
+        background: #000;
         overflow: hidden;
         isolation: isolate;
         clip-path: inset(0);
-        background: #000;
     }
     #consequences .consequences-bg-video {
         position: fixed;
         top: 0; left: 0;
-        width: 100vw;
-        height: 100vh;
+        width: 100vw; height: 100vh;
         object-fit: cover;
         z-index: 0;
         pointer-events: none;
     }
     #consequences .consequences-bg-overlay {
-        position: absolute; inset: 0; z-index: 1; pointer-events: none;
-        background: linear-gradient(180deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.58) 50%, rgba(0,0,0,0.78) 100%);
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: linear-gradient(180deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.80) 50%, rgba(0,0,0,0.92) 100%);
+        opacity: 1;
     }
-    /* Sur mobile/tablette : pas de fixed (perf + saccades iOS) */
+    /* Overlay opacity contrôlé en JS pour fade continu et fluide */
+    /* === STATE 4 — PAYOFF === */
+    .sj-state--payoff { text-align: center; }
+    .sj-payoff-content { max-width: 900px; }
+    .sj-payoff-content h3 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+        color: #fff;
+        line-height: 0.98;
+        letter-spacing: -0.03em;
+        margin: 0 0 clamp(18px, 2.5vh, 28px);
+        text-shadow: 0 4px 40px rgba(0,0,0,0.85), 0 2px 8px rgba(0,0,0,0.9);
+    }
+    .sj-payoff-content p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: clamp(1.1rem, 2vw, 1.6rem);
+        color: #fff;
+        line-height: 1.4;
+        max-width: 700px;
+        margin: 0 auto clamp(28px, 4vh, 48px);
+        font-weight: 500;
+        text-shadow: 0 2px 20px rgba(0,0,0,0.85), 0 1px 5px rgba(0,0,0,0.9);
+    }
+    .sj-payoff-cta {
+        display: inline-block;
+        background: #549ba2;
+        color: #fff;
+        padding: 16px 40px;
+        border-radius: 999px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 10px 30px rgba(84,155,162,0.3);
+    }
+    .sj-payoff-cta:hover {
+        background: #6bb5bc;
+        transform: translateY(-2px);
+        box-shadow: 0 14px 40px rgba(84,155,162,0.45);
+    }
+    /* Flèche bouton "section suivante" sous le CTA */
+    .sj-payoff-arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.08);
+        border: 1.5px solid rgba(255,255,255,0.4);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        margin: clamp(28px, 4vh, 48px) auto 0;
+        cursor: pointer;
+        transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        animation: sj-arrow-bounce 1.8s ease-in-out infinite;
+    }
+    .sj-payoff-arrow:hover {
+        background: rgba(84,155,162,0.4);
+        border-color: rgba(84,155,162,0.9);
+        transform: scale(1.08);
+        animation-play-state: paused;
+    }
+    .sj-payoff-arrow svg {
+        width: 22px;
+        height: 22px;
+        stroke: #fff;
+        stroke-width: 2;
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+    @keyframes sj-arrow-bounce {
+        0%, 100% { transform: translateY(0); }
+        50%      { transform: translateY(8px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .sj-payoff-arrow { animation: none; }
+    }
+    .sj-stage {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+    }
+    .sj-state {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(100px, 12vh, 140px) clamp(24px, 8vw, 120px);
+        box-sizing: border-box;
+        opacity: 0;
+        transform: translateX(80px);
+        transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+        pointer-events: none;
+    }
+    .sj-state.active {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+    }
+    .sj-state.past {
+        opacity: 0;
+        transform: translateX(-120px);
+    }
+    .sj-state--intro {
+        flex-direction: column;
+        text-align: center;
+    }
+    .sj-state--intro > div {
+        max-width: 1100px;
+        width: 100%;
+    }
+    .sj-state--intro .dstudio-word-title {
+        font-size: clamp(2rem, 4.5vw, 3.8rem) !important;
+        line-height: 1.05 !important;
+        margin-bottom: 0 !important;
+        word-spacing: 0.05em;
+    }
+    .sj-state--card { overflow: hidden; }
+    .sj-bg-num {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: clamp(16rem, 32vw, 34rem);
+        line-height: 0.9;
+        color: rgba(84,155,162,0.14);
+        letter-spacing: -0.08em;
+        pointer-events: none;
+        user-select: none;
+        z-index: 0;
+    }
+    .sj-card-content {
+        position: relative;
+        z-index: 1;
+        max-width: 680px;
+        text-align: center;
+    }
+    .sj-card-content .sj-icon {
+        width: 64px; height: 64px;
+        color: #549ba2;
+        margin: 0 auto clamp(24px, 3vh, 40px);
+    }
+    .sj-card-content .sj-icon svg { width: 100%; height: 100%; }
+    .sj-card-content h3 {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: clamp(2.6rem, 6vw, 5rem);
+        color: #fff;
+        line-height: 0.98;
+        letter-spacing: -0.025em;
+        margin: 0 0 clamp(20px, 3vh, 32px);
+    }
+    .sj-card-content p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+        color: rgba(255,255,255,0.88);
+        line-height: 1.55;
+        max-width: 540px;
+        margin: 0 auto;
+        font-weight: 400;
+    }
+    /* === MOBILE : même scroll-jacking que desktop, typos adaptées === */
     @media (max-width: 900px) {
-        #consequences .consequences-bg-video {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        #consequences.consequences-sj {
+            height: 100vh;
+            height: 100dvh;  /* dynamique Safari (URL bar) */
+        }
+        .sj-state {
+            padding: clamp(80px, 12vh, 120px) 20px;
+        }
+        .sj-state--intro .dstudio-word-title {
+            font-size: clamp(1.9rem, 7vw, 3rem) !important;
+        }
+        .sj-card-content h3 {
+            font-size: clamp(2rem, 8.5vw, 3.2rem) !important;
+        }
+        .sj-card-content p {
+            font-size: clamp(0.95rem, 3vw, 1.1rem) !important;
+        }
+        .sj-card-content .sj-icon {
+            width: 48px !important;
+            height: 48px !important;
+            margin: 0 auto clamp(18px, 2.5vh, 28px) !important;
+        }
+        .sj-bg-num {
+            font-size: clamp(10rem, 42vw, 20rem);
+            -webkit-text-stroke-width: 1.5px;
         }
     }
+
+    /* === SECTION 3 — NOTRE APPROCHE === */
+    #proposition { position: relative; overflow: hidden; }
+    #proposition .pilier-cards {
+        position: relative;
+        z-index: 2;
+    }
+    #proposition .pilier-card {
+        transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                    background 0.4s ease,
+                    border-color 0.4s ease,
+                    box-shadow 0.5s ease;
+    }
+    #proposition .pilier-card.fade-up.visible:hover {
+        transform: translateY(-6px);
+        background: rgba(84,155,162,0.07);
+        border-color: rgba(84,155,162,0.4);
+        box-shadow: 0 16px 40px rgba(84,155,162,0.18);
+    }
+    #proposition .pilier-card:nth-child(1).fade-up { transition-delay: 0ms; }
+    #proposition .pilier-card:nth-child(2).fade-up { transition-delay: 200ms; }
+    #proposition .pilier-num.pop-in { transition-delay: 500ms; }
+    #proposition .pilier-card:nth-child(2) .pilier-num.pop-in { transition-delay: 700ms; }
+
+    /* === DSTUDIO: sans-serif geometric typography on constat + approche === */
+    #consequences .dstudio-word-title,
+    #proposition  .dstudio-word-title {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 900 !important;
+        font-size: clamp(2.4rem, 6vw, 5.2rem) !important;
+        line-height: 0.98 !important;
+        letter-spacing: -0.025em !important;
+        text-transform: none !important;
+        margin-bottom: clamp(48px, 7vw, 72px) !important;
+        color: #ffffff !important;
+    }
+    .dstudio-word-title .word-reveal { color: inherit; }
+    #consequences .section-label.fade-up,
+    #proposition  .section-label.fade-up {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.85);
+        margin-bottom: 20px;
+    }
+    #consequences .section-label.fade-up::before,
+    #proposition  .section-label.fade-up::before {
+        content: '';
+        width: 44px;
+        height: 1px;
+        background: #549ba2;
+        display: inline-block;
+    }
+
+    /* === DSTUDIO: giant ghost outline numbers behind piliers === */
+    #proposition .pilier-card {
+        position: relative;
+        overflow: hidden;
+    }
+    #proposition .pilier-card::before {
+        content: attr(data-ghost-num);
+        position: absolute;
+        top: 50%; right: -0.06em;
+        transform: translateY(-50%) translateX(0);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 900;
+        font-size: clamp(9rem, 18vw, 16rem);
+        line-height: 0.9;
+        color: transparent;
+        -webkit-text-stroke: 2px rgba(84,155,162,0.18);
+        pointer-events: none;
+        z-index: 0;
+        letter-spacing: -0.06em;
+        transition: -webkit-text-stroke-color 0.6s ease,
+                    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        user-select: none;
+    }
+    #proposition .pilier-card.fade-up.visible:hover::before {
+        -webkit-text-stroke-color: rgba(84,155,162,0.45);
+        transform: translateY(-50%) translateX(-12px);
+    }
+    #proposition .pilier-card > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* === DSTUDIO: dashed rotating circle ambient element === */
+    .dstudio-dashed-circle {
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        border: 1px dashed rgba(84,155,162,0.4);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1;
+        animation: slow-spin 40s linear infinite;
+    }
+    @keyframes slow-spin {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
+    }
+    .dstudio-dashed-circle::before {
+        content: '';
+        position: absolute;
+        top: -5px; left: 50%;
+        width: 10px; height: 10px;
+        background: #549ba2;
+        border-radius: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* === DSTUDIO: italic sub-tagline punch === */
+    #proposition .dstudio-objectif {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: 500 !important;
+        font-style: normal !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.2em !important;
+        font-size: clamp(0.85rem, 1.2vw, 1rem) !important;
+        padding: 14px 28px;
+        border: 1px solid rgba(84,155,162,0.4);
+        border-radius: 999px;
+        display: inline-block;
+        color: #549ba2;
+        margin-top: clamp(48px, 6vw, 72px) !important;
+        transition: background 0.4s ease, border-color 0.4s ease;
+    }
+    #proposition .dstudio-objectif:hover {
+        background: rgba(84,155,162,0.1);
+        border-color: rgba(84,155,162,0.8);
+    }
     </style>
-    <section class="section section-black section-piliers" id="consequences" style="padding:clamp(80px,10vw,120px) 0;">
+
+    <!-- SECTION 1 : TRANSITION -->
+    <section class="section section-black" id="solution" style="padding:clamp(100px,12vw,140px) 0; position:relative; overflow:hidden;">
+        <div class="accent-blob" style="width:560px; height:560px; top:-200px; left:-220px;" aria-hidden="true"></div>
+        <div class="accent-blob accent-blob--soft" style="width:480px; height:480px; bottom:-180px; right:-180px;" aria-hidden="true"></div>
+        <div class="container" style="max-width:1100px; text-align:center; position:relative; z-index:2;">
+            <h2 class="section-title">
+                <span class="line-reveal"><span>Vous méritez mieux qu'une présence</span></span>
+                <span class="line-reveal"><span class="accent">en ligne par défaut.</span></span>
+            </h2>
+            <p class="fade-up" style="color:rgba(255,255,255,0.6); font-size:clamp(1rem,1.8vw,1.2rem); line-height:1.8; max-width:650px; margin:0 auto;">Photos moyennes, communication floue, pas de stratégie visuelle — pendant ce temps, d'autres captent l'attention de vos clients.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 2 : LE CONSTAT — horizontal scroll pinned -->
+    <section class="section section-black consequences-sj" id="consequences">
         <video class="consequences-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-            <source src="VIDEOS/Website - FPV.mp4" type="video/mp4">
+            <source src="VIDEOS/desert.mp4" type="video/mp4">
         </video>
         <div class="consequences-bg-overlay"></div>
-        <div class="container" style="text-align:center; position:relative; z-index:2;">
-            <p class="section-label">Le constat</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3; margin-bottom:12px;">Ce que ça coûte de <span style="color:#549ba2;">ne rien changer</span></h2>
-            <div class="consequences-grid">
-                <div class="glass-card">
-                    <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
-                    <h3 class="glass-card-title">Sans image</h3>
-                    <p class="glass-card-text">Vos visuels ne reflètent pas la qualité de ce que vous proposez.</p>
+        <div class="sj-stage" id="sjStage">
+            <!-- STATE 0 : intro title -->
+            <div class="sj-state sj-state--intro" data-state="0">
+                <div>
+                    <p class="section-label fade-up">Le constat</p>
+                    <h2 class="dstudio-word-title">
+                        <span class="word-reveal">Ce</span>
+                        <span class="word-reveal">que</span>
+                        <span class="word-reveal">ça</span>
+                        <span class="word-reveal">coûte</span>
+                        <span class="word-reveal">de</span>
+                        <span class="word-reveal" style="color:#549ba2;">ne</span>
+                        <span class="word-reveal" style="color:#549ba2;">rien</span>
+                        <span class="word-reveal" style="color:#549ba2;">changer</span>
+                    </h2>
                 </div>
-                <div class="glass-card">
-                    <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div>
-                    <h3 class="glass-card-title">Sans visibilité</h3>
-                    <p class="glass-card-text">Vos annonces se noient dans la masse — personne ne s'arrête.</p>
+            </div>
+            <!-- STATE 1 : card 01 -->
+            <div class="sj-state sj-state--card" data-state="1">
+                <div class="sj-card-content">
+                    <div class="sj-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <h3>Sans image</h3>
+                    <p>Vous êtes invisible.</p>
                 </div>
-                <div class="glass-card">
-                    <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
-                    <h3 class="glass-card-title">Sans les deux</h3>
-                    <p class="glass-card-text">Vos concurrents investissent dans leur image — pas vous.</p>
+            </div>
+            <!-- STATE 2 : card 02 -->
+            <div class="sj-state sj-state--card" data-state="2">
+                <div class="sj-card-content">
+                    <div class="sj-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                    </div>
+                    <h3>Sans visibilité</h3>
+                    <p>Vous êtes ignoré.</p>
+                </div>
+            </div>
+            <!-- STATE 3 : card 03 -->
+            <div class="sj-state sj-state--card" data-state="3">
+                <div class="sj-card-content">
+                    <div class="sj-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    </div>
+                    <h3>Sans les deux</h3>
+                    <p>Vous êtes remplacé.</p>
+                </div>
+            </div>
+            <!-- STATE 4 : payoff — texte positif sur vidéo désert -->
+            <div class="sj-state sj-state--payoff" data-state="4">
+                <div class="sj-payoff-content">
+                    <h3>Montrez votre vraie valeur.</h3>
+                    <p>Avec une image à la hauteur de ce que vous construisez.</p>
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="sj-payoff-cta">Pré-diagnostic stratégique — 30 min</a>
+                    <div style="display:block; margin-top: clamp(28px, 4vh, 48px);">
+                        <a href="#proposition" class="sj-payoff-arrow" aria-label="Section suivante" onclick="event.preventDefault(); document.getElementById('proposition')?.scrollIntoView({behavior:'smooth',block:'start'});">
+                            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <script>
+    (function(){
+        var section = document.getElementById('consequences');
+        if (!section || !section.classList.contains('consequences-sj')) return;
+        var states = section.querySelectorAll('.sj-state');
+        var TOTAL_STATES = states.length; // 5
 
-    <!-- PROPOSITION DE VALEUR -->
-    <section id="proposition" style="background:#111; padding:clamp(80px,10vw,120px) 0;">
-        <div style="max-width:960px; margin:0 auto; padding:0 clamp(16px,3vw,40px); text-align:center;">
-            <p class="section-label">Notre approche</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3; margin-bottom:clamp(32px,5vw,56px);">Stratégie + Production visuelle.<br><span style="color:#549ba2;">Les deux leviers qui font la différence.</span></h2>
-            <div class="pilier-cards">
-                <div class="pilier-card">
-                    <span class="pilier-num">01</span>
+        var currentState      = 0;
+        var locked            = false;
+        var hasPlayed         = false;  // latch : l'animation se joue UNE seule fois
+        var completed         = false;
+        var animating         = false;
+        var pinnedY           = 0;
+        var ANIM_MS           = 1100;
+        var AUTO_INTERVAL_MS  = 1750;  // temps d'affichage par état
+        var autoTimer         = null;
+
+        function applyState(s) {
+            for (var i = 0; i < TOTAL_STATES; i++) section.classList.remove('state-' + i);
+            section.classList.add('state-' + s);
+            Array.prototype.forEach.call(states, function(el, i){
+                el.classList.remove('active','past');
+                if      (i === s) el.classList.add('active');
+                else if (i  <  s) el.classList.add('past');
+            });
+        }
+
+        function advanceOne() {
+            if (animating || completed) return false;
+            if (currentState >= TOTAL_STATES - 1) return false;
+            currentState++;
+            animating = true;
+            applyState(currentState);
+            setTimeout(function(){ animating = false; }, ANIM_MS);
+            return true;
+        }
+
+        function scheduleAuto() {
+            clearTimeout(autoTimer);
+            if (!locked) return;
+            autoTimer = setTimeout(function(){
+                if (currentState >= TOTAL_STATES - 1) {
+                    // Dernier état affiché assez longtemps → libération
+                    completed = true;
+                    locked = false;
+                    return;
+                }
+                advanceOne();
+                scheduleAuto();
+            }, AUTO_INTERVAL_MS);
+        }
+
+        function stopAuto() {
+            clearTimeout(autoTimer);
+            autoTimer = null;
+        }
+
+        function lockIfNeeded() {
+            if (hasPlayed || locked) return;   // <-- latch : jamais 2 fois
+            var rect = section.getBoundingClientRect();
+            // Trigger agressif : dès que la section approche du viewport
+            if (rect.top <= window.innerHeight && rect.bottom > 0) {
+                locked = true;
+                hasPlayed = true;   // l'animation est lancée UNE seule fois
+                pinnedY = section.offsetTop;
+                window.scrollTo(0, pinnedY);   // snap instantané
+                scheduleAuto();
+                startOverlayFade();
+            }
+        }
+
+        // Fade continu de l'overlay : 1.0 → 0.15 sur toute la durée (5 × 1.75s = 8.75s)
+        function startOverlayFade() {
+            var overlay = section.querySelector('.consequences-bg-overlay');
+            if (!overlay) return;
+            var TOTAL_MS = TOTAL_STATES * AUTO_INTERVAL_MS; // 5 * 1750 = 8750ms
+            var FROM = 1.0, TO = 0.15;
+            var startTime = performance.now();
+            function tick(now){
+                if (!locked) return;   // arrêt si l'utilisateur quitte
+                var t = Math.min(1, (now - startTime) / TOTAL_MS);
+                // ease-in-out cubic pour douceur
+                var eased = t < 0.5
+                    ? 4 * t * t * t
+                    : 1 - Math.pow(-2 * t + 2, 3) / 2;
+                overlay.style.opacity = (FROM + (TO - FROM) * eased).toFixed(3);
+                if (t < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+
+        // Scroll : pendant l'animation, on RE-SNAP toujours au top de la section
+        window.addEventListener('scroll', function(){
+            if (hasPlayed && !locked) return;   // déjà joué → libre
+            if (!locked) {
+                lockIfNeeded();
+            } else if (window.scrollY !== pinnedY) {
+                window.scrollTo(0, pinnedY);
+            }
+        }, { passive: true });
+
+        // Wheel : blocage TOTAL pendant l'animation (haut ET bas)
+        function onWheel(e) {
+            if (hasPlayed && !locked) return;   // déjà joué → libre
+            if (locked) {
+                e.preventDefault();
+                if (window.scrollY !== pinnedY) window.scrollTo(0, pinnedY);
+            } else if (!hasPlayed) {
+                var rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight && rect.bottom > 0) {
+                    e.preventDefault();
+                    lockIfNeeded();
+                }
+            }
+        }
+        window.addEventListener('wheel', onWheel, { passive: false });
+
+        // Touch : blocage TOTAL pendant l'animation
+        window.addEventListener('touchmove', function(e){
+            if (!locked) return;
+            e.preventDefault();
+            if (window.scrollY !== pinnedY) window.scrollTo(0, pinnedY);
+        }, { passive: false });
+
+        // Clavier : bloqué uniquement pendant l'auto-play initial
+        window.addEventListener('keydown', function(e){
+            if (!locked) return;
+            var blockedKeys = [32, 33, 34, 35, 36, 38, 40]; // space, pgup, pgdn, end, home, up, down
+            if (blockedKeys.indexOf(e.keyCode) !== -1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        applyState(0);
+    })();
+    </script>
+
+    <!-- SECTION 3 : NOTRE APPROCHE — layout 2 colonnes -->
+    <style>
+    #proposition { background:#111; padding:clamp(100px,12vw,140px) 0; position:relative; overflow:hidden; }
+    .proposition-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(40px, 6vw, 100px);
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 clamp(24px, 4vw, 60px);
+        align-items: center;
+        position: relative;
+        z-index: 2;
+    }
+    .proposition-left {
+        max-width: 640px;
+    }
+    .proposition-left .section-label {
+        margin-bottom: 24px !important;
+    }
+    #proposition .dstudio-word-title {
+        font-size: clamp(2rem, 4.2vw, 3.8rem) !important;
+        line-height: 1.02 !important;
+        letter-spacing: -0.02em !important;
+        text-align: left !important;
+        margin: 0 !important;
+    }
+    .proposition-right {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(20px, 2.5vw, 28px);
+    }
+    #proposition .proposition-right .pilier-card {
+        margin: 0;
+        padding: clamp(28px, 3vw, 40px);
+        text-align: left;
+    }
+    #proposition .pilier-num {
+        font-size: clamp(2.4rem, 3.5vw, 3rem) !important;
+    }
+    #proposition .pilier-card-text h3 {
+        font-size: clamp(1.3rem, 2vw, 1.7rem) !important;
+    }
+    .proposition-objectif {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-top: clamp(48px, 6vw, 72px) !important;
+        padding: 14px 28px !important;
+    }
+    @media (max-width: 900px) {
+        .proposition-grid {
+            grid-template-columns: 1fr;
+            gap: clamp(32px, 6vw, 56px);
+        }
+        #proposition .dstudio-word-title {
+            font-size: clamp(1.8rem, 6.5vw, 2.8rem) !important;
+            text-align: center !important;
+        }
+        .proposition-left { text-align: center; max-width: 100%; }
+        .proposition-left .section-label { justify-content: center; }
+    }
+    </style>
+    <section id="proposition">
+        <div class="accent-blob" style="width:500px; height:500px; top:calc(50% - 250px); left:-200px;" aria-hidden="true"></div>
+        <div class="accent-blob accent-blob--soft" style="width:420px; height:420px; top:8%; right:-180px;" aria-hidden="true"></div>
+        <div class="proposition-grid">
+            <div class="proposition-left">
+                <p class="section-label fade-up">Notre approche</p>
+                <h2 class="dstudio-word-title">
+                    <span class="word-reveal">Stratégie</span>
+                    <span class="word-reveal">+</span>
+                    <span class="word-reveal">Production</span>
+                    <span class="word-reveal">visuelle.</span>
+                    <br>
+                    <span class="word-reveal" style="color:#549ba2;">Les</span>
+                    <span class="word-reveal" style="color:#549ba2;">deux</span>
+                    <span class="word-reveal" style="color:#549ba2;">leviers</span>
+                    <span class="word-reveal" style="color:#549ba2;">qui</span>
+                    <span class="word-reveal" style="color:#549ba2;">font</span>
+                    <span class="word-reveal" style="color:#549ba2;">la</span>
+                    <span class="word-reveal" style="color:#549ba2;">différence.</span>
+                </h2>
+            </div>
+            <div class="proposition-right">
+                <div class="pilier-card fade-up">
+                    <span class="pilier-num pop-in">01</span>
                     <div class="pilier-card-text">
                         <h3>Une direction claire</h3>
                         <p>Savoir où vous allez et pourquoi.</p>
                     </div>
                 </div>
-                <div class="pilier-card">
-                    <span class="pilier-num">02</span>
+                <div class="pilier-card fade-up">
+                    <span class="pilier-num pop-in">02</span>
                     <div class="pilier-card-text">
                         <h3>Une visibilité maîtrisée</h3>
                         <p>Une image alignée avec votre réalité.</p>
                     </div>
                 </div>
             </div>
-            <p style="font-family:Georgia,serif; font-size:clamp(1rem,1.8vw,1.25rem); color:#549ba2; font-style:italic; margin-top:clamp(32px,5vw,48px);">Objectif : transformer votre activité en un système pilotable.</p>
+            <p class="proposition-objectif fade-up" style="font-family:Georgia,serif; font-size:clamp(1rem,1.4vw,1.2rem); color:#549ba2; font-style:italic;">Objectif : transformer votre activité en un système pilotable.</p>
         </div>
     </section>
+
+    <!-- SECTEURS TEASER -->
+    <style>
+    .secteurs-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(16px, 2vw, 24px);
+        max-width: 1100px;
+        margin: clamp(32px,4vw,48px) auto 0;
+        padding: 0 clamp(16px,3vw,40px);
+    }
+    .secteur-teaser-card {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        text-decoration: none;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .secteur-teaser-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+    }
+    .secteur-teaser-card__bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        will-change: transform;
+    }
+    /* Ken Burns : zoom + pan lent, désynchronisé par carte */
+    .secteur-teaser-card:nth-child(1) .secteur-teaser-card__bg {
+        animation: kb-1 6s ease-in-out infinite alternate;
+    }
+    .secteur-teaser-card:nth-child(2) .secteur-teaser-card__bg {
+        animation: kb-2 7s ease-in-out infinite alternate;
+    }
+    .secteur-teaser-card:nth-child(3) .secteur-teaser-card__bg {
+        animation: kb-3 6.5s ease-in-out infinite alternate;
+    }
+    @keyframes kb-1 {
+        0%   { transform: scale(1.08) translate(-1.5%, -1%); }
+        100% { transform: scale(1.2)  translate(2%,     2%); }
+    }
+    @keyframes kb-2 {
+        0%   { transform: scale(1.2)  translate(2%,     1%); }
+        100% { transform: scale(1.08) translate(-2%,   -2%); }
+    }
+    @keyframes kb-3 {
+        0%   { transform: scale(1.1)  translate(1.5%,  -2%); }
+        100% { transform: scale(1.22) translate(-2%,    2%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .secteur-teaser-card__bg { animation: none !important; }
+    }
+    .secteur-teaser-card__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+    }
+    .secteur-teaser-card__content {
+        position: relative;
+        z-index: 1;
+        padding: clamp(20px,3vw,28px);
+    }
+    .secteur-teaser-card__title {
+        font-family: Georgia, serif;
+        color: #fff;
+        font-size: clamp(1.2rem,2vw,1.5rem);
+        font-weight: 400;
+        margin-bottom: 6px;
+    }
+    .secteur-teaser-card__desc {
+        color: rgba(255,255,255,0.6);
+        font-size: clamp(0.8rem,1.1vw,0.9rem);
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+    .secteur-teaser-card__link {
+        color: #549ba2;
+        font-family: Montserrat, sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .secteur-teaser-badge {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: rgba(84,155,162,0.15);
+        color: #549ba2;
+        padding: 5px 14px;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        border: 1px solid rgba(84,155,162,0.3);
+        z-index: 2;
+    }
+    @media (max-width: 768px) {
+        .secteurs-grid { grid-template-columns: 1fr; }
+    }
+    </style>
+
+    <section id="secteurs" style="background:#000; padding:clamp(80px,10vw,120px) 0;">
+        <div class="container" style="text-align:center;">
+            <p class="section-label">Secteurs</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3;">Nos domaines <span style="color:#549ba2">d'intervention</span></h2>
+        </div>
+        <div class="secteurs-grid">
+            <a href="/immobilier/" class="secteur-teaser-card">
+                <div class="secteur-teaser-card__bg" style="background-image:url('immobilier/pexels-the-ghazi-2152398165-33747711.jpg');"></div>
+                <div class="secteur-teaser-card__overlay"></div>
+                <div class="secteur-teaser-card__content">
+                    <h3 class="secteur-teaser-card__title">Immobilier</h3>
+                    <p class="secteur-teaser-card__desc">Valorisez vos mandats et attirez plus de visites.</p>
+                    <span class="secteur-teaser-card__link">Découvrir →</span>
+                </div>
+            </a>
+            <a href="/automobile/" class="secteur-teaser-card">
+                <div class="secteur-teaser-card__bg" style="background-image:url('PHOTOS/section%20Auto/automobile%201.jpg');"></div>
+                <div class="secteur-teaser-card__overlay"></div>
+                <div class="secteur-teaser-card__content">
+                    <h3 class="secteur-teaser-card__title">Automobile</h3>
+                    <p class="secteur-teaser-card__desc">Sublimez vos véhicules et captez l'attention.</p>
+                    <span class="secteur-teaser-card__link">Découvrir →</span>
+                </div>
+            </a>
+            <a href="/domaines/" class="secteur-teaser-card">
+                <div class="secteur-teaser-card__bg" style="background-image:url('domaines/chateau.jpg');"></div>
+                <div class="secteur-teaser-card__overlay"></div>
+                <div class="secteur-teaser-card__content">
+                    <h3 class="secteur-teaser-card__title">Châteaux & Domaines</h3>
+                    <p class="secteur-teaser-card__desc">Sublimez vos propriétés d'exception vues du ciel.</p>
+                    <span class="secteur-teaser-card__link">Découvrir →</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Dstudio animations runtime -->
+    <script>
+    (function(){
+        if (!window.IntersectionObserver) {
+            // Fallback : everything visible, no animation
+            document.querySelectorAll('.line-reveal, .word-reveal, .fade-up, .pop-in').forEach(function(el){
+                el.classList.add('visible');
+            });
+            return;
+        }
+
+        // Pre-compute per-line delay inside each .line-reveal group
+        document.querySelectorAll('.line-reveal').forEach(function(el){
+            var parent = el.parentElement;
+            var siblings = parent ? parent.querySelectorAll(':scope > .line-reveal') : [el];
+            var idx = Array.prototype.indexOf.call(siblings, el);
+            var inner = el.querySelector('span');
+            if (inner) inner.style.transitionDelay = (idx * 160) + 'ms';
+        });
+
+        // 1. Simple "visible" toggle observer for line-reveal / fade-up / pop-in
+        var basicObserver = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    basicObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px 40px 0px' });
+
+        document.querySelectorAll('.line-reveal, .fade-up, .pop-in').forEach(function(el){
+            basicObserver.observe(el);
+        });
+
+        // 2. Word-reveal : observe parent, stagger children when parent enters
+        var wordParents = [];
+        document.querySelectorAll('.word-reveal').forEach(function(w){
+            if (wordParents.indexOf(w.parentElement) === -1) wordParents.push(w.parentElement);
+        });
+        var wordObserver = new IntersectionObserver(function(entries){
+            entries.forEach(function(entry){
+                if (entry.isIntersecting) {
+                    var words = entry.target.querySelectorAll('.word-reveal');
+                    words.forEach(function(w, i){
+                        w.style.transitionDelay = (i * 55) + 'ms';
+                        w.classList.add('visible');
+                    });
+                    wordObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px 80px 0px' });
+        wordParents.forEach(function(p){ wordObserver.observe(p); });
+
+        // 3. Parallax on accent-blobs
+        var blobs = document.querySelectorAll('.accent-blob');
+        if (blobs.length) {
+            var ticking = false;
+            var parallaxData = [];
+            blobs.forEach(function(blob, i){
+                // Odd/even : alternating direction, varied speeds
+                var speed = (i % 3 === 0) ? 0.18 : (i % 3 === 1) ? -0.12 : 0.08;
+                parallaxData.push({ el: blob, speed: speed });
+            });
+            function updateParallax() {
+                var scrollY = window.scrollY;
+                parallaxData.forEach(function(d){
+                    d.el.style.transform = 'translate3d(0,' + (scrollY * d.speed) + 'px, 0)';
+                });
+                ticking = false;
+            }
+            window.addEventListener('scroll', function(){
+                if (!ticking) {
+                    requestAnimationFrame(updateParallax);
+                    ticking = true;
+                }
+            }, { passive: true });
+            updateParallax();
+        }
+    })();
+    </script>
 
     <!-- PRODUCTION VISUELLE -->
     <style>
@@ -406,11 +1371,18 @@
         }
     </style>
 
-    <section id="visibilite" style="background:#0a0a0a; padding:clamp(80px,10vw,120px) 0; text-align:center; scroll-margin-top:80px;">
-        <div class="container" style="text-align:center;">
-            <p class="section-label">Production visuelle</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3; margin-bottom:12px;">Ce que nous <span style="color:#549ba2">produisons</span></h2>
-            <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:620px; margin:0 auto;">L'image aérienne ne décore pas. Elle repositionne, elle différencie, elle vend.<br>Chaque prise de vue est pensée comme un levier stratégique au service de votre activité.</p>
+    <section id="visibilite" style="background:#0a0a0a; padding:clamp(60px,8vw,90px) 0 clamp(40px,6vw,60px); text-align:center; scroll-margin-top:80px; position:relative;">
+        <div class="container" style="text-align:center; max-width:900px; position:relative; z-index:2;">
+            <p style="color:#549ba2; font-family:Montserrat,sans-serif; font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.3em; margin:0 0 24px;">Production visuelle</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(2rem,4.8vw,3.6rem); color:#fff; font-weight:400; line-height:1.1; margin: 0 0 24px; letter-spacing:-0.015em;">
+                Ce que nous <span style="color:#549ba2;">produisons.</span>
+            </h2>
+            <p style="color:rgba(255,255,255,0.78); font-size:clamp(1.05rem,1.5vw,1.25rem); line-height:1.7; max-width:640px; margin:0 auto;">
+                L'image aérienne ne décore pas.
+                Elle <span style="color:#fff; font-weight:500;">repositionne</span>,
+                elle <span style="color:#fff; font-weight:500;">différencie</span>,
+                elle <span style="color:#fff; font-weight:500;">vend</span>.
+            </p>
         </div>
     </section>
 
@@ -454,19 +1426,18 @@
         </div>
 
         <!-- APP 03 — Prise de vue Intérieure -->
-        <div style="position:relative; height:100vh; overflow:hidden; display:flex; align-items:center; justify-content:flex-end;">
-            <div style="position:absolute; inset:0; z-index:0;">
-                <video autoplay muted loop playsinline preload="none" style="width:100%; height:100%; object-fit:cover; display:block;">
-                    <source src="immobilier/Christie.mp4" type="video/mp4">
-                </video>
-                <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);"></div>
-            </div>
+        <div style="position:relative; background:#0a0a0a; padding:clamp(80px,12vh,140px) clamp(24px,5vw,80px); overflow:hidden;">
             <div style="position:absolute; top:-1px; left:0; right:0; height:40px; background:#0a0a0a; clip-path:polygon(0 0, 100% 0, 0 100%); z-index:2;"></div>
-            <div style="position:relative; z-index:1; padding:clamp(40px,6vw,80px); max-width:800px; text-align:right;">
-                <div style="background:rgba(0,0,0,0.45); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-radius:20px; padding:clamp(28px,4vw,48px) clamp(24px,4vw,56px); display:inline-block; text-align:right;">
+            <div style="display:flex; align-items:center; justify-content:center; gap:clamp(32px,5vw,80px); max-width:1200px; margin:0 auto; flex-wrap:wrap;">
+                <div style="flex:0 0 auto; width:min(480px, 90vw); aspect-ratio:1/1; border-radius:20px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,0.5); position:relative;">
+                    <video autoplay muted loop playsinline preload="none" style="width:100%; height:100%; object-fit:cover; display:block;">
+                        <source src="immobilier/Christie.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div style="flex:1 1 360px; max-width:520px;">
                     <p style="font-family:Montserrat,sans-serif; font-size:clamp(0.7rem,1vw,0.9rem); font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:16px;">Application 03</p>
-                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(2.5rem,6vw,5rem); margin-bottom:24px; line-height:1;">Prise de vue <span style="color:#549ba2;">Int&eacute;rieure</span></h3>
-                    <p style="color:rgba(255,255,255,0.9); font-size:clamp(1rem,1.5vw,1.3rem); line-height:1.7;">Drones compacts en espaces clos pour des angles et une fluidit&eacute; impossibles autrement.</p>
+                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(2.2rem,4.5vw,4rem); margin-bottom:24px; line-height:1.05;">Prise de vue <span style="color:#549ba2;">Int&eacute;rieure</span></h3>
+                    <p style="color:rgba(255,255,255,0.85); font-size:clamp(1rem,1.4vw,1.2rem); line-height:1.7;">Drones compacts en espaces clos pour des angles et une fluidit&eacute; impossibles autrement.</p>
                 </div>
             </div>
         </div>
@@ -499,161 +1470,6 @@
                     <h3>Livraison</h3>
                     <p>Montage, retouche et livraison multi-formats sous 48h.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTEURS TEASER -->
-    <style>
-    .secteurs-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: clamp(16px, 2vw, 24px);
-        max-width: 1100px;
-        margin: clamp(32px,4vw,48px) auto 0;
-        padding: 0 clamp(16px,3vw,40px);
-    }
-    .secteur-teaser-card {
-        position: relative;
-        border-radius: 16px;
-        overflow: hidden;
-        height: 300px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        text-decoration: none;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-    .secteur-teaser-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-    }
-    .secteur-teaser-card__bg {
-        position: absolute;
-        inset: 0;
-        background-size: cover;
-        background-position: center;
-        transition: transform 0.6s ease;
-    }
-    .secteur-teaser-card:hover .secteur-teaser-card__bg {
-        transform: scale(1.05);
-    }
-    .secteur-teaser-card__overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
-    }
-    .secteur-teaser-card__content {
-        position: relative;
-        z-index: 1;
-        padding: clamp(20px,3vw,28px);
-    }
-    .secteur-teaser-card__title {
-        font-family: Georgia, serif;
-        color: #fff;
-        font-size: clamp(1.2rem,2vw,1.5rem);
-        font-weight: 400;
-        margin-bottom: 6px;
-    }
-    .secteur-teaser-card__desc {
-        color: rgba(255,255,255,0.6);
-        font-size: clamp(0.8rem,1.1vw,0.9rem);
-        line-height: 1.6;
-        margin-bottom: 12px;
-    }
-    .secteur-teaser-card__link {
-        color: #549ba2;
-        font-family: Montserrat, sans-serif;
-        font-size: 0.82rem;
-        font-weight: 600;
-        text-decoration: none;
-    }
-    .secteur-teaser-badge {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        background: rgba(84,155,162,0.15);
-        color: #549ba2;
-        padding: 5px 14px;
-        border-radius: 20px;
-        font-size: 0.7rem;
-        font-weight: 600;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        border: 1px solid rgba(84,155,162,0.3);
-        z-index: 2;
-    }
-    @media (max-width: 768px) {
-        .secteurs-grid { grid-template-columns: 1fr; }
-    }
-    </style>
-
-    <section id="secteurs" style="background:#000; padding:clamp(80px,10vw,120px) 0;">
-        <div class="container" style="text-align:center;">
-            <p class="section-label">Secteurs</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3;">Nos domaines <span style="color:#549ba2">d'intervention</span></h2>
-        </div>
-        <div class="secteurs-grid">
-            <a href="/immobilier/" class="secteur-teaser-card">
-                <div class="secteur-teaser-card__bg" style="background-image:url('immobilier/pexels-the-ghazi-2152398165-33747711.jpg');"></div>
-                <div class="secteur-teaser-card__overlay"></div>
-                <div class="secteur-teaser-card__content">
-                    <h3 class="secteur-teaser-card__title">Immobilier</h3>
-                    <p class="secteur-teaser-card__desc">Valorisez vos mandats et attirez plus de visites.</p>
-                    <span class="secteur-teaser-card__link">Découvrir →</span>
-                </div>
-            </a>
-            <a href="/automobile/" class="secteur-teaser-card">
-                <div class="secteur-teaser-card__bg" style="background-image:url('PHOTOS/section%20Auto/automobile%201.jpg');"></div>
-                <div class="secteur-teaser-card__overlay"></div>
-                <div class="secteur-teaser-card__content">
-                    <h3 class="secteur-teaser-card__title">Automobile</h3>
-                    <p class="secteur-teaser-card__desc">Sublimez vos véhicules et captez l'attention.</p>
-                    <span class="secteur-teaser-card__link">Découvrir →</span>
-                </div>
-            </a>
-            <a href="/domaines/" class="secteur-teaser-card">
-                <div class="secteur-teaser-card__bg" style="background-image:url('domaines/chateau.jpg');"></div>
-                <div class="secteur-teaser-card__overlay"></div>
-                <div class="secteur-teaser-card__content">
-                    <h3 class="secteur-teaser-card__title">Châteaux & Domaines</h3>
-                    <p class="secteur-teaser-card__desc">Sublimez vos propriétés d'exception vues du ciel.</p>
-                    <span class="secteur-teaser-card__link">Découvrir →</span>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- CLIENTS / CIBLES -->
-    <section class="section section-piliers" id="cibles" style="background:#0a0a0a;">
-        <div class="piliers-bg">
-            <img src="PHOTOS/Best_3.JPG" alt="" loading="lazy">
-        </div>
-        <div class="piliers-overlay"></div>
-        <div class="container container-relative">
-            <p class="section-label">Cas d'usage</p>
-            <h2 class="section-title">Pour qui <span class="accent">est-ce fait ?</span></h2>
-            <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:600px; margin:0 auto; text-align:center;">Agences immobilières, concessionnaires, commerces, indépendants...</p>
-            <div style="display:flex; gap:clamp(1rem,2vw,1.5rem); margin-top:3rem; justify-content:center; flex-wrap:wrap;">
-
-                <div class="glass-card">
-                    <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg></div>
-                    <h3 class="glass-card-title">Agences immobilières</h3>
-                    <p class="glass-card-text">Valorisez vos mandats avec des visuels aériens qui déclenchent les visites.</p>
-                </div>
-
-                <div class="glass-card">
-                    <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line><circle cx="8" cy="10" r="1.5" fill="currentColor" stroke="none"></circle><circle cx="16" cy="10" r="1.5" fill="currentColor" stroke="none"></circle></svg></div>
-                    <h3 class="glass-card-title">Concessionnaires auto</h3>
-                    <p class="glass-card-text">Sublimez vos véhicules et captez l'attention en ligne.</p>
-                </div>
-
-                <div class="glass-card">
-                    <div class="glass-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></div>
-                    <h3 class="glass-card-title">Châteaux & domaines</h3>
-                    <p class="glass-card-text">Révélez la grandeur de vos propriétés vues du ciel.</p>
-                </div>
-
             </div>
         </div>
     </section>
@@ -885,62 +1701,81 @@
         </div>
     </section>
 
-    <!-- DIFFÉRENCIATION -->
+    <!-- TÉMOIGNAGES -->
     <style>
-    .diff-points {
+    .testimonials-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: clamp(16px, 2vw, 24px);
-        max-width: 1000px;
-        margin: clamp(40px,5vw,56px) auto 0;
+        gap: clamp(20px, 2.5vw, 32px);
+        max-width: 1200px;
+        margin: clamp(40px,5vw,60px) auto 0;
+        padding: 0 clamp(20px,3vw,40px);
     }
-    .diff-point {
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(84,155,162,0.2);
+    .testimonial-card {
+        background: rgba(84,155,162,0.05);
+        border: 1px solid rgba(84,155,162,0.18);
         border-radius: 16px;
         padding: clamp(28px,3vw,40px);
-        text-align: center;
-        transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
     }
-    .diff-point:hover {
-        transform: translateY(-4px);
+    .testimonial-card:hover {
+        transform: translateY(-6px);
         border-color: rgba(84,155,162,0.5);
-        box-shadow: 0 12px 32px rgba(84,155,162,0.1);
+        background: rgba(84,155,162,0.08);
+        box-shadow: 0 16px 40px rgba(84,155,162,0.15);
     }
-    .diff-point h4 {
+    .testimonial-quote-mark {
+        color: #549ba2;
         font-family: Georgia, serif;
+        font-size: 4rem;
+        line-height: 0.5;
+        height: 24px;
+        opacity: 0.6;
+    }
+    .testimonial-quote {
+        font-family: Georgia, serif;
+        font-style: italic;
+        color: rgba(255,255,255,0.92);
+        font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+        line-height: 1.6;
+        margin: 0;
+        flex: 1;
+    }
+    .testimonial-author {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        border-top: 1px solid rgba(84,155,162,0.22);
+        padding-top: 18px;
+    }
+    .testimonial-author-name {
         color: #fff;
-        font-size: clamp(1rem,1.5vw,1.15rem);
-        font-weight: 400;
-        margin-bottom: 12px;
+        font-family: Montserrat, sans-serif;
+        font-weight: 600;
+        font-size: 0.92rem;
+        letter-spacing: 0.01em;
     }
-    .diff-point p {
-        color: rgba(255,255,255,0.6);
-        font-size: clamp(0.82rem,1.1vw,0.9rem);
-        line-height: 1.7;
+    .testimonial-author-role {
+        color: rgba(255,255,255,0.55);
+        font-family: Montserrat, sans-serif;
+        font-size: 0.78rem;
+        letter-spacing: 0.02em;
     }
-    @media (max-width: 768px) {
-        .diff-points { grid-template-columns: 1fr; }
+    @media (max-width: 900px) {
+        .testimonials-grid { grid-template-columns: 1fr; }
     }
     </style>
 
-    <section id="differenciation" style="background:#0a0a0a; padding:clamp(80px,10vw,120px) 0;">
+    <section id="testimonials" style="background:#0a0a0a; padding:clamp(80px,10vw,120px) 0;">
         <div class="container" style="text-align:center;">
             <p class="section-label">Pourquoi nous</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3;">Ce qui nous <span style="color:#549ba2">différencie</span></h2>
-        </div>
-        <div class="diff-points">
-            <div class="diff-point">
-                <h4>Pas un sous-traitant, un partenaire</h4>
-                <p>Nous nous impliquons dans votre réussite comme si c'était la nôtre.</p>
-            </div>
-            <div class="diff-point">
-                <h4>Stratégie et production sous un même toit</h4>
-                <p>Un seul interlocuteur pour structurer votre croissance et produire vos contenus.</p>
-            </div>
-            <div class="diff-point">
-                <h4>Sur mesure, pas de template</h4>
-                <p>Chaque accompagnement est conçu selon votre situation, vos objectifs, votre marché.</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3;">Ce qu'on <span style="color:#549ba2">dit de nous</span></h2>
+            <div style="max-width:560px; margin:clamp(48px,6vw,72px) auto 0; padding:clamp(40px,5vw,60px) clamp(24px,4vw,48px); border:1px dashed rgba(84,155,162,0.35); border-radius:16px; background:rgba(84,155,162,0.03);">
+                <p style="font-family:Montserrat,sans-serif; font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.3em; color:#549ba2; margin-bottom:14px;">Section en construction</p>
+                <p style="font-family:Georgia,serif; font-style:italic; color:rgba(255,255,255,0.65); font-size:clamp(0.95rem,1.2vw,1.1rem); line-height:1.6; margin:0;">Les premiers témoignages clients seront publiés ici prochainement.</p>
             </div>
         </div>
     </section>
@@ -970,89 +1805,6 @@
             </div>
         </div>
     </section>
-
-    <!-- LOGO REVEAL — SCROLL SCRUB -->
-    <style>
-    .logo-scrub-section {
-        position: relative;
-        height: 300vh;
-        background: #000;
-    }
-    .logo-scrub-sticky {
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        width: 100%;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #000;
-    }
-    .logo-scrub-video {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        background: #000;
-        will-change: transform;
-    }
-    </style>
-    <section class="logo-scrub-section" id="logo-reveal" aria-hidden="true">
-        <div class="logo-scrub-sticky">
-            <video class="logo-scrub-video" muted playsinline preload="auto" src="VIDEOS/Animation BNF .mp4"></video>
-        </div>
-    </section>
-    <script>
-    (function(){
-        var section = document.getElementById('logo-reveal');
-        if (!section) return;
-        var video = section.querySelector('.logo-scrub-video');
-        if (!video) return;
-
-        // iOS fix : prime the decoder so currentTime seeks are smooth
-        function primeDecoder() {
-            video.play().then(function(){
-                video.pause();
-                video.currentTime = 0;
-            }).catch(function(){ /* autoplay blocked, no problem */ });
-        }
-
-        var ticking = false;
-        function updateScrub() {
-            if (!video.duration || isNaN(video.duration)) { ticking = false; return; }
-            var rect = section.getBoundingClientRect();
-            var totalScroll = rect.height - window.innerHeight;
-            var scrolled = -rect.top;
-            var progress = Math.max(0, Math.min(1, scrolled / totalScroll));
-            var target = video.duration * progress;
-            // Avoid seeking every frame if diff is tiny
-            if (Math.abs(video.currentTime - target) > 0.016) {
-                video.currentTime = target;
-            }
-            ticking = false;
-        }
-
-        function onScroll() {
-            if (!ticking) {
-                window.requestAnimationFrame(updateScrub);
-                ticking = true;
-            }
-        }
-
-        function init() {
-            primeDecoder();
-            window.addEventListener('scroll', onScroll, { passive: true });
-            window.addEventListener('resize', onScroll, { passive: true });
-            updateScrub();
-        }
-
-        if (video.readyState >= 1) {
-            init();
-        } else {
-            video.addEventListener('loadedmetadata', init, { once: true });
-        }
-    })();
-    </script>
 
     <!-- SPÉCIALES BNF -->
     <section class="section" id="speciales" style="background:#0a0a0a; position:relative; overflow:hidden;">
@@ -1220,6 +1972,10 @@
                 <!-- LinkedIn -->
                 <a href="https://www.linkedin.com/in/bnfconsulting-contact" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:inline-flex; align-items:center; justify-content:center; width:52px; height:52px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid06CCBEAHd31SfWCjUDFqsD93SjzGDEwvimRnFE7DiwTfUzsHYiwedpsEUyvQwN6e6l&id=61568024810381" target="_blank" rel="noopener" aria-label="Facebook" style="display:inline-flex; align-items:center; justify-content:center; width:52px; height:52px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.099 1.893-4.785 4.659-4.785 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"/></svg>
                 </a>
                 <!-- Mail -->
                 <a href="mailto:bnfconsulting.contact@gmail.com" aria-label="Email" style="display:inline-flex; align-items:center; justify-content:center; width:52px; height:52px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">

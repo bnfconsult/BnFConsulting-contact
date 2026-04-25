@@ -2533,9 +2533,9 @@ h1, h2, h3 {
         width: 260px;
     }
 
-    /* Logo centré en tête de hero sur mobile */
+    /* Logo en tête de hero mobile : caché (le logo est déjà dans la navbar) */
     .drone-hero-mobile-logo {
-        display: block !important;
+        display: none !important;
     }
 
     /* Centrer les étapes du constat et du parcours */
@@ -2573,8 +2573,11 @@ h1, h2, h3 {
     }
 
     .hero-title {
-        font-size: clamp(1.5rem, 5.5vw, 2.25rem);
+        font-size: clamp(2.1rem, 8.5vw, 3.6rem);
+        line-height: 1.08;
+        letter-spacing: -0.015em;
         padding: 0 8px;
+        margin-bottom: 18px;
     }
 
     .hero-title .accent {
@@ -2582,9 +2585,15 @@ h1, h2, h3 {
     }
 
     .hero-sub {
-        font-size: clamp(0.8rem, 3vw, 0.95rem);
+        font-size: clamp(0.92rem, 3.6vw, 1.05rem);
+        line-height: 1.55;
         max-width: 90vw;
-        margin-bottom: 32px;
+        margin-bottom: 36px;
+    }
+
+    .hero-ctas .btn-primary {
+        font-size: clamp(0.78rem, 3vw, 0.92rem);
+        padding: 14px 22px;
     }
 
     /* Tooltips adapt on mobile */
