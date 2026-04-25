@@ -898,7 +898,16 @@
 
         var currentState      = 0;
         var locked            = false;
-        var hasPlayed         = false;  // latch : l'animation se joue UNE seule fois
+        // Latch persistant : l'animation se joue UNE seule fois par session navigateur (sessionStorage)
+        // + skip auto si l'URL pointe vers une ancre (#tarifs, #secteurs, etc.) → user veut un endroit précis
+        var hasPlayed = (function(){
+            try {
+                if (sessionStorage.getItem('bnf-constat-played') === '1') return true;
+            } catch(e){}
+            // Si on arrive avec un hash autre que #consequences → l'utilisateur cible une section précise, on skip l'animation
+            if (window.location.hash && window.location.hash !== '#consequences') return true;
+            return false;
+        })();
         var completed         = false;
         var animating         = false;
         var pinnedY           = 0;
@@ -953,6 +962,7 @@
             if (rect.top <= window.innerHeight && rect.bottom > 0) {
                 locked = true;
                 hasPlayed = true;   // l'animation est lancée UNE seule fois
+                try { sessionStorage.setItem('bnf-constat-played', '1'); } catch(e){}
                 pinnedY = section.offsetTop;
                 window.scrollTo(0, pinnedY);   // snap instantané
                 scheduleAuto();
