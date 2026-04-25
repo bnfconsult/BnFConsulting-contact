@@ -908,6 +908,21 @@
             if (window.location.hash && window.location.hash !== '#consequences') return true;
             return false;
         })();
+
+        // Si URL avec hash ET animation à skip → forcer le scroll vers l'ancre cible
+        // (le scroll natif peut être perturbé par les changements de layout du scroll-jack)
+        if (hasPlayed && window.location.hash && window.location.hash !== '#consequences') {
+            var targetId = window.location.hash.substring(1);
+            // setTimeout pour laisser le navigateur poser le layout, puis scroll explicite
+            setTimeout(function(){
+                var target = document.getElementById(targetId);
+                if (target) {
+                    var navHeight = document.querySelector('.nav') ? document.querySelector('.nav').offsetHeight : 80;
+                    var top = target.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+                    window.scrollTo({ top: top, behavior: 'auto' });
+                }
+            }, 50);
+        }
         var completed         = false;
         var animating         = false;
         var pinnedY           = 0;
