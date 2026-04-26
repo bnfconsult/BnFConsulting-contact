@@ -902,3 +902,85 @@ document.addEventListener('DOMContentLoaded', () => {
     var mo = new MutationObserver(bindHover);
     mo.observe(document.body, { childList: true, subtree: true });
 })();
+
+/* ============================================
+   FAB buttons (burger + chatbot + back-to-top + lang) — injection auto sur toutes les pages
+   ============================================ */
+(function(){
+    if (document.getElementById('fabMenu') || document.getElementById('chatbot')) return; // homepage les a deja inline
+    var html = `
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
+    <div class="fab-menu" id="fabMenu">
+        <button class="fab-trigger" id="fabTrigger" aria-label="Menu rapide">
+            <span class="fab-bar"></span>
+            <span class="fab-bar"></span>
+            <span class="fab-bar"></span>
+        </button>
+        <div class="fab-panel" id="fabPanel">
+            <div class="fab-section">
+                <p class="fab-label">Navigation</p>
+                <a href="/" class="fab-link fab-home">Accueil</a>
+                <div class="fab-axes-group">
+                    <a href="/#visibilite" class="fab-link">Production visuelle</a>
+                    <a href="/#tarifs" class="fab-link">Nos formules</a>
+                </div>
+                <p class="fab-label" style="margin-top:10px;">Secteurs</p>
+                <div class="fab-axes-group">
+                    <a href="/immobilier/" class="fab-link">Immobilier</a>
+                    <a href="/automobile/" class="fab-link">Automobile</a>
+                    <a href="/domaines/" class="fab-link">Châteaux & Domaines</a>
+                    <a href="/hotellerie/" class="fab-link">Hôtellerie & Restaurants</a>
+                    <a href="/evenementiel/" class="fab-link">Événementiel</a>
+                    <a href="/architecture/" class="fab-link">Architecture</a>
+                </div>
+                <a href="/articles/" class="fab-link">Articles</a>
+            </div>
+            <div class="fab-divider"></div>
+            <div class="fab-section">
+                <p class="fab-label">Contact</p>
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="fab-link">📅 Prendre rendez-vous</a>
+                <a href="mailto:bnfconsulting.contact@gmail.com" class="fab-link">✉️ Email</a>
+            </div>
+        </div>
+    </div>
+    <div class="chatbot" id="chatbot">
+        <button class="chatbot-trigger" id="chatbotTrigger" aria-label="Chat">
+            <span class="chatbot-tooltip" id="chatbotTooltip">Poser une question</span>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/></svg>
+        </button>
+        <div class="chatbot-panel" id="chatbotPanel">
+            <div class="chatbot-header">
+                <span>BnFConsulting</span>
+                <button class="chatbot-close" id="chatbotClose">&#10005;</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages"></div>
+        </div>
+    </div>`;
+    var wrap = document.createElement('div');
+    wrap.innerHTML = html;
+    while (wrap.firstChild) document.body.appendChild(wrap.firstChild);
+
+    // FAB toggle
+    var fabTrigger = document.getElementById('fabTrigger');
+    var fabMenu = document.getElementById('fabMenu');
+    if (fabTrigger && fabMenu) {
+        fabTrigger.addEventListener('click', function(e){ e.stopPropagation(); fabMenu.classList.toggle('open'); });
+        document.addEventListener('click', function(e){ if (!fabMenu.contains(e.target)) fabMenu.classList.remove('open'); });
+    }
+
+    // Chatbot toggle
+    var chatTrigger = document.getElementById('chatbotTrigger');
+    var chatbot = document.getElementById('chatbot');
+    var chatClose = document.getElementById('chatbotClose');
+    if (chatTrigger && chatbot) {
+        chatTrigger.addEventListener('click', function(e){ e.stopPropagation(); chatbot.classList.toggle('open'); });
+        if (chatClose) chatClose.addEventListener('click', function(){ chatbot.classList.remove('open'); });
+    }
+
+    // Back to top
+    var btt = document.getElementById('backToTop');
+    if (btt) {
+        window.addEventListener('scroll', function(){ btt.classList.toggle('visible', window.scrollY > 400); }, { passive:true });
+        btt.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+    }
+})();
