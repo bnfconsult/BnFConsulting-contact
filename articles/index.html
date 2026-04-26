@@ -119,6 +119,30 @@
         transition:all var(--transition) !important;
     }
     .nav-cta:hover { background:var(--title) !important; }
+    .nav-dropdown { position:relative; }
+    .nav-dropdown-toggle { display:flex; align-items:center; cursor:pointer; }
+    .nav-dropdown-menu {
+        position:absolute; top:100%; left:50%;
+        min-width:180px; background:rgba(10,10,10,0.95);
+        backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+        border:1px solid rgba(255,255,255,0.08); border-radius:12px;
+        padding:8px 0; opacity:0; visibility:hidden;
+        transform:translateX(-50%) translateY(8px);
+        transition:opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+        list-style:none; z-index:1000; box-shadow:0 12px 40px rgba(0,0,0,0.5);
+    }
+    .nav-dropdown.open .nav-dropdown-menu {
+        opacity:1; visibility:visible;
+        transform:translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu li { margin:0; }
+    .nav-dropdown-menu a {
+        display:block; padding:10px 20px;
+        color:rgba(255,255,255,0.7) !important;
+        font-size:0.85rem; font-weight:500; white-space:nowrap;
+        transition:background 0.2s, color 0.2s;
+    }
+    .nav-dropdown-menu a:hover { background:rgba(84,155,162,0.12); color:#549ba2 !important; }
     .nav-toggle {
         display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px;
     }
@@ -138,6 +162,16 @@
         }
         .nav-links.open { transform:translateY(0); opacity:1; }
         .nav-home { display:list-item; }
+        .nav-dropdown-menu {
+            position:static; opacity:1; visibility:visible;
+            transform:none; background:transparent;
+            backdrop-filter:none; -webkit-backdrop-filter:none;
+            border:none; box-shadow:none; padding:12px 0 0 16px;
+        }
+        .nav-dropdown-menu a {
+            font-size:0.78rem !important; padding:6px 0 !important;
+            color:rgba(255,255,255,0.5) !important;
+        }
     }
     @media (min-width:769px) {
         .nav-home { display:none; }
