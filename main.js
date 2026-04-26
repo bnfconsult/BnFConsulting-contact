@@ -861,3 +861,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+/* ============================================
+   Chic cursor (ring + dot) — global
+   ============================================ */
+(function(){
+    if (!window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    if (document.getElementById('cursorRing')) return; // déjà présent (page avec cursor inline)
+    var ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    ring.id = 'cursorRing';
+    var dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    dot.id = 'cursorDot';
+    document.body.appendChild(ring);
+    document.body.appendChild(dot);
+
+    var x = 0, y = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', function(e){
+        x = e.clientX; y = e.clientY;
+        dot.style.transform = 'translate(' + x + 'px,' + y + 'px) translate(-50%,-50%)';
+    });
+    function loop(){
+        rx += (x - rx) * 0.18;
+        ry += (y - ry) * 0.18;
+        ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
+        requestAnimationFrame(loop);
+    }
+    loop();
+
+    function bindHover(){
+        document.querySelectorAll('a, button, .pricing-card, .secteur-teaser-card, input, textarea, select').forEach(function(el){
+            if (el.dataset.cursorBound) return;
+            el.dataset.cursorBound = '1';
+            el.addEventListener('mouseenter', function(){ ring.classList.add('hover'); dot.classList.add('hover'); });
+            el.addEventListener('mouseleave', function(){ ring.classList.remove('hover'); dot.classList.remove('hover'); });
+        });
+    }
+    bindHover();
+    // Re-bind si du contenu est ajouté dynamiquement
+    var mo = new MutationObserver(bindHover);
+    mo.observe(document.body, { childList: true, subtree: true });
+})();
