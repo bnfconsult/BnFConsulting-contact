@@ -164,7 +164,7 @@
     <script>(function(){var dd=document.querySelector('.nav-dropdown'); if(!dd) return; var t=dd.querySelector('.nav-dropdown-toggle'); t.addEventListener('click',function(e){e.preventDefault();dd.classList.remove('open');}); document.addEventListener('click',function(e){if(!dd.contains(e.target))dd.classList.remove('open');});})();</script>
 
     <section class="sector-hero">
-        <video class="sector-hero__bg" autoplay muted loop playsinline poster="chateau.jpg">
+        <video class="sector-hero__bg" autoplay muted loop playsinline preload="auto" poster="chateau.jpg">
             <source src="domaine-v1.mp4" type="video/mp4">
         </video>
         <div class="sector-hero__overlay"></div>
@@ -213,7 +213,7 @@
     </section>
 
     <section class="video-interlude">
-        <video autoplay muted loop playsinline poster="domaine-2.jpg">
+        <video autoplay muted loop playsinline preload="auto" poster="domaine-2.jpg">
             <source src="domaine-v3.mp4" type="video/mp4">
         </video>
         <p class="video-interlude__caption">L'envergure se ressent <span class="accent">d'un seul regard.</span></p>
