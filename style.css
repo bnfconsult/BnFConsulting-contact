@@ -4360,3 +4360,12 @@ html, body { overflow-x: hidden; max-width: 100vw; }
     .marquee-item { font-size: clamp(1.1rem, 4.5vw, 1.6rem) !important; }
     .video-interlude__caption { font-size: clamp(1rem, 3.5vw, 1.2rem) !important; }
 }
+
+/* === VIDEO INTERLUDE (sector pages) === */
+.video-interlude { position:relative; width:100%; height:90vh; overflow:hidden; background:#000; }
+.video-interlude video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.video-interlude::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 100%); z-index:1; }
+.video-interlude::after { content:''; position:absolute; bottom:0; left:0; right:0; height:25%; background:linear-gradient(to top, #000 0%, transparent 100%); z-index:1; }
+.video-interlude__caption { position:absolute; bottom:60px; left:50%; transform:translateX(-50%); z-index:2; color:rgba(255,255,255,0.8); font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.6rem); font-style:italic; text-align:center; max-width:700px; padding:0 24px; letter-spacing:-0.005em; }
+.video-interlude__caption .accent { color:#a9d6dd; }
+@media (max-width:768px) { .video-interlude { height:60vh; } .video-interlude__caption { font-size:clamp(1rem,3.5vw,1.2rem) !important; bottom:40px; } }
