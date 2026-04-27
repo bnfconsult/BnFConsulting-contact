@@ -614,6 +614,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 { label: 'Immobilier', action: function() { showSector('immobilier', '/immobilier/', 'Vous valorisez des biens. Vue aérienne 5.1K, captation cinématique, retouche pro — la différence se joue sur la première image.'); } },
                 { label: 'Automobile', action: function() { showSector('automobile', '/automobile/', 'Vous vendez des véhicules. Mise en scène premium, captation contextuelle — chaque voiture devient une pièce de caractère.'); } },
                 { label: 'Châteaux & Domaines', action: function() { showSector('domaines', '/domaines/', 'Vous avez un patrimoine d\'exception. Captation de la grandeur, narration visuelle sobre et prestigieuse.'); } },
+                { label: 'Hôtellerie & Restaurants', action: function() { showSector('hôtellerie', '/hotellerie/', 'Restaurant, hôtel, rooftop. Drone FPV indoor pour traverser vos espaces, plonger sur les plats, capter l\'ambiance — une signature cinéma rare.'); } },
+                { label: 'Événementiel', action: function() { showSector('événementiel', '/evenementiel/', 'Mariage, lancement, soirée privée. Plan-séquence FPV qui transforme l\'instant en moment de cinéma — partagé bien après l\'événement.'); } },
+                { label: 'Architecture & Lieux d\'exception', action: function() { showSector('architecture', '/architecture/', 'Showroom, galerie, boutique flagship. Drone FPV indoor qui révèle les volumes, la lumière, le geste architectural — comme on les ressent.'); } },
                 { label: 'Un autre secteur', action: showAutreSecteur }
             ]);
             addBack();
@@ -634,7 +637,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function showAutreSecteur() {
             clear();
-            addBubble('On intervient aussi sur d\'autres secteurs : événementiel, patrimoine, commerce, restauration.');
+            addBubble('On intervient aussi sur d\'autres secteurs : patrimoine, commerce, agence d\'architecture, marque de luxe.');
             setTimeout(function() {
                 addBubble('Décrivez votre projet en un message, on revient vers vous sous 24h.');
                 addActionBtn('Être rappelé', showRecallForm);
