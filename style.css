@@ -4380,3 +4380,9 @@ html, body { overflow-x: hidden; max-width: 100vw; }
 
 /* === FIX SCROLL ANCHORS : compense la navbar fixe (72px + marge) === */
 html { scroll-padding-top: 90px; }
+
+/* === FIX MOBILE : split-section ne doit pas se coller a la video-interlude === */
+@media (max-width: 768px) {
+    .split-content { min-height: 280px !important; }
+    .split-section { padding-bottom: clamp(60px, 12vw, 100px) !important; }
+}
