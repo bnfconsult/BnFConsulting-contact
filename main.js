@@ -963,21 +963,65 @@ document.addEventListener('DOMContentLoaded', () => {
     wrap.innerHTML = html;
     while (wrap.firstChild) document.body.appendChild(wrap.firstChild);
 
-    // FAB toggle
+    // FAB toggle (avec inline style forcé pour bypasser tout pb CSS spec/cache)
     var fabTrigger = document.getElementById('fabTrigger');
     var fabMenu = document.getElementById('fabMenu');
+    var fabPanel = document.getElementById('fabPanel');
+    function setFabOpen(open){
+        if (!fabMenu || !fabPanel) return;
+        if (open) {
+            fabMenu.classList.add('open');
+            fabPanel.style.opacity = '1';
+            fabPanel.style.visibility = 'visible';
+            fabPanel.style.transform = 'translateY(0) scale(1)';
+            fabPanel.style.pointerEvents = 'auto';
+        } else {
+            fabMenu.classList.remove('open');
+            fabPanel.style.opacity = '';
+            fabPanel.style.visibility = '';
+            fabPanel.style.transform = '';
+            fabPanel.style.pointerEvents = '';
+        }
+    }
     if (fabTrigger && fabMenu) {
-        fabTrigger.addEventListener('click', function(e){ e.stopPropagation(); fabMenu.classList.toggle('open'); });
-        document.addEventListener('click', function(e){ if (!fabMenu.contains(e.target)) fabMenu.classList.remove('open'); });
+        fabTrigger.addEventListener('click', function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            setFabOpen(!fabMenu.classList.contains('open'));
+        });
+        document.addEventListener('click', function(e){
+            if (!fabMenu.contains(e.target)) setFabOpen(false);
+        });
     }
 
-    // Chatbot toggle
+    // Chatbot toggle (idem inline force)
     var chatTrigger = document.getElementById('chatbotTrigger');
     var chatbot = document.getElementById('chatbot');
+    var chatPanel = document.getElementById('chatbotPanel');
     var chatClose = document.getElementById('chatbotClose');
+    function setChatOpen(open){
+        if (!chatbot || !chatPanel) return;
+        if (open) {
+            chatbot.classList.add('open');
+            chatPanel.style.opacity = '1';
+            chatPanel.style.visibility = 'visible';
+            chatPanel.style.transform = 'translateY(0) scale(1)';
+            chatPanel.style.pointerEvents = 'auto';
+        } else {
+            chatbot.classList.remove('open');
+            chatPanel.style.opacity = '';
+            chatPanel.style.visibility = '';
+            chatPanel.style.transform = '';
+            chatPanel.style.pointerEvents = '';
+        }
+    }
     if (chatTrigger && chatbot) {
-        chatTrigger.addEventListener('click', function(e){ e.stopPropagation(); chatbot.classList.toggle('open'); });
-        if (chatClose) chatClose.addEventListener('click', function(){ chatbot.classList.remove('open'); });
+        chatTrigger.addEventListener('click', function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            setChatOpen(!chatbot.classList.contains('open'));
+        });
+        if (chatClose) chatClose.addEventListener('click', function(){ setChatOpen(false); });
     }
 
     // Back to top
