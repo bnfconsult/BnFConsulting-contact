@@ -987,3 +987,65 @@ document.addEventListener('DOMContentLoaded', () => {
         btt.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
     }
 })();
+
+/* ============================================
+   Parcours "Secteurs" — hero video → section secteurs
+   Intercepte le clic "Secteurs" dans la navbar
+   ============================================ */
+(function(){
+    function doSecteurJourney(){
+        // 1. instant top (montre la video hero)
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        // 2. apres 2.5s, smooth scroll vers #secteurs
+        setTimeout(function(){
+            var target = document.getElementById('secteurs');
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 2500);
+    }
+
+    function alreadyPlayed(){ return sessionStorage.getItem('bnf_journey_done') === '1'; }
+    function markPlayed(){ sessionStorage.setItem('bnf_journey_done', '1'); }
+    function jumpToSecteurs(){
+        var target = document.getElementById('secteurs');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Au chargement : si flag "demande journey" present, on l'execute (1 seule fois max par session)
+    if (sessionStorage.getItem('bnf_journey_request') === '1' && document.getElementById('secteurs')) {
+        sessionStorage.removeItem('bnf_journey_request');
+        if (alreadyPlayed()) {
+            setTimeout(jumpToSecteurs, 150);
+        } else {
+            markPlayed();
+            setTimeout(doSecteurJourney, 150);
+        }
+    }
+
+    // Intercepte tous les clics sur le lien "Secteurs" de la navbar (top-level)
+    function bindSecteurClick(){
+        document.querySelectorAll('.nav-dropdown-toggle').forEach(function(link){
+            if (link.dataset.journeyBound) return;
+            link.dataset.journeyBound = '1';
+            link.addEventListener('click', function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                var onHome = window.location.pathname === '/' || window.location.pathname === '/index.html';
+                if (onHome) {
+                    if (alreadyPlayed()) {
+                        jumpToSecteurs();
+                    } else {
+                        markPlayed();
+                        doSecteurJourney();
+                    }
+                } else {
+                    sessionStorage.setItem('bnf_journey_request', '1');
+                    window.location.href = '/';
+                }
+            });
+        });
+    }
+    bindSecteurClick();
+    // Re-bind si du contenu est ajoute dynamiquement (au cas ou)
+    var moBind = new MutationObserver(bindSecteurClick);
+    moBind.observe(document.body, { childList: true, subtree: true });
+})();
