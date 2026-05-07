@@ -4386,3 +4386,20 @@ html { scroll-padding-top: 90px; }
     .split-content { min-height: 280px !important; }
     .split-section { padding-bottom: clamp(60px, 12vw, 100px) !important; }
 }
+
+/* === TARIFS V3 — bloc unifie "On tourne / On photographie / Vous vendez" + CTA sur devis === */
+.tarifs-v3 { background:#000; padding:clamp(100px,12vw,160px) 0; text-align:center; position:relative; }
+.tarifs-v3-inner { max-width:900px; margin:0 auto; padding:0 24px; }
+.tarifs-v3-label { font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:700; letter-spacing:0.25em; color:#549ba2; text-transform:uppercase; margin-bottom:clamp(40px,6vw,72px); }
+.tarifs-tagline { font-family:Georgia,serif; font-size:clamp(1.8rem,4.5vw,3.4rem); line-height:1.25; color:#fff; margin-bottom:clamp(60px,9vw,110px); letter-spacing:-0.01em; min-height:4.2em; }
+.tagline-line { display:block; opacity:0; transform:translateY(24px); transition:opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1); }
+.tagline-line.visible { opacity:1; transform:none; }
+.tagline-line.accent { color:#549ba2; font-style:italic; }
+.tarifs-cta-box { background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.22); border-radius:24px; padding:clamp(40px,5vw,64px) clamp(28px,4vw,56px); position:relative; overflow:hidden; }
+.tarifs-cta-box::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:60%; height:1px; background:linear-gradient(90deg, transparent, rgba(84,155,162,0.5), transparent); }
+.tarifs-cta-box h3 { font-family:Georgia,serif; font-size:clamp(1.3rem,2.4vw,1.7rem); color:#fff; font-weight:400; margin-bottom:18px; line-height:1.3; }
+.tarifs-cta-box .desc { color:rgba(255,255,255,0.6); font-size:clamp(0.92rem,1.2vw,1.02rem); line-height:1.7; max-width:560px; margin:0 auto 32px; }
+.tarifs-cta-button { display:inline-block; font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:600; text-decoration:none; border-radius:8px; padding:16px 32px; background:#549ba2; color:#fff; transition:background 0.3s, transform 0.3s; }
+.tarifs-cta-button:hover { background:#235357; transform:translateY(-2px); }
+.tarifs-cta-note { color:rgba(255,255,255,0.4); font-size:0.82rem; margin-top:18px; font-style:italic; }
+@media (max-width:768px) { .tarifs-tagline { min-height:5em; font-size:clamp(1.5rem,7vw,2.4rem) !important; } }

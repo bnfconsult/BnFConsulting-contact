@@ -1792,81 +1792,64 @@
         }
     </style>
 
-    <section id="tarifs" style="background:#000; padding:clamp(80px,10vw,120px) 0;">
-        <div class="container" style="text-align:center;">
-            <p class="section-label">Nos formules</p>
-            <h2 style="font-family:Georgia,serif; font-size:clamp(1.6rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.3; margin-bottom:12px;">Investissez dans votre <span style="color:#549ba2;">visibilité</span></h2>
-            <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.85rem,1.2vw,0.95rem); line-height:1.7; max-width:550px; margin:0 auto clamp(40px,6vw,60px);">Des formules adaptées à votre ambition. Chaque projet est unique.</p>
-
-            <div class="drone-pricing-grid" style="grid-template-columns:repeat(4, 1fr);">
-                <!-- Pack 1 — Captation -->
-                <div class="drone-pricing-card pricing-v2">
-                    <div class="pricing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#549ba2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-                    <h3 class="pricing-v2-title">Captation</h3>
-                    <p class="pricing-v2-sub">Photos + vidéo de votre activité</p>
-                    <p class="pricing-v2-price">à partir de <strong>300</strong>€</p>
-                    <ul class="pricing-v2-features">
-                        <li>Prises de vue aériennes HD</li>
-                        <li>Vidéo cinématique courte</li>
-                        <li>Retouche et étalonnage</li>
-                        <li>Formats adaptés web et réseaux</li>
-                        <li>Livraison sous 48h</li>
-                    </ul>
-                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="pricing-cta-hover">En savoir plus →</a>
-                </div>
-
-                <!-- Pack 2 — Valorisation -->
-                <div class="drone-pricing-card pricing-v2 pricing-featured">
-                    <div class="pricing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#549ba2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-                    <h3 class="pricing-v2-title">Valorisation</h3>
-                    <p class="pricing-v2-sub">Contenu pensé pour convertir</p>
-                    <p class="pricing-v2-price">à partir de <strong>700</strong>€</p>
-                    <ul class="pricing-v2-features">
-                        <li>Photos + vidéo professionnelle</li>
-                        <li>Angles pensés conversion</li>
-                        <li>Montage cinématique avancé</li>
-                        <li>Conseil stratégique inclus</li>
-                        <li>Livraison multi-formats</li>
-                    </ul>
-                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="pricing-cta-hover">En savoir plus →</a>
-                </div>
-
-                <!-- Pack 3 — Stratégie visuelle -->
-                <div class="drone-pricing-card pricing-v2">
-                    <div class="pricing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#549ba2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-                    <h3 class="pricing-v2-title">Stratégie visuelle</h3>
-                    <p class="pricing-v2-sub">Contenu + positionnement</p>
-                    <p class="pricing-v2-price">à partir de <strong>1 500</strong>€</p>
-                    <ul class="pricing-v2-features">
-                        <li>Captation aérienne complète</li>
-                        <li>Analyse de votre image actuelle</li>
-                        <li>Réflexion positionnement</li>
-                        <li>Recommandations site & Google</li>
-                        <li>Plan d'action visuel concret</li>
-                    </ul>
-                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="pricing-cta-hover">En savoir plus →</a>
-                </div>
-
-                <!-- Pack 4 — Accompagnement -->
-                <div class="drone-pricing-card pricing-v2">
-                    <div class="pricing-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#549ba2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-                    <h3 class="pricing-v2-title">Accompagnement</h3>
-                    <p class="pricing-v2-sub">Contenu régulier + suivi</p>
-                    <p class="pricing-v2-price">à partir de <strong>1 000</strong>€<span style="font-size:0.55em; opacity:0.5;">/mois</span></p>
-                    <ul class="pricing-v2-features">
-                        <li>Contenu visuel mensuel</li>
-                        <li>Captations régulières</li>
-                        <li>Suivi et ajustements</li>
-                        <li>Optimisation continue</li>
-                        <li>Interlocuteur dédié</li>
-                    </ul>
-                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="pricing-cta-hover">En savoir plus →</a>
-                </div>
+    <style>
+        .tarifs-v3 { background:#000; padding:clamp(100px,12vw,160px) 0; text-align:center; position:relative; }
+        .tarifs-v3-inner { max-width:900px; margin:0 auto; padding:0 24px; }
+        .tarifs-v3-label { font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:700; letter-spacing:0.25em; color:#549ba2; text-transform:uppercase; margin-bottom:clamp(40px,6vw,72px); }
+        .tarifs-tagline { font-family:Georgia,serif; font-size:clamp(1.8rem,4.5vw,3.4rem); line-height:1.25; color:#fff; margin-bottom:clamp(60px,9vw,110px); letter-spacing:-0.01em; min-height:4.2em; }
+        .tagline-line { display:block; opacity:0; transform:translateY(24px); transition:opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1); }
+        .tagline-line.visible { opacity:1; transform:none; }
+        .tagline-line.accent { color:#549ba2; font-style:italic; }
+        .tarifs-cta-box { background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.22); border-radius:24px; padding:clamp(40px,5vw,64px) clamp(28px,4vw,56px); position:relative; overflow:hidden; }
+        .tarifs-cta-box::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:60%; height:1px; background:linear-gradient(90deg, transparent, rgba(84,155,162,0.5), transparent); }
+        .tarifs-cta-box h3 { font-family:Georgia,serif; font-size:clamp(1.3rem,2.4vw,1.7rem); color:#fff; font-weight:400; margin-bottom:18px; line-height:1.3; }
+        .tarifs-cta-box .desc { color:rgba(255,255,255,0.6); font-size:clamp(0.92rem,1.2vw,1.02rem); line-height:1.7; max-width:560px; margin:0 auto 32px; }
+        .tarifs-cta-button { display:inline-block; font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:600; text-decoration:none; border-radius:8px; padding:16px 32px; background:#549ba2; color:#fff; transition:background 0.3s, transform 0.3s; }
+        .tarifs-cta-button:hover { background:#235357; transform:translateY(-2px); }
+        .tarifs-cta-note { color:rgba(255,255,255,0.4); font-size:0.82rem; margin-top:18px; font-style:italic; }
+        @media (max-width:768px) { .tarifs-tagline { min-height:5em; } }
+    </style>
+    <section id="tarifs" class="tarifs-v3">
+        <div class="tarifs-v3-inner">
+            <p class="tarifs-v3-label">Nos formules</p>
+            <div class="tarifs-tagline" id="tarifsTagline">
+                <span class="tagline-line" data-i="0">On tourne pour vous.</span>
+                <span class="tagline-line" data-i="1">On photographie pour vous.</span>
+                <span class="tagline-line accent" data-i="2">Vous vendez.</span>
             </div>
-
-            <p style="color:rgba(255,255,255,0.3); font-size:0.78rem; margin-top:28px; font-style:italic;">Ces fourchettes indicatives seront ajustées lors de notre premier échange.</p>
+            <div class="tarifs-cta-box">
+                <h3>Production accessible — pour gros et petits projets.</h3>
+                <p class="desc">Drone, FPV indoor, photo, vidéo. Du chantier au domaine d'exception, on cadre la prestation à votre projet, pas à un tarif fixe.</p>
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="tarifs-cta-button">Parlez-nous de votre projet — sur devis</a>
+                <p class="tarifs-cta-note">30 minutes. Sans engagement.</p>
+            </div>
         </div>
     </section>
+    <script>
+    (function(){
+        var section = document.getElementById('tarifs');
+        if (!section) return;
+        var lines = section.querySelectorAll('.tagline-line');
+        if (!lines.length) return;
+        var played = false, locked = false, pinnedY = 0;
+        var STEP_MS = 750;
+        var io = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if (e.isIntersecting && !played) {
+                    played = true;
+                    locked = true;
+                    pinnedY = window.scrollY;
+                    lines.forEach(function(l, i){ setTimeout(function(){ l.classList.add('visible'); }, i * STEP_MS); });
+                    setTimeout(function(){ locked = false; }, lines.length * STEP_MS + 600);
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.4 });
+        io.observe(section);
+        window.addEventListener('wheel', function(e){ if (locked) { e.preventDefault(); window.scrollTo(0, pinnedY); } }, { passive: false });
+        window.addEventListener('touchmove', function(e){ if (locked) { e.preventDefault(); window.scrollTo(0, pinnedY); } }, { passive: false });
+    })();
+    </script>
 
     <!-- TÉMOIGNAGES -->
     <style>
