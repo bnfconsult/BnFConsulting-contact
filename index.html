@@ -2363,9 +2363,11 @@
             .mcb-wa { background:#25d366; color:#000; }
             .mcb-wa:hover { background:#1da851; }
             .mobile-contact-bar svg { width:18px; height:18px; flex-shrink:0; }
-            /* Ajustements pour éviter chevauchement avec autres FABs */
-            body { padding-bottom:64px; }
-            .back-to-top, .phone-fab, .chatbot, .fab-menu { bottom:78px !important; }
+            /* Ajustements pour éviter chevauchement avec la sticky bar */
+            body.mobile-bar-on { padding-bottom:64px; }
+            /* Seuls les éléments réellement ancrés en bas doivent remonter */
+            body.mobile-bar-on .back-to-top { bottom:82px !important; }
+            body.mobile-bar-on .fab-menu { bottom:82px !important; }
         }
     </style>
     <div class="mobile-contact-bar" role="navigation" aria-label="Contact rapide">
@@ -2393,6 +2395,7 @@
             entries.forEach(function(e){
                 if(e.isIntersecting && !revealed){
                     bar.classList.add('visible');
+                    document.body.classList.add('mobile-bar-on');
                     revealed = true;
                     io.disconnect();
                 }
