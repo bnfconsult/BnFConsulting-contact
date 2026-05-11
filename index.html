@@ -914,10 +914,10 @@
             }, 50);
         }
         var pinnedY           = 0;
-        var pinning           = false;   // true pendant le smooth-scroll d'arrivee, bloque le re-snap
+        var pinning           = false;   // true brievement apres l'arrivee pour ignorer le swipe initial
         var ANIM_MS           = 700;     // duree d'une transition d'etat
         var COOLDOWN_MS       = 800;     // anti-spam : 1 scroll/swipe = 1 etat max
-        var SMOOTH_SNAP_MS    = 650;     // duree estimee du smooth-scroll d'arrivee
+        var ARRIVAL_GRACE_MS  = 350;     // fenetre apres snap pendant laquelle le swipe initial est ignore
         var lastInputTime     = 0;
 
         function applyState(s) {
@@ -947,19 +947,19 @@
         function lockIfNeeded() {
             if (hasPlayed || locked) return;
             var rect = section.getBoundingClientRect();
-            // On lock SEULEMENT quand le haut de la section approche le haut du viewport
-            // (et pas des qu'un sliver est visible en bas) -> evite le snap brutal mi-section
-            if (rect.top <= window.innerHeight * 0.35 && rect.top > -rect.height * 0.4) {
+            // Trigger des que le haut de la section approche le haut du viewport
+            // (zone : du haut du viewport jusqu'a 70% du viewport)
+            if (rect.top <= window.innerHeight * 0.7 && rect.top > -rect.height * 0.4) {
                 locked = true;
                 pinning = true;
                 pinnedY = section.offsetTop;
-                // Smooth scroll pour aligner doucement la section au viewport
-                try {
-                    window.scrollTo({ top: pinnedY, behavior: 'smooth' });
-                } catch(e) {
-                    window.scrollTo(0, pinnedY);
-                }
-                setTimeout(function(){ pinning = false; }, SMOOTH_SNAP_MS);
+                // SNAP INSTANTANE : pas de smooth, pas d'animation -> pas de fenetre ou l'user
+                // peut scroller "dans le vide" et avancer des etats sans le voir
+                window.scrollTo(0, pinnedY);
+                // Petite fenetre de grace : on ignore le swipe en cours (inertie iOS) pour
+                // que l'user voie l'intro avant que ses swipes residuels avancent les etats
+                lastInputTime = Date.now(); // bloque handleInput pendant COOLDOWN_MS aussi
+                setTimeout(function(){ pinning = false; }, ARRIVAL_GRACE_MS);
             }
         }
 
