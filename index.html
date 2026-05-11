@@ -914,8 +914,10 @@
             }, 50);
         }
         var pinnedY           = 0;
+        var pinning           = false;   // true pendant le smooth-scroll d'arrivee, bloque le re-snap
         var ANIM_MS           = 700;     // duree d'une transition d'etat
         var COOLDOWN_MS       = 800;     // anti-spam : 1 scroll/swipe = 1 etat max
+        var SMOOTH_SNAP_MS    = 650;     // duree estimee du smooth-scroll d'arrivee
         var lastInputTime     = 0;
 
         function applyState(s) {
@@ -945,10 +947,19 @@
         function lockIfNeeded() {
             if (hasPlayed || locked) return;
             var rect = section.getBoundingClientRect();
-            if (rect.top <= window.innerHeight && rect.bottom > 0) {
+            // On lock SEULEMENT quand le haut de la section approche le haut du viewport
+            // (et pas des qu'un sliver est visible en bas) -> evite le snap brutal mi-section
+            if (rect.top <= window.innerHeight * 0.35 && rect.top > -rect.height * 0.4) {
                 locked = true;
+                pinning = true;
                 pinnedY = section.offsetTop;
-                window.scrollTo(0, pinnedY);
+                // Smooth scroll pour aligner doucement la section au viewport
+                try {
+                    window.scrollTo({ top: pinnedY, behavior: 'smooth' });
+                } catch(e) {
+                    window.scrollTo(0, pinnedY);
+                }
+                setTimeout(function(){ pinning = false; }, SMOOTH_SNAP_MS);
             }
         }
 
@@ -970,12 +981,12 @@
             overlay.style.opacity = (FROM + (TO - FROM) * eased).toFixed(3);
         }
 
-        // Scroll : on re-snap si verrouille
+        // Scroll : on re-snap si verrouille (sauf pendant le smooth-scroll d'arrivee)
         window.addEventListener('scroll', function(){
             if (hasPlayed && !locked) return;
             if (!locked) {
                 lockIfNeeded();
-            } else if (window.scrollY !== pinnedY) {
+            } else if (!pinning && window.scrollY !== pinnedY) {
                 window.scrollTo(0, pinnedY);
             }
         }, { passive: true });
@@ -1004,11 +1015,12 @@
             if (hasPlayed && !locked) return;
             if (locked) {
                 e.preventDefault();
+                if (pinning) return; // smooth-snap d'arrivee en cours, on ignore le scroll
                 handleInput(e.deltaY > 0 ? 1 : -1);
-                if (locked && window.scrollY !== pinnedY) window.scrollTo(0, pinnedY);
+                if (locked && !pinning && window.scrollY !== pinnedY) window.scrollTo(0, pinnedY);
             } else if (!hasPlayed) {
                 var rect = section.getBoundingClientRect();
-                if (rect.top <= window.innerHeight && rect.bottom > 0) {
+                if (rect.top <= window.innerHeight * 0.35 && rect.top > -rect.height * 0.4) {
                     e.preventDefault();
                     lockIfNeeded();
                 }
@@ -1024,13 +1036,14 @@
         }, { passive: true });
         window.addEventListener('touchmove', function(e){
             if (!locked || touchStartY === null) return;
+            if (pinning) { e.preventDefault(); return; } // smooth-snap en cours
             var currentY = e.touches[0].clientY;
             var delta = touchStartY - currentY;
             if (Math.abs(delta) > 25) {
                 e.preventDefault();
                 handleInput(delta > 0 ? 1 : -1);
                 touchStartY = currentY;
-                if (locked && window.scrollY !== pinnedY) window.scrollTo(0, pinnedY);
+                if (locked && !pinning && window.scrollY !== pinnedY) window.scrollTo(0, pinnedY);
             }
         }, { passive: false });
         window.addEventListener('touchend', function(){ touchStartY = null; }, { passive: true });
