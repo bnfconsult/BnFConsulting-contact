@@ -293,13 +293,14 @@
                 <img src="PHOTOS/logo-bnf-consulting.jpg" alt="BnFConsulting" style="height:32px; width:auto; opacity:0.8; border-radius:3px;">
             </div>
             <h1 class="hero-title hero-fade hero-fade--1">
-                Une vidéo qui <span class="accent">déclenche la visite.</span>
+                Vous ne manquez pas de clients. <span class="accent">Vous manquez de la visibilité qui les attire.</span>
             </h1>
             <p class="hero-sub hero-fade hero-fade--2">
-                Production visuelle haut de gamme — drone, FPV, photo. Vos mandats convertissent plus vite, vos lieux se remplissent, vos clients achètent l'émotion.
+                Production visuelle haut de gamme — drone, FPV, photo — pour les lieux et les marques qui veulent être choisis avant même la visite.
             </p>
-            <div class="hero-ctas hero-fade hero-fade--3">
-                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary">Pré-diagnostic stratégique — 30 min</a>
+            <div class="hero-ctas hero-fade hero-fade--3" style="display:flex; flex-wrap:wrap; gap:14px; align-items:center;">
+                <a href="#wa-direct" class="btn btn-primary" data-track="cta_click" data-cta-location="hero_wa_scroll">Poser une question sur WhatsApp</a>
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" data-track="calendar_open" data-cta-location="hero_calendar" style="color:rgba(255,255,255,0.75); text-decoration:underline; font-family:Montserrat,sans-serif; font-size:0.88rem; padding:8px 4px;">ou réserver un appel 30 min →</a>
             </div>
 
             <!-- NAVIGATION RAPIDE -->
@@ -1329,6 +1330,64 @@
         </div>
     </section>
 
+    <!-- WHATSAPP DIRECT -->
+    <style>
+        .wa-direct { background:#000; padding:clamp(60px,8vw,100px) 0; position:relative; }
+        .wa-direct::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:140px; height:1px; background:linear-gradient(90deg, transparent, rgba(37,211,102,0.5), transparent); }
+        .wa-direct-inner { max-width:640px; margin:0 auto; padding:0 24px; text-align:center; }
+        .wa-direct-label { color:#25d366; font-family:Montserrat,sans-serif; font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.3em; margin:0 0 20px; display:inline-flex; align-items:center; gap:8px; }
+        .wa-direct-label::before { content:''; width:8px; height:8px; background:#25d366; border-radius:50%; box-shadow:0 0 12px rgba(37,211,102,0.7); animation:wa-pulse 2s ease-in-out infinite; }
+        @keyframes wa-pulse { 0%,100% { opacity:1; transform:scale(1);} 50% { opacity:0.5; transform:scale(1.2);} }
+        .wa-direct h2 { font-family:Georgia,serif; font-size:clamp(1.7rem,3.5vw,2.6rem); color:#fff; font-weight:400; line-height:1.25; margin:0 0 18px; }
+        .wa-direct h2 .accent { color:#25d366; font-style:italic; }
+        .wa-direct-intro { color:rgba(255,255,255,0.65); font-size:clamp(0.95rem,1.2vw,1.05rem); line-height:1.7; margin:0 0 36px; max-width:520px; margin-left:auto; margin-right:auto; }
+        .wa-form { display:flex; flex-direction:column; gap:14px; text-align:left; background:rgba(255,255,255,0.03); border:1px solid rgba(37,211,102,0.25); border-radius:18px; padding:clamp(24px,3vw,36px); }
+        .wa-form label { color:rgba(255,255,255,0.7); font-family:Montserrat,sans-serif; font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:-6px; }
+        .wa-form input, .wa-form textarea { background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.15); border-radius:10px; padding:14px 16px; color:#fff; font-family:Montserrat,sans-serif; font-size:0.95rem; transition:border-color 0.2s; width:100%; box-sizing:border-box; }
+        .wa-form input:focus, .wa-form textarea:focus { outline:none; border-color:#25d366; }
+        .wa-form textarea { resize:vertical; min-height:110px; }
+        .wa-submit { background:#25d366; color:#000; font-family:Montserrat,sans-serif; font-size:0.95rem; font-weight:700; border:none; border-radius:10px; padding:16px 24px; cursor:pointer; transition:background 0.2s, transform 0.2s; display:inline-flex; align-items:center; justify-content:center; gap:10px; margin-top:8px; }
+        .wa-submit:hover { background:#1da851; transform:translateY(-2px); }
+        .wa-submit svg { width:20px; height:20px; }
+        .wa-note { color:rgba(255,255,255,0.4); font-size:0.78rem; margin:18px 0 0; font-style:italic; }
+    </style>
+    <section class="wa-direct" id="wa-direct">
+        <div class="wa-direct-inner">
+            <p class="wa-direct-label">Une question ?</p>
+            <h2>Posez-la <span class="accent">directement sur WhatsApp.</span></h2>
+            <p class="wa-direct-intro">Pas de formulaire qui part dans le vide. Votre message arrive sur notre WhatsApp — on vous répond dans la journée.</p>
+            <form class="wa-form" id="waDirectForm" onsubmit="return false;">
+                <label for="wa-name">Votre nom</label>
+                <input type="text" id="wa-name" name="name" required placeholder="Jean Dupont" autocomplete="name">
+                <label for="wa-msg">Votre message</label>
+                <textarea id="wa-msg" name="message" required placeholder="Ex : Je gère un domaine en Île-de-France, j'aimerais un devis vidéo drone pour notre site."></textarea>
+                <button type="submit" class="wa-submit" data-track="wa_form_submit" data-cta-location="wa_direct_section">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Envoyer sur WhatsApp
+                </button>
+                <p class="wa-note">Au clic, WhatsApp s'ouvre avec votre message prêt à partir — vous n'avez plus qu'à confirmer.</p>
+            </form>
+        </div>
+        <script>
+        (function(){
+            var form = document.getElementById('waDirectForm');
+            if(!form) return;
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                var name = document.getElementById('wa-name').value.trim();
+                var msg  = document.getElementById('wa-msg').value.trim();
+                if(!name || !msg) return;
+                var text = 'Bonjour BNF, je suis ' + name + '.\n\n' + msg + '\n\n— Envoyé depuis le site bnf-consulting.fr';
+                var url = 'https://wa.me/33668147915?text=' + encodeURIComponent(text);
+                if (window.gtag) {
+                    gtag('event', 'wa_form_submit', { cta_location: 'wa_direct_section', name_length: name.length, msg_length: msg.length });
+                }
+                window.open(url, '_blank', 'noopener');
+            });
+        })();
+        </script>
+    </section>
+
     <!-- Dstudio animations runtime -->
     <script>
     (function(){
@@ -2258,5 +2317,162 @@
     })();
     </script>
     <script src="main.js"></script>
+
+    <!-- STICKY MOBILE CONTACT BAR -->
+    <style>
+        .mobile-contact-bar { display:none; }
+        @media (max-width: 768px) {
+            .mobile-contact-bar {
+                display:flex;
+                position:fixed;
+                bottom:0;
+                left:0;
+                right:0;
+                z-index:9998;
+                background:rgba(10,10,10,0.96);
+                backdrop-filter:blur(12px);
+                -webkit-backdrop-filter:blur(12px);
+                border-top:1px solid rgba(84,155,162,0.3);
+                padding:10px 12px env(safe-area-inset-bottom, 10px);
+                gap:10px;
+                transform:translateY(110%);
+                transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);
+                pointer-events:none;
+            }
+            .mobile-contact-bar.visible {
+                transform:translateY(0);
+                pointer-events:auto;
+            }
+            .mobile-contact-bar a {
+                flex:1;
+                display:inline-flex;
+                align-items:center;
+                justify-content:center;
+                gap:8px;
+                padding:13px 8px;
+                border-radius:12px;
+                font-family:Montserrat,sans-serif;
+                font-size:0.88rem;
+                font-weight:600;
+                text-decoration:none;
+                transition:transform 0.15s, background 0.2s;
+            }
+            .mobile-contact-bar a:active { transform:scale(0.96); }
+            .mcb-call { background:#549ba2; color:#fff; }
+            .mcb-call:hover { background:#235357; }
+            .mcb-wa { background:#25d366; color:#000; }
+            .mcb-wa:hover { background:#1da851; }
+            .mobile-contact-bar svg { width:18px; height:18px; flex-shrink:0; }
+            /* Ajustements pour éviter chevauchement avec autres FABs */
+            body { padding-bottom:64px; }
+            .back-to-top, .phone-fab, .chatbot, .fab-menu { bottom:78px !important; }
+        }
+    </style>
+    <div class="mobile-contact-bar" role="navigation" aria-label="Contact rapide">
+        <a href="tel:+33668147915" class="mcb-call" data-track="tel_click" data-cta-location="mobile_sticky">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1.03 1.03 0 011.05-.24c1.12.37 2.33.57 3.54.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.21.2 2.42.57 3.54.11.35.03.74-.24 1.05l-2.21 2.2z"/></svg>
+            Appeler
+        </a>
+        <a href="https://wa.me/33668147915" target="_blank" rel="noopener" class="mcb-wa" data-track="whatsapp_click" data-cta-location="mobile_sticky">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+        </a>
+    </div>
+
+    <!-- STICKY MOBILE BAR : reveal on #proposition reach -->
+    <script>
+    (function(){
+        var bar = document.querySelector('.mobile-contact-bar');
+        var trigger = document.getElementById('proposition');
+        if(!bar || !trigger || !('IntersectionObserver' in window)) return;
+        // Active uniquement en mobile (matche le media query CSS)
+        var mq = window.matchMedia('(max-width: 768px)');
+        if(!mq.matches) return;
+        var revealed = false;
+        var io = new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if(e.isIntersecting && !revealed){
+                    bar.classList.add('visible');
+                    revealed = true;
+                    io.disconnect();
+                }
+            });
+        }, { rootMargin: '0px 0px -20% 0px', threshold: 0 });
+        io.observe(trigger);
+    })();
+    </script>
+
+    <!-- GA4 EVENT TRACKING (delegated) -->
+    <script>
+    (function(){
+        if(typeof window === 'undefined') return;
+        function send(name, params){
+            if(typeof gtag !== 'function') return;
+            try { gtag('event', name, params || {}); } catch(e){}
+        }
+
+        // Click delegation : tous les liens / boutons trackables
+        document.addEventListener('click', function(e){
+            var el = e.target.closest('a, button');
+            if(!el) return;
+            var params = { cta_location: el.getAttribute('data-cta-location') || 'unknown' };
+
+            // Priorité 1 : data-track explicite
+            var tracked = el.getAttribute('data-track');
+            if(tracked){ send(tracked, params); return; }
+
+            // Priorité 2 : détection auto par href
+            var href = el.getAttribute('href') || '';
+            if(href.indexOf('tel:') === 0){ send('tel_click', { cta_location: 'auto:' + (el.getAttribute('data-cta-location') || el.textContent.trim().slice(0,40)) }); return; }
+            if(href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1){ send('whatsapp_click', { cta_location: 'auto:' + (el.getAttribute('data-cta-location') || 'unspecified') }); return; }
+            if(href.indexOf('calendar.app.google') !== -1 || href.indexOf('calendar.google.com') !== -1){ send('calendar_open', { cta_location: 'auto:' + (el.getAttribute('data-cta-location') || 'unspecified') }); return; }
+            if(href.indexOf('mailto:') === 0){ send('mail_click', { cta_location: 'auto:' + (el.getAttribute('data-cta-location') || 'unspecified') }); return; }
+        }, true);
+
+        // Formspree submit success tracking (sur le form #recallForm)
+        var recallForm = document.getElementById('recallForm');
+        if(recallForm){
+            recallForm.addEventListener('focusin', function once(){
+                send('form_start', { form_id: 'recallForm' });
+                recallForm.removeEventListener('focusin', once);
+            });
+            recallForm.addEventListener('submit', function(){
+                // L'envoi part en POST classique vers Formspree - on tag ici "intention" (le user a cliqué submit)
+                send('form_submit', { form_id: 'recallForm' });
+            });
+        }
+
+        // Form WhatsApp focus
+        var waForm = document.getElementById('waDirectForm');
+        if(waForm){
+            waForm.addEventListener('focusin', function once(){
+                send('form_start', { form_id: 'waDirectForm' });
+                waForm.removeEventListener('focusin', once);
+            });
+        }
+
+        // Scroll depth 25/50/75/90
+        var marks = [25,50,75,90];
+        var fired = {};
+        function onScroll(){
+            var h = document.documentElement;
+            var scrolled = (h.scrollTop || document.body.scrollTop);
+            var height = (h.scrollHeight || document.body.scrollHeight) - h.clientHeight;
+            if(height <= 0) return;
+            var pct = Math.round((scrolled / height) * 100);
+            marks.forEach(function(m){
+                if(!fired[m] && pct >= m){
+                    fired[m] = true;
+                    send('scroll_depth', { percent: m });
+                }
+            });
+        }
+        var t;
+        window.addEventListener('scroll', function(){
+            if(t) return;
+            t = setTimeout(function(){ t = null; onScroll(); }, 250);
+        }, { passive:true });
+    })();
+    </script>
 </body>
 </html>
