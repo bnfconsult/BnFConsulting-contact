@@ -452,6 +452,9 @@
         object-fit: cover;
         z-index: 0;
         pointer-events: none;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        user-select: none;
     }
     #consequences .consequences-bg-overlay {
         position: absolute;
@@ -813,7 +816,7 @@
 
     <!-- SECTION 2 : LE CONSTAT — horizontal scroll pinned -->
     <section class="section section-black consequences-sj" id="consequences">
-        <video class="consequences-bg-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+        <video class="consequences-bg-video" autoplay muted loop playsinline webkit-playsinline="true" disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback noplaybackrate" preload="metadata" aria-hidden="true" tabindex="-1">
             <source src="VIDEOS/desert.mp4" type="video/mp4">
         </video>
         <div class="consequences-bg-overlay"></div>
@@ -2422,9 +2425,12 @@
             .mobile-contact-bar svg { width:18px; height:18px; flex-shrink:0; }
             /* Ajustements pour éviter chevauchement avec la sticky bar */
             body.mobile-bar-on { padding-bottom:64px; }
-            /* Seuls les éléments réellement ancrés en bas doivent remonter */
-            body.mobile-bar-on .back-to-top { bottom:82px !important; }
-            body.mobile-bar-on .fab-menu { bottom:82px !important; }
+            /* Tous les FABs ancrés en bas remontent au-dessus de la sticky bar (+64px) */
+            body.mobile-bar-on .back-to-top { bottom:96px !important; }
+            body.mobile-bar-on .fab-menu    { bottom:82px !important; }
+            body.mobile-bar-on .chatbot     { bottom:264px !important; }
+            body.mobile-bar-on .phone-fab   { bottom:212px !important; }
+            body.mobile-bar-on .lang-fab    { bottom:160px !important; }
         }
     </style>
     <div class="mobile-contact-bar" role="navigation" aria-label="Contact rapide">
