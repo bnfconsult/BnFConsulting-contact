@@ -4,12 +4,19 @@ Thumbs.db
 
 # IDE / tools
 .claude/
+.vscode/
+.idea/
+
+# Node / Vite (migration React en cours)
+node_modules/
+dist/
+.vite/
+*.local
+.env
+.env.*
+!.env.example
 
 # Fichiers non publics
 *.pdf
 Son/
 Capture d'écran*
-VIDEOS/Cinematic video.mov
-VIDEOS/Fond site internet.mp4
-VIDEOS/Vidéo drone.mp4
-domaines/domaine-v2.mp4

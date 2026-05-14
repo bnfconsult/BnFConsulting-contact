@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="/src/assets/css/style.css">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Service","name":"Production visuelle pour châteaux et domaines","provider":{"@type":"ProfessionalService","name":"BNF Consulting","url":"https://www.bnf-consulting.fr"},"description":"Photos drone, vidéos cinématiques et stratégie de mise en valeur pour châteaux, domaines et propriétés d'exception.","areaServed":["Île-de-France","France"],"serviceType":"Photographie et vidéo drone pour châteaux et domaines","priceRange":"€€€"}
     </script>
@@ -140,7 +140,7 @@
     <div class="cursor-dot" id="cursorDot"></div>
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="../index.html" class="nav-logo"><img src="../PHOTOS/logo-bnf-consulting.jpg" alt="BnFConsulting"></a>
+            <a href="../index.html" class="nav-logo"><img src="/public/photos/logo-bnf-consulting.jpg" alt="BnFConsulting"></a>
             <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
             <ul class="nav-links" id="navLinks">
                 <li class="nav-home"><a href="../index.html">Accueil</a></li>
@@ -165,7 +165,7 @@
 
     <section class="sector-hero">
         <video class="sector-hero__bg" autoplay muted loop playsinline preload="auto">
-            <source src="domaine-v1.mp4" type="video/mp4">
+            <source src="/public/videos/secteurs/domaines/domaine-v1.mp4" type="video/mp4">
         </video>
         <div class="sector-hero__overlay"></div>
         <div class="sector-hero__content">
@@ -179,12 +179,12 @@
 
     <section class="ticker-section">
         <div class="ticker"><div class="ticker__track">
-            <img src="chateau.webp" alt="Captation drone BNF Consulting" loading="lazy">
-            <img src="domaine-1.webp" alt="Captation drone BNF Consulting" loading="lazy">
-            <img src="domaine-2.webp" alt="Captation drone BNF Consulting" loading="lazy">
-            <img src="chateau.webp" alt="" loading="lazy">
-            <img src="domaine-1.webp" alt="" loading="lazy">
-            <img src="domaine-2.webp" alt="" loading="lazy">
+            <img src="/public/photos/secteurs/domaines/chateau.webp" alt="Captation drone BNF Consulting" loading="lazy">
+            <img src="/public/photos/secteurs/domaines/domaine-1.webp" alt="Captation drone BNF Consulting" loading="lazy">
+            <img src="/public/photos/secteurs/domaines/domaine-2.webp" alt="Captation drone BNF Consulting" loading="lazy">
+            <img src="/public/photos/secteurs/domaines/chateau.webp" alt="" loading="lazy">
+            <img src="/public/photos/secteurs/domaines/domaine-1.webp" alt="" loading="lazy">
+            <img src="/public/photos/secteurs/domaines/domaine-2.webp" alt="" loading="lazy">
         </div></div>
     </section>
 
@@ -213,8 +213,8 @@
     </section>
 
     <section class="video-interlude">
-        <video autoplay muted loop playsinline preload="auto" poster="domaine-2.webp">
-            <source src="domaine-v3.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="auto" poster="/public/photos/secteurs/domaines/domaine-2.webp">
+            <source src="/public/videos/secteurs/domaines/domaine-v3.mp4" type="video/mp4">
         </video>
         <p class="video-interlude__caption">L'envergure se ressent <span class="accent">d'un seul regard.</span></p>
     </section>
@@ -296,7 +296,7 @@
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-brand">
-                <span class="footer-logo"><img src="../PHOTOS/logo-bnf-consulting.jpg" alt="BnFConsulting" loading="lazy"></span>
+                <span class="footer-logo"><img src="/public/photos/logo-bnf-consulting.jpg" alt="BnFConsulting" loading="lazy"></span>
                 <p>Stratégie et production visuelle pour PME.</p>
             </div>
             <div class="footer-social">
@@ -351,6 +351,6 @@
         }
     })();
     </script>
-    <script src="../main.js"></script>
+    <script src="/src/assets/js/main.js"></script>
 </body>
 </html>
