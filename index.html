@@ -874,7 +874,7 @@
                     <p>Avec une image à la hauteur de ce que vous construisez.</p>
                     <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="sj-payoff-cta">Pré-diagnostic stratégique — 30 min</a>
                     <div style="display:block; margin-top: clamp(28px, 4vh, 48px);">
-                        <a href="#proposition" class="sj-payoff-arrow" aria-label="Section suivante" onclick="event.preventDefault(); document.getElementById('proposition')?.scrollIntoView({behavior:'smooth',block:'start'});">
+                        <a href="#proposition" class="sj-payoff-arrow" aria-label="Section suivante" onclick="event.preventDefault(); if(window.__bnfConstatUnlock) window.__bnfConstatUnlock(); setTimeout(function(){ document.getElementById('proposition')?.scrollIntoView({behavior:'smooth',block:'start'}); }, 0);">
                             <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
                         </a>
                     </div>
@@ -972,6 +972,8 @@
             hasPlayed = true;
             try { sessionStorage.setItem('bnf-constat-played', '1'); } catch(e){}
         }
+        // Expose pour permettre au bouton fleche du payoff de libérer le scroll
+        window.__bnfConstatUnlock = unlock;
 
         // Overlay devient progressivement transparent au fur et a mesure des etats (1.0 -> 0.15)
         function updateOverlayForState(s) {
