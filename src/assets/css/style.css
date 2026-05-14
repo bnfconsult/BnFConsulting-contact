@@ -140,6 +140,16 @@ h1, h2, h3 {
     transition: all var(--transition);
 }
 
+/* Mobile : on cache la navbar (le burger floating .fab-menu prend le relais) */
+@media (max-width: 900px) {
+    .nav { display: none !important; }
+}
+
+/* Desktop : on cache le burger floating (la navbar est suffisante) */
+@media (min-width: 901px) {
+    .fab-menu { display: none !important; }
+}
+
 .nav.scrolled {
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(20px);
@@ -286,6 +296,15 @@ h1, h2, h3 {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
+}
+/* Desktop : ouverture au survol */
+@media (min-width: 901px) {
+    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown:focus-within .nav-dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
 }
 /* Sur mobile (burger menu ouvert), on affiche les 3 secteurs en sous-items */
 @media (max-width: 768px) {
