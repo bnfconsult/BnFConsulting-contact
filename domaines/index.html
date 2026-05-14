@@ -278,8 +278,8 @@
             });
         }, { threshold: 0.4 });
         io.observe(section);
-        window.addEventListener('wheel', function(e){ if (locked) { e.preventDefault(); window.scrollTo(0, pinnedY); } }, { passive: false });
-        window.addEventListener('touchmove', function(e){ if (locked) { e.preventDefault(); window.scrollTo(0, pinnedY); } }, { passive: false });
+        window.addEventListener('wheel', function(e){ if (locked) { e.preventDefault(); window.scrollTo({ top: pinnedY, behavior: "instant" }); } }, { passive: false });
+        window.addEventListener('touchmove', function(e){ if (locked) { e.preventDefault(); window.scrollTo({ top: pinnedY, behavior: "instant" }); } }, { passive: false });
     })();
     </script>
 <section class="final-cta">

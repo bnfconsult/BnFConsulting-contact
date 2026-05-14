@@ -958,7 +958,7 @@
                 pinnedY = section.offsetTop;
                 // SNAP INSTANTANE : pas de smooth, pas d'animation -> pas de fenetre ou l'user
                 // peut scroller "dans le vide" et avancer des etats sans le voir
-                window.scrollTo(0, pinnedY);
+                window.scrollTo({ top: pinnedY, behavior: "instant" });
                 // Petite fenetre de grace : on ignore le swipe en cours (inertie iOS) pour
                 // que l'user voie l'intro avant que ses swipes residuels avancent les etats
                 lastInputTime = Date.now(); // bloque handleInput pendant COOLDOWN_MS aussi
@@ -990,7 +990,7 @@
             if (!locked) {
                 lockIfNeeded();
             } else if (!pinning && window.scrollY !== pinnedY) {
-                window.scrollTo(0, pinnedY);
+                window.scrollTo({ top: pinnedY, behavior: "instant" });
             }
         }, { passive: true });
 
@@ -1020,7 +1020,7 @@
                 e.preventDefault();
                 if (pinning) return; // smooth-snap d'arrivee en cours, on ignore le scroll
                 handleInput(e.deltaY > 0 ? 1 : -1);
-                if (locked && !pinning && window.scrollY !== pinnedY) window.scrollTo(0, pinnedY);
+                if (locked && !pinning && window.scrollY !== pinnedY) window.scrollTo({ top: pinnedY, behavior: "instant" });
             } else if (!hasPlayed) {
                 var rect = section.getBoundingClientRect();
                 if (rect.top <= window.innerHeight * 0.35 && rect.top > -rect.height * 0.4) {
@@ -1046,7 +1046,7 @@
                 e.preventDefault();
                 handleInput(delta > 0 ? 1 : -1);
                 touchStartY = currentY;
-                if (locked && !pinning && window.scrollY !== pinnedY) window.scrollTo(0, pinnedY);
+                if (locked && !pinning && window.scrollY !== pinnedY) window.scrollTo({ top: pinnedY, behavior: "instant" });
             }
         }, { passive: false });
         window.addEventListener('touchend', function(){ touchStartY = null; }, { passive: true });
@@ -1922,8 +1922,8 @@
             });
         }, { threshold: 0.4 });
         io.observe(section);
-        window.addEventListener('wheel', function(e){ if (locked) { e.preventDefault(); window.scrollTo(0, pinnedY); } }, { passive: false });
-        window.addEventListener('touchmove', function(e){ if (locked) { e.preventDefault(); window.scrollTo(0, pinnedY); } }, { passive: false });
+        window.addEventListener('wheel', function(e){ if (locked) { e.preventDefault(); window.scrollTo({ top: pinnedY, behavior: "instant" }); } }, { passive: false });
+        window.addEventListener('touchmove', function(e){ if (locked) { e.preventDefault(); window.scrollTo({ top: pinnedY, behavior: "instant" }); } }, { passive: false });
     })();
     </script>
 
@@ -2396,7 +2396,7 @@
                     io.disconnect();
                 }
             });
-        }, { rootMargin: '0px 0px -20% 0px', threshold: 0 });
+        }, { rootMargin: '0px 0px -40% 0px', threshold: 0 });
         io.observe(trigger);
     })();
     </script>
