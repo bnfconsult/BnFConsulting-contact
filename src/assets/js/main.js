@@ -885,8 +885,8 @@ document.addEventListener('DOMContentLoaded', () => {
         dot.style.transform = 'translate(' + x + 'px,' + y + 'px) translate(-50%,-50%)';
     });
     function loop(){
-        rx += (x - rx) * 0.18;
-        ry += (y - ry) * 0.18;
+        rx += (x - rx) * 0.4;
+        ry += (y - ry) * 0.4;
         ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
         requestAnimationFrame(loop);
     }
