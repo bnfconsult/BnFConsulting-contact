@@ -1873,62 +1873,225 @@
     </style>
 
     <style>
-        .tarifs-v3 { background:#000; padding:clamp(100px,12vw,160px) 0; text-align:center; position:relative; }
-        .tarifs-v3-inner { max-width:900px; margin:0 auto; padding:0 24px; }
-        .tarifs-v3-label { font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:700; letter-spacing:0.25em; color:#549ba2; text-transform:uppercase; margin-bottom:clamp(40px,6vw,72px); }
-        .tarifs-tagline { font-family:Georgia,serif; font-size:clamp(1.8rem,4.5vw,3.4rem); line-height:1.25; color:#fff; margin-bottom:clamp(60px,9vw,110px); letter-spacing:-0.01em; min-height:4.2em; }
-        .tagline-line { display:block; opacity:0; transform:translateY(24px); transition:opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1); }
-        .tagline-line.visible { opacity:1; transform:none; }
-        .tagline-line.accent { color:#549ba2; font-style:italic; }
-        .tarifs-cta-box { background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.22); border-radius:24px; padding:clamp(40px,5vw,64px) clamp(28px,4vw,56px); position:relative; overflow:hidden; }
-        .tarifs-cta-box::before { content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:60%; height:1px; background:linear-gradient(90deg, transparent, rgba(84,155,162,0.5), transparent); }
-        .tarifs-cta-box h3 { font-family:Georgia,serif; font-size:clamp(1.3rem,2.4vw,1.7rem); color:#fff; font-weight:400; margin-bottom:18px; line-height:1.3; }
-        .tarifs-cta-box .desc { color:rgba(255,255,255,0.6); font-size:clamp(0.92rem,1.2vw,1.02rem); line-height:1.7; max-width:560px; margin:0 auto 32px; }
-        .tarifs-cta-button { display:inline-block; font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:600; text-decoration:none; border-radius:8px; padding:16px 32px; background:#549ba2; color:#fff; transition:background 0.3s, transform 0.3s; }
-        .tarifs-cta-button:hover { background:#235357; transform:translateY(-2px); }
-        .tarifs-cta-note { color:rgba(255,255,255,0.4); font-size:0.82rem; margin-top:18px; font-style:italic; }
-        @media (max-width:768px) { .tarifs-tagline { min-height:5em; } }
+        .formules-v4 { background:#000; padding:clamp(80px,10vw,140px) 0; position:relative; }
+        .formules-v4-inner { max-width:920px; margin:0 auto; padding:0 24px; }
+        .formules-v4-label { font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:700; letter-spacing:0.25em; color:#549ba2; text-transform:uppercase; margin-bottom:16px; text-align:center; }
+        .formules-v4-title { font-family:Georgia,serif; font-size:clamp(1.8rem,3.5vw,2.8rem); color:#fff; font-weight:400; line-height:1.2; text-align:center; margin-bottom:14px; letter-spacing:-0.01em; }
+        .formules-v4-title .accent { color:#549ba2; }
+        .formules-v4-intro { color:rgba(255,255,255,0.55); font-size:clamp(0.92rem,1.2vw,1rem); text-align:center; max-width:600px; margin:0 auto clamp(48px,6vw,72px); line-height:1.7; }
+
+        /* Liste verticale des formules */
+        .formule-row { display:flex; align-items:flex-start; gap:20px; padding:24px clamp(20px,3vw,32px); background:rgba(255,255,255,0.025); border:1px solid rgba(84,155,162,0.15); border-radius:16px; margin-bottom:12px; transition:border-color 0.3s, background 0.3s; cursor:pointer; position:relative; }
+        .formule-row:hover { border-color:rgba(84,155,162,0.5); background:rgba(84,155,162,0.05); }
+        .formule-row.checked { border-color:#549ba2; background:rgba(84,155,162,0.08); }
+        .formule-row.featured { border-color:rgba(84,155,162,0.35); background:rgba(84,155,162,0.06); }
+        .formule-checkbox { flex-shrink:0; width:24px; height:24px; border:2px solid rgba(84,155,162,0.5); border-radius:6px; margin-top:4px; position:relative; transition:all 0.2s; background:transparent; }
+        .formule-row.checked .formule-checkbox { background:#549ba2; border-color:#549ba2; }
+        .formule-row.checked .formule-checkbox::after { content:'✓'; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#fff; font-weight:700; font-size:14px; }
+        .formule-content { flex:1; }
+        .formule-header { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:6px; }
+        .formule-numero { font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:700; letter-spacing:0.2em; color:#549ba2; text-transform:uppercase; }
+        .formule-numero .badge-new { background:#549ba2; color:#fff; font-size:0.6rem; padding:2px 8px; border-radius:999px; margin-right:8px; letter-spacing:0.12em; }
+        .formule-prix { font-family:Georgia,serif; font-size:clamp(1.1rem,1.8vw,1.4rem); color:#fff; font-weight:600; }
+        .formule-titre { font-family:Georgia,serif; font-size:clamp(1.05rem,1.6vw,1.25rem); color:#fff; font-weight:400; margin-bottom:8px; line-height:1.3; }
+        .formule-desc { color:rgba(255,255,255,0.55); font-size:0.88rem; line-height:1.6; margin-bottom:14px; }
+        .formule-details { color:rgba(255,255,255,0.45); font-size:0.82rem; line-height:1.55; }
+        .formule-details strong { color:rgba(255,255,255,0.7); font-weight:600; display:inline-block; margin-top:4px; }
+
+        /* Formulaire contact */
+        .formules-contact { margin-top:clamp(48px,6vw,72px); padding:clamp(32px,4vw,48px); background:rgba(84,155,162,0.06); border:1px solid rgba(84,155,162,0.22); border-radius:24px; }
+        .formules-contact h3 { font-family:Georgia,serif; font-size:clamp(1.2rem,2vw,1.5rem); color:#fff; font-weight:400; margin-bottom:8px; text-align:center; }
+        .formules-contact p.note { color:rgba(255,255,255,0.55); font-size:0.88rem; text-align:center; margin-bottom:28px; }
+        .formules-fields { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:18px; }
+        .formules-fields input { width:100%; padding:14px 16px; background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:10px; color:#fff; font-family:Montserrat,sans-serif; font-size:0.92rem; transition:border-color 0.3s, background 0.3s; }
+        .formules-fields input::placeholder { color:rgba(255,255,255,0.35); }
+        .formules-fields input:focus { outline:none; border-color:#549ba2; background:rgba(255,255,255,0.06); }
+        .formules-fields input.full { grid-column:span 2; }
+        .formules-send-buttons { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:8px; }
+        .formules-send-btn { display:inline-flex; align-items:center; gap:10px; font-family:Montserrat,sans-serif; font-size:0.9rem; font-weight:600; text-decoration:none; border-radius:10px; padding:14px 26px; cursor:pointer; border:none; transition:transform 0.3s, background 0.3s, box-shadow 0.3s; }
+        .formules-send-btn.whatsapp { background:#25D366; color:#fff; }
+        .formules-send-btn.whatsapp:hover { background:#1ebc59; transform:translateY(-2px); box-shadow:0 8px 24px rgba(37,211,102,0.3); }
+        .formules-send-btn.email { background:#549ba2; color:#fff; }
+        .formules-send-btn.email:hover { background:#235357; transform:translateY(-2px); }
+        .formules-send-btn svg { width:18px; height:18px; }
+        .formules-error { color:#ff6b6b; font-size:0.85rem; text-align:center; margin-top:14px; min-height:1.2em; }
+
+        @media (max-width:600px) {
+            .formules-fields { grid-template-columns:1fr; }
+            .formules-fields input.full { grid-column:span 1; }
+            .formule-row { gap:14px; padding:20px 18px; }
+        }
     </style>
-    <section id="tarifs" class="tarifs-v3">
-        <div class="tarifs-v3-inner">
-            <p class="tarifs-v3-label">Nos formules</p>
-            <div class="tarifs-tagline" id="tarifsTagline">
-                <span class="tagline-line" data-i="0">On tourne pour vous.</span>
-                <span class="tagline-line" data-i="1">On photographie pour vous.</span>
-                <span class="tagline-line accent" data-i="2">Vous vendez.</span>
-            </div>
-            <div class="tarifs-cta-box">
-                <h3>Production accessible — pour gros et petits projets.</h3>
-                <p class="desc">Drone, FPV indoor, photo, vidéo. Du chantier au domaine d'exception, on cadre la prestation à votre projet, pas à un tarif fixe.</p>
-                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="tarifs-cta-button">Parlez-nous de votre projet — sur devis</a>
-                <p class="tarifs-cta-note">30 minutes. Sans engagement.</p>
+    <section id="tarifs" class="formules-v4">
+        <div class="formules-v4-inner">
+            <p class="formules-v4-label">Nos formules</p>
+            <h2 class="formules-v4-title">Choisissez ce qui vous <span class="accent">correspond</span></h2>
+            <p class="formules-v4-intro">Cochez les formules qui vous intéressent — du simple plan-vidéo au pack complet de croissance. Envoyez-nous votre sélection par WhatsApp ou email, on revient sous 24h avec un devis.</p>
+
+            <form class="formules-list" id="formulesList" onsubmit="return false;">
+                <label class="formule-row" data-formule="01" data-prix="200">
+                    <input type="checkbox" class="formule-checkbox-input" hidden>
+                    <span class="formule-checkbox"></span>
+                    <div class="formule-content">
+                        <div class="formule-header">
+                            <span class="formule-numero"><span class="badge-new">Nouveau</span>Formule 01 — Essentielle</span>
+                            <span class="formule-prix">200 €</span>
+                        </div>
+                        <h3 class="formule-titre">Vidéo intérieure en drone FPV + 5 images</h3>
+                        <p class="formule-desc">Une première mise en lumière de votre établissement grâce à une captation immersive en drone FPV.</p>
+                        <p class="formule-details"><strong>Inclus :</strong> Vidéo intérieure drone FPV · 5 photos pro · Formats optimisés réseaux · Livraison rapide.<br><strong>Idéal pour :</strong> Restaurants, hôtels, commerces, showrooms, lieux recevant du public.</p>
+                    </div>
+                </label>
+
+                <label class="formule-row" data-formule="02" data-prix="500">
+                    <input type="checkbox" class="formule-checkbox-input" hidden>
+                    <span class="formule-checkbox"></span>
+                    <div class="formule-content">
+                        <div class="formule-header">
+                            <span class="formule-numero">📍 Formule 02 — Visibilité locale</span>
+                            <span class="formule-prix">500 €</span>
+                        </div>
+                        <h3 class="formule-titre">Publicité ciblée locale de la vidéo pendant 2 mois</h3>
+                        <p class="formule-desc">Nous utilisons votre vidéo pour toucher les bonnes personnes autour de votre activité.</p>
+                        <p class="formule-details"><strong>Inclus :</strong> Création de la campagne · Ciblage géographique local · Diffusion 2 mois · Suivi des performances.<br><strong>Objectif :</strong> Faire découvrir votre activité à de nouveaux clients proches de chez vous.</p>
+                    </div>
+                </label>
+
+                <label class="formule-row" data-formule="03" data-prix="900">
+                    <input type="checkbox" class="formule-checkbox-input" hidden>
+                    <span class="formule-checkbox"></span>
+                    <div class="formule-content">
+                        <div class="formule-header">
+                            <span class="formule-numero">📈 Formule 03 — Conversion</span>
+                            <span class="formule-prix">900 €</span>
+                        </div>
+                        <h3 class="formule-titre">Landing page de conversion + série de 3 publicités sur 3 mois</h3>
+                        <p class="formule-desc">Transformez votre visibilité en demandes de contact.</p>
+                        <p class="formule-details"><strong>Inclus :</strong> Landing page optimisée · 3 campagnes publicitaires · Diffusion 3 mois · Optimisation conversion.<br><strong>Objectif :</strong> Générer davantage de prises de contact et de demandes de devis.</p>
+                    </div>
+                </label>
+
+                <label class="formule-row" data-formule="04" data-prix="1500">
+                    <input type="checkbox" class="formule-checkbox-input" hidden>
+                    <span class="formule-checkbox"></span>
+                    <div class="formule-content">
+                        <div class="formule-header">
+                            <span class="formule-numero">💻 Formule 04 — Site internet</span>
+                            <span class="formule-prix">1 500 €</span>
+                        </div>
+                        <h3 class="formule-titre">Création d'un site internet interactif + version téléphone</h3>
+                        <p class="formule-desc">Un site moderne conçu pour présenter votre activité et convertir vos visiteurs.</p>
+                        <p class="formule-details"><strong>Inclus :</strong> Design professionnel · Site responsive (PC/tablette/mobile) · UX optimisée · Formulaire contact · Mise en ligne.<br><strong>Objectif :</strong> Renforcer votre crédibilité et centraliser votre présence en ligne.</p>
+                    </div>
+                </label>
+
+                <label class="formule-row featured" data-formule="05" data-prix="2500">
+                    <input type="checkbox" class="formule-checkbox-input" hidden>
+                    <span class="formule-checkbox"></span>
+                    <div class="formule-content">
+                        <div class="formule-header">
+                            <span class="formule-numero">💎 Formule 05 — Pack complet visibilité</span>
+                            <span class="formule-prix">2 500 €</span>
+                        </div>
+                        <h3 class="formule-titre">L'image premium de votre entreprise</h3>
+                        <p class="formule-desc">La formule idéale pour les entreprises souhaitant franchir un cap.</p>
+                        <p class="formule-details"><strong>Inclus :</strong> Prises de vue drone extérieures · Photos intérieures pro · Vidéo intérieure drone FPV · Site internet optimisé conversion · Valorisation complète.<br><strong>Objectif :</strong> Créer une image haut de gamme et attirer davantage de clients.</p>
+                    </div>
+                </label>
+
+                <label class="formule-row featured" data-formule="06" data-prix="sur-mesure">
+                    <input type="checkbox" class="formule-checkbox-input" hidden>
+                    <span class="formule-checkbox"></span>
+                    <div class="formule-content">
+                        <div class="formule-header">
+                            <span class="formule-numero">👑 Formule 06 — Pack complet sur-mesure</span>
+                            <span class="formule-prix">3 000 – 6 500 €</span>
+                        </div>
+                        <h3 class="formule-titre">Un accompagnement complet adapté à vos objectifs de croissance</h3>
+                        <p class="formule-desc">Construire un système complet de visibilité, d'acquisition et de croissance durable.</p>
+                        <p class="formule-details"><strong>Inclus selon vos besoins :</strong> Outils de conversion avancés · Publicités ciblées Meta Ads · Identité de marque premium · Création de contenus stratégiques · Automatisations · Accompagnement personnalisé · Solutions sur mesure.</p>
+                    </div>
+                </label>
+            </form>
+
+            <div class="formules-contact">
+                <h3>Vos coordonnées</h3>
+                <p class="note">On vous rappelle sous 24h avec un devis détaillé selon votre sélection.</p>
+                <div class="formules-fields">
+                    <input type="text" id="formuleNom" placeholder="Nom complet *" required>
+                    <input type="tel" id="formuleTel" placeholder="Téléphone">
+                    <input type="email" id="formuleEmail" class="full" placeholder="Email *" required>
+                </div>
+                <div class="formules-send-buttons">
+                    <button type="button" class="formules-send-btn whatsapp" onclick="sendFormulesWhatsapp()">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.2.301-.767.966-.94 1.165-.173.2-.347.226-.647.075-.3-.15-1.267-.467-2.412-1.487-.893-.795-1.495-1.777-1.67-2.078-.173-.301-.018-.466.13-.616.134-.135.301-.345.451-.523.146-.181.194-.301.297-.501.099-.2.05-.375-.025-.525-.075-.15-.672-1.62-.922-2.206-.244-.579-.487-.5-.672-.51l-.572-.01c-.198 0-.52.074-.792.372-.272.298-1.04 1.016-1.04 2.479s1.065 2.876 1.213 3.074c.149.2 2.097 3.205 5.077 4.49.71.305 1.262.488 1.694.625.713.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.572-.347zM12 2C6.486 2 2 6.486 2 12c0 1.911.54 3.696 1.473 5.215L2 22l4.913-1.426A9.94 9.94 0 0 0 12 22c5.514 0 10-4.486 10-10S17.514 2 12 2z"/></svg>
+                        Envoyer par WhatsApp
+                    </button>
+                    <button type="button" class="formules-send-btn email" onclick="sendFormulesEmail()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+                        Envoyer par Email
+                    </button>
+                </div>
+                <p class="formules-error" id="formuleError"></p>
             </div>
         </div>
     </section>
     <script>
     (function(){
-        var section = document.getElementById('tarifs');
-        if (!section) return;
-        var lines = section.querySelectorAll('.tagline-line');
-        if (!lines.length) return;
-        var played = false, locked = false, pinnedY = 0;
-        var STEP_MS = 750;
-        var io = new IntersectionObserver(function(entries){
-            entries.forEach(function(e){
-                if (e.isIntersecting && !played) {
-                    played = true;
-                    locked = true;
-                    pinnedY = window.scrollY;
-                    lines.forEach(function(l, i){ setTimeout(function(){ l.classList.add('visible'); }, i * STEP_MS); });
-                    setTimeout(function(){ locked = false; }, lines.length * STEP_MS + 600);
-                    io.unobserve(e.target);
-                }
+        // Toggle checkbox visuel au clic sur la card
+        document.querySelectorAll('.formule-row').forEach(function(row){
+            row.addEventListener('click', function(e){
+                if (e.target.tagName === 'A') return;
+                var cb = row.querySelector('.formule-checkbox-input');
+                cb.checked = !cb.checked;
+                row.classList.toggle('checked', cb.checked);
             });
-        }, { threshold: 0.4 });
-        io.observe(section);
-        window.addEventListener('wheel', function(e){ if (locked) { e.preventDefault(); window.scrollTo({ top: pinnedY, behavior: "instant" }); } }, { passive: false });
-        window.addEventListener('touchmove', function(e){ if (locked) { e.preventDefault(); window.scrollTo({ top: pinnedY, behavior: "instant" }); } }, { passive: false });
+        });
     })();
+
+    function buildFormulesMessage(){
+        var nom = document.getElementById('formuleNom').value.trim();
+        var email = document.getElementById('formuleEmail').value.trim();
+        var tel = document.getElementById('formuleTel').value.trim();
+        var err = document.getElementById('formuleError');
+        err.textContent = '';
+        if (!nom || !email) {
+            err.textContent = 'Merci de renseigner au moins votre nom et email.';
+            return null;
+        }
+        var selected = [];
+        document.querySelectorAll('.formule-row').forEach(function(row){
+            var cb = row.querySelector('.formule-checkbox-input');
+            if (cb.checked) {
+                var num = row.querySelector('.formule-numero').textContent.trim();
+                var titre = row.querySelector('.formule-titre').textContent.trim();
+                var prix = row.querySelector('.formule-prix').textContent.trim();
+                selected.push('• ' + num + ' — ' + titre + ' (' + prix + ')');
+            }
+        });
+        if (!selected.length) {
+            err.textContent = 'Cochez au moins une formule avant d\'envoyer.';
+            return null;
+        }
+        var msg = 'Bonjour BNF Consulting,\n\nJe suis intéressé(e) par les formules suivantes :\n\n' + selected.join('\n');
+        msg += '\n\n— Mes coordonnées —\nNom : ' + nom + '\nEmail : ' + email;
+        if (tel) msg += '\nTéléphone : ' + tel;
+        msg += '\n\nMerci de me recontacter sous 24h.';
+        return msg;
+    }
+
+    function sendFormulesWhatsapp(){
+        var msg = buildFormulesMessage();
+        if (!msg) return;
+        window.open('https://wa.me/33668147915?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    function sendFormulesEmail(){
+        var msg = buildFormulesMessage();
+        if (!msg) return;
+        var subject = 'Demande de devis — Formules BNF Consulting';
+        window.location.href = 'mailto:contact@bnf-consulting.fr?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(msg);
+    }
     </script>
 
     <!-- TÉMOIGNAGES -->
