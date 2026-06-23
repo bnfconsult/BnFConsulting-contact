@@ -2091,8 +2091,53 @@
     function sendFormulesEmail(){
         var msg = buildFormulesMessage();
         if (!msg) return;
-        var subject = 'Demande de devis — Formules BNF Consulting';
-        window.location.href = 'mailto:contact@bnf-consulting.fr?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(msg);
+        var nom = document.getElementById('formuleNom').value.trim();
+        var email = document.getElementById('formuleEmail').value.trim();
+        var tel = document.getElementById('formuleTel').value.trim();
+        var questions = document.getElementById('formuleQuestions').value.trim();
+        var err = document.getElementById('formuleError');
+        var btn = document.querySelector('.formules-send-btn.email');
+        var originalBtnText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = 'Envoi en cours...';
+        err.style.color = '#ff6b6b';
+        err.textContent = '';
+        fetch('https://formspree.io/f/mbdaboon', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                _subject: 'Demande de devis — Formules BNF Consulting',
+                nom: nom,
+                email: email,
+                telephone: tel,
+                questions: questions,
+                message: msg,
+                _replyto: email
+            })
+        }).then(function(r){
+            btn.disabled = false;
+            if (r.ok) {
+                btn.innerHTML = '✓ Demande envoyée';
+                btn.style.background = '#2ea44f';
+                err.style.color = '#7fd99b';
+                err.textContent = 'Merci ! Nous revenons vers vous sous 24h.';
+                // Reset form après succès
+                setTimeout(function(){
+                    document.querySelectorAll('.formule-row.checked').forEach(function(r){ r.classList.remove('checked'); r.querySelector('.formule-checkbox-input').checked = false; });
+                    document.getElementById('formuleNom').value = '';
+                    document.getElementById('formuleEmail').value = '';
+                    document.getElementById('formuleTel').value = '';
+                    document.getElementById('formuleQuestions').value = '';
+                }, 1500);
+            } else {
+                btn.innerHTML = originalBtnText;
+                err.textContent = 'Erreur d\'envoi. Réessayez ou utilisez WhatsApp.';
+            }
+        }).catch(function(){
+            btn.disabled = false;
+            btn.innerHTML = originalBtnText;
+            err.textContent = 'Erreur réseau. Réessayez ou utilisez WhatsApp.';
+        });
     }
     </script>
 
