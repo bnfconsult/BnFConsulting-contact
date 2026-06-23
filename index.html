@@ -1917,6 +1917,19 @@
         .formules-send-btn.calendar:hover { background:rgba(84,155,162,0.12); border-color:#a9d6dd; color:#a9d6dd; transform:translateY(-2px); }
         .formules-send-btn svg { width:18px; height:18px; }
         .formules-error { color:#ff6b6b; font-size:0.85rem; text-align:center; margin-top:14px; min-height:1.2em; }
+        .formule-selection-summary { background:rgba(84,155,162,0.08); border:1px dashed rgba(84,155,162,0.3); border-radius:12px; padding:18px 20px; margin-bottom:22px; transition:border-color 0.3s, background 0.3s; }
+        .formule-selection-summary.empty { background:rgba(255,255,255,0.02); border-style:dashed; border-color:rgba(255,255,255,0.12); }
+        .formule-selection-summary .empty-msg { color:rgba(255,255,255,0.4); font-size:0.85rem; font-style:italic; text-align:center; margin:0; }
+        .formule-selection-summary .summary-label { font-family:Montserrat,sans-serif; font-size:0.7rem; font-weight:700; letter-spacing:0.18em; color:#549ba2; text-transform:uppercase; margin-bottom:10px; }
+        .formule-selection-summary ul { list-style:none; padding:0; margin:0 0 12px; }
+        .formule-selection-summary li { display:flex; justify-content:space-between; align-items:baseline; gap:14px; padding:6px 0; color:rgba(255,255,255,0.85); font-size:0.92rem; border-bottom:1px solid rgba(84,155,162,0.1); }
+        .formule-selection-summary li:last-child { border-bottom:none; }
+        .formule-selection-summary li .sum-titre { flex:1; }
+        .formule-selection-summary li .sum-prix { color:#a9d6dd; font-family:Georgia,serif; font-weight:600; white-space:nowrap; }
+        .formule-selection-summary .summary-total { display:flex; justify-content:space-between; align-items:baseline; padding-top:12px; border-top:1px solid rgba(84,155,162,0.3); margin-top:8px; }
+        .formule-selection-summary .summary-total-label { font-family:Montserrat,sans-serif; font-size:0.78rem; font-weight:600; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.08em; }
+        .formule-selection-summary .summary-total-value { font-family:Georgia,serif; font-size:1.15rem; font-weight:700; color:#fff; }
+        .formule-selection-summary .summary-total-note { display:block; font-size:0.7rem; color:rgba(255,255,255,0.4); font-style:italic; margin-top:4px; font-weight:400; letter-spacing:0; text-transform:none; text-align:right; }
 
         @media (max-width:600px) {
             .formules-fields { grid-template-columns:1fr; }
@@ -2019,6 +2032,9 @@
             <div class="formules-contact">
                 <h3>Vos coordonnées</h3>
                 <p class="note">On vous rappelle sous 24h avec un devis détaillé selon votre sélection.</p>
+                <div id="formuleSelectionSummary" class="formule-selection-summary empty">
+                    <p class="empty-msg">Aucune formule sélectionnée pour le moment.</p>
+                </div>
                 <div class="formules-fields">
                     <input type="text" id="formuleNom" placeholder="Nom complet *" required>
                     <input type="tel" id="formuleTel" placeholder="Téléphone">
@@ -2045,15 +2061,52 @@
     </section>
     <script>
     (function(){
-        // Toggle checkbox visuel au clic sur la card
+        var summaryEl = document.getElementById('formuleSelectionSummary');
+
+        function updateSummary(){
+            var rows = document.querySelectorAll('.formule-row.checked');
+            if (!rows.length) {
+                summaryEl.className = 'formule-selection-summary empty';
+                summaryEl.innerHTML = '<p class="empty-msg">Aucune formule sélectionnée pour le moment.</p>';
+                return;
+            }
+            var html = '<p class="summary-label">Votre sélection</p><ul>';
+            var total = 0, hasRange = false;
+            rows.forEach(function(row){
+                var num = row.querySelector('.formule-numero').textContent.replace('Nouveau','').trim();
+                var prix = row.querySelector('.formule-prix').textContent.trim();
+                html += '<li><span class="sum-titre">' + num + '</span><span class="sum-prix">' + prix + '</span></li>';
+                var prixAttr = row.getAttribute('data-prix');
+                if (prixAttr === 'sur-mesure') hasRange = true;
+                else total += parseInt(prixAttr, 10) || 0;
+            });
+            html += '</ul>';
+            if (total > 0) {
+                var totalStr = total.toLocaleString('fr-FR') + ' €';
+                if (hasRange) totalStr += ' + sur-mesure';
+                html += '<div class="summary-total"><span class="summary-total-label">Total indicatif</span><span class="summary-total-value">' + totalStr + '</span></div>';
+                html += '<span class="summary-total-note">Devis final ajusté selon votre projet.</span>';
+            } else if (hasRange) {
+                html += '<div class="summary-total"><span class="summary-total-label">Total</span><span class="summary-total-value">Sur-mesure</span></div>';
+                html += '<span class="summary-total-note">Devis personnalisé selon votre projet.</span>';
+            }
+            summaryEl.className = 'formule-selection-summary';
+            summaryEl.innerHTML = html;
+        }
+
+        // Toggle checkbox visuel au clic sur la card + mise a jour du resume live
         document.querySelectorAll('.formule-row').forEach(function(row){
             row.addEventListener('click', function(e){
                 if (e.target.tagName === 'A') return;
                 var cb = row.querySelector('.formule-checkbox-input');
                 cb.checked = !cb.checked;
                 row.classList.toggle('checked', cb.checked);
+                updateSummary();
             });
         });
+
+        // Expose pour reset apres envoi
+        window.__resetFormulesSummary = updateSummary;
     })();
 
     function buildFormulesMessage(){
@@ -2134,6 +2187,7 @@
                     document.getElementById('formuleEmail').value = '';
                     document.getElementById('formuleTel').value = '';
                     document.getElementById('formuleQuestions').value = '';
+                    if (window.__resetFormulesSummary) window.__resetFormulesSummary();
                 }, 1500);
             } else {
                 btn.innerHTML = originalBtnText;
