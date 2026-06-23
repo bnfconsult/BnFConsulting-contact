@@ -237,48 +237,7 @@
         </div></div>
     </section>
 
-        <section class="tarifs-v3" id="tarifs">
-        <div class="tarifs-v3-inner">
-            <p class="tarifs-v3-label">Nos formules</p>
-            <div class="tarifs-tagline">
-                <span class="tagline-line" data-i="0">On tourne pour vous.</span>
-                <span class="tagline-line" data-i="1">On photographie pour vous.</span>
-                <span class="tagline-line accent" data-i="2">Vous vendez.</span>
-            </div>
-            <div class="tarifs-cta-box">
-                <h3>Production accessible — du bistrot au restaurant étoilé.</h3>
-                <p class="desc">Drone, FPV indoor, photo, vidéo. On cadre la prestation à votre projet, pas à un tarif fixe.</p>
-                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="tarifs-cta-button">Parlez-nous de votre projet — sur devis</a>
-                <p class="tarifs-cta-note">30 minutes. Sans engagement.</p>
-            </div>
-        </div>
-    </section>
-    <script>
-    (function(){
-        var section = document.getElementById('tarifs');
-        if (!section) return;
-        var lines = section.querySelectorAll('.tagline-line');
-        if (!lines.length) return;
-        var played = false, locked = false, pinnedY = 0;
-        var STEP_MS = 750;
-        try { if (sessionStorage.getItem('bnf-tarifs-played') === '1') { played = true; lines.forEach(function(l){ l.classList.add('visible'); }); } } catch(e){}
-        var io = new IntersectionObserver(function(entries){
-            entries.forEach(function(e){
-                if (e.isIntersecting && !played) {
-                    played = true; locked = true; pinnedY = window.scrollY;
-                    try { sessionStorage.setItem('bnf-tarifs-played', '1'); } catch(e){}
-                    lines.forEach(function(l, i){ setTimeout(function(){ l.classList.add('visible'); }, i * STEP_MS); });
-                    setTimeout(function(){ locked = false; }, lines.length * STEP_MS + 600);
-                    io.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.4 });
-        io.observe(section);
-        window.addEventListener('wheel', function(e){ if (locked) { e.preventDefault(); window.scrollTo({ top: pinnedY, behavior: "instant" }); } }, { passive: false });
-        window.addEventListener('touchmove', function(e){ if (locked) { e.preventDefault(); window.scrollTo({ top: pinnedY, behavior: "instant" }); } }, { passive: false });
-    })();
-    </script>
-<section class="final-cta">
+        <section class="final-cta">
         <p class="label">Passez à l'action</p>
         <h2>Donnez à votre établissement <span class="accent">une signature inoubliable.</span></h2>
         <p style="color:rgba(169,214,221,0.5); font-size:0.8rem; letter-spacing:0.04em; margin-top:8px; margin-bottom:24px;">Interventions partout en France — Île-de-France, Yvelines, Paris et grandes villes sur demande.</p>
