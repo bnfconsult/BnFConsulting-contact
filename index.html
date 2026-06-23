@@ -2271,25 +2271,21 @@
 
     <!-- VIDÉO + CTA FINAL -->
     <section class="section section-black" id="cta-final" style="padding:clamp(60px,8vw,80px) 0;" onmouseenter="if(!('ontouchstart' in window)){document.getElementById('cta-video').muted=false}" onmouseleave="if(!('ontouchstart' in window)){document.getElementById('cta-video').muted=true}">
-        <div class="container" style="max-width:1100px;">
-            <div style="display:flex; align-items:center; gap:clamp(24px,4vw,60px); flex-wrap:wrap; justify-content:center;">
-                <!-- Vidéo à gauche -->
-                <div style="flex:0 1 360px; max-width:400px; position:relative;">
-                    <video id="cta-video" autoplay muted loop playsinline style="width:100%; border-radius:16px; box-shadow:0 10px 40px rgba(0,0,0,0.5);">
-                        <source src="/public/videos/BNFConsulting - Teaser.mp4" type="video/mp4">
-                    </video>
-                    <button id="cta-sound-btn" onclick="var v=document.getElementById('cta-video');v.muted=!v.muted;v.play().catch(function(){});this.innerHTML=v.muted?'<svg width=\'20\' height=\'20\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#fff\' stroke-width=\'2\' stroke-linecap=\'round\'><polygon points=\'11 5 6 9 2 9 2 15 6 15 11 19\'></polygon><line x1=\'23\' y1=\'9\' x2=\'17\' y2=\'15\'></line><line x1=\'17\' y1=\'9\' x2=\'23\' y2=\'15\'></line></svg>':'<svg width=\'20\' height=\'20\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#fff\' stroke-width=\'2\' stroke-linecap=\'round\'><polygon points=\'11 5 6 9 2 9 2 15 6 15 11 19\'></polygon><path d=\'M19.07 4.93a10 10 0 0 1 0 14.14\'></path><path d=\'M15.54 8.46a5 5 0 0 1 0 7.07\'></path></svg>'" style="position:absolute; bottom:16px; right:16px; background:rgba(0,0,0,0.5); border:none; border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; cursor:pointer; backdrop-filter:blur(4px); transition:background 0.3s; z-index:2;" onmouseenter="this.style.background='rgba(84,155,162,0.7)'" onmouseleave="this.style.background='rgba(0,0,0,0.5)'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></button>
-                </div>
-                <!-- CTA à droite -->
-                <div style="flex:1 1 400px; max-width:550px;">
-                    <div class="cta-bubble">
-                        <h2 class="cta-title">Prêt à reprendre le contrôle<br><span class="accent">de votre croissance ?</span></h2>
-                        <p class="cta-text">Nous vous aidons à transformer la complexité en organisation claire.</p>
-                        <div class="cta-buttons">
-                            <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary btn-large">Pré-diagnostic stratégique — 30 min</a>
-                            <a href="mailto:contact@bnf-consulting.fr" class="btn btn-primary btn-large" style="background:transparent; border:1px solid #549ba2; margin-left:12px;">Nous contacter</a>
-                        </div>
-                    </div>
+        <div class="container" style="max-width:1200px;">
+            <!-- Vidéo 16:9 plein largeur -->
+            <div style="position:relative; width:100%; margin-bottom:clamp(32px,5vw,56px);">
+                <video id="cta-video" autoplay muted loop playsinline style="width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:20px; box-shadow:0 16px 60px rgba(0,0,0,0.55);">
+                    <source src="/public/videos/BNFConsulting - Teaser.mp4" type="video/mp4">
+                </video>
+                <button id="cta-sound-btn" onclick="var v=document.getElementById('cta-video');v.muted=!v.muted;v.play().catch(function(){});this.innerHTML=v.muted?'<svg width=\'22\' height=\'22\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#fff\' stroke-width=\'2\' stroke-linecap=\'round\'><polygon points=\'11 5 6 9 2 9 2 15 6 15 11 19\'></polygon><line x1=\'23\' y1=\'9\' x2=\'17\' y2=\'15\'></line><line x1=\'17\' y1=\'9\' x2=\'23\' y2=\'15\'></line></svg>':'<svg width=\'22\' height=\'22\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'#fff\' stroke-width=\'2\' stroke-linecap=\'round\'><polygon points=\'11 5 6 9 2 9 2 15 6 15 11 19\'></polygon><path d=\'M19.07 4.93a10 10 0 0 1 0 14.14\'></path><path d=\'M15.54 8.46a5 5 0 0 1 0 7.07\'></path></svg>'" style="position:absolute; bottom:20px; right:20px; background:rgba(0,0,0,0.55); border:none; border-radius:50%; width:48px; height:48px; display:flex; align-items:center; justify-content:center; cursor:pointer; backdrop-filter:blur(6px); transition:background 0.3s; z-index:2;" onmouseenter="this.style.background='rgba(84,155,162,0.7)'" onmouseleave="this.style.background='rgba(0,0,0,0.55)'"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg></button>
+            </div>
+            <!-- CTA pleine largeur -->
+            <div class="cta-bubble" style="width:100%; max-width:none; text-align:center;">
+                <h2 class="cta-title">Prêt à reprendre le contrôle <span class="accent">de votre croissance ?</span></h2>
+                <p class="cta-text">Nous vous aidons à transformer la complexité en organisation claire.</p>
+                <div class="cta-buttons" style="justify-content:center; flex-wrap:wrap; gap:12px;">
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary btn-large">Pré-diagnostic stratégique — 30 min</a>
+                    <a href="mailto:contact@bnf-consulting.fr" class="btn btn-primary btn-large" style="background:transparent; border:1px solid #549ba2;">Nous contacter</a>
                 </div>
             </div>
         </div>
