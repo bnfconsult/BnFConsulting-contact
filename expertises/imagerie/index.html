@@ -13,29 +13,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <title>BNFConsulting — Le cabinet qui coordonne les expertises de votre développement</title>
+    <title>Imagerie — Photo, vidéo, drone & FPV | BNFConsulting</title>
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
     <link rel="apple-touch-icon" sizes="192x192" href="/apple-touch-icon.png">
-    <meta name="description" content="BNFConsulting coordonne les expertises qui permettent aux dirigeants d'atteindre leurs objectifs de développement. Diagnostic, trajectoire, mobilisation des spécialistes et pilotage. Île-de-France, interventions partout en France.">
-    <meta name="keywords" content="cabinet de conseil, conseil aux dirigeants, développement d'entreprise, diagnostic stratégique, orchestration, conseil PME, Île-de-France, Yvelines, BNFConsulting">
-    <!-- hreflang -->
-    <link rel="alternate" hreflang="fr" href="https://www.bnf-consulting.fr/">
-    <link rel="alternate" hreflang="en" href="https://www.bnf-consulting.fr/en/">
+    <meta name="description" content="Imagerie — photo, vidéo cinématique, drone et FPV. Une expertise pilotée par BNFConsulting pour l'immobilier, l'hôtellerie, les châteaux et domaines, l'architecture, l'automobile et l'événementiel. Île-de-France, interventions partout en France.">
+    <meta name="keywords" content="imagerie, photographie professionnelle, vidéo cinématique, drone, FPV, prise de vue aérienne, immobilier, hôtellerie, architecture, BNFConsulting">
+    <!-- hreflang — la version EN de cette page n'existe pas encore -->
+    <link rel="alternate" hreflang="fr" href="https://www.bnf-consulting.fr/expertises/imagerie/">
     <!-- Open Graph -->
-    <meta property="og:title" content="BNFConsulting — Le cabinet qui coordonne les expertises de votre développement">
-    <meta property="og:description" content="Vous avez un objectif. Nous construisons le chemin pour l'atteindre. Diagnostic, trajectoire, mobilisation des bonnes expertises et pilotage.">
+    <meta property="og:title" content="Imagerie — Photo, vidéo, drone & FPV | BNFConsulting">
+    <meta property="og:description" content="Photo, vidéo cinématique, drone et FPV : montrer ce que les mots ne suffisent pas à transmettre. Une expertise pilotée par BNFConsulting.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.bnf-consulting.fr/">
+    <meta property="og:url" content="https://www.bnf-consulting.fr/expertises/imagerie/">
     <meta property="og:image" content="https://www.bnf-consulting.fr/public/photos/logo-bnf-consulting.jpg">
     <meta property="og:locale" content="fr_FR">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BNFConsulting — Le cabinet qui coordonne les expertises de votre développement">
-    <meta name="twitter:description" content="Vous avez un objectif. Nous construisons le chemin pour l'atteindre. Diagnostic, trajectoire, mobilisation des bonnes expertises et pilotage.">
+    <meta name="twitter:title" content="Imagerie — Photo, vidéo, drone & FPV | BNFConsulting">
+    <meta name="twitter:description" content="Photo, vidéo cinématique, drone et FPV : montrer ce que les mots ne suffisent pas à transmettre. Une expertise pilotée par BNFConsulting.">
     <meta name="twitter:image" content="https://www.bnf-consulting.fr/public/photos/logo-bnf-consulting.jpg">
     <!-- Canonical -->
-    <link rel="canonical" href="https://www.bnf-consulting.fr/">
+    <link rel="canonical" href="https://www.bnf-consulting.fr/expertises/imagerie/">
     <!-- Schema.org -->
     <script type="application/ld+json">
     {
@@ -198,7 +197,7 @@
     <!-- NAVIGATION -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="index.html" class="nav-logo"><img src="/public/photos/logo-bnf-consulting.jpg" alt="BNFConsulting"></a>
+            <a href="/" class="nav-logo"><img src="/public/photos/logo-bnf-consulting.jpg" alt="BNFConsulting"></a>
             <button class="nav-toggle" id="navToggle" aria-label="Menu">
                 <span></span>
                 <span></span>
@@ -220,7 +219,7 @@
                 </li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Pré-diagnostic stratégique</a></li>
-                <li class="lang-toggle"><a href="/" class="lang-link active">FR</a><span class="lang-sep">|</span><a href="en/index.html" class="lang-link">EN</a></li>
+                <li class="lang-toggle"><a href="/" class="lang-link active">FR</a><span class="lang-sep">|</span><a href="/en/index.html" class="lang-link">EN</a></li>
             </ul>
         </div>
     </nav>
@@ -283,53 +282,73 @@
     .hero-fade--2 { animation-delay: 0.45s; }
     .hero-fade--3 { animation-delay: 0.75s; }
 
+    /* === PAGE IMAGERIE : hero compacté ===
+       La section #consequences qui suit verrouille le scroll (5 états).
+       Le hero est volontairement réduit pour qu'elle ne se déclenche pas
+       dès l'arrivée sur la page : le visiteur doit d'abord voir où il est.
+       Override scopé sur #hero — le .hero du CSS partagé (100vh) reste intact
+       pour la home et les 6 pages secteurs. */
+    #hero.hero--compact {
+        min-height: 58vh;
+        min-height: 58svh;
+        padding: clamp(96px, 13vh, 140px) 24px clamp(44px, 7vh, 76px);
+    }
+    @media (max-width: 768px) {
+        #hero.hero--compact {
+            min-height: 66svh;
+            padding: clamp(64px, 11vh, 104px) 20px clamp(32px, 6vh, 56px);
+        }
+    }
+
     /* CORRECTIF : .accent porte white-space:nowrap dans le CSS partagé, ce qui
-       faisait déborder le titre du hero hors de l'écran entre ~1100 et ~1300px
-       de large. On autorise le retour à la ligne uniquement ici. */
+       fait déborder le titre du hero hors de l'écran entre ~1100px et ~1300px
+       de large (la phrase accentuée ne peut pas se couper). On autorise le
+       retour à la ligne uniquement ici — les autres usages de .accent, où la
+       phrase est courte, gardent leur comportement d'origine. */
     #hero .hero-title .accent { white-space: normal; }
 
-    /* Boutons d'appel à l'action du hero */
-    .hero-cta {
-        display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-        margin: clamp(30px, 4vh, 44px) 0 clamp(28px, 4vh, 40px);
+    /* Fil d'ariane : rattache la page à l'écosystème BNF */
+    .expertise-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: Montserrat, sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.24em;
+        color: #549ba2;
+        text-decoration: none;
+        margin-bottom: 22px;
+        transition: color 0.3s ease, gap 0.3s ease;
     }
-    .hero-btn-ghost {
-        background: rgba(0,0,0,0.28);
-        border: 1px solid rgba(255,255,255,0.35);
-        color: #fff;
-        backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-    }
-    .hero-btn-ghost:hover { background: rgba(84,155,162,0.2); border-color: #549ba2; }
-    @media (max-width: 600px) {
-        .hero-cta { flex-direction: column; width: 100%; max-width: 340px; margin-left: auto; margin-right: auto; }
-        .hero-cta .btn { width: 100%; }
+    .expertise-eyebrow:hover { color: #7fc3ca; gap: 14px; }
+    .expertise-eyebrow svg { width: 14px; height: 14px; flex-shrink: 0; }
+    @media (max-width: 768px) {
+        .expertise-eyebrow { font-size: 0.62rem; letter-spacing: 0.18em; margin-bottom: 16px; }
     }
     </style>
-    <section class="hero" id="hero">
+    <section class="hero hero--compact" id="hero">
         <div class="hero-bg">
             <img src="/public/photos/best-teinture-vert.jpg" alt="BNFConsulting">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="drone-hero-mobile-logo" style="display:none; text-align:left; margin-bottom:12px; padding-left:16px;">
-                <img src="/public/photos/logo-bnf-consulting.jpg" alt="BNFConsulting" style="height:32px; width:auto; opacity:0.8; border-radius:3px;">
-            </div>
-            <h1 class="hero-title hero-fade hero-fade--1">
-                BNFConsulting coordonne les expertises qui permettent aux dirigeants d'atteindre leurs <span class="accent">objectifs de développement.</span>
+            <a href="/expertises/" class="expertise-eyebrow hero-fade hero-fade--1">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Une expertise BNFConsulting
+            </a>
+            <h1 class="hero-title hero-fade hero-fade--2">
+                Vous ne manquez pas de clients. <span class="accent">Vous manquez de la visibilité qui les attire.</span>
             </h1>
-            <p class="hero-sub hero-fade hero-fade--2">
-                Vous avez un objectif. Nous construisons le chemin pour l'atteindre.
+            <p class="hero-sub hero-fade hero-fade--3">
+                Imagerie — photo, vidéo, drone et FPV. Pour les lieux et les marques qui veulent être choisis avant même la visite.
             </p>
-            <div class="hero-cta hero-fade hero-fade--2">
-                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary btn-large">Échanger sur votre entreprise</a>
-                <a href="#methode" class="btn btn-large hero-btn-ghost">Découvrir notre méthode</a>
-            </div>
             <!-- NAVIGATION RAPIDE -->
             <div class="quick-nav hero-fade hero-fade--3">
-                <a href="#proposition" class="quick-nav-item quick-nav-desktop-only">Notre approche</a>
-                <a href="#methode" class="quick-nav-item">Notre méthode</a>
-                <a href="#experts" class="quick-nav-item quick-nav-axe">Nos experts</a>
-                <a href="#secteurs" class="quick-nav-item">Nos domaines d'intervention</a>
+                <a href="#secteurs" class="quick-nav-item">Nos réalisations</a>
+                <a href="#visibilite" class="quick-nav-item quick-nav-axe">Photo, vidéo &amp; drone</a>
+                <a href="#methode" class="quick-nav-item">Comment nous intervenons</a>
             </div>
 
         </div>
@@ -822,20 +841,258 @@
     }
     </style>
 
-    <!-- SECTION 1 : TRANSITION -->
-    <section class="section section-black" id="solution" style="padding:clamp(100px,12vw,140px) 0; position:relative; overflow:hidden;">
-        <div class="accent-blob" style="width:560px; height:560px; top:-200px; left:-220px;" aria-hidden="true"></div>
-        <div class="accent-blob accent-blob--soft" style="width:480px; height:480px; bottom:-180px; right:-180px;" aria-hidden="true"></div>
-        <div class="container" style="max-width:1100px; text-align:center; position:relative; z-index:2;">
-            <h2 class="section-title" style="font-size:clamp(2rem,4.2vw,3.8rem); line-height:1.05; letter-spacing:-0.02em;">
-                <span class="line-reveal"><span>Révéler les opportunités invisibles.</span></span>
-                <span class="line-reveal"><span>Structurer la croissance.</span></span>
-                <span class="line-reveal"><span class="accent">Activer le potentiel.</span></span>
-            </h2>
-            <p class="fade-up" style="color:rgba(255,255,255,0.6); font-size:clamp(1rem,1.8vw,1.2rem); line-height:1.8; max-width:650px; margin:0 auto;">De nombreuses entreprises disposent déjà des ressources nécessaires pour accélérer leur développement. Le véritable défi consiste à identifier les leviers sous-exploités et à les transformer en avantages concrets.</p>
+
+    <!-- SECTION 2 : LE CONSTAT — horizontal scroll pinned -->
+    <section class="section section-black consequences-sj" id="consequences">
+        <video class="consequences-bg-video" autoplay muted loop playsinline webkit-playsinline="true" disablePictureInPicture disableRemotePlayback controlsList="nodownload nofullscreen noremoteplayback noplaybackrate" preload="metadata" aria-hidden="true" tabindex="-1">
+            <source src="/public/videos/desert.mp4" type="video/mp4">
+        </video>
+        <div class="consequences-bg-overlay"></div>
+        <div class="sj-stage" id="sjStage">
+            <!-- STATE 0 : intro title -->
+            <div class="sj-state sj-state--intro" data-state="0">
+                <div>
+                    <p class="section-label fade-up">Le constat</p>
+                    <h2 class="dstudio-word-title">
+                        <span class="word-reveal">Ce</span>
+                        <span class="word-reveal">que</span>
+                        <span class="word-reveal">ça</span>
+                        <span class="word-reveal">coûte</span>
+                        <span class="word-reveal">de</span>
+                        <span class="word-reveal" style="color:#549ba2;">ne</span>
+                        <span class="word-reveal" style="color:#549ba2;">rien</span>
+                        <span class="word-reveal" style="color:#549ba2;">changer</span>
+                    </h2>
+                </div>
+            </div>
+            <!-- STATE 1 : card 01 -->
+            <div class="sj-state sj-state--card" data-state="1">
+                <div class="sj-card-content">
+                    <div class="sj-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <h3>Sans image</h3>
+                    <p>Vous êtes invisible.</p>
+                </div>
+            </div>
+            <!-- STATE 2 : card 02 -->
+            <div class="sj-state sj-state--card" data-state="2">
+                <div class="sj-card-content">
+                    <div class="sj-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                    </div>
+                    <h3>Sans visibilité</h3>
+                    <p>Vous êtes ignoré.</p>
+                </div>
+            </div>
+            <!-- STATE 3 : card 03 -->
+            <div class="sj-state sj-state--card" data-state="3">
+                <div class="sj-card-content">
+                    <div class="sj-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    </div>
+                    <h3>Sans les deux</h3>
+                    <p>Vous êtes remplacé.</p>
+                </div>
+            </div>
+            <!-- STATE 4 : payoff — texte positif sur vidéo désert -->
+            <div class="sj-state sj-state--payoff" data-state="4">
+                <div class="sj-payoff-content">
+                    <h3>Montrez votre vraie valeur.</h3>
+                    <p>Avec une image à la hauteur de ce que vous construisez.</p>
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="sj-payoff-cta">Pré-diagnostic stratégique — 30 min</a>
+                    <div style="display:block; margin-top: clamp(28px, 4vh, 48px);">
+                        <a href="#secteurs" class="sj-payoff-arrow" aria-label="Section suivante" onclick="event.preventDefault(); if(window.__bnfConstatUnlock) window.__bnfConstatUnlock(); setTimeout(function(){ document.getElementById('secteurs')?.scrollIntoView({behavior:'smooth',block:'start'}); }, 0);">
+                            <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+    <script>
+    (function(){
+        var section = document.getElementById('consequences');
+        if (!section || !section.classList.contains('consequences-sj')) return;
+        var states = section.querySelectorAll('.sj-state');
+        var TOTAL_STATES = states.length; // 5
 
+        var currentState      = 0;
+        var locked            = false;
+        // Latch persistant : l'animation se joue UNE seule fois par session navigateur (sessionStorage)
+        // + skip auto si l'URL pointe vers une ancre (#tarifs, #secteurs, etc.) → user veut un endroit précis
+        var hasPlayed = (function(){
+            try {
+                if (sessionStorage.getItem('bnf-constat-played') === '1') return true;
+            } catch(e){}
+            // Si on arrive avec un hash autre que #consequences → l'utilisateur cible une section précise, on skip l'animation
+            if (window.location.hash && window.location.hash !== '#consequences') return true;
+            return false;
+        })();
+
+        // Si URL avec hash ET animation à skip → forcer le scroll vers l'ancre cible
+        // (le scroll natif peut être perturbé par les changements de layout du scroll-jack)
+        if (hasPlayed && window.location.hash && window.location.hash !== '#consequences') {
+            var targetId = window.location.hash.substring(1);
+            // setTimeout pour laisser le navigateur poser le layout, puis scroll explicite
+            setTimeout(function(){
+                var target = document.getElementById(targetId);
+                if (target) {
+                    var navHeight = document.querySelector('.nav') ? document.querySelector('.nav').offsetHeight : 80;
+                    var top = target.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+                    window.scrollTo({ top: top, behavior: 'auto' });
+                }
+            }, 50);
+        }
+        var pinnedY           = 0;
+        var pinning           = false;   // true brievement apres l'arrivee pour ignorer le swipe initial
+        var ANIM_MS           = 700;     // duree d'une transition d'etat
+        var COOLDOWN_MS       = 800;     // anti-spam : 1 scroll/swipe = 1 etat max
+        var ARRIVAL_GRACE_MS  = 350;     // fenetre apres snap pendant laquelle le swipe initial est ignore
+        var lastInputTime     = 0;
+
+        function applyState(s) {
+            for (var i = 0; i < TOTAL_STATES; i++) section.classList.remove('state-' + i);
+            section.classList.add('state-' + s);
+            Array.prototype.forEach.call(states, function(el, i){
+                el.classList.remove('active','past');
+                if      (i === s) el.classList.add('active');
+                else if (i  <  s) el.classList.add('past');
+            });
+            updateOverlayForState(s);
+        }
+
+        function advanceOne() {
+            if (currentState >= TOTAL_STATES - 1) return false;
+            currentState++;
+            applyState(currentState);
+            return true;
+        }
+        function backOne() {
+            if (currentState <= 0) return false;
+            currentState--;
+            applyState(currentState);
+            return true;
+        }
+
+        function lockIfNeeded() {
+            if (hasPlayed || locked) return;
+            var rect = section.getBoundingClientRect();
+            // Trigger des que le haut de la section approche le haut du viewport
+            // (zone : du haut du viewport jusqu'a 70% du viewport)
+            if (rect.top <= window.innerHeight * 0.7 && rect.top > -rect.height * 0.4) {
+                locked = true;
+                pinning = true;
+                pinnedY = section.offsetTop;
+                // SNAP INSTANTANE : pas de smooth, pas d'animation -> pas de fenetre ou l'user
+                // peut scroller "dans le vide" et avancer des etats sans le voir
+                window.scrollTo({ top: pinnedY, behavior: "instant" });
+                // Petite fenetre de grace : on ignore le swipe en cours (inertie iOS) pour
+                // que l'user voie l'intro avant que ses swipes residuels avancent les etats
+                lastInputTime = Date.now(); // bloque handleInput pendant COOLDOWN_MS aussi
+                setTimeout(function(){ pinning = false; }, ARRIVAL_GRACE_MS);
+            }
+        }
+
+        function unlock() {
+            locked = false;
+            // marqueur "joue" uniquement quand le user a atteint le dernier etat
+            hasPlayed = true;
+            try { sessionStorage.setItem('bnf-constat-played', '1'); } catch(e){}
+        }
+        // Expose pour permettre au bouton fleche du payoff de libérer le scroll
+        window.__bnfConstatUnlock = unlock;
+
+        // Overlay devient progressivement transparent au fur et a mesure des etats (1.0 -> 0.15)
+        function updateOverlayForState(s) {
+            var overlay = section.querySelector('.consequences-bg-overlay');
+            if (!overlay) return;
+            var FROM = 1.0, TO = 0.15;
+            var t = TOTAL_STATES > 1 ? s / (TOTAL_STATES - 1) : 1;
+            var eased = t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+            overlay.style.transition = 'opacity 0.7s cubic-bezier(0.22,1,0.36,1)';
+            overlay.style.opacity = (FROM + (TO - FROM) * eased).toFixed(3);
+        }
+
+        // Scroll : on re-snap si verrouille (sauf pendant le smooth-scroll d'arrivee)
+        window.addEventListener('scroll', function(){
+            if (hasPlayed && !locked) return;
+            if (!locked) {
+                lockIfNeeded();
+            } else if (!pinning && window.scrollY !== pinnedY) {
+                window.scrollTo({ top: pinnedY, behavior: "instant" });
+            }
+        }, { passive: true });
+
+        // Wheel : 1 cran = 1 etat. Cooldown anti-inertie.
+        function handleInput(direction) {
+            var now = Date.now();
+            if (now - lastInputTime < COOLDOWN_MS) return false;
+            if (direction > 0) {
+                // scroll bas
+                if (currentState >= TOTAL_STATES - 1) {
+                    // dernier etat -> on libere et laisse le scroll continuer
+                    unlock();
+                    return false;
+                }
+                advanceOne();
+            } else {
+                // scroll haut
+                backOne();
+            }
+            lastInputTime = now;
+            return true;
+        }
+
+        function onWheel(e) {
+            if (hasPlayed && !locked) return;
+            if (locked) {
+                e.preventDefault();
+                if (pinning) return; // smooth-snap d'arrivee en cours, on ignore le scroll
+                handleInput(e.deltaY > 0 ? 1 : -1);
+                if (locked && !pinning && window.scrollY !== pinnedY) window.scrollTo({ top: pinnedY, behavior: "instant" });
+            } else if (!hasPlayed) {
+                var rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight * 0.35 && rect.top > -rect.height * 0.4) {
+                    e.preventDefault();
+                    lockIfNeeded();
+                }
+            }
+        }
+        window.addEventListener('wheel', onWheel, { passive: false });
+
+        // Touch : 1 swipe = 1 etat (seuil 25px)
+        var touchStartY = null;
+        window.addEventListener('touchstart', function(e){
+            if (!locked) return;
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+        window.addEventListener('touchmove', function(e){
+            if (!locked || touchStartY === null) return;
+            if (pinning) { e.preventDefault(); return; } // smooth-snap en cours
+            var currentY = e.touches[0].clientY;
+            var delta = touchStartY - currentY;
+            if (Math.abs(delta) > 25) {
+                e.preventDefault();
+                handleInput(delta > 0 ? 1 : -1);
+                touchStartY = currentY;
+                if (locked && !pinning && window.scrollY !== pinnedY) window.scrollTo({ top: pinnedY, behavior: "instant" });
+            }
+        }, { passive: false });
+        window.addEventListener('touchend', function(){ touchStartY = null; }, { passive: true });
+
+        // Clavier : fleche haut/bas + space + pgup/pgdn = 1 etat
+        window.addEventListener('keydown', function(e){
+            if (!locked) return;
+            var down = [32, 34, 40].indexOf(e.keyCode) !== -1;  // space, pgdn, down
+            var up = [33, 38].indexOf(e.keyCode) !== -1;        // pgup, up
+            if (down) { e.preventDefault(); handleInput(1); }
+            else if (up) { e.preventDefault(); handleInput(-1); }
+        }, { passive: false });
+
+        applyState(0);
+    })();
+    </script>
 
     <!-- SECTION 3 : NOTRE APPROCHE — layout 2 colonnes -->
     <style>
@@ -899,215 +1156,6 @@
         .proposition-left .section-label { justify-content: center; }
     }
     </style>
-    <section id="proposition">
-        <div class="accent-blob" style="width:500px; height:500px; top:calc(50% - 250px); left:-200px;" aria-hidden="true"></div>
-        <div class="accent-blob accent-blob--soft" style="width:420px; height:420px; top:8%; right:-180px;" aria-hidden="true"></div>
-        <div class="proposition-grid">
-            <div class="proposition-left">
-                <p class="section-label fade-up">Notre approche</p>
-                <h2 class="dstudio-word-title">
-                    <span class="word-reveal">Voir</span>
-                    <span class="word-reveal">clair.</span>
-                    <br>
-                    <span class="word-reveal">Structurer.</span>
-                    <br>
-                    <span class="word-reveal" style="color:#549ba2;">Amplifier.</span>
-                </h2>
-                <p class="fade-up" style="font-family:Georgia,serif; font-size:clamp(1rem,1.4vw,1.2rem); color:rgba(255,255,255,0.6); line-height:1.6; margin-top:24px; max-width:520px;">Les trois étapes qui transforment une entreprise en système de croissance durable.</p>
-            </div>
-            <div class="proposition-right">
-                <div class="pilier-card fade-up">
-                    <span class="pilier-num pop-in">01</span>
-                    <div class="pilier-card-text">
-                        <h3>Voir clair</h3>
-                        <p>Identifier les freins, les opportunités et les priorités.</p>
-                    </div>
-                </div>
-                <div class="pilier-card fade-up">
-                    <span class="pilier-num pop-in">02</span>
-                    <div class="pilier-card-text">
-                        <h3>Structurer</h3>
-                        <p>Aligner les opérations, les outils et les ressources.</p>
-                    </div>
-                </div>
-                <div class="pilier-card fade-up">
-                    <span class="pilier-num pop-in">03</span>
-                    <div class="pilier-card-text">
-                        <h3>Amplifier</h3>
-                        <p>Développer la visibilité, l'image et la croissance.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         MÉTHODE BNF — 6 étapes. Classes préfixées .bnf- pour éviter
-         toute collision avec le CSS partagé.
-         ============================================================ -->
-    <style>
-    .bnf-methode { background: #0a0a0a; padding: clamp(72px, 9vw, 118px) 24px; position: relative; overflow: hidden; }
-    .bnf-methode-inner { max-width: 1080px; margin: 0 auto; }
-    .bnf-methode-head { text-align: center; margin-bottom: clamp(44px, 6vw, 72px); }
-    .bnf-methode-head .section-label { color: #549ba2; font-family: Montserrat, sans-serif; font-size: 0.74rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3em; margin: 0 0 22px; }
-    .bnf-methode-head h2 { font-family: Georgia, serif; font-size: clamp(1.9rem, 4vw, 3.1rem); font-weight: 400; color: #fff; line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 20px; }
-    .bnf-methode-head h2 .accent { color: #549ba2; white-space: normal; }
-    .bnf-methode-head p { color: rgba(255,255,255,0.62); font-size: clamp(1rem, 1.5vw, 1.14rem); line-height: 1.8; max-width: 660px; margin: 0 auto; }
-
-    /* Fil conducteur 01 -> 06 : rail vertical + pastilles numérotées + flèche finale */
-    .bnf-steps { position: relative; padding-left: clamp(56px, 6vw, 76px); }
-    .bnf-steps::before {
-        content: ""; position: absolute; left: clamp(21px, 2.3vw, 29px); top: 12px; bottom: 34px; width: 2px;
-        background: linear-gradient(to bottom, rgba(84,155,162,0.95) 0%, rgba(84,155,162,0.55) 60%, rgba(84,155,162,0.28) 100%);
-        border-radius: 2px;
-    }
-    .bnf-steps::after {
-        content: ""; position: absolute; left: clamp(15px, 1.75vw, 23px); bottom: 12px;
-        width: 0; height: 0;
-        border-left: 7px solid transparent; border-right: 7px solid transparent;
-        border-top: 15px solid rgba(84,155,162,0.55);
-    }
-    .bnf-step { position: relative; padding: 0 0 clamp(30px, 3.6vw, 42px); }
-    .bnf-step:last-of-type { padding-bottom: clamp(38px, 4.4vw, 52px); }
-    .bnf-step-num {
-        position: absolute; left: calc(-1 * clamp(56px, 6vw, 76px)); top: -2px;
-        width: clamp(44px, 4.7vw, 60px); height: clamp(44px, 4.7vw, 60px);
-        display: flex; align-items: center; justify-content: center;
-        border-radius: 50%; background: #0a0a0a; border: 2px solid rgba(84,155,162,0.75);
-        font-family: Montserrat, sans-serif; font-size: clamp(0.8rem, 1vw, 0.92rem);
-        font-weight: 700; letter-spacing: 0.05em; color: #549ba2;
-    }
-    .bnf-step h3 { font-family: Georgia, serif; font-size: clamp(1.25rem, 2vw, 1.6rem); font-weight: 400; color: #fff; margin: 0 0 10px; line-height: 1.25; }
-    .bnf-step p { color: rgba(255,255,255,0.56); font-size: clamp(0.94rem, 1.25vw, 1.04rem); line-height: 1.75; margin: 0; max-width: 720px; }
-
-    /* ===== SECTION NOS EXPERTS ===== */
-    .bnf-experts { background: #000; padding: clamp(72px, 9vw, 118px) 24px; position: relative; overflow: hidden; }
-    .bnf-experts::after { content: ""; position: absolute; width: 780px; height: 780px; bottom: -460px; left: 50%; transform: translateX(-50%); background: radial-gradient(circle at center, rgba(84,155,162,0.2) 0%, rgba(84,155,162,0.04) 45%, rgba(84,155,162,0) 72%); filter: blur(70px); pointer-events: none; }
-    .bnf-experts-inner { max-width: 940px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
-    .bnf-experts .section-label { color: #549ba2; font-family: Montserrat, sans-serif; font-size: 0.74rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3em; margin: 0 0 22px; }
-    .bnf-experts h2 { font-family: Georgia, serif; font-size: clamp(1.9rem, 4vw, 3.1rem); font-weight: 400; color: #fff; line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 24px; }
-    .bnf-experts h2 .accent { color: #549ba2; white-space: normal; }
-    .bnf-experts > .bnf-experts-inner > p { color: rgba(255,255,255,0.66); font-size: clamp(1rem, 1.5vw, 1.16rem); line-height: 1.8; max-width: 680px; margin: 0 auto clamp(36px, 5vw, 52px); }
-
-    .bnf-fams { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; text-align: left; margin-bottom: clamp(34px, 4.5vw, 46px); }
-    .bnf-fam { border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: clamp(24px, 3vw, 34px); background: rgba(255,255,255,0.02); }
-    .bnf-fam h3 { font-family: Georgia, serif; font-size: clamp(1.55rem, 2.8vw, 2.2rem); font-weight: 400; color: #fff; margin: 0 0 20px; letter-spacing: -0.015em; line-height: 1.1; }
-    .bnf-fam ul { list-style: none; padding: 0; margin: 0; }
-    .bnf-fam li { color: rgba(255,255,255,0.55); font-size: clamp(0.86rem, 1.1vw, 0.94rem); line-height: 1.95; }
-    .bnf-fam li::before { content: "—"; color: #549ba2; margin-right: 10px; }
-
-    .bnf-experts-note { color: rgba(255,255,255,0.42); font-size: clamp(0.88rem, 1.15vw, 0.96rem); line-height: 1.75; max-width: 620px; margin: 0 auto clamp(30px, 4vw, 40px); }
-    .bnf-btn-ghost { background: transparent; border: 1px solid rgba(84,155,162,0.6); color: #fff; }
-    .bnf-btn-ghost:hover { background: rgba(84,155,162,0.14); }
-
-    @media (max-width: 640px) {
-        .bnf-methode { padding: 58px 20px; }
-        .bnf-steps { padding-left: 52px; }
-        .bnf-steps::before { left: 19px; }
-        .bnf-steps::after { left: 13px; }
-        .bnf-step { padding-bottom: 28px; }
-        .bnf-step-num { left: -52px; width: 40px; height: 40px; font-size: 0.76rem; }
-        .bnf-experts { padding: 58px 20px; }
-        .bnf-fams { grid-template-columns: 1fr; gap: 12px; }
-        .bnf-fam { padding: 22px 20px; border-radius: 14px; }
-    }
-    </style>
-
-    <section class="bnf-methode" id="methode">
-        <div class="bnf-methode-inner">
-            <div class="bnf-methode-head">
-                <p class="section-label fade-up">Notre méthode</p>
-                <h2 class="fade-up">Comprendre d'abord. <span class="accent">Agir ensuite.</span></h2>
-                <p class="fade-up">Chaque mission suit le même cheminement. Ce n'est pas une prestation technique&nbsp;: c'est une capacité de jugement et d'orchestration.</p>
-            </div>
-            <div class="bnf-steps fade-up">
-
-                <div class="bnf-step">
-                    <span class="bnf-step-num">01</span>
-                    <h3>Comprendre</h3>
-                    <p>Rencontrer le dirigeant. Comprendre son entreprise, son marché, ses objectifs, ses difficultés et ses ambitions.</p>
-                </div>
-
-                <div class="bnf-step">
-                    <span class="bnf-step-num">02</span>
-                    <h3>Diagnostiquer</h3>
-                    <p>Identifier les opportunités inexploitées, les points de friction, les incohérences et les priorités réelles.</p>
-                </div>
-
-                <div class="bnf-step">
-                    <span class="bnf-step-num">03</span>
-                    <h3>Construire une trajectoire</h3>
-                    <p>Déterminer ce qu'il faut faire, dans quel ordre, avec quels moyens et avec quels indicateurs.</p>
-                </div>
-
-                <div class="bnf-step">
-                    <span class="bnf-step-num">04</span>
-                    <h3>Mobiliser</h3>
-                    <p>Faire intervenir les expertises nécessaires, et seulement celles-là, au moment où elles servent.</p>
-                </div>
-
-                <div class="bnf-step">
-                    <span class="bnf-step-num">05</span>
-                    <h3>Piloter</h3>
-                    <p>Conserver la vision globale du projet. Coordonner les intervenants, suivre les décisions, maintenir la cohérence.</p>
-                </div>
-
-                <div class="bnf-step">
-                    <span class="bnf-step-num">06</span>
-                    <h3>Mesurer et ajuster</h3>
-                    <p>Observer les résultats, identifier ce qui fonctionne, corriger ce qui doit l'être, continuer à développer.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================================
-         NOS EXPERTS — teaser vers /expertises/
-         ============================================================ -->
-    <section class="bnf-experts" id="experts">
-        <div class="bnf-experts-inner">
-            <p class="section-label fade-up">Nos experts</p>
-            <h2 class="fade-up">Nous ne prétendons pas tout faire.<br><span class="accent">Nous savons qui le fait.</span></h2>
-            <p class="fade-up">
-                Chaque entreprise nécessite une combinaison différente d'expertises.
-                Nous sélectionnons et coordonnons les spécialistes pertinents en fonction de la situation.
-            </p>
-
-            <div class="bnf-fams fade-up">
-                <div class="bnf-fam">
-                    <h3>Structurer</h3>
-                    <ul>
-                        <li>Organisation &amp; opérations</li>
-                        <li>CRM &amp; automatisation</li>
-                        <li>Intelligence artificielle</li>
-                        <li>Data &amp; pilotage</li>
-                        <li>Finance &amp; financement</li>
-                        <li>Management &amp; transformation</li>
-                    </ul>
-                </div>
-                <div class="bnf-fam">
-                    <h3>Développer</h3>
-                    <ul>
-                        <li>Web &amp; expérience digitale</li>
-                        <li>Marketing &amp; acquisition</li>
-                        <li>SEO &amp; visibilité</li>
-                        <li>Branding &amp; identité</li>
-                        <li>Social Media</li>
-                        <li>Imagerie</li>
-                    </ul>
-                </div>
-            </div>
-
-            <p class="bnf-experts-note fade-up">
-                BNFConsulting conserve la vision stratégique et la coordination globale de chaque mission.
-            </p>
-
-            <div class="fade-up" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
-                <a href="/expertises/" class="btn btn-primary btn-large">Comment développer mon opération</a>
-            </div>
-        </div>
-    </section>
 
     <!-- SECTEURS TEASER -->
     <style>
@@ -1556,8 +1604,107 @@
         }
     </style>
 
+    <section id="visibilite" style="background:#0a0a0a; padding:clamp(60px,8vw,90px) 0 clamp(40px,6vw,60px); text-align:center; scroll-margin-top:80px; position:relative;">
+        <div class="container" style="text-align:center; max-width:900px; position:relative; z-index:2;">
+            <p style="color:#549ba2; font-family:Montserrat,sans-serif; font-size:0.78rem; font-weight:600; text-transform:uppercase; letter-spacing:0.3em; margin:0 0 24px;">Positionnement visuel</p>
+            <h2 style="font-family:Georgia,serif; font-size:clamp(2rem,4.8vw,3.6rem); color:#fff; font-weight:400; line-height:1.1; margin: 0 0 24px; letter-spacing:-0.015em;">
+                Chaque image <span style="color:#549ba2;">transmet un message.</span>
+            </h2>
+            <p style="color:rgba(255,255,255,0.78); font-size:clamp(1.05rem,1.5vw,1.25rem); line-height:1.7; max-width:680px; margin:0 auto;">
+                L'enjeu n'est pas simplement d'<span style="color:#fff; font-weight:500;">être vu</span>, mais d'<span style="color:#fff; font-weight:500;">être perçu</span> à la hauteur de la valeur que vous apportez.
+            </p>
+        </div>
+    </section>
 
+    <!-- Drone showcase panels -->
+    <section style="background:#0a0a0a; position:relative; overflow:hidden;">
 
+        <!-- APP 01 — Photo Drone -->
+        <div style="position:relative; height:100vh; height:100dvh; overflow:hidden; display:flex; align-items:center; justify-content:flex-end;">
+            <div style="position:absolute; inset:0; z-index:0;">
+                <img src="/public/photos/drones-best-3.jpg" alt="Photo drone" loading="lazy" style="width:100%; height:100%; object-fit:cover; display:block;">
+                <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);"></div>
+                <div style="position:absolute; top:0; left:0; right:0; height:25vh; background:linear-gradient(to bottom, #0a0a0a 0%, transparent 100%); z-index:1;"></div>
+                <span style="position:absolute; bottom:56px; right:16px; z-index:3; font-family:Montserrat,sans-serif; font-size:0.7rem; letter-spacing:0.05em; color:rgba(255,255,255,0.7); text-shadow:0 1px 3px rgba(0,0,0,0.6); pointer-events:none;">By DroneProMotion</span>
+            </div>
+            <div style="position:relative; z-index:1; padding:clamp(40px,6vw,80px); max-width:800px; text-align:right;">
+                <div style="background:rgba(0,0,0,0.45); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-radius:20px; padding:clamp(28px,4vw,48px) clamp(24px,4vw,56px); display:inline-block; text-align:right;">
+                    <p style="font-family:Montserrat,sans-serif; font-size:clamp(0.7rem,1vw,0.9rem); font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:16px;">Application 01</p>
+                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(2.5rem,6vw,5rem); margin-bottom:24px; line-height:1;">Photo Drone <span style="color:#549ba2;">5.1K</span></h3>
+                    <p style="color:rgba(255,255,255,0.9); font-size:clamp(1rem,1.5vw,1.3rem); line-height:1.7;">Capturer vos espaces en ultra haute d&eacute;finition pour valoriser chaque angle, chaque lumi&egrave;re.</p>
+                </div>
+            </div>
+            <div style="position:absolute; bottom:-1px; left:0; right:0; height:40px; background:#0a0a0a; clip-path:polygon(0 100%, 100% 0, 100% 100%); z-index:2;"></div>
+        </div>
+
+        <!-- APP 02 — Vidéo Cinématique -->
+        <div style="position:relative; height:100vh; height:100dvh; overflow:hidden; display:flex; align-items:center; justify-content:flex-start;">
+            <div style="position:absolute; inset:0; z-index:0;">
+                <video autoplay muted loop playsinline preload="none" style="width:100%; height:100%; object-fit:cover; display:block;">
+                    <source src="/public/videos/boat.mp4" type="video/mp4">
+                </video>
+                <div style="position:absolute; inset:0; background:linear-gradient(225deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);"></div>
+                <span style="position:absolute; bottom:56px; right:16px; z-index:3; font-family:Montserrat,sans-serif; font-size:0.7rem; letter-spacing:0.05em; color:rgba(255,255,255,0.7); text-shadow:0 1px 3px rgba(0,0,0,0.6); pointer-events:none;">By DroneProMotion</span>
+            </div>
+            <div style="position:absolute; top:-1px; left:0; right:0; height:40px; background:#0a0a0a; clip-path:polygon(0 0, 100% 0, 0 100%); z-index:2;"></div>
+            <div style="position:relative; z-index:1; padding:clamp(40px,6vw,80px); max-width:800px; text-align:left;">
+                <div style="background:rgba(0,0,0,0.45); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border-radius:20px; padding:clamp(28px,4vw,48px) clamp(24px,4vw,56px); display:inline-block; text-align:left;">
+                    <p style="font-family:Montserrat,sans-serif; font-size:clamp(0.7rem,1vw,0.9rem); font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:16px;">Application 02</p>
+                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(2.5rem,6vw,5rem); margin-bottom:24px; line-height:1;">Vid&eacute;o <span style="color:#549ba2;">Cin&eacute;matique</span></h3>
+                    <p style="color:rgba(255,255,255,0.9); font-size:clamp(1rem,1.5vw,1.3rem); line-height:1.7;">Survols, travellings et plong&eacute;es &mdash; un rendu immersif qui transforme la perception de vos espaces.</p>
+                </div>
+            </div>
+            <div style="position:absolute; bottom:-1px; left:0; right:0; height:40px; background:#0a0a0a; clip-path:polygon(0 100%, 100% 0, 100% 100%); z-index:2;"></div>
+        </div>
+
+        <!-- APP 03 — Prise de vue Intérieure -->
+        <div style="position:relative; background:#0a0a0a; padding:clamp(80px,12vh,140px) clamp(24px,5vw,80px); overflow:hidden;">
+            <div style="position:absolute; top:-1px; left:0; right:0; height:40px; background:#0a0a0a; clip-path:polygon(0 0, 100% 0, 0 100%); z-index:2;"></div>
+            <div style="display:flex; align-items:center; justify-content:center; gap:clamp(32px,5vw,80px); max-width:1200px; margin:0 auto; flex-wrap:wrap;">
+                <div style="flex:0 0 auto; width:min(480px, 90vw); aspect-ratio:1/1; border-radius:20px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,0.5); position:relative;">
+                    <video autoplay muted loop playsinline preload="none" style="width:100%; height:100%; object-fit:cover; display:block;">
+                        <source src="/public/videos/secteurs/immobilier/realestate.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div style="flex:1 1 360px; max-width:520px;">
+                    <p style="font-family:Montserrat,sans-serif; font-size:clamp(0.7rem,1vw,0.9rem); font-weight:600; text-transform:uppercase; letter-spacing:0.15em; color:#549ba2; margin-bottom:16px;">Application 03</p>
+                    <h3 style="font-family:Georgia,serif; color:#fff; font-size:clamp(2.2rem,4.5vw,4rem); margin-bottom:24px; line-height:1.05;">Prise de vue <span style="color:#549ba2;">Int&eacute;rieure</span></h3>
+                    <p style="color:rgba(255,255,255,0.85); font-size:clamp(1rem,1.4vw,1.2rem); line-height:1.7;">Drones compacts en espaces clos pour des angles et une fluidit&eacute; impossibles autrement.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION : Méthode -->
+    <section class="section intervention-photo-section" id="methode">
+        <div class="intervention-photo-bg">
+            <img src="/public/photos/drones-best-teinture-violette.jpg" alt="" loading="lazy">
+        </div>
+        <div class="intervention-photo-overlay"></div>
+        <div class="container container-relative" style="text-align:center;">
+            <p class="section-label">Notre méthode</p>
+            <h2 class="section-title" style="color:#fff;">Comment nous <span class="accent">intervenons</span></h2>
+            <p style="color:rgba(255,255,255,0.6); font-size:clamp(0.9rem,1.5vw,1.05rem); line-height:1.7; max-width:600px; margin:0 auto 3rem;">Chaque projet suit un processus clair, de l'échange initial à la livraison finale.</p>
+            <div class="methode-steps">
+                <div class="methode-step">
+                    <span class="methode-num">01</span>
+                    <h3>Échange</h3>
+                    <p>On comprend votre besoin, votre secteur et vos objectifs visuels.</p>
+                </div>
+                <div class="methode-step">
+                    <span class="methode-num">02</span>
+                    <h3>Captation</h3>
+                    <p>Intervention sur site : prise de vue drone, photo, vidéo.</p>
+                </div>
+                <div class="methode-step">
+                    <span class="methode-num">03</span>
+                    <h3>Livraison</h3>
+                    <p>Montage, retouche et livraison multi-formats sous 48h.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- TARIFS -->
     <style>
@@ -1718,6 +1865,20 @@
         .formules-v4-title .accent { color:#549ba2; }
         .formules-v4-intro { color:rgba(255,255,255,0.55); font-size:clamp(0.92rem,1.2vw,1rem); text-align:center; max-width:600px; margin:0 auto clamp(48px,6vw,72px); line-height:1.7; }
 
+        /* === ÉTAT "EN CONSTRUCTION" === */
+        .formules-wip { max-width:620px; margin:clamp(24px,4vw,40px) auto 0; text-align:center; padding:clamp(32px,5vw,52px) clamp(24px,4vw,40px); border:1px solid rgba(84,155,162,0.25); border-radius:20px; background:rgba(255,255,255,0.03); }
+        .formules-wip-icon { width:54px; height:54px; margin:0 auto clamp(20px,3vw,26px); border-radius:50%; display:flex; align-items:center; justify-content:center; background:rgba(84,155,162,0.12); color:#549ba2; }
+        .formules-wip-icon svg { width:26px; height:26px; }
+        .formules-wip-text { color:rgba(255,255,255,0.72); font-size:clamp(0.98rem,1.4vw,1.1rem); line-height:1.75; margin:0 0 clamp(26px,4vw,34px); }
+        .formules-wip-actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+        .formules-wip-btn-ghost { background:transparent; border:1px solid rgba(84,155,162,0.6); color:#fff; }
+        .formules-wip-btn-ghost:hover { background:rgba(84,155,162,0.14); }
+        @media (max-width:600px) {
+            .formules-wip { padding:32px 20px; border-radius:16px; }
+            .formules-wip-actions { flex-direction:column; }
+            .formules-wip-actions .btn { width:100%; }
+        }
+
         /* Liste verticale des formules */
         .formule-row { display:flex; align-items:flex-start; gap:20px; padding:24px clamp(20px,3vw,32px); background:rgba(255,255,255,0.025); border:1px solid rgba(84,155,162,0.15); border-radius:16px; margin-bottom:12px; transition:border-color 0.3s, background 0.3s; cursor:pointer; position:relative; }
         .formule-row:hover { border-color:rgba(84,155,162,0.5); background:rgba(84,155,162,0.05); }
@@ -1775,6 +1936,292 @@
             .formule-row { gap:14px; padding:20px 18px; }
         }
     </style>
+    <!-- ============================================================
+         SECTION FORMULES — EN CONSTRUCTION
+         Le contenu complet (6 packs, récap live, envoi Formspree) est
+         conservé intact ci-dessous, simplement masqué via #formules-wip.
+         Pour le réactiver : supprimer le bloc .formules-wip et retirer
+         l'attribut style="display:none" porté par l'élément #formules-wip.
+         ============================================================ -->
+    <section id="tarifs" class="formules-v4">
+        <div class="formules-v4-inner">
+            <p class="formules-v4-label">Nos formules</p>
+            <h2 class="formules-v4-title">Bientôt <span class="accent">disponible</span></h2>
+            <div class="formules-wip">
+                <div class="formules-wip-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg>
+                </div>
+                <p class="formules-wip-text">
+                    Nos formules d'imagerie sont en cours de refonte.<br>
+                    En attendant, parlons directement de votre projet — nous établissons une proposition adaptée à votre situation.
+                </p>
+                <div class="formules-wip-actions">
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="btn btn-primary btn-large">Prendre rendez-vous — 30 min</a>
+                    <a href="mailto:contact@bnf-consulting.fr" class="btn btn-large formules-wip-btn-ghost">Nous écrire</a>
+                </div>
+            </div>
+
+            <div id="formules-wip" style="display:none;" aria-hidden="true">
+            <p class="formules-v4-intro">Cochez les formules qui vous intéressent — du simple plan-vidéo au pack complet de croissance. Envoyez-nous votre sélection par WhatsApp ou email, on revient sous 24h avec un devis.</p>
+
+            <form class="formules-list" id="formulesList" onsubmit="return false;">
+                <label class="formule-row" data-formule="01" data-prix="200">
+                    <input type="checkbox" class="formule-checkbox-input" hidden>
+                    <span class="formule-checkbox"></span>
+                    <div class="formule-content">
+                        <div class="formule-header">
+                            <span class="formule-numero"><span class="badge-new">Nouveau</span>Formule 01 — Essentielle</span>
+                            <span class="formule-prix">200 €</span>
+                        </div>
+                        <h3 class="formule-titre">Vidéo intérieure en drone FPV + 5 images</h3>
+                        <p class="formule-desc">Une première mise en lumière de votre établissement grâce à une captation immersive en drone FPV.</p>
+                        <p class="formule-details"><strong>Inclus :</strong> Vidéo intérieure drone FPV · 5 photos pro · Formats optimisés réseaux · Livraison rapide.<br><strong>Idéal pour :</strong> Restaurants, hôtels, commerces, showrooms, lieux recevant du public.</p>
+                    </div>
+                </label>
+
+                <label class="formule-row" data-formule="02" data-prix="500">
+                    <input type="checkbox" class="formule-checkbox-input" hidden>
+                    <span class="formule-checkbox"></span>
+                    <div class="formule-content">
+                        <div class="formule-header">
+                            <span class="formule-numero">📍 Formule 02 — Visibilité locale</span>
+                            <span class="formule-prix">500 €</span>
+                        </div>
+                        <h3 class="formule-titre">Publicité ciblée locale de la vidéo pendant 2 mois</h3>
+                        <p class="formule-desc">Nous utilisons votre vidéo pour toucher les bonnes personnes autour de votre activité.</p>
+                        <p class="formule-details"><strong>Inclus :</strong> Création de la campagne · Ciblage géographique local · Diffusion 2 mois · Suivi des performances.<br><strong>Objectif :</strong> Faire découvrir votre activité à de nouveaux clients proches de chez vous.</p>
+                    </div>
+                </label>
+
+                <label class="formule-row" data-formule="03" data-prix="900">
+                    <input type="checkbox" class="formule-checkbox-input" hidden>
+                    <span class="formule-checkbox"></span>
+                    <div class="formule-content">
+                        <div class="formule-header">
+                            <span class="formule-numero">📈 Formule 03 — Conversion</span>
+                            <span class="formule-prix">900 €</span>
+                        </div>
+                        <h3 class="formule-titre">Landing page de conversion + série de 3 publicités sur 3 mois</h3>
+                        <p class="formule-desc">Transformez votre visibilité en demandes de contact.</p>
+                        <p class="formule-details"><strong>Inclus :</strong> Landing page optimisée · 3 campagnes publicitaires · Diffusion 3 mois · Optimisation conversion.<br><strong>Objectif :</strong> Générer davantage de prises de contact et de demandes de devis.</p>
+                    </div>
+                </label>
+
+                <label class="formule-row" data-formule="04" data-prix="1500">
+                    <input type="checkbox" class="formule-checkbox-input" hidden>
+                    <span class="formule-checkbox"></span>
+                    <div class="formule-content">
+                        <div class="formule-header">
+                            <span class="formule-numero">💻 Formule 04 — Site internet</span>
+                            <span class="formule-prix">1 500 €</span>
+                        </div>
+                        <h3 class="formule-titre">Création d'un site internet interactif + version téléphone</h3>
+                        <p class="formule-desc">Un site moderne conçu pour présenter votre activité et convertir vos visiteurs.</p>
+                        <p class="formule-details"><strong>Inclus :</strong> Design professionnel · Site responsive (PC/tablette/mobile) · UX optimisée · Formulaire contact · Mise en ligne.<br><strong>Objectif :</strong> Renforcer votre crédibilité et centraliser votre présence en ligne.</p>
+                    </div>
+                </label>
+
+                <label class="formule-row featured" data-formule="05" data-prix="2500">
+                    <input type="checkbox" class="formule-checkbox-input" hidden>
+                    <span class="formule-checkbox"></span>
+                    <div class="formule-content">
+                        <div class="formule-header">
+                            <span class="formule-numero">💎 Formule 05 — Pack complet visibilité</span>
+                            <span class="formule-prix">2 500 €</span>
+                        </div>
+                        <h3 class="formule-titre">L'image premium de votre entreprise</h3>
+                        <p class="formule-desc">La formule idéale pour les entreprises souhaitant franchir un cap.</p>
+                        <p class="formule-details"><strong>Inclus :</strong> Prises de vue drone extérieures · Photos intérieures pro · Vidéo intérieure drone FPV · Site internet optimisé conversion · Valorisation complète.<br><strong>Objectif :</strong> Créer une image haut de gamme et attirer davantage de clients.</p>
+                    </div>
+                </label>
+
+                <label class="formule-row featured" data-formule="06" data-prix="sur-mesure">
+                    <input type="checkbox" class="formule-checkbox-input" hidden>
+                    <span class="formule-checkbox"></span>
+                    <div class="formule-content">
+                        <div class="formule-header">
+                            <span class="formule-numero">👑 Formule 06 — Pack complet sur-mesure</span>
+                            <span class="formule-prix">3 000 – 6 500 €</span>
+                        </div>
+                        <h3 class="formule-titre">Un accompagnement complet adapté à vos objectifs de croissance</h3>
+                        <p class="formule-desc">Construire un système complet de visibilité, d'acquisition et de croissance durable.</p>
+                        <p class="formule-details"><strong>Inclus selon vos besoins :</strong> Outils de conversion avancés · Publicités ciblées Meta Ads · Identité de marque premium · Création de contenus stratégiques · Automatisations · Accompagnement personnalisé · Solutions sur mesure.</p>
+                    </div>
+                </label>
+            </form>
+
+            <div class="formules-contact">
+                <h3>Vos coordonnées</h3>
+                <p class="note">On vous rappelle sous 24h avec un devis détaillé selon votre sélection.</p>
+                <div id="formuleSelectionSummary" class="formule-selection-summary empty">
+                    <p class="empty-msg">Aucune formule sélectionnée pour le moment.</p>
+                </div>
+                <div class="formules-fields">
+                    <input type="text" id="formuleNom" placeholder="Nom complet *" required>
+                    <input type="tel" id="formuleTel" placeholder="Téléphone">
+                    <input type="email" id="formuleEmail" class="full" placeholder="Email *" required>
+                    <textarea id="formuleQuestions" class="full" placeholder="Questions ou précisions (facultatif)" rows="3" style="width:100%; padding:14px 16px; background:rgba(255,255,255,0.04); border:1px solid rgba(84,155,162,0.2); border-radius:10px; color:#fff; font-family:Montserrat,sans-serif; font-size:0.92rem; resize:vertical; min-height:80px;"></textarea>
+                </div>
+                <div class="formules-send-buttons">
+                    <button type="button" class="formules-send-btn whatsapp" onclick="sendFormulesWhatsapp()">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.273-.101-.473-.15-.673.15-.2.301-.767.966-.94 1.165-.173.2-.347.226-.647.075-.3-.15-1.267-.467-2.412-1.487-.893-.795-1.495-1.777-1.67-2.078-.173-.301-.018-.466.13-.616.134-.135.301-.345.451-.523.146-.181.194-.301.297-.501.099-.2.05-.375-.025-.525-.075-.15-.672-1.62-.922-2.206-.244-.579-.487-.5-.672-.51l-.572-.01c-.198 0-.52.074-.792.372-.272.298-1.04 1.016-1.04 2.479s1.065 2.876 1.213 3.074c.149.2 2.097 3.205 5.077 4.49.71.305 1.262.488 1.694.625.713.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.572-.347zM12 2C6.486 2 2 6.486 2 12c0 1.911.54 3.696 1.473 5.215L2 22l4.913-1.426A9.94 9.94 0 0 0 12 22c5.514 0 10-4.486 10-10S17.514 2 12 2z"/></svg>
+                        Envoyer par WhatsApp
+                    </button>
+                    <button type="button" class="formules-send-btn email" onclick="sendFormulesEmail()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+                        Envoyer par Email
+                    </button>
+                    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="formules-send-btn calendar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        Prendre rendez-vous
+                    </a>
+                </div>
+                <p class="formules-error" id="formuleError"></p>
+            </div>
+            </div><!-- /#formules-wip — fin du contenu formules masqué -->
+        </div>
+    </section>
+    <script>
+    (function(){
+        var summaryEl = document.getElementById('formuleSelectionSummary');
+
+        function updateSummary(){
+            var rows = document.querySelectorAll('.formule-row.checked');
+            if (!rows.length) {
+                summaryEl.className = 'formule-selection-summary empty';
+                summaryEl.innerHTML = '<p class="empty-msg">Aucune formule sélectionnée pour le moment.</p>';
+                return;
+            }
+            var html = '<p class="summary-label">Votre sélection</p><ul>';
+            var total = 0, hasRange = false;
+            rows.forEach(function(row){
+                var num = row.querySelector('.formule-numero').textContent.replace('Nouveau','').trim();
+                var prix = row.querySelector('.formule-prix').textContent.trim();
+                html += '<li><span class="sum-titre">' + num + '</span><span class="sum-prix">' + prix + '</span></li>';
+                var prixAttr = row.getAttribute('data-prix');
+                if (prixAttr === 'sur-mesure') hasRange = true;
+                else total += parseInt(prixAttr, 10) || 0;
+            });
+            html += '</ul>';
+            if (total > 0) {
+                var totalStr = total.toLocaleString('fr-FR') + ' €';
+                if (hasRange) totalStr += ' + sur-mesure';
+                html += '<div class="summary-total"><span class="summary-total-label">Total indicatif</span><span class="summary-total-value">' + totalStr + '</span></div>';
+                html += '<span class="summary-total-note">Devis final ajusté selon votre projet.</span>';
+            } else if (hasRange) {
+                html += '<div class="summary-total"><span class="summary-total-label">Total</span><span class="summary-total-value">Sur-mesure</span></div>';
+                html += '<span class="summary-total-note">Devis personnalisé selon votre projet.</span>';
+            }
+            summaryEl.className = 'formule-selection-summary';
+            summaryEl.innerHTML = html;
+        }
+
+        // Toggle checkbox visuel au clic sur la card + mise a jour du resume live
+        document.querySelectorAll('.formule-row').forEach(function(row){
+            row.addEventListener('click', function(e){
+                if (e.target.tagName === 'A') return;
+                var cb = row.querySelector('.formule-checkbox-input');
+                cb.checked = !cb.checked;
+                row.classList.toggle('checked', cb.checked);
+                updateSummary();
+            });
+        });
+
+        // Expose pour reset apres envoi
+        window.__resetFormulesSummary = updateSummary;
+    })();
+
+    function buildFormulesMessage(){
+        var nom = document.getElementById('formuleNom').value.trim();
+        var email = document.getElementById('formuleEmail').value.trim();
+        var tel = document.getElementById('formuleTel').value.trim();
+        var err = document.getElementById('formuleError');
+        err.textContent = '';
+        if (!nom || !email) {
+            err.textContent = 'Merci de renseigner au moins votre nom et email.';
+            return null;
+        }
+        var selected = [];
+        document.querySelectorAll('.formule-row').forEach(function(row){
+            var cb = row.querySelector('.formule-checkbox-input');
+            if (cb.checked) {
+                var num = row.querySelector('.formule-numero').textContent.trim();
+                var titre = row.querySelector('.formule-titre').textContent.trim();
+                var prix = row.querySelector('.formule-prix').textContent.trim();
+                selected.push('• ' + num + ' — ' + titre + ' (' + prix + ')');
+            }
+        });
+        if (!selected.length) {
+            err.textContent = 'Cochez au moins une formule avant d\'envoyer.';
+            return null;
+        }
+        var questions = document.getElementById('formuleQuestions').value.trim();
+        var msg = 'Bonjour BNFConsulting,\n\nJe suis intéressé(e) par les formules suivantes :\n\n' + selected.join('\n');
+        msg += '\n\n— Mes coordonnées —\nNom : ' + nom + '\nEmail : ' + email;
+        if (tel) msg += '\nTéléphone : ' + tel;
+        if (questions) msg += '\n\n— Questions —\n' + questions;
+        return msg;
+    }
+
+    function sendFormulesWhatsapp(){
+        var msg = buildFormulesMessage();
+        if (!msg) return;
+        window.open('https://wa.me/33668147915?text=' + encodeURIComponent(msg), '_blank');
+    }
+
+    function sendFormulesEmail(){
+        var msg = buildFormulesMessage();
+        if (!msg) return;
+        var nom = document.getElementById('formuleNom').value.trim();
+        var email = document.getElementById('formuleEmail').value.trim();
+        var tel = document.getElementById('formuleTel').value.trim();
+        var questions = document.getElementById('formuleQuestions').value.trim();
+        var err = document.getElementById('formuleError');
+        var btn = document.querySelector('.formules-send-btn.email');
+        var originalBtnText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = 'Envoi en cours...';
+        err.style.color = '#ff6b6b';
+        err.textContent = '';
+        fetch('https://formspree.io/f/mbdaboon', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                _subject: 'Demande de devis — Formules BNFConsulting',
+                nom: nom,
+                email: email,
+                telephone: tel,
+                questions: questions,
+                message: msg,
+                _replyto: email
+            })
+        }).then(function(r){
+            btn.disabled = false;
+            if (r.ok) {
+                btn.innerHTML = '✓ Demande envoyée';
+                btn.style.background = '#2ea44f';
+                err.style.color = '#7fd99b';
+                err.textContent = 'Merci ! Nous revenons vers vous sous 24h.';
+                // Reset form après succès
+                setTimeout(function(){
+                    document.querySelectorAll('.formule-row.checked').forEach(function(r){ r.classList.remove('checked'); r.querySelector('.formule-checkbox-input').checked = false; });
+                    document.getElementById('formuleNom').value = '';
+                    document.getElementById('formuleEmail').value = '';
+                    document.getElementById('formuleTel').value = '';
+                    document.getElementById('formuleQuestions').value = '';
+                    if (window.__resetFormulesSummary) window.__resetFormulesSummary();
+                }, 1500);
+            } else {
+                btn.innerHTML = originalBtnText;
+                err.textContent = 'Erreur d\'envoi. Réessayez ou utilisez WhatsApp.';
+            }
+        }).catch(function(){
+            btn.disabled = false;
+            btn.innerHTML = originalBtnText;
+            err.textContent = 'Erreur réseau. Réessayez ou utilisez WhatsApp.';
+        });
+    }
+    </script>
 
     <!-- TÉMOIGNAGES -->
     <style>
@@ -2124,7 +2571,7 @@
                 </a>
             </div>
             <!-- Copyright -->
-            <p style="font-size:0.75rem; color:rgba(255,255,255,0.25);">&copy; 2026 BNFConsulting · Yvelines · Île-de-France · SIRET 923 728 638 · <a href="mentions-legales.html" style="color:rgba(255,255,255,0.25); text-decoration:none;">Mentions légales</a></p>
+            <p style="font-size:0.75rem; color:rgba(255,255,255,0.25);">&copy; 2026 BNFConsulting · Yvelines · Île-de-France · SIRET 923 728 638 · <a href="/mentions-legales.html" style="color:rgba(255,255,255,0.25); text-decoration:none;">Mentions légales</a></p>
         </div>
     </footer>
 
@@ -2141,20 +2588,20 @@
         <div class="fab-panel" id="fabPanel">
             <div class="fab-section">
                 <p class="fab-label">Navigation</p>
-                <a href="#proposition" class="fab-link fab-home">Notre approche</a>
+                <a href="/" class="fab-link fab-home">Accueil</a>
                 <div class="fab-axes-group">
-                    <a href="#methode" class="fab-link">Notre méthode</a>
                     <a href="/expertises/" class="fab-link">Nos experts</a>
-                    <a href="/expertises/imagerie/" class="fab-link">Imagerie</a>
+                    <a href="#visibilite" class="fab-link">Photo, vidéo &amp; drone</a>
+                    <a href="#methode" class="fab-link">Comment nous intervenons</a>
                 </div>
                 <p class="fab-label" style="margin-top:10px;">Preuves</p>
                 <div class="fab-axes-group">
                     <a href="/immobilier/" class="fab-link">Immobilier</a>
-                    <a href="/automobile/" class="fab-link">Automobile</a>
-                    <a href="/domaines/" class="fab-link">Châteaux & Domaines</a>
                     <a href="/hotellerie/" class="fab-link">Hôtellerie & Restaurants</a>
-                    <a href="/evenementiel/" class="fab-link">Événementiel</a>
+                    <a href="/domaines/" class="fab-link">Châteaux & Domaines</a>
                     <a href="/architecture/" class="fab-link">Architecture</a>
+                    <a href="/automobile/" class="fab-link">Automobile</a>
+                    <a href="/evenementiel/" class="fab-link">Événementiel</a>
                 </div>
                 <a href="/articles/" class="fab-link">Articles</a>
             </div>
@@ -2189,7 +2636,7 @@
     </a>
 
     <!-- BOUTON LANGUE -->
-    <a href="en/index.html" class="lang-fab" aria-label="English version">EN</a>
+    <a href="/en/index.html" class="lang-fab" aria-label="English version">EN</a>
 
     <script>
     /* Lazy video play/pause */

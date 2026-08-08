@@ -924,17 +924,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="fab-label">Navigation</p>
                 <a href="/" class="fab-link fab-home">Accueil</a>
                 <div class="fab-axes-group">
-                    <a href="/#visibilite" class="fab-link">Production visuelle</a>
-                    <a href="/#tarifs" class="fab-link">Nos formules</a>
+                    <a href="/expertises/" class="fab-link">Nos experts</a>
+                    <a href="/expertises/imagerie/" class="fab-link">Imagerie</a>
                 </div>
-                <p class="fab-label" style="margin-top:10px;">Secteurs</p>
+                <p class="fab-label" style="margin-top:10px;">Preuves</p>
                 <div class="fab-axes-group">
                     <a href="/immobilier/" class="fab-link">Immobilier</a>
-                    <a href="/automobile/" class="fab-link">Automobile</a>
-                    <a href="/domaines/" class="fab-link">Châteaux & Domaines</a>
                     <a href="/hotellerie/" class="fab-link">Hôtellerie & Restaurants</a>
-                    <a href="/evenementiel/" class="fab-link">Événementiel</a>
+                    <a href="/domaines/" class="fab-link">Châteaux & Domaines</a>
                     <a href="/architecture/" class="fab-link">Architecture</a>
+                    <a href="/automobile/" class="fab-link">Automobile</a>
+                    <a href="/evenementiel/" class="fab-link">Événementiel</a>
                 </div>
                 <a href="/articles/" class="fab-link">Articles</a>
             </div>
