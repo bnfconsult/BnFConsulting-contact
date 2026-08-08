@@ -980,23 +980,26 @@
     .bnf-step h3 { font-family: Georgia, serif; font-size: clamp(1.25rem, 2vw, 1.6rem); font-weight: 400; color: #fff; margin: 0 0 10px; line-height: 1.25; }
     .bnf-step p { color: rgba(255,255,255,0.56); font-size: clamp(0.94rem, 1.25vw, 1.04rem); line-height: 1.75; margin: 0; max-width: 720px; }
 
-    /* ===== SECTION NOS EXPERTS ===== */
-    .bnf-experts { background: #000; padding: clamp(72px, 9vw, 118px) 24px; position: relative; overflow: hidden; }
-    .bnf-experts::after { content: ""; position: absolute; width: 780px; height: 780px; bottom: -460px; left: 50%; transform: translateX(-50%); background: radial-gradient(circle at center, rgba(84,155,162,0.2) 0%, rgba(84,155,162,0.04) 45%, rgba(84,155,162,0) 72%); filter: blur(70px); pointer-events: none; }
+    /* ===== SECTION NOS EXPERTS — sur fond blanc =====
+       Seule section claire du site : elle sert de respiration entre la
+       méthode et les domaines d'intervention, et met en avant l'écosystème.
+       Le turquoise de marque (#549ba2) est trop clair sur blanc — il descend
+       à #33676d pour rester lisible (contraste 5.4:1 au lieu de 3.3:1). */
+    .bnf-experts { background: #fff; padding: clamp(72px, 9vw, 118px) 24px; position: relative; overflow: hidden; }
     .bnf-experts-inner { max-width: 940px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
-    .bnf-experts .section-label { color: #549ba2; font-family: Montserrat, sans-serif; font-size: 0.74rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3em; margin: 0 0 22px; }
-    .bnf-experts h2 { font-family: Georgia, serif; font-size: clamp(1.9rem, 4vw, 3.1rem); font-weight: 400; color: #fff; line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 24px; }
-    .bnf-experts h2 .accent { color: #549ba2; white-space: normal; }
-    .bnf-experts > .bnf-experts-inner > p { color: rgba(255,255,255,0.66); font-size: clamp(1rem, 1.5vw, 1.16rem); line-height: 1.8; max-width: 680px; margin: 0 auto clamp(36px, 5vw, 52px); }
+    .bnf-experts .section-label { color: #33676d; font-family: Montserrat, sans-serif; font-size: 0.74rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3em; margin: 0 0 22px; }
+    .bnf-experts h2 { font-family: Georgia, serif; font-size: clamp(1.9rem, 4vw, 3.1rem); font-weight: 400; color: #0d0d0d; line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 24px; }
+    .bnf-experts h2 .accent { color: #33676d; white-space: normal; }
+    .bnf-experts > .bnf-experts-inner > p { color: rgba(0,0,0,0.68); font-size: clamp(1rem, 1.5vw, 1.16rem); line-height: 1.8; max-width: 680px; margin: 0 auto clamp(36px, 5vw, 52px); }
 
     .bnf-fams { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; text-align: left; margin-bottom: clamp(34px, 4.5vw, 46px); }
-    .bnf-fam { border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: clamp(24px, 3vw, 34px); background: rgba(255,255,255,0.02); }
-    .bnf-fam h3 { font-family: Georgia, serif; font-size: clamp(1.55rem, 2.8vw, 2.2rem); font-weight: 400; color: #fff; margin: 0 0 20px; letter-spacing: -0.015em; line-height: 1.1; }
+    .bnf-fam { border: 1px solid rgba(0,0,0,0.12); border-radius: 16px; padding: clamp(24px, 3vw, 34px); background: rgba(0,0,0,0.018); }
+    .bnf-fam h3 { font-family: Georgia, serif; font-size: clamp(1.55rem, 2.8vw, 2.2rem); font-weight: 400; color: #0d0d0d; margin: 0 0 20px; letter-spacing: -0.015em; line-height: 1.1; }
     .bnf-fam ul { list-style: none; padding: 0; margin: 0; }
-    .bnf-fam li { color: rgba(255,255,255,0.55); font-size: clamp(0.86rem, 1.1vw, 0.94rem); line-height: 1.95; }
-    .bnf-fam li::before { content: "—"; color: #549ba2; margin-right: 10px; }
+    .bnf-fam li { color: rgba(0,0,0,0.62); font-size: clamp(0.86rem, 1.1vw, 0.94rem); line-height: 1.95; }
+    .bnf-fam li::before { content: "—"; color: #33676d; margin-right: 10px; }
 
-    .bnf-experts-note { color: rgba(255,255,255,0.42); font-size: clamp(0.88rem, 1.15vw, 0.96rem); line-height: 1.75; max-width: 620px; margin: 0 auto clamp(30px, 4vw, 40px); }
+    .bnf-experts-note { color: rgba(0,0,0,0.5); font-size: clamp(0.88rem, 1.15vw, 0.96rem); line-height: 1.75; max-width: 620px; margin: 0 auto clamp(30px, 4vw, 40px); }
     .bnf-btn-ghost { background: transparent; border: 1px solid rgba(84,155,162,0.6); color: #fff; }
     .bnf-btn-ghost:hover { background: rgba(84,155,162,0.14); }
 
