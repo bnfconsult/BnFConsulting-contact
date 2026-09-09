@@ -26,13 +26,13 @@
     <meta property="og:description" content="Chaque entreprise nécessite une combinaison différente d'expertises. BNFConsulting sélectionne et coordonne les spécialistes pertinents en fonction de la situation.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.bnf-consulting.fr/expertises/">
-    <meta property="og:image" content="https://www.bnf-consulting.fr/public/photos/logo-bnf-consulting.jpg">
+    <meta property="og:image" content="https://www.bnf-consulting.fr/public/photos/logo-bnf-social.png">
     <meta property="og:locale" content="fr_FR">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nos experts — Les expertises que nous mobilisons | BNFConsulting">
     <meta name="twitter:description" content="Chaque entreprise nécessite une combinaison différente d'expertises. BNFConsulting sélectionne et coordonne les spécialistes pertinents en fonction de la situation.">
-    <meta name="twitter:image" content="https://www.bnf-consulting.fr/public/photos/logo-bnf-consulting.jpg">
+    <meta name="twitter:image" content="https://www.bnf-consulting.fr/public/photos/logo-bnf-social.png">
     <!-- Canonical -->
     <link rel="canonical" href="https://www.bnf-consulting.fr/expertises/">
     <!-- Schema.org -->
@@ -46,8 +46,8 @@
         "name": "BNFConsulting",
         "description": "BNFConsulting coordonne les expertises qui permettent aux dirigeants d'atteindre leurs objectifs de développement : stratégie, organisation, acquisition, image et pilotage.",
         "url": "https://www.bnf-consulting.fr",
-        "logo": "https://www.bnf-consulting.fr/public/photos/logo-bnf-consulting.jpg",
-        "image": "https://www.bnf-consulting.fr/public/photos/logo-bnf-consulting.jpg",
+        "logo": "https://www.bnf-consulting.fr/public/photos/logo-bnf-social.png",
+        "image": "https://www.bnf-consulting.fr/public/photos/logo-bnf-social.png",
         "email": "contact@bnf-consulting.fr",
         "taxID": "923 728 638",
         "address": {
@@ -78,7 +78,7 @@
     <!-- NAVIGATION -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="/" class="nav-logo"><img src="/public/photos/logo-bnf-consulting.jpg" alt="BNFConsulting"></a>
+            <a href="/" class="nav-logo"><img src="/public/photos/logo-bnf-blanc.png" alt="BNFConsulting"></a>
             <button class="nav-toggle" id="navToggle" aria-label="Menu">
                 <span></span>
                 <span></span>
@@ -88,7 +88,7 @@
                 <li class="nav-home"><a href="/">Accueil</a></li>
                 <li><a href="/expertises/">Nos experts</a></li>
                 <li class="nav-dropdown">
-                    <a href="/#secteurs" class="nav-dropdown-toggle">Preuves</a>
+                    <a href="/#secteurs" class="nav-dropdown-toggle">Réalisations</a>
                     <ul class="nav-dropdown-menu">
                         <li><a href="/immobilier/">Immobilier</a></li>
                         <li><a href="/hotellerie/">Hôtellerie & Restaurants</a></li>
@@ -137,8 +137,11 @@
 
     <!-- ============================================================
          PAGE EXPERTISES — « Nos experts »
-         Toutes les classes sont préfixées .exp- pour garantir zéro
-         collision avec le CSS partagé (/src/assets/css/style.css).
+         Parti pris : photos uniquement là où il y a du travail à montrer.
+         Ici c'est du jugement, donc typographie et espace sur fond blanc.
+         Seule l'Imagerie porte un visuel — son produit EST l'image — ce qui
+         la désigne naturellement comme le seul bloc cliquable.
+         Classes préfixées .exp- : zéro collision avec le CSS partagé.
          ============================================================ -->
     <style>
     /* === HERO === */
@@ -149,19 +152,6 @@
         text-align: center;
         overflow: hidden;
     }
-    .exp-hero::after {
-        content: "";
-        position: absolute;
-        width: 900px; height: 900px;
-        top: -420px; left: 50%;
-        transform: translateX(-50%);
-        background: radial-gradient(circle at center, rgba(84,155,162,0.22) 0%, rgba(84,155,162,0.05) 42%, rgba(84,155,162,0) 70%);
-        filter: blur(70px);
-        pointer-events: none;
-        z-index: 2;
-    }
-
-    /* Photo de fond + voile de lisibilité */
     .exp-hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
     .exp-hero-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .exp-hero-veil {
@@ -170,156 +160,153 @@
             linear-gradient(to bottom, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.26) 42%, rgba(0,0,0,0.72) 100%),
             radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.38) 78%);
     }
-
     .exp-hero-inner { position: relative; z-index: 3; max-width: 860px; margin: 0 auto; }
     .exp-label {
         font-family: Montserrat, sans-serif;
         font-size: 0.74rem; font-weight: 600;
         text-transform: uppercase; letter-spacing: 0.3em;
-        color: #549ba2;
-        margin: 0 0 26px;
+        color: #549ba2; margin: 0 0 26px;
     }
     .exp-hero h1 {
         font-family: Georgia, serif;
         font-size: clamp(2.1rem, 5vw, 3.9rem);
         font-weight: 400; line-height: 1.08;
-        letter-spacing: -0.02em;
-        color: #fff;
-        margin: 0 0 28px;
+        letter-spacing: -0.02em; color: #fff; margin: 0 0 28px;
     }
     .exp-hero h1 .accent { color: #549ba2; white-space: normal; }
     .exp-hero p {
-        color: rgba(255,255,255,0.68);
+        color: rgba(255,255,255,0.72);
         font-size: clamp(1rem, 1.6vw, 1.18rem);
-        line-height: 1.8;
-        max-width: 680px; margin: 0 auto;
+        line-height: 1.8; max-width: 680px; margin: 0 auto;
     }
 
-    /* === BLOC « NOTRE MÉTIER » — hors grille, volontairement === */
-    .exp-core { background: #0a0a0a; padding: clamp(70px, 9vw, 110px) 24px; }
-    .exp-core-inner {
-        max-width: 980px; margin: 0 auto;
-        border: 1px solid rgba(84,155,162,0.28);
-        border-radius: 22px;
-        background: linear-gradient(160deg, rgba(84,155,162,0.09) 0%, rgba(84,155,162,0.02) 55%, transparent 100%);
-        padding: clamp(38px, 5.5vw, 68px);
-    }
-    .exp-core-inner h2 {
-        font-family: Georgia, serif;
-        font-size: clamp(1.7rem, 3.4vw, 2.6rem);
-        font-weight: 400; line-height: 1.15;
-        color: #fff; margin: 0 0 22px; letter-spacing: -0.01em;
-    }
-    .exp-core-inner p {
-        color: rgba(255,255,255,0.74);
-        font-size: clamp(1.02rem, 1.5vw, 1.2rem);
-        line-height: 1.8; margin: 0 0 16px; max-width: 720px;
-    }
-    .exp-core-note {
-        color: rgba(255,255,255,0.45) !important;
-        font-size: clamp(0.9rem, 1.2vw, 1rem) !important;
-        margin: 0 !important;
-        padding-top: 18px;
-        border-top: 1px solid rgba(255,255,255,0.09);
-    }
+    /* === CORPS BLANC ===
+       Le turquoise de marque #549ba2 tombe à 3.3:1 sur blanc, sous le seuil
+       de lisibilité. Il descend à #33676d ici (6.4:1). */
+    .exp-body { background: #fff; padding: clamp(60px, 8vw, 104px) 24px clamp(30px, 4vw, 50px); }
+    .exp-body-inner { max-width: 1000px; margin: 0 auto; }
 
-    /* === FAMILLES D'EXPERTISES === */
-    .exp-family { background: #000; padding: clamp(60px, 8vw, 96px) 24px; }
-    .exp-family:nth-of-type(even) { background: #0a0a0a; }
-    .exp-family-inner { max-width: 1080px; margin: 0 auto; }
-    .exp-family-head { margin-bottom: clamp(34px, 5vw, 52px); }
-    .exp-family-head h2 {
-        font-family: Georgia, serif;
-        font-size: clamp(1.5rem, 3vw, 2.2rem);
-        font-weight: 400; color: #fff; margin: 0;
-        letter-spacing: -0.01em; line-height: 1.2;
+    .exp-block {
+        display: grid;
+        grid-template-columns: clamp(64px, 8vw, 104px) 1fr;
+        gap: clamp(16px, 2.5vw, 36px);
+        padding: clamp(46px, 6vw, 78px) 0;
+        border-top: 1px solid rgba(0,0,0,0.10);
     }
+    .exp-block:first-child { border-top: 0; padding-top: 0; }
 
-    /* Grille : 2 colonnes max sur ordinateur, 1 sur mobile */
-    .exp-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.09); border-radius: 16px; overflow: hidden; }
-    .exp-card {
-        background: #000;
-        padding: clamp(26px, 3.4vw, 38px);
-        display: flex; flex-direction: column;
-        text-decoration: none;
-        transition: background 0.35s ease;
-    }
-    .exp-family:nth-of-type(even) .exp-card { background: #0a0a0a; }
-    .exp-card h3 {
+    .exp-num {
         font-family: Montserrat, sans-serif;
-        font-size: clamp(0.95rem, 1.4vw, 1.08rem);
-        font-weight: 600; color: #fff;
-        margin: 0 0 12px; line-height: 1.35;
-        letter-spacing: -0.005em;
-        display: flex; align-items: center; gap: 13px;
+        font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+        font-weight: 700; color: #33676d;
+        line-height: 1.05; letter-spacing: -0.02em;
     }
-    .exp-card p {
-        color: rgba(255,255,255,0.56);
-        font-size: clamp(0.9rem, 1.2vw, 0.98rem);
-        line-height: 1.7; margin: 0;
+    .exp-block h2 {
+        font-family: Georgia, serif;
+        font-size: clamp(1.65rem, 3.6vw, 2.7rem);
+        font-weight: 400; color: #0d0d0d;
+        line-height: 1.12; letter-spacing: -0.02em;
+        margin: 0 0 18px;
     }
-
-    /* Icône de chaque expertise */
-    .exp-ico {
-        flex-shrink: 0;
-        width: 38px; height: 38px;
-        display: flex; align-items: center; justify-content: center;
-        border-radius: 10px;
-        background: rgba(84,155,162,0.10);
-        border: 1px solid rgba(84,155,162,0.22);
-        color: #549ba2;
-        transition: background 0.35s ease, border-color 0.35s ease;
+    .exp-lead {
+        color: rgba(0,0,0,0.7);
+        font-size: clamp(1rem, 1.4vw, 1.12rem);
+        line-height: 1.8; margin: 0 0 24px; max-width: 640px;
     }
-    .exp-ico svg { width: 18px; height: 18px; stroke-width: 1.5; }
-    .exp-card:hover .exp-ico { background: rgba(84,155,162,0.18); border-color: rgba(84,155,162,0.42); }
+    /* Les leviers en ligne continue, séparés par des points médians —
+       volontairement PAS une liste à puces : c'est ce qui « faisait liste ». */
+    .exp-levers {
+        color: rgba(0,0,0,0.56);
+        font-size: clamp(0.88rem, 1.1vw, 0.96rem);
+        line-height: 2.05; margin: 0 0 22px; max-width: 700px;
+    }
+    .exp-levers .sep { color: rgba(0,0,0,0.25); margin: 0 7px; }
+    .exp-levers a {
+        color: #33676d; text-decoration: none;
+        border-bottom: 1px solid rgba(51,103,109,0.32);
+        transition: border-color 0.3s ease;
+    }
+    .exp-levers a:hover { border-bottom-color: #33676d; }
 
-    /* Seule l'expertise Imagerie est cliquable — elle a une page dédiée */
-    a.exp-card { cursor: pointer; }
-    a.exp-card:hover { background: rgba(84,155,162,0.09); }
-    a.exp-card h3 { color: #549ba2; }
-    .exp-arrow { width: 15px; height: 15px; flex-shrink: 0; transition: transform 0.35s ease; }
-    a.exp-card:hover .exp-arrow { transform: translateX(5px); }
-
-    /* Resserrage entre la grille « Structurer » et le titre « Développer » */
-    .exp-family--tight-bottom { padding-bottom: clamp(30px, 3.4vw, 42px); }
-    .exp-family--tight-top { padding-top: clamp(30px, 3.4vw, 42px); }
-    .exp-card-cta {
+    .exp-ex {
+        color: rgba(0,0,0,0.46);
+        font-size: clamp(0.86rem, 1.05vw, 0.93rem);
+        line-height: 1.7; margin: 0 0 20px;
+        padding-left: 15px; border-left: 2px solid rgba(51,103,109,0.3);
+        max-width: 620px;
+    }
+    .exp-tag {
+        display: inline-block;
         font-family: Montserrat, sans-serif;
-        font-size: 0.72rem; font-weight: 600;
-        text-transform: uppercase; letter-spacing: 0.18em;
-        color: #549ba2; margin-top: 16px;
+        font-size: 0.66rem; font-weight: 600;
+        text-transform: uppercase; letter-spacing: 0.2em;
+        color: #33676d;
+        border: 1px solid rgba(51,103,109,0.3);
+        border-radius: 100px; padding: 7px 15px;
     }
 
-    /* === CTA FINAL === */
-    .exp-cta { background: #000; padding: clamp(70px, 9vw, 120px) 24px clamp(80px, 10vw, 130px); text-align: center; }
+    /* === LE SEUL BLOC AVEC VISUEL : IMAGERIE === */
+    .exp-imagerie {
+        display: grid; grid-template-columns: 40% 1fr;
+        margin-top: clamp(30px, 4vw, 44px);
+        border: 1px solid rgba(0,0,0,0.12);
+        border-radius: 18px; overflow: hidden;
+        text-decoration: none; background: #fff;
+        transition: border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .exp-imagerie:hover { border-color: rgba(51,103,109,0.45); box-shadow: 0 14px 40px rgba(0,0,0,0.09); }
+    .exp-imagerie-img { position: relative; overflow: hidden; min-height: 190px; }
+    .exp-imagerie-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+    .exp-imagerie:hover .exp-imagerie-img img { transform: scale(1.04); }
+    .exp-imagerie-txt { padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; justify-content: center; }
+    .exp-imagerie-txt h3 {
+        font-family: Georgia, serif;
+        font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+        font-weight: 400; color: #0d0d0d; margin: 0 0 12px;
+        display: flex; align-items: center; gap: 12px; line-height: 1.15;
+    }
+    .exp-imagerie-txt h3 svg { width: 17px; height: 17px; flex-shrink: 0; color: #33676d; transition: transform 0.35s ease; }
+    .exp-imagerie:hover .exp-imagerie-txt h3 svg { transform: translateX(5px); }
+    .exp-imagerie-txt p { color: rgba(0,0,0,0.6); font-size: clamp(0.92rem, 1.2vw, 1rem); line-height: 1.7; margin: 0 0 16px; }
+    .exp-imagerie-cta {
+        font-family: Montserrat, sans-serif;
+        font-size: 0.7rem; font-weight: 600;
+        text-transform: uppercase; letter-spacing: 0.18em; color: #33676d;
+    }
+
+    /* === CTA === */
+    .exp-cta { background: #fff; padding: clamp(40px, 5vw, 60px) 24px clamp(80px, 10vw, 130px); text-align: center; }
     .exp-cta-inner { max-width: 720px; margin: 0 auto; }
     .exp-cta h2 {
         font-family: Georgia, serif;
         font-size: clamp(1.7rem, 3.6vw, 2.7rem);
-        font-weight: 400; color: #fff; line-height: 1.15;
+        font-weight: 400; color: #0d0d0d; line-height: 1.15;
         margin: 0 0 20px; letter-spacing: -0.01em;
     }
-    .exp-cta p { color: rgba(255,255,255,0.6); font-size: clamp(1rem, 1.4vw, 1.12rem); line-height: 1.75; margin: 0 0 34px; }
+    .exp-cta p { color: rgba(0,0,0,0.6); font-size: clamp(1rem, 1.4vw, 1.12rem); line-height: 1.75; margin: 0 0 34px; }
     .exp-cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .exp-btn-ghost { background: transparent; border: 1px solid rgba(84,155,162,0.6); color: #fff; }
-    .exp-btn-ghost:hover { background: rgba(84,155,162,0.14); }
+    .exp-btn-ghost { background: transparent; border: 1px solid rgba(51,103,109,0.55); color: #0d0d0d; }
+    .exp-btn-ghost:hover { background: rgba(51,103,109,0.09); }
 
-    /* === RÉVÉLATION AU SCROLL (léger) === */
+    /* === RÉVÉLATION AU SCROLL === */
     .exp-reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1); }
     .exp-reveal.is-visible { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) {
-        .exp-reveal { opacity: 1; transform: none; transition: none; }
-    }
+    @media (prefers-reduced-motion: reduce) { .exp-reveal { opacity: 1; transform: none; transition: none; } }
 
-    /* === MOBILE === */
-    @media (max-width: 768px) {
+    /* === TÉLÉPHONE ===
+       Le numéro repasse au-dessus du titre, la carte Imagerie s'empile,
+       et l'image garde une hauteur fixe pour ne pas s'écraser. */
+    @media (max-width: 760px) {
         .exp-hero { padding: clamp(96px, 15vh, 140px) 20px clamp(52px, 8vh, 76px); }
-        .exp-core { padding: 56px 20px; }
-        .exp-core-inner { padding: 30px 24px; border-radius: 18px; }
-        .exp-family { padding: 52px 20px; }
-        .exp-grid { grid-template-columns: 1fr; border-radius: 14px; }
-        .exp-card { padding: 26px 22px; }
-        .exp-cta { padding: 60px 20px 76px; }
+        .exp-body { padding: 52px 20px 24px; }
+        .exp-block { grid-template-columns: 1fr; gap: 10px; padding: 38px 0; }
+        .exp-num { font-size: 1.15rem; letter-spacing: 0.06em; }
+        .exp-block h2 { margin-bottom: 14px; }
+        .exp-ex { padding-left: 13px; }
+        .exp-imagerie { grid-template-columns: 1fr; border-radius: 14px; }
+        .exp-imagerie-img { min-height: 0; height: 190px; }
+        .exp-imagerie-txt { padding: 24px 20px; }
+        .exp-cta { padding: 30px 20px 68px; }
         .exp-cta-actions { flex-direction: column; }
         .exp-cta-actions .btn { width: 100%; }
     }
@@ -341,151 +328,82 @@
         </div>
     </section>
 
-    <!-- NOTRE MÉTIER — volontairement hors grille : c'est le socle, pas un levier parmi d'autres -->
-    <section class="exp-core">
-        <div class="exp-core-inner exp-reveal">
-            <p class="exp-label">Notre métier</p>
-            <h2>Stratégie &amp; développement</h2>
-            <p>
-                Comprendre l'entreprise, identifier ce qui la freine et ce qui peut l'accélérer,
-                puis construire la trajectoire.
-            </p>
-            <p class="exp-core-note">
-                C'est le point de départ de chaque mission. Les expertises ci-dessous ne sont
-                mobilisées qu'ensuite — une fois que nous savons ce qu'il faut faire, dans quel
-                ordre, et pourquoi.
-            </p>
-        </div>
-    </section>
+    <!-- CORPS — 3 blocs -->
+    <section class="exp-body">
+        <div class="exp-body-inner">
 
-    <!-- FAMILLE 1 — STRUCTURER -->
-    <section class="exp-family exp-family--tight-bottom">
-        <div class="exp-family-inner">
-            <div class="exp-family-head exp-reveal">
-                <h2>Structurer</h2>
+            <!-- 01 — LE MÉTIER DE BNF -->
+            <div class="exp-block exp-reveal">
+                <div class="exp-num">01</div>
+                <div>
+                    <h2>Stratégie &amp; développement</h2>
+                    <p class="exp-lead">
+                        Comprendre l'entreprise, identifier ce qui la freine et ce qui peut l'accélérer,
+                        puis construire la trajectoire. C'est notre métier, et le point de départ de
+                        chaque mission&nbsp;: tout le reste n'est mobilisé qu'ensuite.
+                    </p>
+                    <p class="exp-levers">
+                        Diagnostic stratégique<span class="sep">·</span>Analyse du modèle économique<span class="sep">·</span>Analyse concurrentielle<span class="sep">·</span>Positionnement<span class="sep">·</span>Identification d'opportunités<span class="sep">·</span>Roadmap et priorisation<span class="sep">·</span>Accompagnement dirigeant
+                    </p>
+                    <p class="exp-ex">
+                        Par exemple&nbsp;: trancher entre trois priorités qui se disputent le même budget.
+                    </p>
+                </div>
             </div>
-            <div class="exp-grid exp-reveal">
 
-                <a href="https://www.flow-consulting.fr" target="_blank" rel="noopener" class="exp-card">
-                    <h3>
-                        <span class="exp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 7v4M5 16v-3h14v3"/></svg></span>
-                        Organisation &amp; opérations
-                        <svg class="exp-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                    </h3>
-                    <p>Clarifier qui fait quoi, comment l'information circule et où le temps se perd.</p>
-                    <span class="exp-card-cta">Voir l'expertise</span>
-                </a>
-
-                <div class="exp-card">
-                    <h3>
-                        <span class="exp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 4 22 10 16 10"/><polyline points="2 20 2 14 8 14"/><path d="M4.2 9a8 8 0 0 1 13.2-3L22 10"/><path d="M2 14l4.6 4A8 8 0 0 0 19.8 15"/></svg></span>
-                        CRM &amp; automatisation
-                    </h3>
-                    <p>Centraliser le suivi commercial et retirer les tâches manuelles qui coûtent des heures.</p>
+            <!-- 02 — STRUCTURER -->
+            <div class="exp-block exp-reveal">
+                <div class="exp-num">02</div>
+                <div>
+                    <h2>Organisation &amp; systèmes</h2>
+                    <p class="exp-lead">
+                        Rendre l'entreprise capable d'absorber sa croissance&nbsp;: clarifier qui fait quoi,
+                        faire circuler l'information, retirer les tâches qui coûtent des heures.
+                    </p>
+                    <p class="exp-levers">
+                        <a href="https://www.flow-consulting.fr" target="_blank" rel="noopener">Organisation &amp; opérations</a><span class="sep">·</span>CRM &amp; automatisation<span class="sep">·</span>Intelligence artificielle<span class="sep">·</span><a href="https://www.flow-consulting.fr" target="_blank" rel="noopener">Data &amp; pilotage</a><span class="sep">·</span>Finance &amp; financement<span class="sep">·</span>Management &amp; transformation
+                    </p>
+                    <p class="exp-ex">
+                        Par exemple&nbsp;: centraliser un suivi commercial éclaté sur trois outils qui ne se parlent pas.
+                    </p>
+                    <span class="exp-tag">Expertise indépendante</span>
                 </div>
-
-                <div class="exp-card">
-                    <h3>
-                        <span class="exp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="0.6"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M19 9h3M19 15h3M2 9h3M2 15h3"/></svg></span>
-                        Intelligence artificielle
-                    </h3>
-                    <p>Intégrer l'IA là où elle fait gagner du temps, pas là où elle fait joli.</p>
-                </div>
-
-                <a href="https://www.flow-consulting.fr" target="_blank" rel="noopener" class="exp-card">
-                    <h3>
-                        <span class="exp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h18"/><path d="M6 20v-6M12 20V5M18 20v-9"/></svg></span>
-                        Data &amp; pilotage
-                        <svg class="exp-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                    </h3>
-                    <p>Savoir ce qui fonctionne, chiffres à l'appui, pour décider sans deviner.</p>
-                    <span class="exp-card-cta">Voir l'expertise</span>
-                </a>
-
-                <div class="exp-card">
-                    <h3>
-                        <span class="exp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6"/><path d="M5.5 10v9M18.5 10v9M10 10v9M14 10v9"/><path d="M2.5 21h19"/></svg></span>
-                        Finance &amp; financement
-                    </h3>
-                    <p>Structurer le financement de la croissance et préparer les dossiers qui la rendent possible.</p>
-                </div>
-
-                <div class="exp-card">
-                    <h3>
-                        <span class="exp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="3.4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M15.5 3.6a4 4 0 0 1 0 7.3"/></svg></span>
-                        Management &amp; transformation
-                    </h3>
-                    <p>Accompagner les équipes quand l'organisation change plus vite qu'elles.</p>
-                </div>
-
             </div>
-        </div>
-    </section>
 
-    <!-- FAMILLE 2 — DÉVELOPPER -->
-    <section class="exp-family exp-family--tight-top">
-        <div class="exp-family-inner">
-            <div class="exp-family-head exp-reveal">
-                <h2>Développer</h2>
+            <!-- 03 — DÉVELOPPER -->
+            <div class="exp-block exp-reveal">
+                <div class="exp-num">03</div>
+                <div>
+                    <h2>Croissance &amp; visibilité</h2>
+                    <p class="exp-lead">
+                        Aller chercher la demande là où elle se trouve, et devenir le choix évident&nbsp;:
+                        être trouvé, être compris, être préféré.
+                    </p>
+                    <p class="exp-levers">
+                        <a href="https://www.flow-consulting.fr" target="_blank" rel="noopener">Web &amp; expérience digitale</a><span class="sep">·</span><a href="https://www.flow-consulting.fr" target="_blank" rel="noopener">Marketing &amp; acquisition</a><span class="sep">·</span>SEO &amp; visibilité<span class="sep">·</span>Branding &amp; identité<span class="sep">·</span>Social Media
+                    </p>
+                    <p class="exp-ex">
+                        Par exemple&nbsp;: rendre un site capable d'expliquer avant de chercher à vendre.
+                    </p>
+                    <span class="exp-tag">Expertise indépendante</span>
+
+                    <!-- Seule expertise avec un visuel et une page dédiée -->
+                    <a href="/expertises/imagerie/" class="exp-imagerie">
+                        <div class="exp-imagerie-img">
+                            <img src="/public/photos/drones-best-3.jpg" alt="Prise de vue par drone" loading="lazy">
+                        </div>
+                        <div class="exp-imagerie-txt">
+                            <h3>
+                                Imagerie
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </h3>
+                            <p>Photo, vidéo, drone et FPV&nbsp;: montrer ce que les mots ne suffisent pas à transmettre.</p>
+                            <span class="exp-imagerie-cta">Voir l'expertise</span>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <div class="exp-grid exp-reveal">
 
-                <a href="https://www.flow-consulting.fr" target="_blank" rel="noopener" class="exp-card">
-                    <h3>
-                        <span class="exp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4" width="19" height="16" rx="2"/><path d="M2.5 9h19"/><circle cx="6" cy="6.5" r="0.7" fill="currentColor" stroke="none"/><circle cx="8.6" cy="6.5" r="0.7" fill="currentColor" stroke="none"/></svg></span>
-                        Web &amp; expérience digitale
-                        <svg class="exp-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                    </h3>
-                    <p>Un site qui travaille : il explique, il rassure, il convertit et fait vivre une expérience au lecteur.</p>
-                    <span class="exp-card-cta">Voir l'expertise</span>
-                </a>
-
-                <a href="https://www.flow-consulting.fr" target="_blank" rel="noopener" class="exp-card">
-                    <h3>
-                        <span class="exp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg></span>
-                        Marketing &amp; acquisition
-                        <svg class="exp-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                    </h3>
-                    <p>Aller chercher la demande là où elle se trouve, avec un message qui porte.</p>
-                    <span class="exp-card-cta">Voir l'expertise</span>
-                </a>
-
-                <div class="exp-card">
-                    <h3>
-                        <span class="exp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.2 16.2L21 21"/></svg></span>
-                        SEO &amp; visibilité
-                    </h3>
-                    <p>Être trouvé au moment précis où quelqu'un cherche ce que vous faites.</p>
-                </div>
-
-                <div class="exp-card">
-                    <h3>
-                        <span class="exp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21a9 9 0 1 1 9-9c0 1.66-1.34 3-3 3h-1.6a1.9 1.9 0 0 0-1.4 3.2A1.9 1.9 0 0 1 12 21z"/><circle cx="7.6" cy="11.2" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="7.8" r="1" fill="currentColor" stroke="none"/><circle cx="16.2" cy="11.2" r="1" fill="currentColor" stroke="none"/></svg></span>
-                        Branding &amp; identité
-                    </h3>
-                    <p>Donner à la marque une forme et un discours à la hauteur de ce qu'elle vaut.</p>
-                </div>
-
-                <div class="exp-card">
-                    <h3>
-                        <span class="exp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.6-.8L3 21l1.9-5.4A8.4 8.4 0 0 1 4.1 12a8.4 8.4 0 0 1 8.4-8.4h.5A8.4 8.4 0 0 1 21 11.5z"/></svg></span>
-                        Social Media
-                    </h3>
-                    <p>Occuper le terrain avec régularité, pas avec agitation. Racontez votre histoire.</p>
-                </div>
-
-                <!-- Seule expertise disposant d'une page dédiée -->
-                <a href="/expertises/imagerie/" class="exp-card">
-                    <h3>
-                        <span class="exp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3l1.8-2.6h6.4L17 7h3a2 2 0 0 1 2 2z"/><circle cx="12" cy="13.5" r="3.6"/></svg></span>
-                        Imagerie
-                        <svg class="exp-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                    </h3>
-                    <p>Photo, vidéo, drone et FPV : montrer ce que les mots ne suffisent pas à transmettre.</p>
-                    <span class="exp-card-cta">Voir l'expertise</span>
-                </a>
-
-            </div>
         </div>
     </section>
 
@@ -525,7 +443,7 @@
         <div style="max-width:1200px; margin:0 auto; padding:0 24px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px;">
             <!-- Logo + tagline -->
             <div>
-                <span class="footer-logo"><img src="/public/photos/logo-bnf-consulting.jpg" alt="BNFConsulting" loading="lazy"></span>
+                <span class="footer-logo"><img src="/public/photos/logo-bnf-blanc.png" alt="BNFConsulting" loading="lazy"></span>
                 <p style="font-size:0.8125rem; color:rgba(255,255,255,0.35); margin-top:6px;">Stratégie et production visuelle pour PME.</p>
             </div>
             <!-- Icônes sociales -->
@@ -575,7 +493,7 @@
                     <a href="/expertises/imagerie/" class="fab-link">Imagerie</a>
                     <a href="#contact" class="fab-link">Contact</a>
                 </div>
-                <p class="fab-label" style="margin-top:10px;">Preuves</p>
+                <p class="fab-label" style="margin-top:10px;">Réalisations</p>
                 <div class="fab-axes-group">
                     <a href="/immobilier/" class="fab-link">Immobilier</a>
                     <a href="/hotellerie/" class="fab-link">Hôtellerie & Restaurants</a>
@@ -729,10 +647,6 @@
         <a href="tel:+33668147915" class="mcb-call" data-track="tel_click" data-cta-location="mobile_sticky">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1.03 1.03 0 011.05-.24c1.12.37 2.33.57 3.54.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.21.2 2.42.57 3.54.11.35.03.74-.24 1.05l-2.21 2.2z"/></svg>
             Appeler
-        </a>
-        <a href="https://wa.me/33668147915" target="_blank" rel="noopener" class="mcb-wa" data-track="whatsapp_click" data-cta-location="mobile_sticky">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp
         </a>
     </div>
 

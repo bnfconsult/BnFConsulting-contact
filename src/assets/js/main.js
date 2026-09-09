@@ -927,7 +927,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="/expertises/" class="fab-link">Nos experts</a>
                     <a href="/expertises/imagerie/" class="fab-link">Imagerie</a>
                 </div>
-                <p class="fab-label" style="margin-top:10px;">Preuves</p>
+                <p class="fab-label" style="margin-top:10px;">Réalisations</p>
                 <div class="fab-axes-group">
                     <a href="/immobilier/" class="fab-link">Immobilier</a>
                     <a href="/hotellerie/" class="fab-link">Hôtellerie & Restaurants</a>
