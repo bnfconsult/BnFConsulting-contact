@@ -627,7 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
             addBubble(blurb);
             setTimeout(function() {
                 addCTAs([
-                    { label: 'Voir nos prestations ' + slug, url: url },
+                    { label: 'Voir nos réalisations ' + slug, url: url },
                     { label: 'Réserver un pré-diagnostic — 30 min', url: CAL }
                 ]);
                 addActionBtn('Être rappelé', showRecallForm);
@@ -648,11 +648,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- PATH 3 : COMPRENDRE L'APPROCHE ---
         function showApproche() {
             clear();
-            addBubble('BNF Consulting articule <b>deux leviers alignés</b> :');
+            addBubble('BNFConsulting ne vend pas une prestation. Nous <b>coordonnons les expertises</b> de votre développement.');
             setTimeout(function() {
-                addBubble('<b>1. Stratégie</b> — diagnostic, structuration, pilotage.<br><br><b>2. Production visuelle</b> — drone, image de marque, contenu premium.<br><br>Combinés, ils rendent votre entreprise <i style="color:#549ba2;">lisible et attractive</i>.');
+                addBubble('<b>1. Comprendre</b> — on rencontre le dirigeant, on identifie ce qui freine et ce qui peut accélérer.<br><br><b>2. Construire</b> — on définit quoi faire, dans quel ordre, avec quels moyens.<br><br><b>3. Mobiliser et piloter</b> — on fait intervenir les bons spécialistes et on garde la vision d\'ensemble.<br><br>Nous ne prétendons pas tout faire. <i style="color:#549ba2;">Nous savons qui le fait.</i>');
                 addCTAs([
-                    { label: 'Lire nos articles', url: '/articles/' },
+                    { label: 'Voir toutes nos expertises', url: '/expertises/' },
                     { label: 'Réserver un diagnostic — 30 min', url: CAL }
                 ]);
                 addActionBtn('Être rappelé', showRecallForm);
@@ -679,9 +679,9 @@ document.addEventListener('DOMContentLoaded', () => {
             addBubble('Bonjour.<br>Dites-nous ce qui vous amène :');
             setTimeout(function() {
                 addButtons([
-                    { label: 'Une stratégie claire pour ma boîte', action: showStrategie },
-                    { label: 'Du contenu visuel / drone', action: showDrone },
-                    { label: 'Comprendre votre approche', action: showApproche },
+                    { label: 'Y voir clair dans mon entreprise', action: showStrategie },
+                    { label: 'De l\'image : photo, vidéo, drone', action: showDrone },
+                    { label: 'Comment vous travaillez', action: showApproche },
                     { label: 'Prendre rendez-vous tout de suite', action: showRDV }
                 ]);
             }, 300);

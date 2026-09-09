@@ -2129,6 +2129,19 @@ h1, h2, h3 {
     transform-origin: bottom left;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
+    /* Le menu est plus haut que l'ecran sur petits telephones : on le
+       plafonne et on le rend defilable pour que son sommet ne sorte
+       jamais de la fenetre. 100px = burger + marge basse. */
+    max-height: calc(100vh - 100px);
+    max-height: calc(100dvh - 100px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+/* Quand la barre de contact du bas est visible, on lui laisse la place */
+body.mobile-bar-on .fab-panel {
+    max-height: calc(100vh - 165px);
+    max-height: calc(100dvh - 165px);
 }
 
 .fab-menu.open .fab-panel {
