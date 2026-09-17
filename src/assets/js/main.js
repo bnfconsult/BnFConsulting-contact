@@ -2,6 +2,71 @@
    BnFConsulting — Interactions
    ============================================ */
 
+/* --- i18n : les pages /en/ ont <html lang="en">. bnfT('texte FR') renvoie la version anglaise si elle existe. --- */
+var BNF_EN = (document.documentElement.getAttribute('lang') || 'fr').toLowerCase().indexOf('en') === 0;
+var BNF_P  = BNF_EN ? '/en' : '';   // préfixe des liens internes
+var BNF_I18N = {
+    // chatbot
+    'Bonjour.<br>Dites-nous ce qui vous amène :': 'Hello.<br>Tell us what brings you here:',
+    'Y voir clair dans mon entreprise': 'Get a clear view of my business',
+    'De l\'image : photo, vidéo, drone': 'Visuals: photo, video, drone',
+    'Comment vous travaillez': 'How you work',
+    'Prendre rendez-vous tout de suite': 'Book a call right now',
+    '← Revenir au menu': '← Back to menu',
+    'Laissez vos coordonnées, nous vous recontactons sous 24h.': 'Leave your details and we will get back to you within 24 hours.',
+    'Votre nom': 'Your name',
+    'Votre email': 'Your email',
+    'Téléphone': 'Phone',
+    'Votre besoin en quelques mots…': 'What can we do for you?',
+    'Demande de rappel — Chatbot BNF CONSULTING': 'Callback request — Chatbot BNF CONSULTING (EN)',
+    'Envoyer': 'Send',
+    'Merci ! Nous avons bien reçu votre demande et vous recontacterons très vite.': 'Thank you! We have received your request and will get back to you very soon.',
+    'Une erreur est survenue. Réessayez ou contactez-nous par email.': 'Something went wrong. Please try again or contact us by email.',
+    'Vous avez sûrement les bons éléments. Ce qui manque, c\'est une lecture claire de l\'ensemble.': 'You most likely have the right pieces. What is missing is a clear reading of the whole.',
+    'On commence par <b>30 minutes de diagnostic stratégique</b>, gratuit. On identifie vos 3 priorités. Vous repartez avec un plan d\'action — pas un devis.': 'We start with a free <b>30-minute strategic diagnosis</b>. We identify your 3 priorities. You leave with an action plan — not a quote.',
+    'Réserver le diagnostic — 30 min': 'Book the diagnosis — 30 min',
+    'Je préfère être rappelé': 'I would rather be called back',
+    'Dans quel secteur intervenons-nous pour vous ?': 'Which sector are we working in for you?',
+    'Immobilier': 'Real estate',
+    'Automobile': 'Automotive',
+    'Châteaux & Domaines': 'Châteaux & Estates',
+    'Hôtellerie & Restaurants': 'Hospitality & Restaurants',
+    'Événementiel': 'Events',
+    'Architecture & Lieux d\'exception': 'Architecture & Exceptional venues',
+    'Un autre secteur': 'Another sector',
+    'Vous valorisez des biens. Vue aérienne 5.1K, captation cinématique, retouche pro — la différence se joue sur la première image.': 'You showcase properties. 5.1K aerial views, cinematic capture, professional retouching — the difference is made on the first image.',
+    'Vous vendez des véhicules. Mise en scène premium, captation contextuelle — chaque voiture devient une pièce de caractère.': 'You sell vehicles. Premium staging, contextual capture — every car becomes a piece with character.',
+    'Vous avez un patrimoine d\'exception. Captation de la grandeur, narration visuelle sobre et prestigieuse.': 'You own an exceptional estate. Capturing its grandeur with a restrained, prestigious visual narrative.',
+    'Restaurant, hôtel, rooftop. Drone FPV indoor pour traverser vos espaces, plonger sur les plats, capter l\'ambiance — une signature cinéma rare.': 'Restaurant, hotel, rooftop. Indoor FPV drone to fly through your spaces, dive onto the dishes, capture the atmosphere — a rare cinematic signature.',
+    'Mariage, lancement, soirée privée. Plan-séquence FPV qui transforme l\'instant en moment de cinéma — partagé bien après l\'événement.': 'Wedding, launch, private party. An FPV one-shot sequence that turns the moment into cinema — shared long after the event.',
+    'Showroom, galerie, boutique flagship. Drone FPV indoor qui révèle les volumes, la lumière, le geste architectural — comme on les ressent.': 'Showroom, gallery, flagship store. Indoor FPV drone that reveals the volumes, the light, the architectural gesture — the way you feel them.',
+    'Voir nos réalisations ': 'See our work in ',
+    'immobilier': 'real estate', 'automobile': 'automotive', 'domaines': 'châteaux & estates', 'hôtellerie': 'hospitality', 'événementiel': 'events', 'architecture': 'architecture',
+    'Réserver un pré-diagnostic — 30 min': 'Book a pre-diagnosis — 30 min',
+    'Être rappelé': 'Get a callback',
+    'On intervient aussi sur d\'autres secteurs : patrimoine, commerce, agence d\'architecture, marque de luxe.': 'We also work in other sectors: heritage, retail, architecture firms, luxury brands.',
+    'Décrivez votre projet en un message, on revient vers vous sous 24h.': 'Describe your project in a message and we will get back to you within 24 hours.',
+    'BNFConsulting ne vend pas une prestation. Nous <b>coordonnons les expertises</b> de votre développement.': 'BNFConsulting does not sell a service. We <b>coordinate the expertise</b> behind your growth.',
+    '<b>1. Comprendre</b> — on rencontre le dirigeant, on identifie ce qui freine et ce qui peut accélérer.<br><br><b>2. Construire</b> — on définit quoi faire, dans quel ordre, avec quels moyens.<br><br><b>3. Mobiliser et piloter</b> — on fait intervenir les bons spécialistes et on garde la vision d\'ensemble.<br><br>Nous ne prétendons pas tout faire. <i style="color:#549ba2;">Nous savons qui le fait.</i>': '<b>1. Understand</b> — we meet the business leader and identify what holds back and what can accelerate.<br><br><b>2. Build</b> — we define what to do, in what order, with which resources.<br><br><b>3. Mobilise and steer</b> — we bring in the right specialists and keep the overall vision.<br><br>We don\'t claim to do everything. <i style="color:#549ba2;">We know who does.</i>',
+    'Voir toutes nos expertises': 'See all our expertise',
+    'Réserver un diagnostic — 30 min': 'Book a diagnosis — 30 min',
+    'Deux options selon votre préférence :': 'Two options, whichever you prefer:',
+    'Ouvrir le calendrier — 30 min': 'Open the calendar — 30 min',
+    'Me faire rappeler par téléphone': 'Call me back by phone',
+    'Prendre rendez-vous': 'Book a call',
+    // formulaire de contact
+    'Envoi en cours…': 'Sending…',
+    'Envoyer ma demande': 'Send my request',
+    '✓ Merci ! Nous avons bien reçu votre demande et vous recontacterons sous 24h.': '✓ Thank you! We have received your request and will get back to you within 24 hours.',
+    'Une erreur est survenue. Veuillez réessayer.': 'Something went wrong. Please try again.',
+    // menu rapide injecté
+    'Retour en haut': 'Back to top', 'Menu rapide': 'Quick menu', 'Navigation': 'Navigation', 'Accueil': 'Home',
+    'Nos experts': 'Our experts', 'Imagerie': 'Imagery', 'Nos domaines d\'intervention': 'Who do we work for',
+    'Articles': 'Articles', 'Contact': 'Contact', 'Ce que vous recevez': 'What you receive', 'Notre méthode': 'Our method', 'Notre approche': 'Our approach', 'Études de cas': 'Case studies', '📅 Prendre rendez-vous': '📅 Book a call', '✉️ Email': '✉️ Email',
+    'Poser une question': 'Ask a question'
+};
+function bnfT(s) { return (BNF_EN && Object.prototype.hasOwnProperty.call(BNF_I18N, s)) ? BNF_I18N[s] : s; }
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // --- Navigation scroll effect ---
@@ -550,7 +615,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function addBack() {
             var btn = document.createElement('button');
             btn.className = 'cb-back';
-            btn.textContent = '← Revenir au menu';
+            btn.textContent = bnfT('← Revenir au menu');
             btn.addEventListener('click', function() { showWelcome(); });
             chatbotMessages.appendChild(btn);
             chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
@@ -561,15 +626,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- FORMULAIRE RAPPEL DANS LE CHATBOT ---
         function showRecallForm() {
             clear();
-            addBubble('Laissez vos coordonnées, nous vous recontactons sous 24h.');
+            addBubble(bnfT('Laissez vos coordonnées, nous vous recontactons sous 24h.'));
             var form = document.createElement('form');
             form.className = 'cb-form';
-            form.innerHTML = '<input type="text" name="name" placeholder="Votre nom" required>' +
-                '<input type="email" name="email" placeholder="Votre email" required>' +
-                '<input type="tel" name="phone" placeholder="Téléphone">' +
-                '<textarea name="message" rows="2" placeholder="Votre besoin en quelques mots…"></textarea>' +
-                '<input type="hidden" name="_subject" value="Demande de rappel — Chatbot BNF CONSULTING">' +
-                '<button type="submit" class="cb-cta" style="border:none;cursor:pointer;text-align:center;display:block;width:100%;padding:10px;">Envoyer</button>';
+            form.innerHTML = '<input type="text" name="name" placeholder="' + bnfT('Votre nom') + '" required>' +
+                '<input type="email" name="email" placeholder="' + bnfT('Votre email') + '" required>' +
+                '<input type="tel" name="phone" placeholder="' + bnfT('Téléphone') + '">' +
+                '<textarea name="message" rows="2" placeholder="' + bnfT('Votre besoin en quelques mots…') + '"></textarea>' +
+                '<input type="hidden" name="_subject" value="' + bnfT('Demande de rappel — Chatbot BNF CONSULTING') + '">' +
+                '<button type="submit" class="cb-cta" style="border:none;cursor:pointer;text-align:center;display:block;width:100%;padding:10px;">' + bnfT('Envoyer') + '</button>';
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 var data = new FormData(form);
@@ -577,14 +642,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(function(r) {
                     if (r.ok) {
                         clear();
-                        addBubble('Merci ! Nous avons bien reçu votre demande et vous recontacterons très vite.');
+                        addBubble(bnfT('Merci ! Nous avons bien reçu votre demande et vous recontacterons très vite.'));
                         addBack();
                     } else {
-                        addBubble('Une erreur est survenue. Réessayez ou contactez-nous par email.');
+                        addBubble(bnfT('Une erreur est survenue. Réessayez ou contactez-nous par email.'));
                     }
                 })
                 .catch(function() {
-                    addBubble('Une erreur est survenue. Réessayez ou contactez-nous par email.');
+                    addBubble(bnfT('Une erreur est survenue. Réessayez ou contactez-nous par email.'));
                 });
             });
             chatbotMessages.appendChild(form);
@@ -595,13 +660,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- PATH 1 : STRATÉGIE ---
         function showStrategie() {
             clear();
-            addBubble('Vous avez sûrement les bons éléments. Ce qui manque, c\'est une lecture claire de l\'ensemble.');
+            addBubble(bnfT('Vous avez sûrement les bons éléments. Ce qui manque, c\'est une lecture claire de l\'ensemble.'));
             setTimeout(function() {
-                addBubble('On commence par <b>30 minutes de diagnostic stratégique</b>, gratuit. On identifie vos 3 priorités. Vous repartez avec un plan d\'action — pas un devis.');
+                addBubble(bnfT('On commence par <b>30 minutes de diagnostic stratégique</b>, gratuit. On identifie vos 3 priorités. Vous repartez avec un plan d\'action — pas un devis.'));
                 addCTAs([
-                    { label: 'Réserver le diagnostic — 30 min', url: CAL }
+                    { label: bnfT('Réserver le diagnostic — 30 min'), url: CAL }
                 ]);
-                addActionBtn('Je préfère être rappelé', showRecallForm);
+                addActionBtn(bnfT('Je préfère être rappelé'), showRecallForm);
                 addBack();
             }, 300);
         }
@@ -609,15 +674,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- PATH 2 : DRONE / CONTENU VISUEL ---
         function showDrone() {
             clear();
-            addBubble('Dans quel secteur intervenons-nous pour vous ?');
+            addBubble(bnfT('Dans quel secteur intervenons-nous pour vous ?'));
             addButtons([
-                { label: 'Immobilier', action: function() { showSector('immobilier', '/immobilier/', 'Vous valorisez des biens. Vue aérienne 5.1K, captation cinématique, retouche pro — la différence se joue sur la première image.'); } },
-                { label: 'Automobile', action: function() { showSector('automobile', '/automobile/', 'Vous vendez des véhicules. Mise en scène premium, captation contextuelle — chaque voiture devient une pièce de caractère.'); } },
-                { label: 'Châteaux & Domaines', action: function() { showSector('domaines', '/domaines/', 'Vous avez un patrimoine d\'exception. Captation de la grandeur, narration visuelle sobre et prestigieuse.'); } },
-                { label: 'Hôtellerie & Restaurants', action: function() { showSector('hôtellerie', '/hotellerie/', 'Restaurant, hôtel, rooftop. Drone FPV indoor pour traverser vos espaces, plonger sur les plats, capter l\'ambiance — une signature cinéma rare.'); } },
-                { label: 'Événementiel', action: function() { showSector('événementiel', '/evenementiel/', 'Mariage, lancement, soirée privée. Plan-séquence FPV qui transforme l\'instant en moment de cinéma — partagé bien après l\'événement.'); } },
-                { label: 'Architecture & Lieux d\'exception', action: function() { showSector('architecture', '/architecture/', 'Showroom, galerie, boutique flagship. Drone FPV indoor qui révèle les volumes, la lumière, le geste architectural — comme on les ressent.'); } },
-                { label: 'Un autre secteur', action: showAutreSecteur }
+                { label: bnfT('Immobilier'), action: function() { showSector(bnfT('immobilier'), BNF_P + '/immobilier/', bnfT('Vous valorisez des biens. Vue aérienne 5.1K, captation cinématique, retouche pro — la différence se joue sur la première image.')); } },
+                { label: bnfT('Automobile'), action: function() { showSector(bnfT('automobile'), BNF_P + '/automobile/', bnfT('Vous vendez des véhicules. Mise en scène premium, captation contextuelle — chaque voiture devient une pièce de caractère.')); } },
+                { label: bnfT('Châteaux & Domaines'), action: function() { showSector(bnfT('domaines'), BNF_P + '/domaines/', bnfT('Vous avez un patrimoine d\'exception. Captation de la grandeur, narration visuelle sobre et prestigieuse.')); } },
+                { label: bnfT('Hôtellerie & Restaurants'), action: function() { showSector(bnfT('hôtellerie'), BNF_P + '/hotellerie/', bnfT('Restaurant, hôtel, rooftop. Drone FPV indoor pour traverser vos espaces, plonger sur les plats, capter l\'ambiance — une signature cinéma rare.')); } },
+                { label: bnfT('Événementiel'), action: function() { showSector(bnfT('événementiel'), BNF_P + '/evenementiel/', bnfT('Mariage, lancement, soirée privée. Plan-séquence FPV qui transforme l\'instant en moment de cinéma — partagé bien après l\'événement.')); } },
+                { label: bnfT('Architecture & Lieux d\'exception'), action: function() { showSector(bnfT('architecture'), BNF_P + '/architecture/', bnfT('Showroom, galerie, boutique flagship. Drone FPV indoor qui révèle les volumes, la lumière, le geste architectural — comme on les ressent.')); } },
+                { label: bnfT('Un autre secteur'), action: showAutreSecteur }
             ]);
             addBack();
         }
@@ -627,20 +692,20 @@ document.addEventListener('DOMContentLoaded', () => {
             addBubble(blurb);
             setTimeout(function() {
                 addCTAs([
-                    { label: 'Voir nos réalisations ' + slug, url: url },
-                    { label: 'Réserver un pré-diagnostic — 30 min', url: CAL }
+                    { label: bnfT('Voir nos réalisations ') + slug, url: url },
+                    { label: bnfT('Réserver un pré-diagnostic — 30 min'), url: CAL }
                 ]);
-                addActionBtn('Être rappelé', showRecallForm);
+                addActionBtn(bnfT('Être rappelé'), showRecallForm);
                 addBack();
             }, 250);
         }
 
         function showAutreSecteur() {
             clear();
-            addBubble('On intervient aussi sur d\'autres secteurs : patrimoine, commerce, agence d\'architecture, marque de luxe.');
+            addBubble(bnfT('On intervient aussi sur d\'autres secteurs : patrimoine, commerce, agence d\'architecture, marque de luxe.'));
             setTimeout(function() {
-                addBubble('Décrivez votre projet en un message, on revient vers vous sous 24h.');
-                addActionBtn('Être rappelé', showRecallForm);
+                addBubble(bnfT('Décrivez votre projet en un message, on revient vers vous sous 24h.'));
+                addActionBtn(bnfT('Être rappelé'), showRecallForm);
                 addBack();
             }, 250);
         }
@@ -648,14 +713,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- PATH 3 : COMPRENDRE L'APPROCHE ---
         function showApproche() {
             clear();
-            addBubble('BNFConsulting ne vend pas une prestation. Nous <b>coordonnons les expertises</b> de votre développement.');
+            addBubble(bnfT('BNFConsulting ne vend pas une prestation. Nous <b>coordonnons les expertises</b> de votre développement.'));
             setTimeout(function() {
-                addBubble('<b>1. Comprendre</b> — on rencontre le dirigeant, on identifie ce qui freine et ce qui peut accélérer.<br><br><b>2. Construire</b> — on définit quoi faire, dans quel ordre, avec quels moyens.<br><br><b>3. Mobiliser et piloter</b> — on fait intervenir les bons spécialistes et on garde la vision d\'ensemble.<br><br>Nous ne prétendons pas tout faire. <i style="color:#549ba2;">Nous savons qui le fait.</i>');
+                addBubble(bnfT('<b>1. Comprendre</b> — on rencontre le dirigeant, on identifie ce qui freine et ce qui peut accélérer.<br><br><b>2. Construire</b> — on définit quoi faire, dans quel ordre, avec quels moyens.<br><br><b>3. Mobiliser et piloter</b> — on fait intervenir les bons spécialistes et on garde la vision d\'ensemble.<br><br>Nous ne prétendons pas tout faire. <i style="color:#549ba2;">Nous savons qui le fait.</i>'));
                 addCTAs([
-                    { label: 'Voir toutes nos expertises', url: '/expertises/' },
-                    { label: 'Réserver un diagnostic — 30 min', url: CAL }
+                    { label: bnfT('Voir toutes nos expertises'), url: BNF_P + '/expertises/' },
+                    { label: bnfT('Réserver un diagnostic — 30 min'), url: CAL }
                 ]);
-                addActionBtn('Être rappelé', showRecallForm);
+                addActionBtn(bnfT('Être rappelé'), showRecallForm);
                 addBack();
             }, 400);
         }
@@ -663,12 +728,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- PATH 4 : RDV DIRECT ---
         function showRDV() {
             clear();
-            addBubble('Deux options selon votre préférence :');
+            addBubble(bnfT('Deux options selon votre préférence :'));
             setTimeout(function() {
                 addCTAs([
-                    { label: 'Ouvrir le calendrier — 30 min', url: CAL }
+                    { label: bnfT('Ouvrir le calendrier — 30 min'), url: CAL }
                 ]);
-                addActionBtn('Me faire rappeler par téléphone', showRecallForm);
+                addActionBtn(bnfT('Me faire rappeler par téléphone'), showRecallForm);
                 addBack();
             }, 200);
         }
@@ -676,13 +741,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- MESSAGE D'ACCUEIL ---
         function showWelcome() {
             clear();
-            addBubble('Bonjour.<br>Dites-nous ce qui vous amène :');
+            addBubble(bnfT('Bonjour.<br>Dites-nous ce qui vous amène :'));
             setTimeout(function() {
                 addButtons([
-                    { label: 'Y voir clair dans mon entreprise', action: showStrategie },
-                    { label: 'De l\'image : photo, vidéo, drone', action: showDrone },
-                    { label: 'Comment vous travaillez', action: showApproche },
-                    { label: 'Prendre rendez-vous tout de suite', action: showRDV }
+                    { label: bnfT('Y voir clair dans mon entreprise'), action: showStrategie },
+                    { label: bnfT('De l\'image : photo, vidéo, drone'), action: showDrone },
+                    { label: bnfT('Comment vous travaillez'), action: showApproche },
+                    { label: bnfT('Prendre rendez-vous tout de suite'), action: showRDV }
                 ]);
             }, 300);
         }
@@ -737,7 +802,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Créer le tooltip
             var phoneTooltip = document.createElement('span');
             phoneTooltip.className = 'phone-tooltip';
-            phoneTooltip.textContent = 'Prendre rendez-vous';
+            phoneTooltip.textContent = bnfT('Prendre rendez-vous');
             phoneFab.appendChild(phoneTooltip);
 
             var phoneObserver = new IntersectionObserver(function(entries) {
@@ -843,22 +908,22 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             var data = new FormData(recallForm);
             var btn = recallForm.querySelector('button[type="submit"]');
-            btn.textContent = 'Envoi en cours…';
+            btn.textContent = bnfT('Envoi en cours…');
             btn.disabled = true;
             fetch(recallForm.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
             .then(function(r) {
                 if (r.ok) {
-                    recallForm.innerHTML = '<p style="text-align:center;color:var(--accent);font-size:1.1rem;padding:30px 0;">✓ Merci ! Nous avons bien reçu votre demande et vous recontacterons sous 24h.</p>';
+                    recallForm.innerHTML = '<p style="text-align:center;color:var(--accent);font-size:1.1rem;padding:30px 0;">' + bnfT('✓ Merci ! Nous avons bien reçu votre demande et vous recontacterons sous 24h.') + '</p>';
                 } else {
-                    btn.textContent = 'Envoyer ma demande';
+                    btn.textContent = bnfT('Envoyer ma demande');
                     btn.disabled = false;
-                    alert('Une erreur est survenue. Veuillez réessayer.');
+                    alert(bnfT('Une erreur est survenue. Veuillez réessayer.'));
                 }
             })
             .catch(function() {
-                btn.textContent = 'Envoyer ma demande';
+                btn.textContent = bnfT('Envoyer ma demande');
                 btn.disabled = false;
-                alert('Une erreur est survenue. Veuillez réessayer.');
+                alert(bnfT('Une erreur est survenue. Veuillez réessayer.'));
             });
         });
     }
@@ -912,48 +977,45 @@ document.addEventListener('DOMContentLoaded', () => {
 (function(){
     if (document.getElementById('fabMenu') || document.getElementById('chatbot')) return; // homepage les a deja inline
     var html = `
-    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">↑</button>
+    <button class="back-to-top" id="backToTop" aria-label="${bnfT('Retour en haut')}">↑</button>
     <div class="fab-menu" id="fabMenu">
-        <button class="fab-trigger" id="fabTrigger" aria-label="Menu rapide">
+        <button class="fab-trigger" id="fabTrigger" aria-label="${bnfT('Menu rapide')}">
             <span class="fab-bar"></span>
             <span class="fab-bar"></span>
             <span class="fab-bar"></span>
         </button>
         <div class="fab-panel" id="fabPanel">
-            <div class="fab-section">
-                <p class="fab-label">Navigation</p>
-                <a href="/" class="fab-link fab-home">Accueil</a>
-                <div class="fab-axes-group">
-                    <a href="/expertises/" class="fab-link">Nos experts</a>
-                    <a href="/expertises/imagerie/" class="fab-link">Imagerie</a>
-                </div>
-                <p class="fab-label" style="margin-top:10px;">Réalisations</p>
-                <div class="fab-axes-group">
-                    <a href="/immobilier/" class="fab-link">Immobilier</a>
-                    <a href="/hotellerie/" class="fab-link">Hôtellerie & Restaurants</a>
-                    <a href="/domaines/" class="fab-link">Châteaux & Domaines</a>
-                    <a href="/architecture/" class="fab-link">Architecture</a>
-                    <a href="/automobile/" class="fab-link">Automobile</a>
-                    <a href="/evenementiel/" class="fab-link">Événementiel</a>
-                </div>
-                <a href="/articles/" class="fab-link">Articles</a>
-            </div>
-            <div class="fab-divider"></div>
-            <div class="fab-section">
-                <p class="fab-label">Contact</p>
-                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="fab-link">📅 Prendre rendez-vous</a>
-                <a href="mailto:contact@bnf-consulting.fr" class="fab-link">✉️ Email</a>
+        <div class="fab-section">
+            <p class="fab-label">${bnfT('Navigation')}</p>
+            <a href="${BNF_P}/#proposition" class="fab-link">${bnfT('Notre approche')}</a>
+            <a href="${BNF_P}/expertises/" class="fab-link">${bnfT('Nos experts')}</a>
+            <a href="${BNF_P}/#etudes-de-cas" class="fab-link">${bnfT('Études de cas')}</a>
+            <p class="fab-label" style="margin-top:10px;">${bnfT('Nos domaines d\'intervention')}</p>
+            <div class="fab-axes-group">
+                <a href="${BNF_P}/immobilier/" class="fab-link">${bnfT('Immobilier')}</a>
+                <a href="${BNF_P}/automobile/" class="fab-link">${bnfT('Automobile')}</a>
+                <a href="${BNF_P}/domaines/" class="fab-link">${bnfT('Châteaux & Domaines')}</a>
+                <a href="${BNF_P}/hotellerie/" class="fab-link">${bnfT('Hôtellerie & Restaurants')}</a>
+                <a href="${BNF_P}/evenementiel/" class="fab-link">${bnfT('Événementiel')}</a>
+                <a href="${BNF_P}/architecture/" class="fab-link">${bnfT('Architecture')}</a>
             </div>
         </div>
+        <div class="fab-divider"></div>
+        <div class="fab-section">
+            <p class="fab-label">${bnfT('Contact')}</p>
+            <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="fab-link">${bnfT('📅 Prendre rendez-vous')}</a>
+            <a href="mailto:contact@bnf-consulting.fr" class="fab-link">${bnfT('✉️ Email')}</a>
+        </div>
+    </div>
     </div>
     <div class="chatbot" id="chatbot">
         <button class="chatbot-trigger" id="chatbotTrigger" aria-label="Chat">
-            <span class="chatbot-tooltip" id="chatbotTooltip">Poser une question</span>
+            <span class="chatbot-tooltip" id="chatbotTooltip">${bnfT('Poser une question')}</span>
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/></svg>
         </button>
         <div class="chatbot-panel" id="chatbotPanel">
             <div class="chatbot-header">
-                <span>BnFConsulting</span>
+                <span>BNFConsulting</span>
                 <button class="chatbot-close" id="chatbotClose">&#10005;</button>
             </div>
             <div class="chatbot-messages" id="chatbotMessages"></div>

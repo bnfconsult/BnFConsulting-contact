@@ -13,26 +13,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <title>Articles & Insights — BNF Consulting</title>
+    <title>Articles & Strategic insights — Drone & image | BNFConsulting</title>
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
     <link rel="apple-touch-icon" sizes="192x192" href="/apple-touch-icon.png">
-    <meta name="description" content="Strategic insights and perspectives for your business. BNF Consulting feature articles: drones, digital audit and more.">
-    <meta name="keywords" content="strategy articles, business insights, feature articles, BNF Consulting, SMB consulting, Île-de-France">
+    <meta name="description" content="Strategic analyses and perspectives for your business. BNFConsulting in-depth features: drones, digital audit and more.">
+    <meta name="keywords" content="strategy articles, business analyses, in-depth features, BNFConsulting, SMB consulting, Île-de-France">
     <!-- Open Graph -->
-    <meta property="og:title" content="Articles & Insights — BNF Consulting">
-    <meta property="og:description" content="Strategic insights and perspectives for your business. BNF Consulting feature articles.">
+    <meta property="og:title" content="Articles & Strategic insights — Drone & image | BNFConsulting">
+    <meta property="og:description" content="Strategic analyses and perspectives for your business. BNFConsulting in-depth features.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.bnf-consulting.fr/en/articles/">
     <meta property="og:image" content="https://www.bnf-consulting.fr/public/photos/logo-bnf-social.png">
     <meta property="og:locale" content="en_GB">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Articles & Insights — BNF Consulting">
-    <meta name="twitter:description" content="Strategic insights and perspectives for your business. BNF Consulting feature articles.">
+    <meta name="twitter:title" content="Articles & Strategic insights — Drone & image | BNFConsulting">
+    <meta name="twitter:description" content="Strategic analyses and perspectives for your business. BNFConsulting in-depth features.">
     <meta name="twitter:image" content="https://www.bnf-consulting.fr/public/photos/logo-bnf-social.png">
     <!-- Canonical -->
     <link rel="canonical" href="https://www.bnf-consulting.fr/en/articles/">
+    <!-- hreflang -->
     <link rel="alternate" hreflang="fr" href="https://www.bnf-consulting.fr/articles/">
     <link rel="alternate" hreflang="en" href="https://www.bnf-consulting.fr/en/articles/">
     <!-- Schema.org — Article -->
@@ -40,26 +41,26 @@
     {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "Articles & Insights — BNF Consulting",
-        "description": "Strategic insights and perspectives for your business. BNF Consulting feature articles.",
+        "name": "Articles & Analyses — BNFConsulting",
+        "description": "Strategic analyses and perspectives for your business. BNFConsulting in-depth features.",
         "url": "https://www.bnf-consulting.fr/en/articles/",
         "publisher": {
             "@type": "Organization",
-            "name": "BNF Consulting",
+            "name": "BNFConsulting",
             "logo": "https://www.bnf-consulting.fr/public/photos/logo-bnf-social.png"
         },
         "mainEntity": [
             {
                 "@type": "Article",
-                "headline": "Drones — Strategic perspective",
+                "headline": "Drones — A strategic perspective",
                 "datePublished": "2026-02-01",
-                "author": {"@type": "Organization", "name": "BNF Consulting"}
+                "author": {"@type": "Organization", "name": "BNFConsulting"}
             },
             {
                 "@type": "Article",
                 "headline": "The digital audit",
                 "datePublished": "2026-03-01",
-                "author": {"@type": "Organization", "name": "BNF Consulting"}
+                "author": {"@type": "Organization", "name": "BNFConsulting"}
             }
         ]
     }
@@ -119,16 +120,36 @@
         background:var(--accent) !important; color:var(--white) !important;
         padding:10px 22px !important; border-radius:8px !important; font-weight:600 !important;
         transition:all var(--transition) !important;
-    }
+     text-decoration:none; }
     .nav-cta:hover { background:var(--title) !important; }
+    .nav-dropdown { position:relative; }
+    .nav-dropdown-toggle { display:flex; align-items:center; cursor:pointer; }
+    .nav-dropdown-menu {
+        position:absolute; top:100%; left:50%;
+        min-width:180px; background:rgba(10,10,10,0.95);
+        backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+        border:1px solid rgba(255,255,255,0.08); border-radius:12px;
+        padding:8px 0; opacity:0; visibility:hidden;
+        transform:translateX(-50%) translateY(8px);
+        transition:opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+        list-style:none; z-index:1000; box-shadow:0 12px 40px rgba(0,0,0,0.5);
+    }
+    .nav-dropdown.open .nav-dropdown-menu {
+        opacity:1; visibility:visible;
+        transform:translateX(-50%) translateY(0);
+    }
+    .nav-dropdown-menu li { margin:0; }
+    .nav-dropdown-menu a {
+        display:block; padding:10px 20px;
+        color:rgba(255,255,255,0.7) !important;
+        font-size:0.85rem; font-weight:500; white-space:nowrap;
+        transition:background 0.2s, color 0.2s;
+    }
+    .nav-dropdown-menu a:hover { background:rgba(84,155,162,0.12); color:#549ba2 !important; }
     .nav-toggle {
         display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px;
     }
     .nav-toggle span { display:block; width:22px; height:2px; background:var(--white); border-radius:2px; transition:all 0.3s; }
-    .lang-toggle { display:flex; align-items:center; gap:4px; }
-    .lang-link { font-size:0.75rem !important; font-weight:600 !important; opacity:0.4; transition:opacity 0.3s !important; }
-    .lang-link.active { opacity:1; color:var(--accent) !important; }
-    .lang-sep { color:rgba(255,255,255,0.2); font-size:0.75rem; }
 
     @media (max-width:768px) {
         .nav-toggle { display:flex; }
@@ -140,6 +161,16 @@
         }
         .nav-links.open { transform:translateY(0); opacity:1; }
         .nav-home { display:list-item; }
+        .nav-dropdown-menu {
+            position:static; opacity:1; visibility:visible;
+            transform:none; background:transparent;
+            backdrop-filter:none; -webkit-backdrop-filter:none;
+            border:none; box-shadow:none; padding:12px 0 0 16px;
+        }
+        .nav-dropdown-menu a {
+            font-size:0.78rem !important; padding:6px 0 !important;
+            color:rgba(255,255,255,0.5) !important;
+        }
     }
     @media (min-width:769px) {
         .nav-home { display:none; }
@@ -308,7 +339,7 @@
         background:var(--black); border-top:1px solid rgba(255,255,255,0.06); padding:48px 0;
     }
     .footer-logo { display:inline-block; }
-    .footer-logo img { height:40px; width:auto; object-fit:contain; border-radius:4px; }
+    .footer-logo img { height:64px; width:auto; object-fit:contain; border-radius:4px; }
 
     /* --- BACK TO TOP --- */
     .back-to-top {
@@ -353,6 +384,8 @@
         padding:8px 0; transition:color var(--transition);
     }
     .fab-link:hover { color:var(--accent); }
+    .fab-axes-group { border:1px solid rgba(84,155,162,0.35); border-radius:14px; padding:8px 12px; display:flex; flex-direction:column; margin-top:4px; }
+    .fab-axes-group .fab-link { padding:6px 4px; border-radius:8px; }
     .fab-divider { height:1px; background:rgba(255,255,255,0.06); margin:16px 0; }
 
     /* --- CHATBOT --- */
@@ -402,15 +435,16 @@
     .phone-fab svg { width:22px; height:22px; fill:var(--white); }
     @media (max-width:768px) { .phone-fab { display:flex; } }
 
-    /* --- LANG FAB --- */
+    /* --- LANG FAB : bulle ronde vers l'autre langue, au-dessus du chatbot (pas de bulle telephone desktop sur cette page) --- */
     .lang-fab {
-        position:fixed; bottom:160px; left:32px; z-index:999; display:none;
-        width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.08);
-        border:1px solid rgba(84,155,162,0.3); color:rgba(255,255,255,0.6);
-        font-size:0.7rem; font-weight:700; text-decoration:none;
-        align-items:center; justify-content:center; transition:all var(--transition);
+        position:fixed; bottom:164px; right:32px; z-index:999; display:flex;
+        align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%;
+        background:var(--accent); color:var(--white);
+        font-size:0.7rem; font-weight:700; letter-spacing:0.08em; text-decoration:none;
+        box-shadow:0 4px 16px rgba(84,155,162,0.3); transition:all var(--transition);
     }
-    @media (max-width:768px) { .lang-fab { display:flex; } }
+    .lang-fab:hover { background:var(--title); }
+    @media (max-width:768px) { .lang-fab { right:16px; } }
 
     /* --- MOBILE AXES NAV --- */
     .mobile-axes-nav { display:none; }
@@ -426,7 +460,7 @@
     <!-- NAVIGATION -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="/en/" class="nav-logo"><img src="/public/photos/logo-bnf-blanc.png" alt="BnFConsulting"></a>
+            <a href="/en/" class="nav-logo"><img src="/public/photos/logo-bnf-blanc.png" alt="BNFConsulting"></a>
             <button class="nav-toggle" id="navToggle" aria-label="Menu">
                 <span></span>
                 <span></span>
@@ -435,18 +469,20 @@
             <ul class="nav-links" id="navLinks">
                 <li class="nav-home"><a href="/en/">Home</a></li>
                 <li class="nav-dropdown">
-                    <a href="/en/#secteurs" class="nav-dropdown-toggle">Sectors <svg width="10" height="6" viewBox="0 0 10 6" style="margin-left:4px;vertical-align:middle;"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                    <a href="/en/#secteurs" class="nav-dropdown-toggle">Sectors</a>
                     <ul class="nav-dropdown-menu">
                         <li><a href="/en/immobilier/">Real estate</a></li>
                         <li><a href="/en/automobile/">Automotive</a></li>
-                        <li><a href="/en/domaines/">Estates &amp; Ch&acirc;teaux</a></li>
+                        <li><a href="/en/domaines/">Ch&acirc;teaux &amp; Estates</a></li>
+                        <li><a href="/en/hotellerie/">Hospitality &amp; Restaurants</a></li>
+                        <li><a href="/en/evenementiel/">Events</a></li>
+                        <li><a href="/en/architecture/">Architecture</a></li>
                     </ul>
                 </li>
-                <li><a href="/en/#tarifs">Our packages</a></li>
                 <li><a href="/en/articles/">Articles</a></li>
-                <li><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="nav-cta">Strategic pre-diagnostic</a></li>
-                <li class="lang-toggle"><a href="/articles/" class="lang-link">FR</a><span class="lang-sep">|</span><a href="/en/articles/" class="lang-link active">EN</a></li>
+                <li><a href="/en/#etudes-de-cas">Case studies</a></li>
             </ul>
+            <a href="/en/expertises/imagerie/#contact" class="nav-cta nav-contact">Contact us</a>
         </div>
     </nav>
     <script>
@@ -463,7 +499,7 @@
     <section class="articles-hero">
         <div class="container">
             <h1>Our <span class="accent">articles</span></h1>
-            <p>Strategic insights and perspectives for your business.</p>
+            <p>Strategic analyses and perspectives for your business.</p>
         </div>
     </section>
 
@@ -474,28 +510,50 @@
         </video>
         <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1;"></div>
         <div class="container" style="position:relative; z-index:2;">
-            <p class="section-label">Feature articles</p>
-            <h2 class="section-title" style="color:#fff;">Our feature <span class="accent">articles.</span></h2>
+            <p class="section-label">In-depth features</p>
+            <h2 class="section-title" style="color:#fff;">Our in-depth <span class="accent">features.</span></h2>
 
             <div class="speciales-grid">
 
-                <!-- FEATURE APRIL 2026 -->
-                <a href="image-prestigieuse-entreprise.html" class="speciale-card" style="position:relative; background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; text-decoration:none; display:block;">
+                <!-- DOSSIER JUILLET 2026 — auto-revelation au 1er juillet -->
+                <a href="/en/articles/illusion-visibilite.html" class="speciale-card" id="card-juillet2026" data-publish-date="2026-07-01" style="position:relative; background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; text-decoration:none; display:none;">
                     <span style="position:absolute; top:14px; right:14px; background:#549ba2; color:#fff; font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px;">New</span>
+                    <span class="speciale-date">Feature — July 2026</span>
+                    <h3 class="speciale-title" style="color:#fff;">The illusion of visibility: being seen is not being chosen</h3>
+                    <span class="speciale-arrow">Read &rarr;</span>
+                </a>
+
+                <!-- DOSSIER JUIN 2026 -->
+                <a href="/en/articles/publicite-locale-ciblee.html" class="speciale-card" id="card-juin2026" style="position:relative; background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; text-decoration:none; display:block;">
+                    <span data-nouveau-badge="juin2026" style="position:absolute; top:14px; right:14px; background:#549ba2; color:#fff; font-family:Montserrat,sans-serif; font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:4px 10px; border-radius:999px;">New</span>
+                    <span class="speciale-date">Feature — June 2026</span>
+                    <h3 class="speciale-title" style="color:#fff;">Why targeted local advertising remains one of the most profitable levers</h3>
+                    <span class="speciale-arrow">Read &rarr;</span>
+                </a>
+
+                <!-- DOSSIER MAI 2026 -->
+                <a href="/en/articles/video-parle-plus-que-texte.html" class="speciale-card" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; text-decoration:none; display:block; margin-top:1rem;">
+                    <span class="speciale-date">Feature — May 2026</span>
+                    <h3 class="speciale-title" style="color:#fff;">Why video speaks louder than text</h3>
+                    <span class="speciale-arrow">Read &rarr;</span>
+                </a>
+
+                <!-- DOSSIER AVRIL 2026 -->
+                <a href="/en/articles/image-prestigieuse-entreprise.html" class="speciale-card" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; text-decoration:none; display:block; margin-top:1rem;">
                     <span class="speciale-date">Feature — April 2026</span>
-                    <h3 class="speciale-title" style="color:#fff;">The importance of a prestigious image for your business</h3>
+                    <h3 class="speciale-title" style="color:#fff;">The importance of a prestigious image</h3>
                     <span class="speciale-arrow">Read &rarr;</span>
                 </a>
 
-                <!-- FEATURE MARCH 2026 -->
-                <a href="audit-digital-entreprise.html" class="speciale-card" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; text-decoration:none; display:block; margin-top:1rem;">
+                <!-- DOSSIER MARS 2026 -->
+                <a href="/en/articles/audit-digital-entreprise.html" class="speciale-card" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; text-decoration:none; display:block; margin-top:1rem;">
                     <span class="speciale-date">Feature — March 2026</span>
-                    <h3 class="speciale-title" style="color:#fff;">Digital audit for business: where to start?</h3>
+                    <h3 class="speciale-title" style="color:#fff;">Business digital audit: where to start?</h3>
                     <span class="speciale-arrow">Read &rarr;</span>
                 </a>
 
-                <!-- FEATURE FEB 2026 -->
-                <a href="photo-drone-immobilier.html" class="speciale-card" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; text-decoration:none; display:block; margin-top:1rem;">
+                <!-- DOSSIER FEV 2026 -->
+                <a href="/en/articles/photo-drone-immobilier.html" class="speciale-card" style="background:rgba(255,255,255,0.08); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-color:rgba(84,155,162,0.3); width:100%; text-decoration:none; display:block; margin-top:1rem;">
                     <span class="speciale-date">Feature — Feb 2026</span>
                     <h3 class="speciale-title" style="color:#fff;">Drone photography for business: why the aerial view changes everything</h3>
                     <span class="speciale-arrow">Read &rarr;</span>
@@ -510,26 +568,26 @@
         <div style="max-width:1200px; margin:0 auto; padding:0 24px; display:flex; flex-direction:column; align-items:center; text-align:center; gap:24px;">
             <!-- Logo + tagline -->
             <div>
-                <span class="footer-logo"><img src="/public/photos/logo-bnf-blanc.png" alt="BnFConsulting" loading="lazy"></span>
+                <span class="footer-logo"><img src="/public/photos/logo-bnf-blanc.png" alt="BNFConsulting" loading="lazy"></span>
                 <p style="font-size:0.8125rem; color:rgba(255,255,255,0.35); margin-top:6px;">Strategic &amp; operational orchestration.</p>
             </div>
             <!-- Icones sociales -->
             <div style="display:flex; gap:16px; align-items:center;">
-                <a href="https://www.linkedin.com/in/bnfconsulting-contact" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
+                <a href="https://www.linkedin.com/in/benjamin-bnf" target="_blank" rel="noopener" aria-label="LinkedIn" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/bnf.consulting/" target="_blank" rel="noopener" aria-label="Instagram" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                 </a>
                 <a href="mailto:contact@bnf-consulting.fr" aria-label="Email" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
                 </a>
-                <a href="https://www.tiktok.com/@bnf_consulting_contact" target="_blank" rel="noopener" aria-label="TikTok" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.17a8.16 8.16 0 004.76 1.53v-3.5a4.82 4.82 0 01-1-.51z"/></svg>
-                </a>
-                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" aria-label="Book a meeting" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" aria-label="Book a call" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; border:1px solid rgba(84,155,162,0.3); transition:all 0.3s;">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                 </a>
             </div>
             <!-- Copyright -->
-            <p style="font-size:0.75rem; color:rgba(255,255,255,0.25);">&copy; 2026 BnFConsulting. &middot; <a href="../../en/legal.html" style="color:rgba(255,255,255,0.25); text-decoration:none;">Legal notice</a></p>
+            <p style="font-size:0.75rem; color:rgba(255,255,255,0.25);">&copy; 2026 BNFConsulting &middot; Yvelines &middot; &Icirc;le-de-France &middot; SIRET 923 728 638 &middot; <a href="/en/legal.html" style="color:rgba(255,255,255,0.25); text-decoration:none;">Legal notice</a></p>
         </div>
     </footer>
 
@@ -546,17 +604,24 @@
         <div class="fab-panel" id="fabPanel">
             <div class="fab-section">
                 <p class="fab-label">Navigation</p>
-                <a href="/en/" class="fab-link fab-home">Home</a>
-                <a href="/en/articles/" class="fab-link">Articles</a>
+                <a href="/en/#proposition" class="fab-link">Our approach</a>
+                <a href="/en/expertises/" class="fab-link">Our experts</a>
+                <a href="/en/#etudes-de-cas" class="fab-link">Case studies</a>
+                <p class="fab-label" style="margin-top:10px;">Who do we work for</p>
                 <div class="fab-axes-group">
-                    <a href="/en/#visibilite" class="fab-link">Visual production</a>
+                    <a href="/en/immobilier/" class="fab-link">Real estate</a>
+                    <a href="/en/automobile/" class="fab-link">Automotive</a>
+                    <a href="/en/domaines/" class="fab-link">Châteaux & Estates</a>
+                    <a href="/en/hotellerie/" class="fab-link">Hospitality & Restaurants</a>
+                    <a href="/en/evenementiel/" class="fab-link">Events</a>
+                    <a href="/en/architecture/" class="fab-link">Architecture</a>
                 </div>
             </div>
             <div class="fab-divider"></div>
             <div class="fab-section">
                 <p class="fab-label">Contact</p>
-                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="fab-link">&#128197; Book a meeting</a>
-                <a href="mailto:contact@bnf-consulting.fr" class="fab-link">&#9993;&#65039; Email</a>
+                <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" class="fab-link">📅 Book a call</a>
+                <a href="mailto:contact@bnf-consulting.fr" class="fab-link">✉️ Email</a>
             </div>
         </div>
     </div>
@@ -569,7 +634,7 @@
         </button>
         <div class="chatbot-panel" id="chatbotPanel">
             <div class="chatbot-header">
-                <span>BnFConsulting</span>
+                <span>BNFConsulting</span>
                 <button class="chatbot-close" id="chatbotClose">&#10005;</button>
             </div>
             <div class="chatbot-messages" id="chatbotMessages"></div>
@@ -577,12 +642,12 @@
     </div>
 
     <!-- BOUTON TELEPHONE / RDV -->
-    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" class="phone-fab" aria-label="Book a meeting">
+    <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" class="phone-fab" aria-label="Book a call">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1.03 1.03 0 011.05-.24c1.12.37 2.33.57 3.54.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.07 21 3 13.93 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.21.2 2.42.57 3.54.11.35.03.74-.24 1.05l-2.21 2.2z"/></svg>
     </a>
 
     <!-- BOUTON LANGUE -->
-    <a href="/articles/" class="lang-fab" aria-label="Version française">FR</a>
+    <a href="/articles/" class="lang-fab" hreflang="fr" aria-label="Version française">FR</a>
 
     <script>
     /* Lazy video play/pause */
@@ -636,12 +701,12 @@
         if(!trigger || !panel) return;
 
         var chatbotData = {
-            welcome: "Hi! I'm the BnF assistant. How can I help you?",
+            welcome: "Hello! I am the BnF assistant. How can I help you?",
             options: [
                 {text:"What is BnF Consulting?", answer:"BnF Consulting structures growing businesses around two levers: strategy and visibility. We turn complexity into a clear, manageable organisation."},
-                {text:"How does the diagnostic work?", answer:"The strategic diagnostic is a 30-minute call. We identify your blockers, your priorities and your immediate areas for improvement. It's free and with no commitment."},
-                {text:"What are your rates?", answer:"Our rates depend on the engagement. The strategic diagnostic is free. Contact us for a tailored quote."},
-                {text:"I want to book a meeting", answer:"Perfect! <a href='https://calendar.app.google/owbWjVDz11BNwd2V6' target='_blank' rel='noopener' style='color:#549ba2;font-weight:600;'>Click here to book your slot</a>."}
+                {text:"How does the diagnosis work?", answer:"The strategic diagnosis is a 30-minute call. We identify your obstacles, your priorities and your immediate areas for improvement. It is free and without obligation."},
+                {text:"What are your rates?", answer:"Our rates depend on the engagement. The strategic diagnosis is free of charge. Contact us for a personalised quote."},
+                {text:"I want to book a call", answer:"Perfect! <a href='https://calendar.app.google/owbWjVDz11BNwd2V6' target='_blank' rel='noopener' style='color:#549ba2;font-weight:600;'>Click here to book your slot</a>."}
             ]
         };
 
