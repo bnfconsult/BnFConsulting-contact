@@ -172,31 +172,29 @@
         </h2>
       </div>
     </div>
-    <div data-reveal="up" class="pres-wrapper" style="position:relative;border-radius:28px;overflow:hidden;background:#0d1d1f;aspect-ratio:16/9;box-shadow:0 1px 0 rgba(19,41,43,.08), 0 40px 80px -40px rgba(19,41,43,.35)">
-      <video id="presVideo" preload="auto" autoplay playsinline muted loop style="width:100%;height:100%;display:block;object-fit:cover"></video>
+    <div data-reveal="up" class="pres-wrapper">
+      <div class="pres-phone">
+        <video id="presVideo" src="/public/videos/presentation-9-16.mp4" preload="auto" autoplay playsinline muted loop></video>
+      </div>
     </div>
     <style>
-      @media (max-width:767px){ .pres-wrapper{ aspect-ratio:9/16; max-width:420px; margin:0 auto } }
+      .pres-wrapper{display:flex;justify-content:center;align-items:center;padding:clamp(16px,3vh,48px) 0}
+      .pres-phone{position:relative;width:min(320px,86vw);aspect-ratio:9/19.5;background:#0d1d1f;border-radius:44px;border:10px solid #0a0a0a;box-shadow:0 1px 0 rgba(19,41,43,.08), 0 60px 120px -40px rgba(19,41,43,.5), inset 0 0 0 2px rgba(255,255,255,.04);overflow:hidden}
+      .pres-phone::before{content:'';position:absolute;top:12px;left:50%;transform:translateX(-50%);width:88px;height:22px;background:#0a0a0a;border-radius:999px;z-index:2}
+      .pres-phone video{width:100%;height:100%;display:block;object-fit:cover;border-radius:34px}
+      @media (max-width:767px){
+        .pres-wrapper{padding:0}
+        .pres-phone{width:100%;max-width:none;aspect-ratio:9/16;border-radius:24px;border:0;box-shadow:0 40px 80px -40px rgba(19,41,43,.4)}
+        .pres-phone::before{display:none}
+        .pres-phone video{border-radius:24px}
+      }
     </style>
   </div>
 </section>
 <script>
 (function(){
   var v = document.getElementById('presVideo');
-  if (!v) return;
-  var src16 = '/public/videos/presentation-16-9.mp4';
-  var src9  = '/public/videos/presentation-9-16.mp4';
-  var currentSrc = '';
-  function pickSrc(){
-    var want = window.innerWidth < 768 ? src9 : src16;
-    if (want === currentSrc) return;
-    currentSrc = want;
-    v.src = want;
-    v.load();
-  }
-  pickSrc();
-  window.addEventListener('resize', pickSrc);
-  if (!('IntersectionObserver' in window)) return;
+  if (!v || !('IntersectionObserver' in window)) return;
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){
       if (e.isIntersecting) v.play().catch(function(){});
