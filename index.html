@@ -90,7 +90,7 @@
 <body>
 
 <header data-nav style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(20px,4vw,56px);border-bottom:1px solid transparent;transition:background .5s, padding .5s, border-color .5s;color:#fff">
-  <a href="#top" style="display:flex;align-items:center"><img src="/public/photos/logo-bnf-blanc.png?v=20261007" alt="BNF Consulting" style="height:34px;width:auto;display:block"></a>
+  <a href="#top" style="display:flex;align-items:center"><img src="/public/photos/logo-bnf-blanc.png?v=20261008" alt="BNFConsulting" style="height:34px;width:auto;display:block"></a>
   <nav class="nav-full" style="align-items:center;gap:clamp(18px,2.4vw,36px);font-size:13px;font-weight:500;letter-spacing:.04em;white-space:nowrap">
     <a href="#approche" style="color:#fff;opacity:.85">Approche</a>
     <a href="#methode" style="color:#fff;opacity:.85">Méthode</a>
@@ -138,7 +138,7 @@
       <span data-reveal="mask" data-delay="410" style="display:block;overflow:hidden;padding-bottom:.08em"><span style="display:block;transform:translateY(110%)">Nous traçons <em style="font-family:Georgia,serif;font-weight:400;font-style:italic;letter-spacing:-.03em;color:#a9d6dd">le chemin.</em></span></span>
     </h1>
     <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:28px;border-top:1px solid rgba(255,255,255,.2);padding-top:clamp(20px,3vh,32px)">
-      <p data-reveal="up" data-delay="600" style="margin:0;max-width:520px;font-size:clamp(15px,1.2vw,18px);line-height:1.6;color:rgba(255,255,255,.85);text-wrap:pretty">BNF Consulting coordonne les expertises qui permettent aux dirigeants d'atteindre leurs objectifs de développement.</p>
+      <p data-reveal="up" data-delay="600" style="margin:0;max-width:520px;font-size:clamp(15px,1.2vw,18px);line-height:1.6;color:rgba(255,255,255,.85);text-wrap:pretty">BNFConsulting coordonne les expertises qui permettent aux dirigeants d'atteindre leurs objectifs de développement.</p>
       <div data-reveal="up" data-delay="720" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;flex:0 1 480px;max-width:100%">
         <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" style="text-align:center;padding:16px 26px;border-radius:999px;background:#fff;color:#13292b;font-size:14px;font-weight:600;transition:background .3s">Échanger sur votre entreprise</a>
         <a href="#methode" style="text-align:center;padding:16px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.4);color:#fff;font-size:14px;font-weight:500;transition:background .3s, border-color .3s">Découvrir la méthode ↓</a>
@@ -167,13 +167,13 @@
       <div style="display:flex;flex-direction:column;gap:20px;max-width:720px">
         <div data-reveal="up" style="display:flex;align-items:center;gap:14px;font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#33676d"><span style="width:40px;height:1px;background:#33676d;display:block"></span>Présentation</div>
         <h2 style="margin:0;font-size:clamp(32px,4.4vw,64px);font-weight:500;letter-spacing:-.04em;line-height:1.02;color:#13292b">
-          <span data-reveal="mask" style="display:block;overflow:hidden;padding-bottom:.06em"><span style="display:block">BNF Consulting</span></span>
+          <span data-reveal="mask" style="display:block;overflow:hidden;padding-bottom:.06em"><span style="display:block">BNFConsulting</span></span>
           <span data-reveal="mask" data-delay="120" style="display:block;overflow:hidden;padding-bottom:.06em"><span style="display:block;font-family:Georgia,serif;font-style:italic;font-weight:400;color:#33676d">en 90 secondes.</span></span>
         </h2>
       </div>
     </div>
     <div data-reveal="up" class="pres-wrapper" style="position:relative;border-radius:28px;overflow:hidden;background:#0d1d1f;aspect-ratio:16/9;box-shadow:0 1px 0 rgba(19,41,43,.08), 0 40px 80px -40px rgba(19,41,43,.35)">
-      <video id="presVideo" preload="metadata" playsinline muted loop style="width:100%;height:100%;display:block;object-fit:cover"></video>
+      <video id="presVideo" preload="auto" autoplay playsinline muted loop style="width:100%;height:100%;display:block;object-fit:cover"></video>
     </div>
     <style>
       @media (max-width:767px){ .pres-wrapper{ aspect-ratio:9/16; max-width:420px; margin:0 auto } }
@@ -199,10 +199,10 @@
   if (!('IntersectionObserver' in window)) return;
   var io = new IntersectionObserver(function(es){
     es.forEach(function(e){
-      if (e.isIntersecting && e.intersectionRatio > 0.5) v.play().catch(function(){});
+      if (e.isIntersecting) v.play().catch(function(){});
       else v.pause();
     });
-  }, { threshold: [0, 0.5, 0.75] });
+  }, { threshold: 0.05 });
   io.observe(v);
 })();
 </script>
@@ -264,52 +264,58 @@
       <p data-reveal="up" data-delay="200" style="margin:0;max-width:420px;font-size:15px;line-height:1.7;color:#435254">Selon votre besoin et le périmètre convenu, l'accompagnement prend l'une de ces trois formes. Dans chaque cas, vous savez à l'avance ce que vous recevez.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:6vh">
-      <article data-stack style="position:sticky;top:12vh;transform-origin:50% 0;min-height:66vh;border-radius:28px;background:#ffffff;border:1px solid #d7d7d8;padding:clamp(28px,4vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(28px,4vw,64px);color:#13292b">
-        <div style="display:flex;flex-direction:column;justify-content:space-between;gap:32px">
-          <span style="font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#33676d">Formule 01</span>
-          <div style="display:flex;flex-direction:column;gap:20px"><h3 style="margin:0;font-size:clamp(32px,3.6vw,56px);font-weight:500;letter-spacing:-.035em;line-height:1">Diagnostic &amp; feuille de route</h3><p style="margin:0;font-family:Georgia,serif;font-style:italic;font-size:clamp(18px,1.6vw,24px);line-height:1.4;color:#435254">« Je veux savoir quoi améliorer et par où commencer. »</p></div>
+      <article data-stack class="formule-card" style="position:sticky;top:12vh;transform-origin:50% 0;min-height:66vh;border-radius:28px;background:#ffffff;border:1px solid #d7d7d8;padding:clamp(32px,4vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,4vw,72px);color:#13292b;overflow:hidden;position:sticky;box-shadow:0 1px 0 rgba(19,41,43,.04), 0 60px 120px -60px rgba(19,41,43,.35)">
+        <span aria-hidden="true" style="position:absolute;top:-.15em;right:-.1em;font-size:clamp(220px,30vw,440px);font-weight:300;line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px rgba(84,155,162,.14);pointer-events:none;user-select:none">01</span>
+        <div style="position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+          <span style="display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#33676d"><span style="width:28px;height:1px;background:#549ba2;display:block"></span>Formule 01 · Diagnostic</span>
+          <div style="display:flex;flex-direction:column;gap:24px"><h3 style="margin:0;font-size:clamp(36px,4vw,64px);font-weight:500;letter-spacing:-.035em;line-height:.98">Diagnostic<br><em style="font-family:Georgia,serif;font-style:italic;font-weight:400;color:#33676d">&amp; feuille de route.</em></h3><p style="margin:0;font-family:Georgia,serif;font-style:italic;font-size:clamp(18px,1.6vw,22px);line-height:1.45;color:#435254;max-width:460px">« Je veux savoir quoi améliorer et par où commencer. »</p></div>
+          <a href="#contact" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;background:#13292b;color:#fff;font-size:13px;font-weight:600;transition:background .3s">Choisir cette formule <span>→</span></a>
         </div>
-        <div style="display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+        <div style="position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
           <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;font-size:16px">
-            <li style="padding:14px 0;border-bottom:1px solid #d7d7d8;display:flex;gap:16px"><span style="color:#33676d;font-weight:600">—</span>Échange approfondi</li>
-            <li style="padding:14px 0;border-bottom:1px solid #d7d7d8;display:flex;gap:16px"><span style="color:#33676d;font-weight:600">—</span>Analyse de l'existant</li>
-            <li style="padding:14px 0;border-bottom:1px solid #d7d7d8;display:flex;gap:16px"><span style="color:#33676d;font-weight:600">—</span>Priorités argumentées</li>
-            <li style="padding:14px 0;border-bottom:1px solid #d7d7d8;display:flex;gap:16px"><span style="color:#33676d;font-weight:600">—</span>Plan d'action sur 90 jours</li>
-            <li style="padding:14px 0;border-bottom:1px solid #d7d7d8;display:flex;gap:16px"><span style="color:#33676d;font-weight:600">—</span>Restitution</li>
+            <li style="padding:16px 0;border-bottom:1px solid #e0e4e3;display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#549ba2;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Échange approfondi</li>
+            <li style="padding:16px 0;border-bottom:1px solid #e0e4e3;display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#549ba2;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Analyse de l'existant</li>
+            <li style="padding:16px 0;border-bottom:1px solid #e0e4e3;display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#549ba2;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Priorités argumentées</li>
+            <li style="padding:16px 0;border-bottom:1px solid #e0e4e3;display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#549ba2;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Plan d'action sur 90 jours</li>
+            <li style="padding:16px 0;border-bottom:1px solid #e0e4e3;display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#549ba2;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Restitution</li>
           </ul>
-          <p style="margin:0;font-size:13px;color:#435254"><strong style="font-weight:600;color:#13292b">Facturation</strong> — forfait, selon le périmètre analysé.</p>
+          <p style="margin:0;font-size:13px;color:#435254;padding-top:8px"><strong style="font-weight:600;color:#13292b;letter-spacing:.08em;text-transform:uppercase;font-size:11px">Facturation</strong><br>Forfait, selon le périmètre analysé.</p>
         </div>
       </article>
-      <article data-stack style="position:sticky;top:calc(12vh + 24px);transform-origin:50% 0;min-height:66vh;border-radius:28px;background:#dce9e8;border:1px solid #c4dbdc;padding:clamp(28px,4vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(28px,4vw,64px);color:#13292b">
-        <div style="display:flex;flex-direction:column;justify-content:space-between;gap:32px">
-          <span style="font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#33676d">Formule 02</span>
-          <div style="display:flex;flex-direction:column;gap:20px"><h3 style="margin:0;font-size:clamp(32px,3.6vw,56px);font-weight:500;letter-spacing:-.035em;line-height:1">Conception &amp; déploiement</h3><p style="margin:0;font-family:Georgia,serif;font-style:italic;font-size:clamp(18px,1.6vw,24px);line-height:1.4;color:#435254">« J'ai un objectif, je veux que le projet prenne forme. »</p></div>
+      <article data-stack class="formule-card" style="position:sticky;top:calc(12vh + 24px);transform-origin:50% 0;min-height:66vh;border-radius:28px;background:#dce9e8;border:1px solid #c4dbdc;padding:clamp(32px,4vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,4vw,72px);color:#13292b;overflow:hidden;box-shadow:0 1px 0 rgba(19,41,43,.04), 0 60px 120px -60px rgba(19,41,43,.4)">
+        <span aria-hidden="true" style="position:absolute;top:-.15em;right:-.1em;font-size:clamp(220px,30vw,440px);font-weight:300;line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px rgba(51,103,109,.2);pointer-events:none;user-select:none">02</span>
+        <div style="position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+          <span style="display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#33676d"><span style="width:28px;height:1px;background:#33676d;display:block"></span>Formule 02 · Conception</span>
+          <div style="display:flex;flex-direction:column;gap:24px"><h3 style="margin:0;font-size:clamp(36px,4vw,64px);font-weight:500;letter-spacing:-.035em;line-height:.98">Conception<br><em style="font-family:Georgia,serif;font-style:italic;font-weight:400;color:#33676d">&amp; déploiement.</em></h3><p style="margin:0;font-family:Georgia,serif;font-style:italic;font-size:clamp(18px,1.6vw,22px);line-height:1.45;color:#435254;max-width:460px">« J'ai un objectif, je veux que le projet prenne forme. »</p></div>
+          <a href="#contact" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;background:#13292b;color:#fff;font-size:13px;font-weight:600;transition:background .3s">Choisir cette formule <span>→</span></a>
         </div>
-        <div style="display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+        <div style="position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
           <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;font-size:16px">
-            <li style="padding:14px 0;border-bottom:1px solid #b5cfd0;display:flex;gap:16px"><span style="color:#33676d;font-weight:600">—</span>Diagnostic ciblé</li>
-            <li style="padding:14px 0;border-bottom:1px solid #b5cfd0;display:flex;gap:16px"><span style="color:#33676d;font-weight:600">—</span>Solution proposée</li>
-            <li style="padding:14px 0;border-bottom:1px solid #b5cfd0;display:flex;gap:16px"><span style="color:#33676d;font-weight:600">—</span>Budget et calendrier</li>
-            <li style="padding:14px 0;border-bottom:1px solid #b5cfd0;display:flex;gap:16px"><span style="color:#33676d;font-weight:600">—</span>Mobilisation des experts</li>
-            <li style="padding:14px 0;border-bottom:1px solid #b5cfd0;display:flex;gap:16px"><span style="color:#33676d;font-weight:600">—</span>Coordination et livraison du dispositif</li>
+            <li style="padding:16px 0;border-bottom:1px solid #b5cfd0;display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#33676d;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Diagnostic ciblé</li>
+            <li style="padding:16px 0;border-bottom:1px solid #b5cfd0;display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#33676d;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Solution proposée</li>
+            <li style="padding:16px 0;border-bottom:1px solid #b5cfd0;display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#33676d;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Budget et calendrier</li>
+            <li style="padding:16px 0;border-bottom:1px solid #b5cfd0;display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#33676d;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Mobilisation des experts</li>
+            <li style="padding:16px 0;border-bottom:1px solid #b5cfd0;display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#33676d;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Coordination et livraison</li>
           </ul>
-          <p style="margin:0;font-size:13px;color:#435254"><strong style="font-weight:600;color:#13292b">Facturation</strong> — devis par projet, avec étapes de paiement.</p>
+          <p style="margin:0;font-size:13px;color:#435254;padding-top:8px"><strong style="font-weight:600;color:#13292b;letter-spacing:.08em;text-transform:uppercase;font-size:11px">Facturation</strong><br>Devis par projet, avec étapes de paiement.</p>
         </div>
       </article>
-      <article data-stack style="position:sticky;top:calc(12vh + 48px);transform-origin:50% 0;min-height:66vh;border-radius:28px;background:#13292b;border:1px solid #13292b;padding:clamp(28px,4vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(28px,4vw,64px);color:#fff">
-        <div style="display:flex;flex-direction:column;justify-content:space-between;gap:32px">
-          <span style="font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#7fc0c6">Formule 03</span>
-          <div style="display:flex;flex-direction:column;gap:20px"><h3 style="margin:0;font-size:clamp(32px,3.6vw,56px);font-weight:500;letter-spacing:-.035em;line-height:1">Pilotage &amp; développement</h3><p style="margin:0;font-family:Georgia,serif;font-style:italic;font-size:clamp(18px,1.6vw,24px);line-height:1.4;color:rgba(255,255,255,.75)">« Je veux avancer dans la durée avec un interlocuteur qui suit l'ensemble. »</p></div>
+      <article data-stack class="formule-card" style="position:sticky;top:calc(12vh + 48px);transform-origin:50% 0;min-height:66vh;border-radius:28px;background:#13292b;border:1px solid #13292b;padding:clamp(32px,4vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,4vw,72px);color:#fff;overflow:hidden;box-shadow:0 1px 0 rgba(0,0,0,.3), 0 60px 120px -60px rgba(0,0,0,.6)">
+        <span aria-hidden="true" style="position:absolute;top:-.15em;right:-.1em;font-size:clamp(220px,30vw,440px);font-weight:300;line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1.5px rgba(127,192,198,.22);pointer-events:none;user-select:none">03</span>
+        <div style="position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:40px">
+          <span style="display:inline-flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#7fc0c6"><span style="width:28px;height:1px;background:#7fc0c6;display:block"></span>Formule 03 · Pilotage</span>
+          <div style="display:flex;flex-direction:column;gap:24px"><h3 style="margin:0;font-size:clamp(36px,4vw,64px);font-weight:500;letter-spacing:-.035em;line-height:.98">Pilotage<br><em style="font-family:Georgia,serif;font-style:italic;font-weight:400;color:#a9d6dd">&amp; développement.</em></h3><p style="margin:0;font-family:Georgia,serif;font-style:italic;font-size:clamp(18px,1.6vw,22px);line-height:1.45;color:rgba(255,255,255,.75);max-width:460px">« Je veux avancer dans la durée avec un interlocuteur qui suit l'ensemble. »</p></div>
+          <a href="#contact" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;background:#fff;color:#13292b;font-size:13px;font-weight:600;transition:background .3s">Choisir cette formule <span>→</span></a>
         </div>
-        <div style="display:flex;flex-direction:column;justify-content:space-between;gap:32px">
+        <div style="position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:32px">
           <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;font-size:16px">
-            <li style="padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15);display:flex;gap:16px"><span style="color:#7fc0c6;font-weight:600">—</span>Feuille de route actualisée</li>
-            <li style="padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15);display:flex;gap:16px"><span style="color:#7fc0c6;font-weight:600">—</span>Coordination des actions</li>
-            <li style="padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15);display:flex;gap:16px"><span style="color:#7fc0c6;font-weight:600">—</span>Tableau de bord</li>
-            <li style="padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15);display:flex;gap:16px"><span style="color:#7fc0c6;font-weight:600">—</span>Point mensuel</li>
-            <li style="padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15);display:flex;gap:16px"><span style="color:#7fc0c6;font-weight:600">—</span>Recommandations pour la suite</li>
+            <li style="padding:16px 0;border-bottom:1px solid rgba(255,255,255,.15);display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#549ba2;color:#0d1d1f;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Feuille de route actualisée</li>
+            <li style="padding:16px 0;border-bottom:1px solid rgba(255,255,255,.15);display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#549ba2;color:#0d1d1f;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Coordination des actions</li>
+            <li style="padding:16px 0;border-bottom:1px solid rgba(255,255,255,.15);display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#549ba2;color:#0d1d1f;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Tableau de bord</li>
+            <li style="padding:16px 0;border-bottom:1px solid rgba(255,255,255,.15);display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#549ba2;color:#0d1d1f;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Point mensuel</li>
+            <li style="padding:16px 0;border-bottom:1px solid rgba(255,255,255,.15);display:flex;gap:14px;align-items:center"><span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#549ba2;color:#0d1d1f;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">✓</span>Recommandations pour la suite</li>
           </ul>
-          <p style="margin:0;font-size:13px;color:rgba(255,255,255,.7)"><strong style="font-weight:600;color:#fff">Facturation</strong> — honoraires mensuels ; productions et achats externes chiffrés séparément.</p>
+          <p style="margin:0;font-size:13px;color:rgba(255,255,255,.7);padding-top:8px"><strong style="font-weight:600;color:#fff;letter-spacing:.08em;text-transform:uppercase;font-size:11px">Facturation</strong><br>Honoraires mensuels ; productions et achats externes chiffrés séparément.</p>
         </div>
       </article>
     </div>
@@ -348,7 +354,7 @@
       </div>
     </div>
     <div data-reveal="up" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.15);padding-top:28px">
-      <p style="margin:0;max-width:560px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.78)">BNF Consulting conserve la vision stratégique et la coordination globale de chaque mission.</p>
+      <p style="margin:0;max-width:560px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.78)">BNFConsulting conserve la vision stratégique et la coordination globale de chaque mission.</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px"><a href="/expertises/" style="padding:16px 26px;border-radius:999px;background:#fff;color:#13292b;font-size:14px;font-weight:600;transition:background .3s">Découvrir nos experts →</a><a href="#contact" style="padding:16px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.4);color:#fff;font-size:14px;font-weight:500;transition:background .3s">Comment développer mon activité</a></div>
     </div>
   </div>
@@ -449,7 +455,6 @@
       <p data-reveal="up" data-delay="200" style="margin:0;max-width:480px;font-size:clamp(15px,1.2vw,18px);line-height:1.7;color:rgba(255,255,255,.78)">Un premier échange permet de comprendre votre situation, vos objectifs et les sujets qui méritent d'être explorés.</p>
       <div data-reveal="up" data-delay="280" style="display:flex;flex-wrap:wrap;gap:12px">
         <a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" style="flex:1 1 240px;text-align:center;padding:18px 28px;border-radius:999px;background:#fff;color:#13292b;font-size:15px;font-weight:600;transition:background .3s">Prendre rendez-vous — 30 min</a>
-        <a href="https://wa.me/33668147915?text=Bonjour%20BNFConsulting%2C%20je%20souhaite%20%C3%A9changer%20sur%20mon%20entreprise." target="_blank" rel="noopener" style="flex:1 1 160px;text-align:center;padding:18px 28px;border-radius:999px;border:1px solid rgba(255,255,255,.4);color:#fff;font-size:15px;font-weight:500;transition:background .3s">WhatsApp</a>
       </div>
       <div data-reveal="up" data-delay="340" style="display:flex;flex-direction:column;gap:6px;font-size:15px;color:rgba(255,255,255,.78);margin-top:8px">
         <a href="mailto:contact@bnf-consulting.fr" style="color:#fff">contact@bnf-consulting.fr</a>
@@ -471,17 +476,16 @@
   <div style="max-width:1440px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,8vh,88px)">
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px">
       <div style="display:flex;flex-direction:column;gap:20px;max-width:380px">
-        <img src="/public/photos/logo-bnf-blanc.png?v=20261007" alt="BNF Consulting" style="width:180px;height:auto">
+        <img src="/public/photos/logo-bnf-blanc.png?v=20261008" alt="BNFConsulting" style="width:180px;height:auto">
         <p style="margin:0;font-family:Georgia,serif;font-style:italic;font-size:20px;line-height:1.4;color:rgba(255,255,255,.8)">Stratégie, innovation &amp; développement d'entreprise.</p>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,96px);font-size:14px">
         <div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#7fc0c6">Cabinet</span><a href="#approche" style="color:rgba(255,255,255,.8)">Approche</a><a href="#methode" style="color:rgba(255,255,255,.8)">Méthode</a><a href="#formules" style="color:rgba(255,255,255,.8)">Formules</a><a href="#experts" style="color:rgba(255,255,255,.8)">Experts</a><a href="#cas" style="color:rgba(255,255,255,.8)">Études de cas</a><a href="/expertises/" style="color:rgba(255,255,255,.8)">Tous nos experts</a><a href="/articles/" style="color:rgba(255,255,255,.8)">Articles</a></div>
-        <div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#7fc0c6">Domaines</span><a href="/immobilier/" style="color:rgba(255,255,255,.8)">Propriétés d'exception</a><a href="/domaines/" style="color:rgba(255,255,255,.8)">Châteaux &amp; Domaines</a><a href="/hotellerie/" style="color:rgba(255,255,255,.8)">Hôtellerie &amp; Restaurants</a></div>
-        <div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#7fc0c6">Contact</span><a href="mailto:contact@bnf-consulting.fr" style="color:rgba(255,255,255,.8)">Email</a><a href="https://wa.me/33668147915?text=Bonjour%20BNFConsulting%2C%20je%20souhaite%20%C3%A9changer%20sur%20mon%20entreprise." target="_blank" rel="noopener" style="color:rgba(255,255,255,.8)">WhatsApp</a><a href="https://www.linkedin.com/in/benjamin-bnf" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8)">LinkedIn</a><a href="https://www.instagram.com/bnf.consulting/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8)">Instagram</a><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid06CCBEAHd31SfWCjUDFqsD93SjzGDEwvimRnFE7DiwTfUzsHYiwedpsEUyvQwN6e6l&amp;id=61568024810381" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8)">Facebook</a><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8)">Rendez-vous</a></div>
+<div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#7fc0c6">Contact</span><a href="mailto:contact@bnf-consulting.fr" style="color:rgba(255,255,255,.8)">Email</a><a href="https://www.instagram.com/bnf.consulting/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8)">Instagram</a><a href="https://www.facebook.com/permalink.php?story_fbid=pfbid06CCBEAHd31SfWCjUDFqsD93SjzGDEwvimRnFE7DiwTfUzsHYiwedpsEUyvQwN6e6l&amp;id=61568024810381" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8)">Facebook</a><a href="https://calendar.app.google/owbWjVDz11BNwd2V6" target="_blank" rel="noopener" style="color:rgba(255,255,255,.8)">Rendez-vous</a></div>
       </div>
     </div>
     <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;border-top:1px solid rgba(255,255,255,.12);padding-top:24px;font-size:12px;color:rgba(255,255,255,.6)">
-      <span>© 2026 BNF Consulting · Yvelines · Île-de-France · SIRET 923 728 638</span>
+      <span>© 2026 BNFConsulting · Yvelines · Île-de-France · SIRET 923 728 638</span>
       <div style="display:flex;gap:20px"><a href="/mentions-legales.html" style="color:rgba(255,255,255,.6)">Mentions légales</a><a href="/en/" style="color:rgba(255,255,255,.6)">English</a><a href="#top" style="color:rgba(255,255,255,.6)">Haut de page ↑</a></div>
     </div>
   </div>
